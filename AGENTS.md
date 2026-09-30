@@ -18,10 +18,15 @@ documents:
 - `docs/08_SYSTEM_REQUIREMENTS.md`
 - `docs/09_PRODUCT_DISCOVERY_CLOSURE_AND_ARCHITECTURE_READINESS.md`
 - `docs/10_ARCHITECTURE_CONSTRAINTS_AND_OPTIONS.md`
+- `docs/11_SECURITY_TENANCY_IDENTITY_ACCESS_ARCHITECTURE.md`
 
 Architecture-analysis authorization does not authorize architecture selection. Option documents
 must identify alternatives, evidence, assumptions, risks, unresolved inputs, and reversal cost
 without presenting a preferred option as accepted.
+
+Architecture proposals remain Proposed until a later architecture-selection gate explicitly
+accepts them. A conceptual control model does not authorize a provider, library, data-store pattern,
+schema, API, service, application dependency, technical proof, or implementation.
 
 ## Current authorization boundary
 

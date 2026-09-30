@@ -100,6 +100,15 @@ Accepted.
 | `DEC-050` | Evaluate application decomposition, tenant/data isolation, client delivery, offline synchronization, evidence storage, reporting, and deployment as related but separately decidable concerns. | One fashionable architecture label does not answer every risk. | Proposed |
 | `DEC-051` | Use measurable quality-attribute scenarios and risk evidence to decide architecture fitness. | Feature completeness alone cannot validate performance, availability, offline, recovery, privacy, or operational suitability. | Proposed |
 | `DEC-052` | Keep vendor and technology shortlisting closed until geography, residency, budget, skills, operating model, and quality-target inputs are recorded. | Those inputs materially change architecture fit and total cost. | Proposed |
+| `DEC-053` | Approve `WP-08 Security, Tenancy, Identity and Access Architecture` for documentation and architecture proposal only after verified WP-07 publication. | The owner explicitly authorized the bounded next architecture package while keeping selection, proofs, coding, and deployment closed. | Accepted |
+| `DEC-054` | Carry an authoritative server-resolved security context through every interactive and non-interactive operation and deny when required context is missing, inconsistent, expired, or unauthorized. | Tenant and authority checks cannot depend on client hints or only the initial request boundary. | Proposed |
+| `DEC-055` | Keep authenticated identity, organization membership, worker, customer relationship, platform role, support grant, and machine identity as separate authority concepts. | One person or process may hold several relationships; combining them creates privilege and historical-attribution errors. | Proposed |
+| `DEC-056` | Evaluate authorization as an explainable decision over subject, action, resource, organization, scope, record state/sensitivity, policy, and purpose rather than role name alone. | Roles are permission groupings, not sufficient proof of access to a particular action or record. | Proposed |
+| `DEC-057` | Model platform support access as an explicit temporary grant, read-only by default, without tenant-password sharing or silent impersonation. | Platform authority must not become routine tenant authority, and privileged access must remain attributable and reviewable. | Proposed |
+| `DEC-058` | Require defense-in-depth tenant enforcement and negative isolation testing across interactive, background, search, file, report, export, notification, integration, cache, and offline paths. | A control at only one layer cannot protect the full product surface. | Proposed |
+| `DEC-059` | Apply risk-based authentication, session, recovery, and step-up requirements, with stronger treatment for platform, ownership, export, deletion, credential, and support-elevation actions. | Compromise impact differs by actor and action, while exact methods and assurance levels remain unresolved. | Proposed |
+| `DEC-060` | Protect security and audit evidence from ordinary business editing and expose it only through purpose-limited, scoped, reviewable authority. | Audit evidence is itself sensitive and must not become an unrestricted platform or tenant data view. | Proposed |
+| `DEC-061` | Give workloads and integrations distinct, least-privilege machine identities and explicit tenant/purpose context instead of sharing human credentials. | Background and external paths require attribution, rotation, revocation, and containment independent of human sessions. | Proposed |
 
 ## Open decision register
 
@@ -148,6 +157,12 @@ Accepted.
 | `OPEN-041` | Which deployment geography, data-residency, connectivity, and provider-availability constraints apply to the first market? | Product owner and architecture review | Architecture option evaluation |
 | `OPEN-042` | What delivery budget, operating capacity, support model, and team-skill constraints govern architecture choice? | Product owner | Architecture option evaluation |
 | `OPEN-043` | Which architecture decisions require independent security, privacy, accounting, or domain review before acceptance? | Product owner | Architecture governance |
+| `OPEN-045` | Which authentication methods, assurance levels, and step-up requirements apply to each human actor, surface, and high-risk action? | Product owner and security review | Identity architecture acceptance |
+| `OPEN-046` | What proof, notification, delay, dual-control, and recovery rules govern credential reset, identity change, account recovery, and suspected compromise? | Product owner and security review | Account-recovery architecture acceptance |
+| `OPEN-047` | What session, device, offline authorization, token lifetime, inactivity, concurrency, and revocation expectations apply by actor and risk? | Product owner and security review | Session architecture acceptance |
+| `OPEN-048` | Which background workloads and integrations require machine identities, tenant binding, secret rotation, workload attestation, or external federation? | Architecture and security review | Machine-identity architecture acceptance |
+| `OPEN-049` | Which tenant and customer data classes require masking, field-level restriction, download controls, or stronger purpose limitation? | Product owner and privacy/security review | Data-access architecture acceptance |
+| `OPEN-050` | What security-event detection, response, tenant notification, evidence retention, and privileged investigation rules are required? | Product owner and security/privacy review | Security operations architecture acceptance |
 
 ## Resolved question register
 

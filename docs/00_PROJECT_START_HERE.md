@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-07 accepted for publication |
-| Current phase | Solution Architecture — Constraints and option analysis |
-| Current work package | `WP-07 Architecture Constraints and Options` — Accepted for publication |
+| Status | Product Discovery closed — WP-08 accepted for publication |
+| Current phase | Solution Architecture — Security, tenancy, identity, and access proposal |
+| Current work package | `WP-08 Security, Tenancy, Identity and Access Architecture` — Accepted for publication |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -59,8 +59,9 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 
 1. `09_PRODUCT_DISCOVERY_CLOSURE_AND_ARCHITECTURE_READINESS.md`
 2. `10_ARCHITECTURE_CONSTRAINTS_AND_OPTIONS.md`
+3. `11_SECURITY_TENANCY_IDENTITY_ACCESS_ARCHITECTURE.md`
 
-Later accepted work packages may add:
+Current and later accepted work packages may add or mature:
 
 - solution architecture;
 - security and multi-tenancy architecture;
@@ -266,6 +267,27 @@ profiles, non-binding shortlist, missing-input stop conditions, confidence langu
 assessment, and recommended next documentation package. It does not promote Proposed decisions,
 resolve remaining Open questions, choose an architecture or technology, authorize technical-proof
 execution, or authorize application coding, dependencies, deployment, or external-system changes.
+
+## WP-08 authorization
+
+After verified WP-07 publication, the owner authorized `WP-08 Security, Tenancy, Identity and
+Access Architecture` for documentation and architecture proposal only. WP-08 may elaborate the
+tenant trust boundary, identity and authority relationships, tenant-context enforcement,
+authorization decisions, privileged platform and support access, customer delegation, session and
+machine identity concerns, audit/security evidence, threat cases, and proof plans. Architecture
+selection, technical-proof execution, application coding, dependencies, deployment, and
+external-system changes remain closed.
+
+## WP-08 acceptance
+
+The owner accepted the Security, Tenancy, Identity and Access Architecture proposal baseline on
+2026-09-30 and authorized its publication. Acceptance confirms the bounded subject/authority,
+security-context, tenant-enforcement, authorization, platform/support, customer-delegation,
+machine, offline, evidence, cross-cutting control, threat, audit, proposed-ADR, proof-plan, and
+missing-input analysis. Every conceptual architecture proposal and ADR retains Proposed `CONF-1`
+status. Acceptance does not choose a final architecture, provider, protocol, token, data-store
+pattern, policy implementation, or technology; execute proofs; or authorize application coding,
+dependencies, deployment, or external-system changes.
 
 ## Private execution control
 
