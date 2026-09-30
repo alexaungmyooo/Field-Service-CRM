@@ -60,6 +60,11 @@ Accepted.
 | `DEC-010` | Treat the product as a B2B platform with optional customer-facing delivery, not a public job marketplace. | Each tenant owns its service operation and customer relationship. | Proposed |
 | `DEC-011` | Separate core domain scope, operational modules, and delivery/enterprise options without defining commercial tiers yet. | Product completeness and staged delivery are different decisions. | Proposed |
 | `DEC-012` | Allow authorized platform roles to discover all organizations while requiring explicit, scoped, time-limited, audited support sessions for private tenant-data access. | Platform operation requires organization visibility, but routine unrestricted tenant-data access would violate the isolation boundary. | Accepted |
+| `DEC-013` | Keep platform roles and organization roles as separate authority systems. | Platform employment or support responsibility must not imply tenant operational membership. | Proposed |
+| `DEC-014` | Allow one user identity to hold explicit memberships in more than one organization while requiring one active organization context at a time. | Owners, consultants, and service-group staff may legitimately work across organizations without combining their data. | Proposed |
+| `DEC-015` | Make branches optional while giving every organization one operational root scope. | Small tenants should not manage artificial complexity, while larger tenants require branch control. | Proposed |
+| `DEC-016` | Apply configuration through platform constraints, organization defaults, and explicit branch overrides. | Reusable defaults reduce administration while fixed platform invariants remain unchangeable. | Proposed |
+| `DEC-017` | Keep user identity, organization membership, and worker/person records distinct but linkable. | A worker may exist before receiving login access, and one identity may hold different roles across organizations. | Proposed |
 
 ## Open decision register
 
@@ -73,6 +78,11 @@ Accepted.
 | `OPEN-006` | Will customer-owned portable equipment history be supported across service providers? | Product owner | Privacy and data-sharing architecture |
 | `OPEN-007` | Which management actions, if any, may be completed directly from the Management Dashboard? | Product owner | Management-surface requirements |
 | `OPEN-008` | What approval, tenant notification, masking, action logging, retention, and emergency break-glass rules govern support sessions? | Product owner and security review | Security architecture |
+| `OPEN-009` | Which organization lifecycle states and suspension behaviors are included in the first commercial release? | Product owner | Organization lifecycle requirements |
+| `OPEN-010` | Can a branch represent a separate legal entity, or only an operational subdivision? | Product owner | Organization/domain acceptance |
+| `OPEN-011` | Is multi-organization membership required in the first release or only preserved in the model? | Product owner | Identity architecture |
+| `OPEN-012` | Which organization configuration may a branch override, and which settings always inherit? | Product owner | Configuration requirements |
+| `OPEN-013` | Which platform-support actions require tenant approval or dual platform approval? | Product owner and security review | Support-access architecture |
 
 ## Decision lifecycle
 

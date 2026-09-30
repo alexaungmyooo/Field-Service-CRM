@@ -6,7 +6,7 @@
 | --- | --- |
 | Status | Accepted documentation bootstrap — Product Discovery content remains Draft |
 | Current phase | Product Discovery |
-| Current work package | `WP-01 Product Vision and Boundaries` — Accepted |
+| Current work package | `WP-02 Multi-Organization Foundation` — Accepted for publication |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -148,6 +148,24 @@ publication. Acceptance includes the product mission, target organizations and c
 supported operating models, product surfaces, scope layers, non-goals, success outcomes, and the
 recorded Accepted/Proposed/Open decision dispositions. It does not authorize application coding or
 silently accept later workflow, domain, business-rule, system-requirement, or architecture work.
+
+## WP-02 authorization
+
+After verified WP-01 publication, the owner authorized activation of `WP-02 Multi-Organization
+Foundation` and kept application coding closed. WP-02 defines platform and tenant authority,
+organization lifecycle, membership and worker identity, branches, roles and access scope,
+configuration inheritance, platform organization visibility, controlled support sessions, data
+ownership classes, and tenant delivery profiles. It does not select implementation technology.
+
+## WP-02 acceptance
+
+The owner accepted the Multi-Organization Foundation baseline on 2026-09-30 and authorized its
+publication. Acceptance confirms the platform/tenant boundary, stable organization identity,
+optional branch model, membership and worker distinction, configuration layers, organization
+directory boundary, controlled support-session model, data-ownership classes, delivery profiles,
+and the recorded Accepted/Proposed/Open decision dispositions. It does not silently accept each
+Proposed decision or resolve each Open question, and it does not authorize application coding,
+architecture selection, dependencies, deployment, or external-system changes.
 
 ## Private execution control
 
