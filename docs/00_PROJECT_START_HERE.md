@@ -6,7 +6,7 @@
 | --- | --- |
 | Status | Accepted documentation bootstrap — Product Discovery content remains Draft |
 | Current phase | Product Discovery |
-| Current work package | `WP-00 Repository and Product-Governance Bootstrap` — Accepted |
+| Current work package | `WP-01 Product Vision and Boundaries` — Accepted |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -132,6 +132,22 @@ The owner accepted the repository and Product Discovery documentation bootstrap 
 This acceptance confirms the handbook structure, agent rules, private/public control boundary, and
 initial draft baseline. It does not accept every Draft requirement, Proposed decision, Proposed
 business rule, workflow detail, architecture choice, or implementation scope.
+
+## WP-01 authorization
+
+The owner authorized `WP-01 Product Vision and Boundaries` on 2026-09-30 and explicitly kept
+application coding closed. WP-01 may refine the product definition, target organizations, supported
+operating models, product surfaces, scope layers, non-goals, success outcomes, and decision
+register. It does not authorize architecture selection, application scaffolding, dependencies,
+deployment, or external-system changes.
+
+## WP-01 acceptance
+
+The owner accepted the Product Vision and Boundaries baseline on 2026-09-30 and authorized its
+publication. Acceptance includes the product mission, target organizations and customers,
+supported operating models, product surfaces, scope layers, non-goals, success outcomes, and the
+recorded Accepted/Proposed/Open decision dispositions. It does not authorize application coding or
+silently accept later workflow, domain, business-rule, system-requirement, or architecture work.
 
 ## Private execution control
 

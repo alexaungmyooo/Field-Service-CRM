@@ -4,7 +4,7 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Draft register |
+| Status | Accepted WP-01 baseline — living decision register |
 | Work package | `WP-01 Product Vision and Boundaries` |
 | Owner | Aung Myo Oo |
 | Last updated | 2026-09-30 |
@@ -44,18 +44,35 @@ Accepted.
 | `PA-006` | Customer addresses may require landmarks and free-text directions in addition to maps. | Pure geocoding may be unreliable. | Address and dispatch workflow evidence. |
 | `PA-007` | The core field-service model can later support industries beyond air-conditioning. | Premature generalization may weaken the initial product. | First non-air-conditioning product evaluation. |
 
-## Proposed decisions
+## Decision register
 
 | ID | Proposal | Reason | Status |
 | --- | --- | --- | --- |
-| `DEC-001` | Use `organization` as the product term and `tenant` as the technical isolation term. | Not every service provider identifies as a merchant. | Proposed |
+| `DEC-001` | Use `organization` as the product term and `tenant` as the technical isolation term. | Not every service provider identifies as a merchant. | Accepted |
 | `DEC-002` | Keep one configurable work-order model with job templates instead of separate applications for each service type. | Work types share customers, assets, crews, evidence, materials, and outcomes. | Proposed |
 | `DEC-003` | Make payment-evidence verification configurable by tenant. | Small tenants may allow direct marking while larger tenants require office verification. | Proposed |
 | `DEC-004` | Keep customer-reported history distinct from verified tenant-performed work. | Prevents false attribution and warranty confusion. | Proposed |
-| `DEC-005` | Keep public product documents separate from private execution evidence. | Protects operational context while preserving a stable handbook. | Proposed |
+| `DEC-005` | Keep public product documents separate from private execution evidence. | Protects operational context while preserving a stable handbook. | Accepted |
 | `DEC-006` | Produce organization-branded applications from shared maintained product code rather than tenant-specific forks. | Forks create security, parity, maintenance, and release divergence. | Proposed |
 | `DEC-007` | Treat subdomains, custom domains, and branded apps as tenant delivery identities, not authorization controls. | Hostname or application branding cannot replace authenticated tenant membership and backend enforcement. | Proposed |
 | `DEC-008` | Require a mobile-optimized Management Dashboard while keeping a separate branded Manager app optional. | Management needs fast visibility without requiring a third native application for every organization. | Accepted |
+| `DEC-009` | Treat Myanmar air-conditioning service as the initial validation domain while preserving a configurable cross-industry core. | Domain depth is required for a useful first product, while tenant, work, crew, asset, and evidence concepts apply more broadly. | Accepted |
+| `DEC-010` | Treat the product as a B2B platform with optional customer-facing delivery, not a public job marketplace. | Each tenant owns its service operation and customer relationship. | Proposed |
+| `DEC-011` | Separate core domain scope, operational modules, and delivery/enterprise options without defining commercial tiers yet. | Product completeness and staged delivery are different decisions. | Proposed |
+| `DEC-012` | Allow authorized platform roles to discover all organizations while requiring explicit, scoped, time-limited, audited support sessions for private tenant-data access. | Platform operation requires organization visibility, but routine unrestricted tenant-data access would violate the isolation boundary. | Accepted |
+
+## Open decision register
+
+| ID | Question | Decision owner | Required before |
+| --- | --- | --- | --- |
+| `OPEN-001` | Which non-air-conditioning service industry is the first expansion test? | Product owner | Cross-industry acceptance |
+| `OPEN-002` | Will the first customer experience be a web portal, shared app, branded app, or a controlled combination? | Product owner | Customer-surface architecture |
+| `OPEN-003` | Will branded applications publish through platform-owned, organization-owned, or both store-account models? | Product owner | White-label release architecture |
+| `OPEN-004` | Will a shared generic Technician app be offered alongside branded technician apps? | Product owner | Technician delivery architecture |
+| `OPEN-005` | What subscription, limits, modules, and white-label commercial packages will be offered? | Product owner | Commercial launch planning |
+| `OPEN-006` | Will customer-owned portable equipment history be supported across service providers? | Product owner | Privacy and data-sharing architecture |
+| `OPEN-007` | Which management actions, if any, may be completed directly from the Management Dashboard? | Product owner | Management-surface requirements |
+| `OPEN-008` | What approval, tenant notification, masking, action logging, retention, and emergency break-glass rules govern support sessions? | Product owner and security review | Security architecture |
 
 ## Decision lifecycle
 
@@ -68,3 +85,9 @@ Observed problem
   -> affected documents updated
   -> implementation authorization, when applicable
 ```
+
+## WP-01 acceptance record
+
+The owner accepted the WP-01 register dispositions on 2026-09-30. Owner-stated and Accepted records
+govern downstream discovery. Proposed and Open records remain unresolved and must not be treated as
+accepted behavior.
