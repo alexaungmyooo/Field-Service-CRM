@@ -80,6 +80,14 @@ Accepted.
 | `DEC-030` | Treat stock balance as the result of attributable stock transactions rather than an independently rewritten historical fact. | Inventory integrity requires receipt, reservation, issue, use, return, transfer, damage, and adjustment meanings to remain traceable. | Proposed |
 | `DEC-031` | Treat dashboards, reports, and derived analytics as views of governed operational records, not independent sources of business truth. | Corrections belong in the authoritative workflow and must flow into reporting. | Proposed |
 | `DEC-032` | Define target business capabilities independently from subscription packages and delivery phases. | Product completeness, commercial packaging, and implementation sequencing are different decisions. | Proposed |
+| `DEC-033` | Preserve canonical business meanings while allowing tenant-facing labels, optional steps, and governed workflow depth to vary. | Configuration must not make reporting, audit, or integration semantics ambiguous. | Proposed |
+| `DEC-034` | Authorize actions through permissions, organization context, scope, record state, and policy rather than job-title labels alone. | One person may hold several roles, while the same title may have different authority across organizations. | Proposed |
+| `DEC-035` | Make evidence and checklist requirements policy-driven within fixed safety, audit, and integrity constraints. | Small organizations need simple capture while higher-risk or enterprise work needs stronger evidence. | Proposed |
+| `DEC-036` | Prohibit exception, failure, missing-evidence, and unresolved states from being represented as successful completion. | Management and customers must be able to trust completion meaning. | Proposed |
+| `DEC-037` | Apply the same business validation and authorization to synchronized offline changes as to online changes. | Temporary disconnection must not create a weaker trust boundary. | Proposed |
+| `DEC-038` | Attribute system-generated and automated actions to an identifiable rule, schedule, integration, or platform actor. | Automation must remain explainable and auditable. | Proposed |
+| `DEC-039` | Handle deletion, anonymization, reversal, correction, and merge through controlled lifecycle actions rather than ordinary destructive edits. | Historical meaning, privacy duties, and audit evidence require explicit treatment. | Proposed |
+| `DEC-040` | Do not infer customer approval, work completion, payment settlement, or acceptance solely from message delivery, document creation, or uploaded evidence. | Supporting evidence and the governed business decision are separate facts. | Proposed |
 
 ## Open decision register
 
@@ -115,6 +123,16 @@ Accepted.
 | `OPEN-028` | What retention, archival, export, anonymization, and deletion rules apply to each business-record and evidence class? | Product owner and legal/privacy review | Data-lifecycle architecture |
 | `OPEN-029` | Are subcontractors modeled as workers, suppliers, partner organizations, or a distinct controlled relationship? | Product owner | Workforce and supplier requirements |
 | `OPEN-030` | What identity and delegation model allows customers to view or act for households, companies, sites, and equipment? | Product owner and security review | Customer-surface requirements |
+| `OPEN-031` | Which canonical workflow states may tenants relabel, extend, hide, or map while preserving platform meaning? | Product owner and domain review | Workflow-configuration requirements |
+| `OPEN-032` | What is the first accepted role-permission and separation-of-duties matrix? | Product owner and security review | Authorization architecture |
+| `OPEN-033` | Which photos, readings, signatures, checklists, and documents are mandatory by work type and risk? | Product owner and domain review | Evidence requirements |
+| `OPEN-034` | What numbering, revision, validity, language, currency, and legal-content rules govern commercial and service documents? | Product owner and accounting/legal review | Document requirements |
+| `OPEN-035` | Which notification channels, consent rules, quiet periods, templates, retries, and delivery evidence are required? | Product owner and privacy review | Notification architecture |
+| `OPEN-036` | Which KPI definitions and management-dashboard measures are accepted as operational truth? | Product owner | Reporting requirements |
+| `OPEN-037` | Which import/export formats and external accounting, messaging, mapping, or identity integrations are first required? | Product owner | Integration architecture |
+| `OPEN-038` | What measurable performance, availability, recovery, offline, upload, compatibility, and accessibility targets are required? | Product owner and architecture review | Architecture gate |
+| `OPEN-039` | What first-release tenant, user, customer, equipment, job, attachment, inventory, project, and concurrency volumes must be proven? | Product owner and architecture review | Scalability proof plan |
+| `OPEN-040` | Which records are subject to legal hold, customer export, correction, anonymization, or deletion restrictions? | Product owner and legal/privacy review | Data-lifecycle requirements |
 
 ## Decision lifecycle
 

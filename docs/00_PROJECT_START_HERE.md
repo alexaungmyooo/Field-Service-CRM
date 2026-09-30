@@ -6,7 +6,7 @@
 | --- | --- |
 | Status | Accepted documentation bootstrap — Product Discovery content remains Draft |
 | Current phase | Product Discovery |
-| Current work package | `WP-04 Business Capabilities and Domain Model` — Accepted for publication |
+| Current work package | `WP-05 Business Rules and System Requirements` — Accepted for publication |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -203,6 +203,25 @@ distinctions, responsibility map, domain invariants, and the recorded Accepted/P
 decision dispositions. It does not silently accept each Proposed decision or resolve each Open
 question, and it does not authorize application coding, architecture selection, dependencies,
 deployment, or external-system changes.
+
+## WP-05 authorization
+
+After verified WP-04 publication, the owner authorized activation of `WP-05 Business Rules and
+System Requirements` and kept application coding closed. WP-05 defines governing business rules,
+testable system behavior, requirement traceability, acceptance scenarios, and unresolved
+quality-target gates derived from the accepted product, organization, workflow, capability, and
+domain baselines. It does not define architecture, database schemas, APIs, frameworks, cloud
+services, deployment, or implementation work.
+
+## WP-05 acceptance
+
+The owner accepted the Business Rules and System Requirements baseline on 2026-09-30 and authorized
+its publication. Acceptance confirms the rule register with its recorded statuses, normative
+behavioral requirements, traceability, quality-target gate register, product acceptance scenarios,
+architecture-entry blockers, and the recorded Accepted/Proposed/Open decision dispositions. It does
+not silently promote Proposed rules or decisions, resolve Open questions, supply missing
+quantitative targets, close Product Discovery, or authorize architecture selection, architecture
+implementation, application coding, dependencies, deployment, or external-system changes.
 
 ## Private execution control
 
