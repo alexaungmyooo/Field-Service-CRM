@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-08 accepted for publication |
-| Current phase | Solution Architecture — Security, tenancy, identity, and access proposal |
-| Current work package | `WP-08 Security, Tenancy, Identity and Access Architecture` — Accepted for publication |
+| Status | Product Discovery closed — WP-09 accepted for publication |
+| Current phase | Solution Architecture — Data ownership, lifecycle, and consistency proposal |
+| Current work package | `WP-09 Data Ownership, Lifecycle and Consistency Architecture` — Accepted for publication |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -60,6 +60,7 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 1. `09_PRODUCT_DISCOVERY_CLOSURE_AND_ARCHITECTURE_READINESS.md`
 2. `10_ARCHITECTURE_CONSTRAINTS_AND_OPTIONS.md`
 3. `11_SECURITY_TENANCY_IDENTITY_ACCESS_ARCHITECTURE.md`
+4. `12_DATA_OWNERSHIP_LIFECYCLE_CONSISTENCY_ARCHITECTURE.md`
 
 Current and later accepted work packages may add or mature:
 
@@ -287,6 +288,29 @@ machine, offline, evidence, cross-cutting control, threat, audit, proposed-ADR, 
 missing-input analysis. Every conceptual architecture proposal and ADR retains Proposed `CONF-1`
 status. Acceptance does not choose a final architecture, provider, protocol, token, data-store
 pattern, policy implementation, or technology; execute proofs; or authorize application coding,
+dependencies, deployment, or external-system changes.
+
+## WP-09 authorization
+
+After verified WP-08 publication, the owner authorized `WP-09 Data Ownership, Lifecycle and
+Consistency Architecture` for documentation and architecture proposal only. WP-09 may elaborate
+business-record ownership and authority, conceptual consistency boundaries, identity/provenance,
+correction/reversal/merge history, lifecycle/retention/export/deletion, inventory and equipment
+integrity, evidence and external-payment claims, offline/external reconciliation, derived data,
+migration/import, backup/recovery meaning, risks, and proof plans. Architecture selection,
+technical-proof execution, application coding, dependencies, deployment, and external-system
+changes remain closed.
+
+## WP-09 acceptance
+
+The owner accepted the Data Ownership, Lifecycle and Consistency Architecture proposal baseline on
+2026-09-30 and authorized its publication. Acceptance confirms the bounded ownership, record
+authority, lifecycle, history/correction, consistency, coordination, identity, inventory,
+work/project, evidence/payment, derived-data, exchange/migration, retention/copy, recovery,
+reconciliation, risk, proposed-ADR, proof-plan, and missing-input analysis. Every conceptual
+architecture proposal and ADR retains Proposed `CONF-1` status. Acceptance does not choose a final
+architecture, database, storage or messaging product, service/event boundary, physical tenancy,
+migration technology, or recovery topology; execute proofs; or authorize application coding,
 dependencies, deployment, or external-system changes.
 
 ## Private execution control
