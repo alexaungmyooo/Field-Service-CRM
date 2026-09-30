@@ -6,7 +6,7 @@
 | --- | --- |
 | Status | Accepted documentation bootstrap — Product Discovery content remains Draft |
 | Current phase | Product Discovery |
-| Current work package | `WP-03 Complete Workflow Catalogue` — Accepted for publication |
+| Current work package | `WP-04 Business Capabilities and Domain Model` — Accepted for publication |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -181,6 +181,25 @@ The owner accepted the Complete Workflow Catalogue baseline on 2026-09-30 and au
 publication. Acceptance confirms the twenty workflow families, common business vocabulary,
 control envelope, lifecycle meanings, normal and optional paths, exceptions, failure treatments,
 outputs, audit expectations, acceptance scenarios, and the recorded Accepted/Proposed/Open
+decision dispositions. It does not silently accept each Proposed decision or resolve each Open
+question, and it does not authorize application coding, architecture selection, dependencies,
+deployment, or external-system changes.
+
+## WP-04 authorization
+
+After verified WP-03 publication, the owner authorized activation of `WP-04 Business Capabilities
+and Domain Model` and kept application coding closed. WP-04 defines the stable capability map,
+capability responsibilities and boundaries, workflow-to-capability traceability, shared business
+language, conceptual relationships, ownership, provenance, lifecycle meaning, and domain
+invariants. It does not define database schemas, service boundaries, APIs, user interfaces,
+architecture, technology, or release commitments.
+
+## WP-04 acceptance
+
+The owner accepted the Business Capabilities and Domain Model baseline on 2026-09-30 and authorized
+its publication. Acceptance confirms the capability catalogue, responsibility boundaries,
+workflow traces, shared business language, conceptual relationships, provenance classes, lifecycle
+distinctions, responsibility map, domain invariants, and the recorded Accepted/Proposed/Open
 decision dispositions. It does not silently accept each Proposed decision or resolve each Open
 question, and it does not authorize application coding, architecture selection, dependencies,
 deployment, or external-system changes.

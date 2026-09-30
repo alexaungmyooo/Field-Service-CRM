@@ -72,6 +72,14 @@ Accepted.
 | `DEC-022` | Use a common workflow control envelope with configurable job templates and policy-driven required steps. | Small and large organizations need different governance depth without different core business meanings. | Proposed |
 | `DEC-023` | Require every incomplete, failed, or exception outcome to identify a disposition or accountable next action. | Closing a visit must not hide unresolved customer, equipment, safety, material, warranty, or payment obligations. | Proposed |
 | `DEC-024` | Treat cancellation, rescheduling, reopening, and correction as history-preserving transitions. | Operational changes must remain attributable instead of overwriting what previously happened. | Proposed |
+| `DEC-025` | Keep customer account, contact, service site, and equipment as separate but related concepts. | The payer, approver, equipment owner, site contact, and person present may differ. | Proposed |
+| `DEC-026` | Keep equipment identity and lifecycle history independent from the organization that installed or currently services it. | Different providers may install, service, repair, move, or warrant the same equipment. | Proposed |
+| `DEC-027` | Allow one work order to contain multiple visits and equipment units while preserving work-item and outcome attribution per unit. | Commercial and field work may be coordinated together without losing equipment-level history. | Proposed |
+| `DEC-028` | Keep planned assignment and actual work participation as separate facts. | Crew membership may change, and responsibility must reflect who was assigned and who actually worked. | Proposed |
+| `DEC-029` | Make evidence inherit organization ownership and access sensitivity from its business context. | A photo or document must not become broadly visible merely because it is stored in a shared evidence capability. | Proposed |
+| `DEC-030` | Treat stock balance as the result of attributable stock transactions rather than an independently rewritten historical fact. | Inventory integrity requires receipt, reservation, issue, use, return, transfer, damage, and adjustment meanings to remain traceable. | Proposed |
+| `DEC-031` | Treat dashboards, reports, and derived analytics as views of governed operational records, not independent sources of business truth. | Corrections belong in the authoritative workflow and must flow into reporting. | Proposed |
+| `DEC-032` | Define target business capabilities independently from subscription packages and delivery phases. | Product completeness, commercial packaging, and implementation sequencing are different decisions. | Proposed |
 
 ## Open decision register
 
@@ -98,6 +106,15 @@ Accepted.
 | `OPEN-019` | What chain-of-custody evidence is mandatory when equipment or components leave the customer site? | Product owner | Workshop and custody requirements |
 | `OPEN-020` | Which gas type, quantity, leakage, safety, and regulatory details are mandatory in the initial market? | Product owner and domain review | Gas-service requirements |
 | `OPEN-021` | Which offline edits may be merged automatically and which conflicts require human resolution? | Product owner and architecture review | Offline synchronization architecture |
+| `OPEN-022` | Which customer, site, and equipment attributes participate in duplicate detection, merge, and controlled separation? | Product owner and domain review | Data-quality requirements |
+| `OPEN-023` | How is equipment identity handled when serial numbers are absent, duplicated, unreadable, replaced, or component-specific? | Product owner and domain review | Equipment identity requirements |
+| `OPEN-024` | May one contact identity be shared across customer accounts, or is each customer-contact relationship independently maintained? | Product owner and privacy review | Customer-domain requirements |
+| `OPEN-025` | How are equipment ownership, payer responsibility, site custody, and service authorization changed over time? | Product owner and legal/privacy review | Equipment relationship requirements |
+| `OPEN-026` | Which air-conditioning catalog concepts remain specialized and which become configurable reference data for other industries? | Product owner | Cross-industry domain acceptance |
+| `OPEN-027` | Which inventory costing, job-cost, margin, tax, and accounting meanings belong in the product? | Product owner and accounting review | Commercial and inventory requirements |
+| `OPEN-028` | What retention, archival, export, anonymization, and deletion rules apply to each business-record and evidence class? | Product owner and legal/privacy review | Data-lifecycle architecture |
+| `OPEN-029` | Are subcontractors modeled as workers, suppliers, partner organizations, or a distinct controlled relationship? | Product owner | Workforce and supplier requirements |
+| `OPEN-030` | What identity and delegation model allows customers to view or act for households, companies, sites, and equipment? | Product owner and security review | Customer-surface requirements |
 
 ## Decision lifecycle
 
