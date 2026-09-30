@@ -1,0 +1,18 @@
+# Local execution records may contain private operational context and evidence.
+internal-local/
+
+# Local configuration and secrets.
+.env
+.env.*
+!.env.example
+
+# Operating-system and editor files.
+.DS_Store
+*.swp
+*.swo
+
+# Dependency stores and generated output will be extended after architecture selection.
+node_modules/
+dist/
+build/
+coverage/
