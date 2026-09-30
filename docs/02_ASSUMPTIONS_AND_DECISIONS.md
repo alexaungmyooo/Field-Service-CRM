@@ -88,6 +88,13 @@ Accepted.
 | `DEC-038` | Attribute system-generated and automated actions to an identifiable rule, schedule, integration, or platform actor. | Automation must remain explainable and auditable. | Proposed |
 | `DEC-039` | Handle deletion, anonymization, reversal, correction, and merge through controlled lifecycle actions rather than ordinary destructive edits. | Historical meaning, privacy duties, and audit evidence require explicit treatment. | Proposed |
 | `DEC-040` | Do not infer customer approval, work completion, payment settlement, or acceptance solely from message delivery, document creation, or uploaded evidence. | Supporting evidence and the governed business decision are separate facts. | Proposed |
+| `DEC-041` | Close Product Discovery only through explicit owner acceptance that assigns every unresolved item to a later decision gate. | An open item may remain without blocking architecture analysis when its owner, deadline, impact, and stop condition are explicit. | Proposed |
+| `DEC-042` | Treat authorization for architecture analysis, architecture selection, technical proofs, and application implementation as separate gates. | Readiness to analyze options does not authorize selecting or building a solution. | Proposed |
+| `DEC-043` | Require solution architecture to preserve accepted product meanings and trace every material trade-off to governing constraints and requirements. | Technology must implement the product rather than silently redefine it. | Proposed |
+| `DEC-044` | Begin architecture work with cross-cutting trust and field-risk concerns before detailed application decomposition. | Tenant isolation, authorization, offline conflict, evidence, audit, and white-label delivery are expensive to retrofit. | Proposed |
+| `DEC-045` | Require architecture artifacts, ADRs, risk analysis, and technical-proof evidence before architecture selection is accepted. | A diagram or preferred stack alone is insufficient evidence for implementation authorization. | Proposed |
+| `DEC-046` | Define initial-release capability disposition separately from the accepted target product and before implementation-roadmap approval. | The complete target model must not force every capability into the first commercial release. | Proposed |
+| `DEC-047` | Keep Product Discovery, architecture documentation, technical proofs, roadmap approval, and implementation packages independently publishable and reviewable. | Smaller controlled gates make changes, risks, and authority visible. | Proposed |
 
 ## Open decision register
 
@@ -133,6 +140,10 @@ Accepted.
 | `OPEN-038` | What measurable performance, availability, recovery, offline, upload, compatibility, and accessibility targets are required? | Product owner and architecture review | Architecture gate |
 | `OPEN-039` | What first-release tenant, user, customer, equipment, job, attachment, inventory, project, and concurrency volumes must be proven? | Product owner and architecture review | Scalability proof plan |
 | `OPEN-040` | Which records are subject to legal hold, customer export, correction, anonymization, or deletion restrictions? | Product owner and legal/privacy review | Data-lifecycle requirements |
+| `OPEN-041` | Which deployment geography, data-residency, connectivity, and provider-availability constraints apply to the first market? | Product owner and architecture review | Architecture option evaluation |
+| `OPEN-042` | What delivery budget, operating capacity, support model, and team-skill constraints govern architecture choice? | Product owner | Architecture option evaluation |
+| `OPEN-043` | Which architecture decisions require independent security, privacy, accounting, or domain review before acceptance? | Product owner | Architecture governance |
+| `OPEN-044` | What is the approved sequence and authorization boundary for architecture documentation and technical-proof work packages? | Product owner | Architecture activation |
 
 ## Decision lifecycle
 

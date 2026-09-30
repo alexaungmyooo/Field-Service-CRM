@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Accepted documentation bootstrap — Product Discovery content remains Draft |
-| Current phase | Product Discovery |
-| Current work package | `WP-05 Business Rules and System Requirements` — Accepted for publication |
+| Status | Product Discovery closed — architecture analysis requires separate activation |
+| Current phase | Product Discovery — Closed |
+| Current work package | `WP-06 Product Discovery Closure and Architecture Readiness` — Accepted for publication |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -51,6 +51,7 @@ them.
 6. `06_DOMAIN_MODEL.md`
 7. `07_BUSINESS_RULES.md`
 8. `08_SYSTEM_REQUIREMENTS.md`
+9. `09_PRODUCT_DISCOVERY_CLOSURE_AND_ARCHITECTURE_READINESS.md`
 
 All Phase 1 documents are currently Draft unless a section or record says otherwise.
 
@@ -222,6 +223,27 @@ architecture-entry blockers, and the recorded Accepted/Proposed/Open decision di
 not silently promote Proposed rules or decisions, resolve Open questions, supply missing
 quantitative targets, close Product Discovery, or authorize architecture selection, architecture
 implementation, application coding, dependencies, deployment, or external-system changes.
+
+## WP-06 authorization
+
+After verified WP-05 publication, the owner authorized activation of `WP-06 Product Discovery
+Closure and Architecture Readiness` while keeping application coding and architecture
+implementation closed. WP-06 may assess the Product Discovery exit criteria, classify unresolved
+decisions by later gate, freeze architecture constraints, define required architecture artifacts,
+identify candidate ADRs and technical proofs, and recommend the next documentation work package.
+It does not select technologies, approve a solution architecture, scaffold applications, add
+dependencies, deploy, or mutate external systems.
+
+## WP-06 acceptance and Product Discovery closure
+
+The owner accepted WP-06 on 2026-09-30, authorized publication, and explicitly closed Product
+Discovery after verified publication. Acceptance confirms the exit assessment, later-gate
+assignments for unresolved items, frozen architecture constraints, required architecture evidence,
+candidate decision/proof inventories, risk register, governance gates, and recommended
+documentation sequence. Proposed and Open records retain their status. Closure does not authorize
+architecture analysis until the separately authorized WP-07 activation, and it does not authorize
+architecture selection, technical-proof execution, application coding, dependencies, deployment,
+or external-system changes.
 
 ## Private execution control
 

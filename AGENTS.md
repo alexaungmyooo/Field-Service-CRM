@@ -15,13 +15,14 @@ During Product Discovery, read the applicable product documents before editing t
 - `docs/06_DOMAIN_MODEL.md`
 - `docs/07_BUSINESS_RULES.md`
 - `docs/08_SYSTEM_REQUIREMENTS.md`
+- `docs/09_PRODUCT_DISCOVERY_CLOSURE_AND_ARCHITECTURE_READINESS.md`
 
 ## Current authorization boundary
 
-Application implementation is not authorized while the handbook reports Product Discovery as the
-active phase. Do not create an application framework, choose a database or cloud provider, add
-runtime dependencies, or introduce deployment configuration unless a later accepted work package
-explicitly authorizes it.
+Application implementation is not authorized unless a later accepted work package explicitly
+authorizes one frozen implementation package. Closing Product Discovery or authorizing architecture
+analysis does not authorize application scaffolding, database/cloud selection, runtime
+dependencies, deployment configuration, technical-proof execution, or external-system changes.
 
 Discussion findings are not automatically accepted requirements. Preserve the status of Draft,
 Proposed, Owner-stated, Accepted, Superseded, Deferred, and Rejected items. Never silently promote
