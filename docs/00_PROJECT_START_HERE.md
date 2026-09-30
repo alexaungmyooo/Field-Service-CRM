@@ -6,7 +6,7 @@
 | --- | --- |
 | Status | Accepted documentation bootstrap — Product Discovery content remains Draft |
 | Current phase | Product Discovery |
-| Current work package | `WP-02 Multi-Organization Foundation` — Accepted for publication |
+| Current work package | `WP-03 Complete Workflow Catalogue` — Accepted for publication |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -166,6 +166,24 @@ directory boundary, controlled support-session model, data-ownership classes, de
 and the recorded Accepted/Proposed/Open decision dispositions. It does not silently accept each
 Proposed decision or resolve each Open question, and it does not authorize application coding,
 architecture selection, dependencies, deployment, or external-system changes.
+
+## WP-03 authorization
+
+After verified WP-02 publication, the owner authorized activation of `WP-03 Complete Workflow
+Catalogue` and kept application coding closed. WP-03 defines end-to-end field-service workflow
+families, actors, entry conditions, normal and optional paths, decisions, exception and failure
+outcomes, outputs, audit expectations, and traceability. It may refine the living decision register
+but does not define application screens, database design, APIs, architecture, or implementation.
+
+## WP-03 acceptance
+
+The owner accepted the Complete Workflow Catalogue baseline on 2026-09-30 and authorized its
+publication. Acceptance confirms the twenty workflow families, common business vocabulary,
+control envelope, lifecycle meanings, normal and optional paths, exceptions, failure treatments,
+outputs, audit expectations, acceptance scenarios, and the recorded Accepted/Proposed/Open
+decision dispositions. It does not silently accept each Proposed decision or resolve each Open
+question, and it does not authorize application coding, architecture selection, dependencies,
+deployment, or external-system changes.
 
 ## Private execution control
 
