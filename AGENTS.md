@@ -20,6 +20,7 @@ documents:
 - `docs/10_ARCHITECTURE_CONSTRAINTS_AND_OPTIONS.md`
 - `docs/11_SECURITY_TENANCY_IDENTITY_ACCESS_ARCHITECTURE.md`
 - `docs/12_DATA_OWNERSHIP_LIFECYCLE_CONSISTENCY_ARCHITECTURE.md`
+- `docs/13_FIELD_OFFLINE_EVIDENCE_CLIENT_DELIVERY_ARCHITECTURE.md`
 
 Architecture-analysis authorization does not authorize architecture selection. Option documents
 must identify alternatives, evidence, assumptions, risks, unresolved inputs, and reversal cost
@@ -32,6 +33,10 @@ schema, API, service, application dependency, technical proof, or implementation
 Data-architecture proposals must distinguish business ownership, authoritative source, derived
 state, evidence, history, retention state, and physical storage. They must not turn conceptual
 records into tables or service boundaries before architecture selection.
+
+Field/client proposals must preserve one shared maintained product, server-authoritative tenant and
+permission checks, provisional offline intent, recoverable evidence, and explicit release/version
+compatibility. Branding, hostname, application identity, and local cache are never authorization.
 
 ## Current authorization boundary
 

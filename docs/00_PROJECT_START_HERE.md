@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-09 accepted for publication |
-| Current phase | Solution Architecture — Data ownership, lifecycle, and consistency proposal |
-| Current work package | `WP-09 Data Ownership, Lifecycle and Consistency Architecture` — Accepted for publication |
+| Status | Product Discovery closed — WP-10 ready for owner review |
+| Current phase | Solution Architecture — Field, offline, evidence, and client delivery proposal |
+| Current work package | `WP-10 Field, Offline, Evidence and Client Delivery Architecture` — Ready for owner review |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -61,6 +61,7 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 2. `10_ARCHITECTURE_CONSTRAINTS_AND_OPTIONS.md`
 3. `11_SECURITY_TENANCY_IDENTITY_ACCESS_ARCHITECTURE.md`
 4. `12_DATA_OWNERSHIP_LIFECYCLE_CONSISTENCY_ARCHITECTURE.md`
+5. `13_FIELD_OFFLINE_EVIDENCE_CLIENT_DELIVERY_ARCHITECTURE.md`
 
 Current and later accepted work packages may add or mature:
 
@@ -312,6 +313,30 @@ architecture proposal and ADR retains Proposed `CONF-1` status. Acceptance does 
 architecture, database, storage or messaging product, service/event boundary, physical tenancy,
 migration technology, or recovery topology; execute proofs; or authorize application coding,
 dependencies, deployment, or external-system changes.
+
+## WP-10 authorization
+
+After verified WP-09 publication, the owner authorized `WP-10 Field, Offline, Evidence and Client
+Delivery Architecture` for documentation and architecture proposal only. WP-10 may elaborate
+client-surface responsibilities, assignment-scoped field working sets, offline capture and
+synchronization, conflict/revocation/recovery, evidence/media lifecycle, weak-network/device
+constraints, customer/technician access, product/custom-domain tenant routing, shared and branded
+artifacts, delivery profiles, release/version compatibility, threats, and proof plans. Architecture
+selection, technical-proof execution, application coding, dependencies, deployment, and
+external-system changes remain closed.
+
+## WP-10 acceptance
+
+The owner accepted the Field, Offline, Evidence and Client Delivery Architecture proposal baseline
+on 2026-09-30 and authorized its publication. Acceptance confirms the bounded client-surface,
+field working-set, provisional offline operation, synchronization, conflict/revocation/recovery,
+device/local-data, evidence/media, external-payment evidence, tenant-routing, delivery-profile,
+shared/branded artifact, compatibility, notification/navigation, threat, proposed-ADR, proof-plan,
+and unresolved-input analysis. Every conceptual architecture proposal and ADR retains Proposed
+`CONF-1` status. Acceptance does not choose a final architecture, client framework, local database,
+media/storage, build/signing/store, domain/certificate, notification, analytics, or deployment
+technology; execute proofs; or authorize application coding, dependencies, deployment, or
+external-system changes.
 
 ## Private execution control
 
