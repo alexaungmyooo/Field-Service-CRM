@@ -5,7 +5,8 @@
 Read `docs/00_PROJECT_START_HERE.md` before changing this repository. It defines the current phase,
 document order, authority, and active gates.
 
-During Product Discovery, read the applicable product documents before editing them:
+For architecture work, read the applicable accepted product baselines before editing architecture
+documents:
 
 - `docs/01_PRODUCT_VISION_AND_SCOPE.md`
 - `docs/02_ASSUMPTIONS_AND_DECISIONS.md`
@@ -16,6 +17,11 @@ During Product Discovery, read the applicable product documents before editing t
 - `docs/07_BUSINESS_RULES.md`
 - `docs/08_SYSTEM_REQUIREMENTS.md`
 - `docs/09_PRODUCT_DISCOVERY_CLOSURE_AND_ARCHITECTURE_READINESS.md`
+- `docs/10_ARCHITECTURE_CONSTRAINTS_AND_OPTIONS.md`
+
+Architecture-analysis authorization does not authorize architecture selection. Option documents
+must identify alternatives, evidence, assumptions, risks, unresolved inputs, and reversal cost
+without presenting a preferred option as accepted.
 
 ## Current authorization boundary
 

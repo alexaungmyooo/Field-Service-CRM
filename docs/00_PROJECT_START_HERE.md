@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — architecture analysis requires separate activation |
-| Current phase | Product Discovery — Closed |
-| Current work package | `WP-06 Product Discovery Closure and Architecture Readiness` — Accepted for publication |
+| Status | Product Discovery closed — WP-07 accepted for publication |
+| Current phase | Solution Architecture — Constraints and option analysis |
+| Current work package | `WP-07 Architecture Constraints and Options` — Accepted for publication |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -55,7 +55,10 @@ them.
 
 All Phase 1 documents are currently Draft unless a section or record says otherwise.
 
-### Later phases
+### Phase 2 — Solution Architecture
+
+1. `09_PRODUCT_DISCOVERY_CLOSURE_AND_ARCHITECTURE_READINESS.md`
+2. `10_ARCHITECTURE_CONSTRAINTS_AND_OPTIONS.md`
 
 Later accepted work packages may add:
 
@@ -244,6 +247,25 @@ documentation sequence. Proposed and Open records retain their status. Closure d
 architecture analysis until the separately authorized WP-07 activation, and it does not authorize
 architecture selection, technical-proof execution, application coding, dependencies, deployment,
 or external-system changes.
+
+## WP-07 authorization
+
+After verified WP-06 publication and Product Discovery closure, the owner authorized
+`WP-07 Architecture Constraints and Options` for documentation and option analysis only.
+WP-07 may establish context, trust boundaries, quality-scenario templates, evaluation criteria,
+credible architecture alternatives, trade-offs, dependencies, and a recommended analysis
+shortlist. Architecture selection, technical-proof execution, application coding, dependencies,
+deployment, and external-system changes remain closed.
+
+## WP-07 acceptance
+
+The owner accepted the Architecture Constraints and Options baseline on 2026-09-30 and authorized
+its publication. Acceptance confirms the system context, trust boundaries, common evaluation
+criteria, quality-scenario templates, concern-level alternatives, dependency rules, comparison
+profiles, non-binding shortlist, missing-input stop conditions, confidence language, coverage
+assessment, and recommended next documentation package. It does not promote Proposed decisions,
+resolve remaining Open questions, choose an architecture or technology, authorize technical-proof
+execution, or authorize application coding, dependencies, deployment, or external-system changes.
 
 ## Private execution control
 
