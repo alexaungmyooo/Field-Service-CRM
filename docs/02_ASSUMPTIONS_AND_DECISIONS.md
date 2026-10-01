@@ -146,6 +146,13 @@ Accepted.
 | `DEC-096` | Govern incidents through explicit detection, severity, containment, investigation, tenant/customer communication, recovery, verification, and review states. | Service restoration without impact understanding, evidence, or follow-up leaves security and business risk unresolved. | Proposed |
 | `DEC-097` | Define capacity, quotas, backpressure, workload isolation, and cost visibility against accepted small-to-enterprise demand without changing canonical business behavior by tenant size. | One tenant or background workload must not exhaust shared resources or force unaffordable over-provisioning. | Proposed |
 | `DEC-098` | Inventory and govern external services, runtime components, build inputs, artifacts, and operational dependencies through ownership, supported versions, vulnerability response, change evidence, and exit treatment. | Unowned or obsolete dependencies create security, continuity, and provider-lock-in risk. | Proposed |
+| `DEC-099` | Approve `WP-12 Architecture Synthesis, Quality Targets and Selection Readiness` for documentation and option analysis only after verified WP-11 publication. | The owner explicitly authorized synthesis while keeping architecture selection, proofs, coding, and deployment closed. | Accepted |
+| `DEC-100` | Evaluate complete architecture combinations against one common set of product constraints, planning targets, risks, operating capacity, cost, evidence, and reversal criteria. | Optimizing isolated technology choices can produce an incoherent or unoperable system. | Proposed |
+| `DEC-101` | Keep owner-stated/accepted requirements, proposed planning baselines, measured proof results, and accepted architecture decisions visibly distinct. | A convenient estimate must not become an accidental commitment or architecture decision. | Proposed |
+| `DEC-102` | Prefer the least operationally complex combination that satisfies accepted tenant, business, field, evidence, recovery, scale, and delivery constraints with credible growth paths. | The team and early customers cannot fund complexity that lacks demonstrated benefit. | Proposed |
+| `DEC-103` | Require every shortlisted combination to preserve later separation, scale, provider change, and dedicated-tenant paths without promising zero-cost migration. | Small-to-enterprise support needs evolution without premature maximum complexity. | Proposed |
+| `DEC-104` | Sequence architecture decisions by trust and invariant dependency before provider, framework, or deployment-product selection. | Technology evaluation is meaningful only after tenant, authority, data, offline, evidence, integration, and operations boundaries are coherent. | Proposed |
+| `DEC-105` | Mark architecture selection not ready while required quality targets, operating constraints, decision owners, and proof entry conditions remain unresolved. | A stack choice made without measurable fitness and operating context would be preference rather than evidence. | Proposed |
 
 ## Open decision register
 
@@ -232,6 +239,11 @@ Accepted.
 | `OPEN-080` | Which production, platform, support, database/storage, network, backup, secret, build, and provider operations require dual control, step-up, session recording, review, or tenant notification? | Security, privacy, and operations review | Privileged-operations acceptance |
 | `OPEN-081` | What service ownership, runbook, escalation, support boundary, vendor-support, status-page, maintenance, and end-of-life responsibilities exist for every operational dependency? | Product owner and operations review | Operating-model acceptance |
 | `OPEN-082` | What component inventory, provenance, signing, vulnerability severity/remediation, patch cadence, exception, artifact retention, and dependency-exit requirements apply? | Security, engineering, and operations review | Supply-chain and lifecycle acceptance |
+| `OPEN-083` | Which proposed planning target bands are acceptable for the first commercial release, growth horizon, and enterprise validation horizon? | Product owner, architecture, and operations review | Quality-target acceptance |
+| `OPEN-084` | What realistic first-year budget, engineering capacity, on-call capacity, release frequency, and managed-service tolerance constrain the shortlist? | Product owner and operations review | Architecture combination scoring |
+| `OPEN-085` | Which end-to-end option combinations advance to technical proof, which are deferred growth paths, and which are rejected? | Product owner and architecture review | Shortlist acceptance |
+| `OPEN-086` | Which candidate ADRs can be decided by traceable analysis and which require measured technical proof or independent review? | Architecture, security, privacy, domain, and operations review | ADR/proof sequencing |
+| `OPEN-087` | What evidence threshold and reviewer set are required to move a proposal from `CONF-1` to `CONF-2` and then to accepted architecture? | Product owner and architecture governance | Selection gate acceptance |
 
 ## Resolved question register
 

@@ -22,6 +22,7 @@ documents:
 - `docs/12_DATA_OWNERSHIP_LIFECYCLE_CONSISTENCY_ARCHITECTURE.md`
 - `docs/13_FIELD_OFFLINE_EVIDENCE_CLIENT_DELIVERY_ARCHITECTURE.md`
 - `docs/14_INTEGRATION_DEPLOYMENT_RESILIENCE_OPERATIONS_ARCHITECTURE.md`
+- `docs/15_ARCHITECTURE_SYNTHESIS_QUALITY_TARGETS_SELECTION_READINESS.md`
 
 Architecture-analysis authorization does not authorize architecture selection. Option documents
 must identify alternatives, evidence, assumptions, risks, unresolved inputs, and reversal cost
@@ -43,6 +44,10 @@ Integration/operations proposals must preserve source-qualified tenant context, 
 business ownership, idempotent and reconcilable effects, environment/data/credential separation,
 safe degraded behavior, verified recovery, minimized observability data, and attributable release
 and incident operations. Operational custody is not tenant-data browsing authority.
+
+Architecture synthesis must keep proposal, planning baseline, measured evidence, proof result, and
+accepted decision distinct. Combination profiles and technology categories may be compared, but no
+preferred stack or architecture may be treated as selected before the explicit selection gate.
 
 ## Current authorization boundary
 

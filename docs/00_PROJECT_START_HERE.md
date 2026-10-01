@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-11 ready for owner review |
-| Current phase | Solution Architecture — Integration, deployment, resilience, and operations proposal |
-| Current work package | `WP-11 Integration, Deployment, Resilience and Operations Architecture` — Ready for owner review |
+| Status | Product Discovery closed — WP-12 ready for owner review |
+| Current phase | Solution Architecture — Synthesis, quality targets, and selection readiness |
+| Current work package | `WP-12 Architecture Synthesis, Quality Targets and Selection Readiness` — Ready for owner review |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -63,6 +63,7 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 4. `12_DATA_OWNERSHIP_LIFECYCLE_CONSISTENCY_ARCHITECTURE.md`
 5. `13_FIELD_OFFLINE_EVIDENCE_CLIENT_DELIVERY_ARCHITECTURE.md`
 6. `14_INTEGRATION_DEPLOYMENT_RESILIENCE_OPERATIONS_ARCHITECTURE.md`
+7. `15_ARCHITECTURE_SYNTHESIS_QUALITY_TARGETS_SELECTION_READINESS.md`
 
 Current and later accepted work packages may add or mature:
 
@@ -362,6 +363,28 @@ unresolved-input analysis. Every conceptual architecture proposal and ADR retain
 messaging, integration, observability, backup, build, deployment, security, or support technology;
 execute proofs; or authorize application coding, dependencies, deployment, or external-system
 changes.
+
+## WP-12 authorization
+
+After verified WP-11 publication, the owner authorized `WP-12 Architecture Synthesis, Quality
+Targets and Selection Readiness` for documentation and option analysis only. WP-12 may reconcile
+WP-07 through WP-11 proposals, audit contradictions and missing coverage, propose explicit planning
+target bands, assemble end-to-end option combinations, compare them against common criteria,
+sequence ADR and proof dependencies, and issue a selection-readiness verdict. Architecture
+selection, technical-proof execution, application coding, dependencies, deployment, and
+external-system changes remain closed.
+
+## WP-12 acceptance
+
+The owner accepted the Architecture Synthesis, Quality Targets and Selection Readiness baseline on
+2026-10-01 and authorized its publication. Acceptance confirms the synthesis principles,
+consistency audit, planning horizons, non-binding planning target bands, mandatory selection gates,
+unselected end-to-end option profiles, comparison, ADR/proof sequence, consolidated risks,
+selection-evidence template, unresolved inputs, and `NOT READY` architecture-selection verdict.
+Planning targets remain Proposed and option profiles remain unselected. Acceptance does not open
+architecture selection, accept an ADR, target, shortlist, technology, provider, framework,
+database, runtime, or topology; execute proofs; or authorize application coding, dependencies,
+deployment, or external-system changes.
 
 ## Private execution control
 
