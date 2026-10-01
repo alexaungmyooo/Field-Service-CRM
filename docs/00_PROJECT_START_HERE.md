@@ -4,13 +4,13 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-10 ready for owner review |
-| Current phase | Solution Architecture — Field, offline, evidence, and client delivery proposal |
-| Current work package | `WP-10 Field, Offline, Evidence and Client Delivery Architecture` — Ready for owner review |
+| Status | Product Discovery closed — WP-11 ready for owner review |
+| Current phase | Solution Architecture — Integration, deployment, resilience, and operations proposal |
+| Current work package | `WP-11 Integration, Deployment, Resilience and Operations Architecture` — Ready for owner review |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
-| Last updated | 2026-09-30 |
+| Last updated | 2026-10-01 |
 
 ## Purpose
 
@@ -62,6 +62,7 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 3. `11_SECURITY_TENANCY_IDENTITY_ACCESS_ARCHITECTURE.md`
 4. `12_DATA_OWNERSHIP_LIFECYCLE_CONSISTENCY_ARCHITECTURE.md`
 5. `13_FIELD_OFFLINE_EVIDENCE_CLIENT_DELIVERY_ARCHITECTURE.md`
+6. `14_INTEGRATION_DEPLOYMENT_RESILIENCE_OPERATIONS_ARCHITECTURE.md`
 
 Current and later accepted work packages may add or mature:
 
@@ -337,6 +338,30 @@ and unresolved-input analysis. Every conceptual architecture proposal and ADR re
 media/storage, build/signing/store, domain/certificate, notification, analytics, or deployment
 technology; execute proofs; or authorize application coding, dependencies, deployment, or
 external-system changes.
+
+## WP-11 authorization
+
+After verified WP-10 publication, the owner authorized `WP-11 Integration, Deployment, Resilience
+and Operations Architecture` for documentation and architecture proposal only. WP-11 may elaborate
+external integration contracts and trust, notification delivery, synchronous/asynchronous effects,
+retries and reconciliation, environment and release boundaries, deployment-change safety,
+dependency/degraded behavior, availability, backup/restore/recovery, observability, incident and
+support operations, capacity/cost governance, risks, and proof plans. Architecture selection,
+technical-proof execution, application coding, dependencies, deployment, and external-system
+changes remain closed.
+
+## WP-11 acceptance
+
+The owner accepted the Integration, Deployment, Resilience and Operations Architecture proposal
+baseline on 2026-10-01 and authorized its publication. Acceptance confirms the bounded integration
+class, authority, exchange, contract, effect/reconciliation, notification, environment,
+release/deployment change, dependency/degraded-mode, availability, backup/restore, observability,
+incident, privileged-operations, capacity/cost, supply-chain, threat, proposed-ADR, proof-plan, and
+unresolved-input analysis. Every conceptual architecture proposal and ADR retains Proposed
+`CONF-1` status. Acceptance does not choose a final architecture, provider, topology, runtime,
+messaging, integration, observability, backup, build, deployment, security, or support technology;
+execute proofs; or authorize application coding, dependencies, deployment, or external-system
+changes.
 
 ## Private execution control
 

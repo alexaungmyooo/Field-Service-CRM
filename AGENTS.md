@@ -21,6 +21,7 @@ documents:
 - `docs/11_SECURITY_TENANCY_IDENTITY_ACCESS_ARCHITECTURE.md`
 - `docs/12_DATA_OWNERSHIP_LIFECYCLE_CONSISTENCY_ARCHITECTURE.md`
 - `docs/13_FIELD_OFFLINE_EVIDENCE_CLIENT_DELIVERY_ARCHITECTURE.md`
+- `docs/14_INTEGRATION_DEPLOYMENT_RESILIENCE_OPERATIONS_ARCHITECTURE.md`
 
 Architecture-analysis authorization does not authorize architecture selection. Option documents
 must identify alternatives, evidence, assumptions, risks, unresolved inputs, and reversal cost
@@ -37,6 +38,11 @@ records into tables or service boundaries before architecture selection.
 Field/client proposals must preserve one shared maintained product, server-authoritative tenant and
 permission checks, provisional offline intent, recoverable evidence, and explicit release/version
 compatibility. Branding, hostname, application identity, and local cache are never authorization.
+
+Integration/operations proposals must preserve source-qualified tenant context, authoritative
+business ownership, idempotent and reconcilable effects, environment/data/credential separation,
+safe degraded behavior, verified recovery, minimized observability data, and attributable release
+and incident operations. Operational custody is not tenant-data browsing authority.
 
 ## Current authorization boundary
 
