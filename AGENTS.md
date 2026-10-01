@@ -23,6 +23,7 @@ documents:
 - `docs/13_FIELD_OFFLINE_EVIDENCE_CLIENT_DELIVERY_ARCHITECTURE.md`
 - `docs/14_INTEGRATION_DEPLOYMENT_RESILIENCE_OPERATIONS_ARCHITECTURE.md`
 - `docs/15_ARCHITECTURE_SYNTHESIS_QUALITY_TARGETS_SELECTION_READINESS.md`
+- `docs/16_QUALITY_BASELINE_ARCHITECTURE_SHORTLIST_DECISION.md`
 
 Architecture-analysis authorization does not authorize architecture selection. Option documents
 must identify alternatives, evidence, assumptions, risks, unresolved inputs, and reversal cost
@@ -48,6 +49,10 @@ and incident operations. Operational custody is not tenant-data browsing authori
 Architecture synthesis must keep proposal, planning baseline, measured evidence, proof result, and
 accepted decision distinct. Combination profiles and technology categories may be compared, but no
 preferred stack or architecture may be treated as selected before the explicit selection gate.
+
+Shortlist decisions may narrow evaluation candidates and accept evaluation baselines without
+choosing a final architecture. Record every disposition, remaining blocker, required reviewer,
+proof dependency, and authority boundary explicitly.
 
 ## Current authorization boundary
 

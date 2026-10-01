@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-12 ready for owner review |
-| Current phase | Solution Architecture — Synthesis, quality targets, and selection readiness |
-| Current work package | `WP-12 Architecture Synthesis, Quality Targets and Selection Readiness` — Ready for owner review |
+| Status | Product Discovery closed — WP-13 ready for owner decision |
+| Current phase | Solution Architecture — Quality baseline and architecture shortlist decision |
+| Current work package | `WP-13 Quality Baseline and Architecture Shortlist Decision` — Ready for owner decision |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -64,6 +64,7 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 5. `13_FIELD_OFFLINE_EVIDENCE_CLIENT_DELIVERY_ARCHITECTURE.md`
 6. `14_INTEGRATION_DEPLOYMENT_RESILIENCE_OPERATIONS_ARCHITECTURE.md`
 7. `15_ARCHITECTURE_SYNTHESIS_QUALITY_TARGETS_SELECTION_READINESS.md`
+8. `16_QUALITY_BASELINE_ARCHITECTURE_SHORTLIST_DECISION.md`
 
 Current and later accepted work packages may add or mature:
 
@@ -385,6 +386,28 @@ Planning targets remain Proposed and option profiles remain unselected. Acceptan
 architecture selection, accept an ADR, target, shortlist, technology, provider, framework,
 database, runtime, or topology; execute proofs; or authorize application coding, dependencies,
 deployment, or external-system changes.
+
+## WP-13 authorization
+
+After verified WP-12 publication, the owner authorized `WP-13 Quality Baseline and Architecture
+Shortlist Decision` for owner decision documentation only. WP-13 may recommend dispositions for
+the planning baselines and horizons, define a first-release evaluation envelope, decide which
+end-to-end profiles should advance or be deferred/rejected, classify ADR review/proof needs, and
+recommend the next bounded evaluation package. Final architecture selection, technical-proof
+execution, application coding, dependencies, deployment, and external-system changes remain
+closed.
+
+## WP-13 acceptance and owner decisions
+
+The owner accepted WP-13 on 2026-10-01 and authorized publication. `QBD-001` through `QBD-015`
+are accepted as architecture-evaluation baselines, not customer SLAs or production commitments.
+`EVAL-BASE-001` through `EVAL-BASE-012` are accepted while monetary budget `OPEN-088` and
+geography/residency `OPEN-089` remain open. `SHORTLIST-001` advances as the primary evaluation
+profile, `SHORTLIST-002` remains comparative, `SHORTLIST-003` is deferred, and
+`SHORTLIST-004` is rejected for the initial architecture. `ADR-DISP-001` through
+`ADR-DISP-015` are accepted as the review/proof classification. Final architecture selection,
+technical-proof execution, application coding, dependencies, deployment, and external-system
+changes remain closed.
 
 ## Private execution control
 

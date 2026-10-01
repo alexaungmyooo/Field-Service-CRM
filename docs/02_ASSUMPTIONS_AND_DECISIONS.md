@@ -153,6 +153,13 @@ Accepted.
 | `DEC-103` | Require every shortlisted combination to preserve later separation, scale, provider change, and dedicated-tenant paths without promising zero-cost migration. | Small-to-enterprise support needs evolution without premature maximum complexity. | Proposed |
 | `DEC-104` | Sequence architecture decisions by trust and invariant dependency before provider, framework, or deployment-product selection. | Technology evaluation is meaningful only after tenant, authority, data, offline, evidence, integration, and operations boundaries are coherent. | Proposed |
 | `DEC-105` | Mark architecture selection not ready while required quality targets, operating constraints, decision owners, and proof entry conditions remain unresolved. | A stack choice made without measurable fitness and operating context would be preference rather than evidence. | Proposed |
+| `DEC-106` | Approve `WP-13 Quality Baseline and Architecture Shortlist Decision` for owner decision documentation only after verified WP-12 publication. | The owner authorized a bounded decision package while keeping final selection, proof execution, coding, and deployment closed. | Accepted |
+| `DEC-107` | Treat accepted WP-13 numeric values as architecture-evaluation baselines rather than customer SLAs or production commitments until independently approved for those purposes. | Evaluation needs concrete loads and targets without silently creating commercial promises. | Accepted |
+| `DEC-108` | Advance the operationally simple governed platform profile as the primary evaluation profile and the selectively separated workload profile as a comparative/evolution profile. | Current evidence favors low operational complexity while retaining a measured growth path. | Accepted |
+| `DEC-109` | Defer dedicated enterprise placement until an accepted tenant/residency/isolation need exists and reject the highly distributed profile for the initial architecture. | Neither profile's cost and complexity is justified by current targets. | Accepted |
+| `DEC-110` | Keep the initial integration envelope minimal: no payment-provider integration, and no accounting or other external system is required until separately prioritized and contracted. | The accepted product records external payment evidence, and unneeded integrations would delay field-service value. | Accepted |
+| `DEC-111` | Require tenant-isolation, authorization, offline synchronization, evidence/media, branded delivery, domain routing, scale/reporting, and recovery evidence before final architecture acceptance as applicable to shortlisted candidates. | These risks cannot be closed by document analysis alone. | Accepted |
+| `DEC-112` | Prefer managed operational capabilities where they meet accepted gates, budget, geography, reversibility, and team skills, without transferring product accountability to providers. | A small team needs low operational burden but cannot outsource tenant or business correctness. | Accepted |
 
 ## Open decision register
 
@@ -239,17 +246,19 @@ Accepted.
 | `OPEN-080` | Which production, platform, support, database/storage, network, backup, secret, build, and provider operations require dual control, step-up, session recording, review, or tenant notification? | Security, privacy, and operations review | Privileged-operations acceptance |
 | `OPEN-081` | What service ownership, runbook, escalation, support boundary, vendor-support, status-page, maintenance, and end-of-life responsibilities exist for every operational dependency? | Product owner and operations review | Operating-model acceptance |
 | `OPEN-082` | What component inventory, provenance, signing, vulnerability severity/remediation, patch cadence, exception, artifact retention, and dependency-exit requirements apply? | Security, engineering, and operations review | Supply-chain and lifecycle acceptance |
-| `OPEN-083` | Which proposed planning target bands are acceptable for the first commercial release, growth horizon, and enterprise validation horizon? | Product owner, architecture, and operations review | Quality-target acceptance |
-| `OPEN-084` | What realistic first-year budget, engineering capacity, on-call capacity, release frequency, and managed-service tolerance constrain the shortlist? | Product owner and operations review | Architecture combination scoring |
-| `OPEN-085` | Which end-to-end option combinations advance to technical proof, which are deferred growth paths, and which are rejected? | Product owner and architecture review | Shortlist acceptance |
-| `OPEN-086` | Which candidate ADRs can be decided by traceable analysis and which require measured technical proof or independent review? | Architecture, security, privacy, domain, and operations review | ADR/proof sequencing |
 | `OPEN-087` | What evidence threshold and reviewer set are required to move a proposal from `CONF-1` to `CONF-2` and then to accepted architecture? | Product owner and architecture governance | Selection gate acceptance |
+| `OPEN-088` | What monetary first-year infrastructure/provider budget and expected tenant/revenue envelope should replace the current lean-cost qualitative constraint? | Product owner and finance review | Cost scoring and provider shortlist |
+| `OPEN-089` | Which deployment geography and data-residency position is acceptable for the Myanmar launch before provider evaluation? | Product owner, legal/privacy, and architecture review | Hosting/provider shortlist |
 
 ## Resolved question register
 
 | ID | Resolution | Decision | Resolved date |
 | --- | --- | --- | --- |
 | `OPEN-044` | Begin with WP-07 documentation and option analysis; keep selection, proof execution, coding, and deployment closed. | `DEC-048` | 2026-09-30 |
+| `OPEN-083` | Accept `QBD-001` through `QBD-015` as architecture-evaluation baselines, not SLAs or production commitments. | `DEC-107` | 2026-10-01 |
+| `OPEN-084` | Accept the qualitative lean-team, managed-capability, supported-hours, and release evaluation envelope; monetary budget remains `OPEN-088`. | `DEC-112`, `EVAL-BASE-009`, `EVAL-BASE-010`, `EVAL-BASE-012` | 2026-10-01 |
+| `OPEN-085` | Advance `SHORTLIST-001`, retain `SHORTLIST-002` as comparative, defer `SHORTLIST-003`, and reject `SHORTLIST-004` for the initial architecture. | `DEC-108`, `DEC-109` | 2026-10-01 |
+| `OPEN-086` | Accept `ADR-DISP-001` through `ADR-DISP-015` as the review/proof classification; exact `CONF-2` evidence remains under `OPEN-087`. | `DEC-111` | 2026-10-01 |
 
 ## Decision lifecycle
 
