@@ -4,7 +4,7 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Ready for Owner Review — independent static validation PASS |
+| Status | Accepted, published, and closed — independent static validation PASS |
 | Work package | `WP-28 Compose Version Normalization and Cleanup Interface Remediation` |
 | Governing decision | `DEC-158` |
 | Repository base | `6985851328c86fbe99c1f7a1cb6da615edf7e7c9` plus uncommitted WP-28 inventory |
@@ -133,5 +133,13 @@ remain ignored under `internal-local/` and must not be published.
 
 ## Next gate
 
-WP-28 is ready for owner review and stops here. No commit, push, proof execution, or later package
-is authorized.
+The owner accepted the complete WP-28 remediation, binding, dispositions, 54-file inventory, and
+independent static-validation `PASS`. The frozen nine-path inventory was committed as
+`8b4ad94 WP-28: accept Compose cleanup remediation` and pushed to `origin/main`. Local `HEAD`,
+cached `origin/main`, and live remote main matched
+`8b4ad940ed2b1266b89cbd04f006873d4fe8b407`; the committed proof tree is
+`26e1ebf2572b24064fa61963d6db6f656fdc6d09`. WP-28 is `VERIFIED_AND_CLOSED`.
+
+WP-29 is active for published rebinding and ineffective private reauthorization preparation only.
+It grants no dependency, preflight, runtime-resource, cleanup, proof, application, architecture,
+infrastructure, deployment, provider, customer/live-data, or publication authority.

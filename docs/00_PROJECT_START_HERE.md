@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-27 closed Inconclusive; WP-28 ready for owner review |
-| Current phase | Technical Proof Static Remediation Owner Review |
-| Current work package | `WP-28 Compose Version Normalization and Cleanup Interface Remediation` — Ready for Owner Review |
+| Status | Product Discovery closed — WP-28 verified and closed; WP-29 ready for owner decision |
+| Current phase | Technical Proof Remediated Rebinding and Reauthorization Readiness |
+| Current work package | `WP-29 TP-01 Remediated Rebinding and Reauthorization Readiness` — Ready for Owner Decision |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -80,6 +80,7 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 21. `29_TP01_REAUTHORIZATION_READINESS.md`
 22. `30_TP01_CONTROLLED_REAUTHORIZATION_EXECUTION_RESULT.md`
 23. `31_TP01_COMPOSE_CLEANUP_STATIC_REMEDIATION.md`
+24. `32_TP01_REMEDIATED_REBINDING_REAUTHORIZATION_READINESS.md`
 
 Current and later accepted work packages may add or mature:
 
@@ -880,6 +881,24 @@ validator first found one high-severity stdout-trimming defect; after correction
 renewal, the same validator returned `PASS` with no unresolved finding and zero mutation. The
 renewed inventory contains 54 proof files. WP-28 is `READY_FOR_OWNER_REVIEW` and establishes no
 runtime, tenant-boundary, or architecture result.
+
+## WP-28 acceptance, publication, and WP-29 activation — 2026-10-07
+
+The owner accepted `WP28-REM-001` through `006`, `WP28-BIND-001` through `012`,
+`WP28-DEC-001` through `006`, the 54-file inventory, and the independent static-validation
+`PASS`. The frozen nine-path inventory was committed as
+`8b4ad94 WP-28: accept Compose cleanup remediation` and pushed to `origin/main`.
+
+Local `HEAD`, cached `origin/main`, and live remote main matched
+`8b4ad940ed2b1266b89cbd04f006873d4fe8b407`; the committed proof tree is
+`26e1ebf2572b24064fa61963d6db6f656fdc6d09`. WP-28 is `VERIFIED_AND_CLOSED`.
+
+WP-29 is active for owner-decision documentation and private authorization preparation only. It
+may bind the exact published remediation, analyze a future dedicated workspace and role renewal,
+and prepare an explicitly ineffective private draft. Dependencies, preflight, images, containers,
+databases, services, cleanup execution, proof/reproduction, application coding, final architecture
+selection, infrastructure, deployment, provider accounts/cost, customer/live data, and WP-29
+publication remain closed.
 
 ## Private execution control
 
