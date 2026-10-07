@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-39 host-port remediation rebinding ready for owner decision |
+| Status | Product Discovery closed — WP-40 execution identity/reachability readiness ready for owner decision |
 | Current phase | Technical Proof Reauthorization Readiness |
-| Current work package | `WP-39 TP-01 Host-Port Remediation Rebinding and Reauthorization Readiness` |
+| Current work package | `WP-40 TP-01 Execution Identity and Reachability Authorization Readiness` |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -91,6 +91,7 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 32. `40_TP01_CONTROLLED_CONDITIONAL_IMAGE_EXECUTION_RESULT.md`
 33. `41_TP01_HOST_PORT_RUNTIME_REACHABILITY_STATIC_REMEDIATION.md`
 34. `42_TP01_HOST_PORT_REMEDIATION_REBINDING_REAUTHORIZATION_READINESS.md`
+35. `43_TP01_EXECUTION_IDENTITY_REACHABILITY_AUTHORIZATION_READINESS.md`
 
 Current and later accepted work packages may add or mature:
 
@@ -977,6 +978,30 @@ checkout creation, dependencies, preflight, images, Docker/Compose runtime, pull
 containers, databases, services, listeners, cleanup, proof/reproduction, application coding,
 final architecture selection, infrastructure, deployment, provider accounts/cost, customer/live
 data, network, and WP-39 publication remain closed. WP-39 is `READY_FOR_OWNER_DECISION`.
+
+## WP-39 acceptance, publication, and WP-40 activation — 2026-10-07
+
+The owner accepted `WP39-DEC-001` through `010`,
+`TP1-REACHABILITY-REMEDIATED-BIND-001` through `036`, advanced `WP39-WS-001` and
+`WP39-REACH-001`, rejected `WP39-WS-002/003` and `WP39-REACH-002/003`, and accepted the
+ineffective private draft. The frozen four-path inventory was committed as
+`c120f0d WP-39: accept host-port remediation rebinding` and pushed to `origin/main`.
+
+Local `HEAD`, cached `origin/main`, and live remote main matched
+`c120f0d738c93e7ceff75630a5dc678157ff98db`. WP-39 is `VERIFIED_AND_CLOSED`.
+
+WP-40 is active for owner-decision documentation, one fresh reproduction-validator identity and
+attestation, and ineffective private authorization preparation only. The exactly one authorized
+fresh identity is `/root/wp40_reproduction_validator`; it attested independence, future read-only
+scope, and zero current authority or mutation. No second identity was created.
+
+The private draft binds the distinct WP-39 governance publication and WP-38 proof revision/tree,
+has no execution package/run/token/checkout, records runtime reachability as unmeasured and
+unbypassable, and keeps all 18 authorization gates false. Checkout creation, dependencies,
+preflight, images, Docker/Compose, pull-token creation, containers, databases, services, cleanup,
+proof/reproduction, application coding, final architecture selection, infrastructure, deployment,
+provider accounts/cost, customer/live data, network, and WP-40 publication remain closed. WP-40 is
+`READY_FOR_OWNER_DECISION`.
 
 ## WP-30 acceptance, publication, and WP-31 activation — 2026-10-07
 

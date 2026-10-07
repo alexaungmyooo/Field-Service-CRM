@@ -4,7 +4,7 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Ready for Owner Decision — ineffective draft only |
+| Status | Accepted, published, and closed — execution remains unauthorized |
 | Work package | `WP-39 TP-01 Host-Port Remediation Rebinding and Reauthorization Readiness` |
 | Governing decision | `DEC-169` |
 | Governance publication | `ce851445a485883fb6f3ec5572508fb0902a4656` |
@@ -13,7 +13,7 @@
 | Owner | Aung Myo Oo |
 | Date | 2026-10-07 |
 | TP-01 execution | Not authorized |
-| Publication | Not authorized |
+| Publication | Verified as `c120f0d738c93e7ceff75630a5dc678157ff98db` |
 
 ## Objective and authority boundary
 
@@ -108,9 +108,9 @@ reachable, that disabled masquerading blocks egress at runtime, or that TP-01 wi
 
 | Option ID | Approach | Benefit | Risk and disposition |
 | --- | --- | --- | --- |
-| `WP39-WS-001` | Under later authority, create a dedicated checkout at binding `001`, then restore exact dependencies offline/frozen/ignore-scripts from the existing local store. | Preserves revision custody and reproducible dependency evidence. | Recommend advance; stop on missing local content or drift. |
-| `WP39-WS-002` | Execute from the current main checkout. | Avoids restoration. | Recommend reject; owner-review documentation and ignored state weaken exact-revision custody. |
-| `WP39-WS-003` | Reuse a prior archived execution checkout or stopped run. | Appears to preserve prior preparation. | Recommend reject; expired authority and historical state cannot become a new attempt. |
+| `WP39-WS-001` | Under later authority, create a dedicated checkout at binding `001`, then restore exact dependencies offline/frozen/ignore-scripts from the existing local store. | Preserves revision custody and reproducible dependency evidence. | Accepted: advance; stop on missing local content or drift. |
+| `WP39-WS-002` | Execute from the current main checkout. | Avoids restoration. | Accepted: reject; owner-review documentation and ignored state weaken exact-revision custody. |
+| `WP39-WS-003` | Reuse a prior archived execution checkout or stopped run. | Appears to preserve prior preparation. | Accepted: reject; expired authority and historical state cannot become a new attempt. |
 
 No checkout is created and no dependency or store path is read, copied, restored, or changed.
 
@@ -118,9 +118,9 @@ No checkout is created and no dependency or store path is read, copied, restored
 
 | Option ID | Approach | Disposition |
 | --- | --- | --- |
-| `WP39-REACH-001` | Require exact Docker-inspect, Compose-publisher, and direct-TCP agreement before database reset and again after the reproduction reset. | Recommend advance for a future separately authorized attempt. |
-| `WP39-REACH-002` | Omit or bypass the reachability gate and rely on internal health. | Recommend reject; repeats the WP-37 failure mode. |
-| `WP39-REACH-003` | Treat static source/test acceptance as runtime reachability evidence. | Recommend reject; confuses proposal evidence with measured proof evidence. |
+| `WP39-REACH-001` | Require exact Docker-inspect, Compose-publisher, and direct-TCP agreement before database reset and again after the reproduction reset. | Accepted: advance for a future separately authorized attempt. |
+| `WP39-REACH-002` | Omit or bypass the reachability gate and rely on internal health. | Accepted: reject; repeats the WP-37 failure mode. |
+| `WP39-REACH-003` | Treat static source/test acceptance as runtime reachability evidence. | Accepted: reject; confuses proposal evidence with measured proof evidence. |
 
 ## Role readiness
 
@@ -171,16 +171,16 @@ Verdict: `READY_FOR_OWNER_DECISION`, but `NOT_READY_FOR_EXECUTION_AUTHORIZATION`
 
 | ID | Recommendation | Status |
 | --- | --- | --- |
-| `WP39-DEC-001` | Accept `TP1-REACHABILITY-REMEDIATED-BIND-001` through `036` only as one candidate binding for a completely new attempt. | Proposed |
-| `WP39-DEC-002` | Preserve WP-24, WP-27, WP-30, WP-33, and WP-37 as separate immutable Inconclusive runs with expired authorizations and no retry. | Proposed |
-| `WP39-DEC-003` | Accept the source-level host-publication and three-view reachability contracts without treating static validation as runtime evidence. | Proposed |
-| `WP39-DEC-004` | Advance `WP39-WS-001`; reject `WP39-WS-002` and `WP39-WS-003`. | Proposed |
-| `WP39-DEC-005` | Advance `WP39-REACH-001`; reject `WP39-REACH-002` and `WP39-REACH-003`. | Proposed |
-| `WP39-DEC-006` | Require exactly one fresh reproduction-validator identity under later owner authority; do not reuse any prior run or static-validator identity. | Proposed |
-| `WP39-DEC-007` | Retain `/root` and `/root/tp01_security_review` only as proposed roles subject to new-package reconfirmation. | Proposed |
-| `WP39-DEC-008` | Accept the private draft shape as complete but ineffective; never rename or copy it to `authorization.json`, and create no token under WP-39. | Proposed |
-| `WP39-DEC-009` | Require a later explicit owner statement after verified WP-39 publication before any role creation, checkout, dependency restoration, token creation, effective authorization, or runtime action. | Proposed |
-| `WP39-DEC-010` | Keep proof execution, application coding, final architecture selection, infrastructure, deployment, provider accounts/cost, and customer/live data closed. | Proposed |
+| `WP39-DEC-001` | Accept `TP1-REACHABILITY-REMEDIATED-BIND-001` through `036` only as one candidate binding for a completely new attempt. | Accepted |
+| `WP39-DEC-002` | Preserve WP-24, WP-27, WP-30, WP-33, and WP-37 as separate immutable Inconclusive runs with expired authorizations and no retry. | Accepted |
+| `WP39-DEC-003` | Accept the source-level host-publication and three-view reachability contracts without treating static validation as runtime evidence. | Accepted |
+| `WP39-DEC-004` | Advance `WP39-WS-001`; reject `WP39-WS-002` and `WP39-WS-003`. | Accepted |
+| `WP39-DEC-005` | Advance `WP39-REACH-001`; reject `WP39-REACH-002` and `WP39-REACH-003`. | Accepted |
+| `WP39-DEC-006` | Require exactly one fresh reproduction-validator identity under later owner authority; do not reuse any prior run or static-validator identity. | Accepted |
+| `WP39-DEC-007` | Retain `/root` and `/root/tp01_security_review` only as proposed roles subject to new-package reconfirmation. | Accepted |
+| `WP39-DEC-008` | Accept the private draft shape as complete but ineffective; never rename or copy it to `authorization.json`, and create no token under WP-39. | Accepted |
+| `WP39-DEC-009` | Require a later explicit owner statement after verified WP-39 publication before any role creation, checkout, dependency restoration, token creation, effective authorization, or runtime action. | Accepted |
+| `WP39-DEC-010` | Keep proof execution, application coding, final architecture selection, infrastructure, deployment, provider accounts/cost, and customer/live data closed. | Accepted |
 
 ## Frozen WP-39 public inventory
 
@@ -194,10 +194,16 @@ Owner review and any later publication authorization apply only to these four pa
 Private authorization and validation records remain ignored under `internal-local/` and must not
 be published.
 
-## Next gate
+## Acceptance, publication, and next gate
 
-WP-39 stops at owner decision. No role or runtime action occurred. Commit, push, role creation,
-checkout creation, dependency restoration, effective authorization, token creation, Docker/Compose,
-cleanup, proof/reproduction, and every later-package gate remain closed until a later explicit
-owner statement. If the owner accepts and publishes WP-39, the recommended next package is an
-execution-identity and reachability-authorization readiness package—not TP-01 execution itself.
+The owner accepted all 36 bindings, all ten recommendations, advanced `WP39-WS-001` and
+`WP39-REACH-001`, rejected both alternative sets, and accepted the ineffective private draft. The
+exact four-path inventory was committed as `c120f0d WP-39: accept host-port remediation rebinding`
+and pushed to `origin/main`. Local `HEAD`, cached `origin/main`, and live remote main matched
+`c120f0d738c93e7ceff75630a5dc678157ff98db`. WP-39 is `VERIFIED_AND_CLOSED`.
+
+WP-40 is active for one fresh reproduction-validator identity, owner-decision documentation, and
+ineffective private authorization preparation only. Checkout creation, dependencies, preflight,
+images, Docker/Compose, pull-token creation, containers, databases, services, cleanup,
+proof/reproduction, application coding, final architecture selection, infrastructure, deployment,
+provider accounts/cost, customer/live data, and WP-40 publication remain closed.
