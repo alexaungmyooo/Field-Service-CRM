@@ -25,6 +25,7 @@ documents:
 - `docs/15_ARCHITECTURE_SYNTHESIS_QUALITY_TARGETS_SELECTION_READINESS.md`
 - `docs/16_QUALITY_BASELINE_ARCHITECTURE_SHORTLIST_DECISION.md`
 - `docs/17_TECHNOLOGY_CATEGORY_PROVIDER_NEUTRAL_EVALUATION.md`
+- `docs/18_BUDGET_GEOGRAPHY_TEAM_FIT_NAMED_CANDIDATE_SHORTLIST.md`
 
 Architecture-analysis authorization does not authorize architecture selection. Option documents
 must identify alternatives, evidence, assumptions, risks, unresolved inputs, and reversal cost
@@ -58,6 +59,11 @@ proof dependency, and authority boundary explicitly.
 Technology-category evaluation must remain provider-neutral unless a later package explicitly
 authorizes named candidates. Category recommendations are not final architecture or dependency
 selection and must trace to accepted baselines, shortlist profiles, risks, and proof needs.
+
+Named-candidate analysis must use dated authoritative evidence, distinguish advertised entry cost
+from a production cost model, and record geography, lifecycle, team fit, operational ownership,
+exit cost, missing evidence, and proof needs. A shortlist disposition does not install, select, or
+approve a candidate.
 
 ## Current authorization boundary
 

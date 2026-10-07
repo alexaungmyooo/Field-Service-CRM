@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-14 accepted for publication |
-| Current phase | Solution Architecture — Technology category evaluation |
-| Current work package | `WP-14 Technology Category and Provider-Neutral Candidate Evaluation` — Accepted for publication |
+| Status | Product Discovery closed — WP-15 accepted for publication |
+| Current phase | Solution Architecture — Budget, geography, team fit, and named shortlist |
+| Current work package | `WP-15 Budget, Geography, Team Fit and Named Candidate Shortlist` — Accepted for publication |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -66,6 +66,7 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 7. `15_ARCHITECTURE_SYNTHESIS_QUALITY_TARGETS_SELECTION_READINESS.md`
 8. `16_QUALITY_BASELINE_ARCHITECTURE_SHORTLIST_DECISION.md`
 9. `17_TECHNOLOGY_CATEGORY_PROVIDER_NEUTRAL_EVALUATION.md`
+10. `18_BUDGET_GEOGRAPHY_TEAM_FIT_NAMED_CANDIDATE_SHORTLIST.md`
 
 Current and later accepted work packages may add or mature:
 
@@ -429,6 +430,27 @@ baseline for named-candidate analysis. It does not select a provider, product, f
 dependency, database, runtime, client technology, deployment topology, or final architecture;
 execute a technical proof; or authorize application coding or deployment. After verified
 publication, WP-15 may document owner planning decisions and analyze named candidates only.
+
+## WP-15 authorization
+
+After verified WP-14 publication, the owner authorized `WP-15 Budget, Geography, Team Fit and
+Named Candidate Shortlist` on 2026-10-07 for owner decision documentation and named-candidate
+analysis only. WP-15 may recommend explicit budget, geography/residency, team-fit, and client
+platform baselines; inspect dated official provider/product evidence; and narrow candidates for a
+later decision or proof package. It may not select a final architecture or dependency, execute a
+technical proof, install dependencies, write application code, create infrastructure, deploy, or
+change an external system.
+
+## WP-15 acceptance
+
+The owner accepted all WP-15 recommendations and dispositions exactly as recorded on 2026-10-07
+and authorized publication. `BUDGET-BASE-001` through `006`, `GEO-BASE-001` through `006`,
+`TEAM-BASE-001` through `006`, and `CLIENT-BASE-001` through `005` become accepted architecture-
+evaluation baselines. The `NAMED-TECH-*`, `NAMED-PROV-*`, and `NAMED-SET-*` dispositions are
+accepted shortlist controls, not final technology or architecture selections. After verified
+publication, WP-16 may specify named-candidate proofs and architecture-decision readiness only.
+Technical-proof execution, dependency installation, application coding, final architecture
+selection, infrastructure creation, and deployment remain closed.
 
 ## Private execution control
 

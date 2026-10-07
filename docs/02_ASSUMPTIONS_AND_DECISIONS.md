@@ -163,6 +163,12 @@ Accepted.
 | `DEC-113` | Approve `WP-14 Technology Category and Provider-Neutral Candidate Evaluation` for documentation and option analysis only after verified WP-13 publication. | The owner authorized category comparison while keeping final selection, named providers, proofs, coding, and deployment closed. | Accepted |
 | `DEC-114` | Evaluate technology categories as a coherent fit to `SHORTLIST-001` and comparative `SHORTLIST-002`, not as isolated popularity choices. | A collection of individually attractive tools may violate the accepted simplicity, consistency, offline, or operating constraints. | Proposed |
 | `DEC-115` | Keep named vendors/products and dependency installation outside category evaluation until budget, geography/residency, evidence requirements, and a later named-candidate gate are resolved. | Provider fitness and total cost cannot be judged from category analysis alone. | Proposed |
+| `DEC-116` | Approve `WP-15 Budget, Geography, Team Fit and Named Candidate Shortlist` for owner decision documentation and named-candidate analysis after verified WP-14 publication. | The owner authorized named analysis while keeping final selection, proofs, dependencies, coding, and deployment closed. | Accepted |
+| `DEC-117` | Use a USD 300 monthly target and USD 500 monthly owner-review threshold for recurring initial-commercial provider cost, subject to the exclusions and revenue controls in WP-15. | A concrete but revisable envelope lets a self-funded small team reject architecture that needs enterprise spend before revenue evidence. | Accepted |
+| `DEC-118` | Use Singapore as the initial production hosting and data-residency evaluation geography, subject to legal/privacy review and measured Myanmar connectivity. | It provides the common nearby region with the strongest current coverage across the shortlisted providers. | Accepted |
+| `DEC-119` | Treat Android as the mandatory first installed Technician target, keep iOS build compatibility for a later release decision, and keep Customer and Management delivery web-first. | This limits initial distribution cost while preserving the shared multi-platform and branded-delivery path. | Accepted |
+| `DEC-120` | Limit the initial maintained application stack to the team's evidenced TypeScript/Node/React and Dart/Flutter families unless a candidate proves a material gate advantage. | Reusing demonstrated delivery skills reduces learning and operating load for an owner-led team. | Accepted |
+| `DEC-121` | Advance a portable TypeScript/Flutter/PostgreSQL core and a small Singapore provider shortlist only for later proof planning; do not treat any candidate as selected. | The shortlist must narrow evaluation without bypassing tenant, offline, evidence, recovery, cost, or independent-review gates. | Accepted |
 
 ## Open decision register
 
@@ -250,10 +256,11 @@ Accepted.
 | `OPEN-081` | What service ownership, runbook, escalation, support boundary, vendor-support, status-page, maintenance, and end-of-life responsibilities exist for every operational dependency? | Product owner and operations review | Operating-model acceptance |
 | `OPEN-082` | What component inventory, provenance, signing, vulnerability severity/remediation, patch cadence, exception, artifact retention, and dependency-exit requirements apply? | Security, engineering, and operations review | Supply-chain and lifecycle acceptance |
 | `OPEN-087` | What evidence threshold and reviewer set are required to move a proposal from `CONF-1` to `CONF-2` and then to accepted architecture? | Product owner and architecture governance | Selection gate acceptance |
-| `OPEN-088` | What monetary first-year infrastructure/provider budget and expected tenant/revenue envelope should replace the current lean-cost qualitative constraint? | Product owner and finance review | Cost scoring and provider shortlist |
-| `OPEN-089` | Which deployment geography and data-residency position is acceptable for the Myanmar launch before provider evaluation? | Product owner, legal/privacy, and architecture review | Hosting/provider shortlist |
-| `OPEN-090` | Which programming language/runtime and framework families match the team's demonstrated skills, hiring/support market, long-term maintenance, and proof needs? | Product owner and engineering review | Named technology shortlist |
-| `OPEN-091` | Which target mobile platforms and distribution constraints require installed clients rather than responsive/installable web delivery? | Product owner and architecture review | Client technology shortlist |
+| `OPEN-092` | What measured Singapore-to-Myanmar latency, packet-loss, mobile-device, and weak-network results are acceptable for the named deployment candidates? | Architecture and field-device proof review | Geography/provider proof gate |
+| `OPEN-093` | What Myanmar and Singapore legal/privacy terms, customer notices, contracts, and cross-border handling apply to tenant data and evidence? | Owner and qualified legal/privacy review | Production residency approval |
+| `OPEN-094` | Which managed identity candidate satisfies tenant mapping, account recovery, support access, export, pricing, and fail-safe session requirements? | Security review and later proof | Identity selection |
+| `OPEN-095` | What measured evidence size, retention, retrieval, and egress profile should drive object-storage cost and lifecycle comparison? | Product, privacy, and cost review | Provider cost model |
+| `OPEN-096` | Which exact database access and offline storage libraries best preserve tenant enforcement, migrations, encryption, and testability? | Architecture/security review and later proof | Dependency selection |
 
 ## Resolved question register
 
@@ -264,6 +271,10 @@ Accepted.
 | `OPEN-084` | Accept the qualitative lean-team, managed-capability, supported-hours, and release evaluation envelope; monetary budget remains `OPEN-088`. | `DEC-112`, `EVAL-BASE-009`, `EVAL-BASE-010`, `EVAL-BASE-012` | 2026-10-01 |
 | `OPEN-085` | Advance `SHORTLIST-001`, retain `SHORTLIST-002` as comparative, defer `SHORTLIST-003`, and reject `SHORTLIST-004` for the initial architecture. | `DEC-108`, `DEC-109` | 2026-10-01 |
 | `OPEN-086` | Accept `ADR-DISP-001` through `ADR-DISP-015` as the review/proof classification; exact `CONF-2` evidence remains under `OPEN-087`. | `DEC-111` | 2026-10-01 |
+| `OPEN-088` | Accept `BUDGET-BASE-001` through `006` as the monetary and commercial-control evaluation baseline; no permission to spend or production cost proof is implied. | `DEC-117` | 2026-10-07 |
+| `OPEN-089` | Accept `GEO-BASE-001` through `006` with Singapore as the initial evaluation geography; legal/privacy approval and measured connectivity remain open. | `DEC-118`, `OPEN-092`, `OPEN-093` | 2026-10-07 |
+| `OPEN-090` | Accept `TEAM-BASE-001` through `006` as the team/runtime evaluation baseline. | `DEC-120` | 2026-10-07 |
+| `OPEN-091` | Accept `CLIENT-BASE-001` through `005` as the initial client-platform and distribution evaluation baseline. | `DEC-119` | 2026-10-07 |
 
 ## Decision lifecycle
 
