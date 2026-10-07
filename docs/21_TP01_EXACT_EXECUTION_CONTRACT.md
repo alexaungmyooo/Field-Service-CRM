@@ -305,8 +305,8 @@ and authorized for publication.
 | Role | Required assignment | Current state | Execution consequence |
 | --- | --- | --- | --- |
 | Proof owner | Aung Myo Oo | Identified | May own authorization/stop/cleanup; cannot independently validate own operated run |
-| Proof operator | Named person or explicitly authorized primary agent | `TP1-OPERATOR-PRIMARY` role class accepted; exact execution identity pending | Blocking until later exact authorization |
-| Independent validator | Different person or separately authorized independent agent that did not author/operate primary run | `TP1-VALIDATOR-REPRO` role class accepted; fresh canonical identity pending | Blocking |
+| Proof operator | Named person or explicitly authorized primary agent | `/root` accepted as canonical `TP1-OPERATOR-PRIMARY` execution identity | Blocking until verified WP-23 publication and WP-24 activation |
+| Independent validator | Different person or separately authorized independent agent that did not author/operate primary run | `/root/tp01_reproduction_validator` accepted with fresh WP-23 attestation | Blocking until verified WP-23 publication and WP-24 activation |
 | TP-01 technical security reviewer | Independent security-review subagent with tenant-isolation/authorization review scope | `/root/tp01_security_review` assigned by `DEC-147` | May review local synthetic TP-01 evidence only; must not operate, reproduce, or mutate the proof |
 | Production/real-data security reviewer | Named qualified human reviewer | Deferred | Mandatory before production deployment or any real/customer data; not a TP-01 execution blocker under `TP1-GOV-EX-001` |
 | Owner decision | Aung Myo Oo | Identified | Occurs only after reviewed evidence; not proof execution |
@@ -350,8 +350,8 @@ verified WP-19; that checkpoint still grants no execution authority.
 | `TP1-READY-007` | Exact command/resource/network/cleanup contract | Rematerialized and statically inventory-validated; runtime pending | Full-packet verifier and pre/post cleanup evidence are represented but not executed |
 | `TP1-READY-008` | Generated lockfile/transitive/license/advisory inventory | Accepted for checkpoint 1 | Lock, tree, licenses, audit, and hashes recorded |
 | `TP1-READY-009` | Proof source/schema/scripts/case-manifest hashes | Replacement binding owner-accepted; WP-22 publication pending | WP-21 published 51 files at `e824139d3050e98c06e39d3663ddcae6ac1d02db`; WP-22 freezes the accepted replacement binding |
-| `TP1-READY-010` | Named proof operator | Accepted role class | `TP1-OPERATOR-PRIMARY`; exact execution-turn task identity must be recorded before preflight |
-| `TP1-READY-011` | Named independent validator | Accepted role class; identity pending | Fresh `TP1-VALIDATOR-REPRO` canonical identity must be recorded and differ from operator |
+| `TP1-READY-010` | Named proof operator | Accepted exact identity | `/root` as `TP1-OPERATOR-PRIMARY`; verified publication and exact execution turn remain required |
+| `TP1-READY-011` | Named independent validator | Accepted fresh exact identity | `/root/tp01_reproduction_validator`; identity and no-author/no-operation attestation recorded under WP-23 |
 | `TP1-READY-012` | Independent TP-01 technical security reviewer | Assigned and scope-confirmed | `/root/tp01_security_review`; read-only, no-author, no-operator, no-validator attestation recorded |
 | `TP1-READY-013` | Explicit materialization authorization | Complete | Owner authorized WP-19 checkpoint 1; no execution authority |
 | `TP1-READY-014` | Explicit execution authorization | Not ready | Verified WP-22 publication, exact execution identities, private authorization record, and explicit checkpoint-2 statement remain required |

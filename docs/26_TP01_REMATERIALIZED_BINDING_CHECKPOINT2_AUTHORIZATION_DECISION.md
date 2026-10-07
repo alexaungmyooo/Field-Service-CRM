@@ -144,3 +144,13 @@ identity and prepare a private checkpoint-2 authorization decision for owner rev
 create the effective `authorization.json` or run preflight, dependencies, images, containers,
 databases, services, TP-01, application work, architecture selection, infrastructure, deployment,
 or customer/live-data actions.
+
+## Publication result and WP-23 activation
+
+The frozen seven-path WP-22 inventory was committed as
+`291aedd WP-22: accept TP-01 rematerialized binding` and remotely verified at
+`291aedd07c35991c7c677d9e7f94f5f3bc444e61`. WP-22 is `VERIFIED_AND_CLOSED`.
+
+The owner then activated WP-23 for execution-identity instantiation and checkpoint-2 authorization
+owner-decision/private-preparation work only, including exactly one fresh reproduction-validator
+subagent. No checkpoint-2 or runtime authority was granted.

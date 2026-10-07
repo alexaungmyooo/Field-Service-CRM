@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-22 accepted for publication; TP-01 execution closed |
+| Status | Product Discovery closed — WP-23 accepted for publication; TP-01 execution awaits verified publication |
 | Current phase | Technical Proof Preparation — TP-01 checkpoint-2 authorization readiness |
-| Current work package | `WP-22 TP-01 Rematerialized Binding and Checkpoint-2 Authorization Decision` — Accepted for publication |
+| Current work package | `WP-23 TP-01 Execution Identity Instantiation and Checkpoint-2 Authorization` — Accepted for publication |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -75,6 +75,7 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 16. `24_TP01_SECURITY_REVIEW_GOVERNANCE_AMENDMENT.md`
 17. `25_TP01_EVIDENCE_COMPLETENESS_REMEDIATION.md`
 18. `26_TP01_REMATERIALIZED_BINDING_CHECKPOINT2_AUTHORIZATION_DECISION.md`
+19. `27_TP01_EXECUTION_IDENTITIES_CHECKPOINT2_AUTHORIZATION.md`
 
 Current and later accepted work packages may add or mature:
 
@@ -724,6 +725,31 @@ The owner accepted `WP22-DEC-001` through `WP22-DEC-008` and `TP1-REBIND-001` th
 seven-path public inventory. The replacement binding is accepted; checkpoint 2 remains separately
 closed. After verified publication, WP-23 may instantiate one fresh reproduction-validator identity
 and prepare the private checkpoint-2 authorization decision for owner review only.
+
+## WP-22 publication result
+
+The frozen seven-path WP-22 public inventory was committed as
+`291aedd WP-22: accept TP-01 rematerialized binding` and pushed to `origin/main`. Local `HEAD`,
+fetched `origin/main`, and `FETCH_HEAD` were verified at
+`291aedd07c35991c7c677d9e7f94f5f3bc444e61`. WP-22 is `VERIFIED_AND_CLOSED`.
+
+## WP-23 authorization
+
+After verified WP-22 publication, the owner activated `WP-23 TP-01 Execution Identity
+Instantiation and Checkpoint-2 Authorization` for owner-decision documentation and private
+authorization preparation only. Exactly one fresh reproduction-validator subagent may be created
+and recorded. WP-23 may prepare, but not activate, an execution authorization record.
+
+Preflight, dependencies, images, containers, databases, services, TP-01 execution, application
+coding, final architecture selection, infrastructure, deployment, and customer/live data remain
+closed. WP-23 publication requires the separate owner acceptance recorded below.
+
+## WP-23 acceptance
+
+The owner accepted `WP23-DEC-001` through `WP23-DEC-010`, `TP1-EXEC-BIND-001` through `005`,
+the fresh-validator attestation, and the ineffective private draft exactly as recorded on
+2026-10-07. Commit/push is authorized only for the frozen seven-path public inventory. WP-24 may
+activate only after verified publication under the exact separate execution statement.
 
 ## Private execution control
 

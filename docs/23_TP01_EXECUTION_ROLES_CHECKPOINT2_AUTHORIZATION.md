@@ -264,3 +264,20 @@ itself restore checkpoint-2 readiness or authorize execution.
 The owner accepted the complete WP-22 replacement binding and dispositions on 2026-10-07. That
 acceptance supersedes the old binding values but does not authorize checkpoint 2. The fresh
 reproduction-validator identity and effective private execution authorization remain later gates.
+
+## WP-23 fresh reproduction-validator instantiation
+
+The single owner-authorized fresh subagent `/root/tp01_reproduction_validator` accepted the future
+`TP1-VALIDATOR-REPRO` role only under a later exact owner-authorized checkpoint-2 contract. It
+attested that it did not author or materialize TP-01 and did not act as primary operator, WP-19
+validator, WP-21 validator, or technical security reviewer. It requires sealed primary evidence
+handoff and a fresh database reset before any future reproduction.
+
+The subagent performed identity/independence attestation only: no file, Git, dependency, image,
+container, database, service, evidence, cleanup, external-system, or customer/live-data change and
+no preflight, proof, or reproduction command occurred. The exact role assignment remains Proposed
+until the WP-23 owner decision recorded below.
+
+The owner accepted the exact assignment and attestation on 2026-10-07. Execution authority remains
+conditional on verified WP-23 publication and the separately authorized WP-24 effective private
+record and command boundary.
