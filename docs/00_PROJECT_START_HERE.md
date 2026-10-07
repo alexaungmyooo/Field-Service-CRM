@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-35 reauthorization readiness under owner review |
-| Current phase | Technical Proof Rebinding and Reauthorization Readiness |
-| Current work package | `WP-35 TP-01 Conditional Image Remediation Rebinding and Reauthorization Readiness` |
+| Status | Product Discovery closed — WP-36 execution-identity readiness under owner review |
+| Current phase | Technical Proof Execution Identity and Authorization Readiness |
+| Current work package | `WP-36 TP-01 Execution Identity and Conditional Pull Authorization Readiness` |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -87,6 +87,7 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 28. `36_TP01_CONTROLLED_DIAGNOSTIC_EXECUTION_RESULT.md`
 29. `37_TP01_CONDITIONAL_IMAGE_REGISTRY_GATE_STATIC_REMEDIATION.md`
 30. `38_TP01_CONDITIONAL_IMAGE_REBINDING_REAUTHORIZATION_READINESS.md`
+31. `39_TP01_EXECUTION_IDENTITY_CONDITIONAL_PULL_AUTHORIZATION_READINESS.md`
 
 Current and later accepted work packages may add or mature:
 
@@ -1031,6 +1032,24 @@ satisfy the execution guard. Role creation, checkout creation, dependencies, pre
 containers, databases, services, cleanup, proof/reproduction, application coding, final
 architecture selection, infrastructure, deployment, provider accounts/cost, customer/live data,
 and WP-35 publication remain closed.
+
+## WP-35 acceptance, publication, and WP-36 activation — 2026-10-07
+
+The owner accepted `WP35-DEC-001` through `010`,
+`TP1-IMAGE-REMEDIATED-BIND-001` through `032`, advanced `WP35-WS-001` and
+`WP35-IMG-001`, rejected `WP35-WS-002/003` and `WP35-IMG-002/003`, and accepted the ineffective
+private draft. The exact four-path public inventory was committed as
+`9719c73 WP-35: accept conditional image rebinding` and pushed to `origin/main`.
+
+Local `HEAD`, cached `origin/main`, and live remote main matched
+`9719c73208be5870ef1f4a0f03d6c4d7d79435f6`. WP-35 is `VERIFIED_AND_CLOSED`.
+
+WP-36 is active for owner-decision documentation, one fresh reproduction-validator identity and
+attestation, and ineffective private authorization preparation only. Checkout creation,
+dependencies, preflight, images, Docker/Compose, pull-token creation, containers, databases,
+services, cleanup, proof/reproduction, application coding, final architecture selection,
+infrastructure, deployment, provider accounts/cost, customer/live data, and WP-36 publication
+remain closed.
 
 ## Private execution control
 

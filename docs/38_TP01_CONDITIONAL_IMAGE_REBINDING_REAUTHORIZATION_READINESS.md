@@ -4,14 +4,14 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Ready for Owner Decision — not authorized for execution |
+| Status | Accepted, published, and closed — execution remains unauthorized |
 | Work package | `WP-35 TP-01 Conditional Image Remediation Rebinding and Reauthorization Readiness` |
 | Governing decisions | `DEC-147`, `DEC-155`, `DEC-158`, `DEC-160`, `DEC-161`, `DEC-162`, `DEC-163`, `DEC-164`, `DEC-165` |
 | Published remediation | WP-34 `VERIFIED_AND_CLOSED` |
 | Owner | Aung Myo Oo |
 | Date | 2026-10-07 |
 | TP-01 execution | Not authorized |
-| Publication | Not authorized |
+| Publication | Verified at `9719c73208be5870ef1f4a0f03d6c4d7d79435f6` |
 
 ## Objective and authority boundary
 
@@ -161,16 +161,16 @@ Verdict: `READY_FOR_OWNER_DECISION`, but `NOT_READY_FOR_EXECUTION_AUTHORIZATION`
 
 | ID | Recommendation | Status |
 | --- | --- | --- |
-| `WP35-DEC-001` | Accept `TP1-IMAGE-REMEDIATED-BIND-001` through `032` only as one candidate binding for a completely new attempt. | Proposed |
-| `WP35-DEC-002` | Preserve WP-24, WP-27, WP-30, and WP-33 as separate immutable Inconclusive runs with expired authorizations and no retry. | Proposed |
-| `WP35-DEC-003` | Accept the local-first conditional image and evidence contracts without treating static validation as runtime evidence. | Proposed |
-| `WP35-DEC-004` | Advance `WP35-WS-001`; reject `WP35-WS-002` and `WP35-WS-003`. | Proposed |
-| `WP35-DEC-005` | Advance `WP35-IMG-001`; reject `WP35-IMG-002` and `WP35-IMG-003`. | Proposed |
-| `WP35-DEC-006` | Require exactly one fresh reproduction-validator identity under later owner authority; do not reuse any prior run or static-validator identity. | Proposed |
-| `WP35-DEC-007` | Retain `/root` and `/root/tp01_security_review` only as proposed roles subject to new-package reconfirmation. | Proposed |
-| `WP35-DEC-008` | Accept the private draft shape as complete but ineffective; never rename or copy it to `authorization.json`, and do not add token material under WP-35. | Proposed |
-| `WP35-DEC-009` | Require a later explicit owner statement after verified WP-35 publication before any role creation, checkout, dependency restoration, token creation, effective authorization, or execution action. | Proposed |
-| `WP35-DEC-010` | Keep application coding, final architecture selection, infrastructure, deployment, provider accounts/cost, and customer/live data closed. | Proposed |
+| `WP35-DEC-001` | Accept `TP1-IMAGE-REMEDIATED-BIND-001` through `032` only as one candidate binding for a completely new attempt. | Accepted |
+| `WP35-DEC-002` | Preserve WP-24, WP-27, WP-30, and WP-33 as separate immutable Inconclusive runs with expired authorizations and no retry. | Accepted |
+| `WP35-DEC-003` | Accept the local-first conditional image and evidence contracts without treating static validation as runtime evidence. | Accepted |
+| `WP35-DEC-004` | Advance `WP35-WS-001`; reject `WP35-WS-002` and `WP35-WS-003`. | Accepted |
+| `WP35-DEC-005` | Advance `WP35-IMG-001`; reject `WP35-IMG-002` and `WP35-IMG-003`. | Accepted |
+| `WP35-DEC-006` | Require exactly one fresh reproduction-validator identity under later owner authority; do not reuse any prior run or static-validator identity. | Accepted |
+| `WP35-DEC-007` | Retain `/root` and `/root/tp01_security_review` only as proposed roles subject to new-package reconfirmation. | Accepted |
+| `WP35-DEC-008` | Accept the private draft shape as complete but ineffective; never rename or copy it to `authorization.json`, and do not add token material under WP-35. | Accepted |
+| `WP35-DEC-009` | Require a later explicit owner statement after verified WP-35 publication before any role creation, checkout, dependency restoration, token creation, effective authorization, or execution action. | Accepted |
+| `WP35-DEC-010` | Keep application coding, final architecture selection, infrastructure, deployment, provider accounts/cost, and customer/live data closed. | Accepted |
 
 ## Frozen WP-35 public inventory
 
@@ -184,8 +184,13 @@ Owner review and any later publication authorization apply only to these four pa
 Private authorization and validation records remain ignored under `internal-local/` and must not be
 published.
 
-## Next gate
+## Acceptance, publication, and next gate
 
-WP-35 stops at owner decision. No commit, push, role creation, checkout, dependency operation,
-token creation, preflight, image/runtime action, cleanup, proof/reproduction, or later package is
-authorized.
+The owner accepted all 32 bindings, all ten recommendations, workspace option `WP35-WS-001`,
+image option `WP35-IMG-001`, rejection of both alternative sets, and the ineffective draft. The
+exact four-path inventory was committed as `9719c73 WP-35: accept conditional image rebinding` and
+pushed to `origin/main`. Local `HEAD`, cached `origin/main`, and live remote main matched
+`9719c73208be5870ef1f4a0f03d6c4d7d79435f6`. WP-35 is `VERIFIED_AND_CLOSED`.
+
+WP-36 is active for one fresh reproduction identity, owner-decision documentation, and an
+ineffective private authorization draft only. Execution remains closed.
