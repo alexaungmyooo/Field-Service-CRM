@@ -72,6 +72,32 @@ container, database, service, proof, reproduction, and evidence execution remain
   `sha256:afc7e2d441324c0388fa80c3d24f733b4194a4eb7f47dd8ee2b08eb1a24a647c`
 - `linux/arm64/v8`
 
+Compose version evidence preserves both exact `docker compose version --short` stdout and its
+single semantic output line. Parsing removes at most one terminal LF or CRLF transport delimiter;
+it does not trim semantic whitespace. Comparison accepts exactly one optional leading lowercase
+`v`, then requires the normalized value to equal `5.4.0`; it does not accept a different semantic
+version, extra prefix, suffix, whitespace, empty output, or multiple output lines.
+
+Cleanup supplies an ephemeral synthetic `TP01_BOOTSTRAP_PASSWORD` only to Compose interpolation
+when no run credential exists. The value is generated in memory, is not printed or retained, and
+is removed from the cleanup command environment immediately after the Compose call. This keeps
+cleanup callable after an early stop, before preflight credential generation, and without proof
+dependencies. Cleanup still requires a separately authorized run and remains closed in WP-28.
+
+## WP-28 dependency-free static checks
+
+WP-28 authorizes syntax and pure-contract checks only. These commands do not invoke dependencies,
+preflight, Docker, cleanup, or any proof/reproduction path:
+
+```text
+$TP01_NODE_BIN --check scripts/remediation-contract.mjs
+$TP01_NODE_BIN --check scripts/remediation-contract.test.mjs
+$TP01_NODE_BIN --check scripts/preflight.mjs
+$TP01_NODE_BIN --check scripts/cleanup.mjs
+$TP01_NODE_BIN scripts/remediation-contract.test.mjs
+$TP01_NODE_BIN scripts/hash-inventory.mjs
+```
+
 ## WP-25 static commands
 
 Only manifest verification, TypeScript static checking, syntax checking, artifact hashing, and

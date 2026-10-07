@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-27 Inconclusive and ready for owner review; TP-01 execution closed |
-| Current phase | Technical Proof Stop Disposition and Remediation Readiness |
-| Current work package | `WP-27 Controlled TP-01 Reauthorization and Execution` — Ready for Owner Review |
+| Status | Product Discovery closed — WP-27 closed Inconclusive; WP-28 ready for owner review |
+| Current phase | Technical Proof Static Remediation Owner Review |
+| Current work package | `WP-28 Compose Version Normalization and Cleanup Interface Remediation` — Ready for Owner Review |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -79,6 +79,7 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 20. `28_TP01_RUNTIME_DEPENDENCY_LAUNCHER_REMEDIATION.md`
 21. `29_TP01_REAUTHORIZATION_READINESS.md`
 22. `30_TP01_CONTROLLED_REAUTHORIZATION_EXECUTION_RESULT.md`
+23. `31_TP01_COMPOSE_CLEANUP_STATIC_REMEDIATION.md`
 
 Current and later accepted work packages may add or mature:
 
@@ -851,6 +852,34 @@ even though no service had started. Cleanup was rerun with a synthetic interpola
 passed, leaving no dependency or runtime residue. All three reviews are `INCONCLUSIVE`; final
 verification correctly rejected the incomplete packet. WP-27 establishes no tenant-boundary
 result, is non-retryable, and is `READY_FOR_OWNER_REVIEW`.
+
+## WP-27 acceptance, publication, and WP-28 activation — 2026-10-07
+
+The owner accepted the WP-27 `INCONCLUSIVE` disposition, both deviations, all three role reviews,
+mandatory cleanup outcome, fail-closed final-verifier outcome, 16-entry private stop packet,
+`WP27-REM-001` through `006`, and `WP27-DEC-001` through `007`. WP-27 was closed without retry.
+
+The frozen five-path public inventory was committed as
+`6985851 WP-27: accept TP-01 Inconclusive stop result` and pushed to `origin/main`. Local `HEAD`,
+cached `origin/main`, and live remote main matched
+`6985851328c86fbe99c1f7a1cb6da615edf7e7c9`.
+
+After verified publication, the owner activated WP-28 for proof-only static remediation of the
+optional Compose `v` prefix and the cleanup interpolation interface. WP-28 may change only the
+disposable proof, governing documentation, and ignored private static evidence needed for those
+two corrections, renewed hashes, and one fresh independent static validation. Dependencies,
+preflight, images, containers, databases, services, cleanup execution, proof/reproduction,
+application coding, final architecture selection, infrastructure, deployment, provider
+accounts/cost, and customer/live data remain closed. WP-28 publication is not authorized.
+
+WP-28 now captures exact Compose stdout, removes only one optional terminal LF/CRLF transport
+delimiter, accepts only `5.4.0` or `v5.4.0`, and preserves the raw and normalized forms. Cleanup
+uses an in-memory interpolation-only value when no bootstrap value exists, does not retain it, and
+remains dependency-free. Exact syntax and pure-contract checks passed. The single fresh independent
+validator first found one high-severity stdout-trimming defect; after correction and full hash
+renewal, the same validator returned `PASS` with no unresolved finding and zero mutation. The
+renewed inventory contains 54 proof files. WP-28 is `READY_FOR_OWNER_REVIEW` and establishes no
+runtime, tenant-boundary, or architecture result.
 
 ## Private execution control
 

@@ -10,6 +10,11 @@ import {
   inspectExactPnpm,
 } from "./runtime-contract.mjs";
 import { assertExecutionAuthorized } from "./execution-authorization.mjs";
+import {
+  assertExactComposeVersion,
+  composeVersionFromStdout,
+  expectedComposeSemanticVersion,
+} from "./remediation-contract.mjs";
 
 assertExactNode();
 const { packageId, evidenceDirectory } = assertExecutionAuthorized();
@@ -18,13 +23,17 @@ const expected = Object.freeze({
   node: "v22.23.1",
   pnpm: "11.25.0",
   docker: "29.7.2",
-  compose: "v5.4.0",
+  compose: expectedComposeSemanticVersion,
 });
 
 const pnpmRuntime = inspectExactPnpm();
 
 function command(commandName, args, options = {}) {
   return execFileSync(commandName, args, { encoding: "utf8", ...options }).trim();
+}
+
+function rawCommand(commandName, args, options = {}) {
+  return execFileSync(commandName, args, { encoding: "utf8", ...options });
 }
 
 async function assertPortFree(port) {
@@ -37,11 +46,13 @@ async function assertPortFree(port) {
   });
 }
 
+const rawComposeStdout = rawCommand("docker", ["compose", "version", "--short"]);
+const rawComposeVersion = composeVersionFromStdout(rawComposeStdout);
 const observed = {
   node: process.version,
   pnpm: pnpmRuntime.version,
   docker: command("docker", ["version", "--format", "{{.Client.Version}}"]),
-  compose: command("docker", ["compose", "version", "--short"]),
+  compose: assertExactComposeVersion(rawComposeVersion),
 };
 
 for (const [name, value] of Object.entries(expected)) {
@@ -133,6 +144,7 @@ const environment = {
   capturedAt: new Date().toISOString(),
   host: { hostname: hostname(), platform: platform(), release: release(), architecture: arch() },
   tools: observed,
+  rawTools: { compose: rawComposeVersion, composeStdout: rawComposeStdout },
   expectedTools: expected,
   image: {
     reference: "postgres@sha256:afc7e2d441324c0388fa80c3d24f733b4194a4eb7f47dd8ee2b08eb1a24a647c",
@@ -161,4 +173,12 @@ writeFileSync(
   `${JSON.stringify(environment, null, 2)}\n`,
 );
 
-process.stdout.write(`${JSON.stringify({ status: "PASS", observed, revision, tree })}\n`);
+process.stdout.write(
+  `${JSON.stringify({
+    status: "PASS",
+    observed,
+    rawObserved: { compose: rawComposeVersion, composeStdout: rawComposeStdout },
+    revision,
+    tree,
+  })}\n`,
+);

@@ -4,7 +4,7 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Ready for Owner Review — Inconclusive; execution closed |
+| Status | Accepted, published, and closed — Inconclusive; no retry |
 | Work package | `WP-27 Controlled TP-01 Reauthorization and Execution` |
 | Run ID | `wp27-2026-10-07-01` |
 | Governing decision | `DEC-157` |
@@ -155,6 +155,12 @@ Owner review and any later publication authorization apply only to these five pa
 
 ## Next gate
 
-WP-27 stops at owner review. No commit or push is authorized. A later owner statement may accept
-the stop packet, authorize publication of only the frozen five paths, and then activate WP-28 for
-proof-only static remediation. It must not authorize another execution attempt.
+The owner accepted the complete stop packet, `WP27-REM-001` through `006`, and `WP27-DEC-001`
+through `007`, closed WP-27 without retry, and authorized publication of only the frozen five
+paths. Commit `6985851328c86fbe99c1f7a1cb6da615edf7e7c9` was pushed to `origin/main`; local `HEAD`,
+cached `origin/main`, and live remote main matched.
+
+WP-28 is active for proof-only static remediation. It does not authorize dependencies, preflight,
+images, containers, databases, services, cleanup execution, proof/reproduction, application code,
+final architecture selection, infrastructure, deployment, provider accounts/cost, customer/live
+data, or publication.

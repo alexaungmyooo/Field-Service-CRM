@@ -1,9 +1,11 @@
 import { spawnSync } from "node:child_process";
+import { randomBytes } from "node:crypto";
 import { existsSync, rmSync, writeFileSync } from "node:fs";
 import { connect } from "node:net";
 import { resolve } from "node:path";
 import { run } from "./command.mjs";
 import { assertExecutionAuthorized } from "./execution-authorization.mjs";
+import { cleanupComposeEnvironment } from "./remediation-contract.mjs";
 
 const { evidenceDirectory } = assertExecutionAuthorized();
 
@@ -56,7 +58,18 @@ const before = {
   credentials: { envFile: existsSync(resolve(".env")) },
 };
 
-run("docker", ["compose", "down", "--volumes", "--remove-orphans"]);
+const cleanupInterpolation = cleanupComposeEnvironment(
+  process.env,
+  randomBytes(32).toString("base64url"),
+);
+try {
+  run("docker", ["compose", "down", "--volumes", "--remove-orphans"], {
+    env: cleanupInterpolation.environment,
+  });
+} finally {
+  cleanupInterpolation.environment.TP01_BOOTSTRAP_PASSWORD = "";
+  delete cleanupInterpolation.environment.TP01_BOOTSTRAP_PASSWORD;
+}
 for (const path of [resolve("dist"), resolve("generated"), resolve(".env"), resolve("node_modules")]) {
   rmSync(path, { recursive: true, force: true });
 }
@@ -86,6 +99,10 @@ const cleanup = {
     credentials: { envFile: "ABSENT", processEndsAfterRecord: true },
   },
   tools: { node: process.version, globalMutation: "NONE_PERFORMED_BY_PROOF_SCRIPTS" },
+  composeInterpolation: {
+    source: cleanupInterpolation.interpolationSource,
+    valueRetained: false,
+  },
   providers: { accounts: "NONE", recurringCost: "USD 0" },
   retained: ["proof source", "pnpm-lock.yaml", "private reviewed evidence"],
 };
