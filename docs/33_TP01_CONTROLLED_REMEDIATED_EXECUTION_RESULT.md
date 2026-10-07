@@ -4,7 +4,7 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Ready for Owner Review — Inconclusive; execution closed |
+| Status | Accepted, published, and closed — Inconclusive; no retry |
 | Work package | `WP-30 Controlled TP-01 Remediated Execution` |
 | Run ID | `wp30-2026-10-07-01` |
 | Governing decision | `DEC-160` |
@@ -133,24 +133,24 @@ The effective WP-30 authorization expired at the stop. WP-30 is non-retryable.
 
 | ID | Control | Status |
 | --- | --- | --- |
-| `WP30-REM-001` | Preserve WP-30 and its 19-entry packet as immutable Inconclusive evidence; never retry or reinterpret it as a proof result. | Proposed |
-| `WP30-REM-002` | Make the proof runner retain bounded, sanitized failed-child stdout and stderr in a dedicated failure artifact before propagating nonzero status. | Proposed |
-| `WP30-REM-003` | Ensure diagnostic retention cannot include credentials, customer/live data, or unbounded output and is covered by dependency-free static tests. | Proposed |
-| `WP30-REM-004` | Make final-verifier Compose validation consume the same normalization contract as preflight and verify normalized plus raw fields consistently. | Proposed |
-| `WP30-REM-005` | Add pure static cases for `5.4.0`, `v5.4.0`, raw stdout framing, malformed/drifted values, and verifier/preflight agreement. | Proposed |
-| `WP30-REM-006` | Renew the complete proof inventory and obtain one fresh independent static validator before any new binding or execution decision. | Proposed |
+| `WP30-REM-001` | Preserve WP-30 and its 19-entry packet as immutable Inconclusive evidence; never retry or reinterpret it as a proof result. | Accepted |
+| `WP30-REM-002` | Make the proof runner retain bounded, sanitized failed-child stdout and stderr in a dedicated failure artifact before propagating nonzero status. | Accepted |
+| `WP30-REM-003` | Ensure diagnostic retention cannot include credentials, customer/live data, or unbounded output and is covered by dependency-free static tests. | Accepted |
+| `WP30-REM-004` | Make final-verifier Compose validation consume the same normalization contract as preflight and verify normalized plus raw fields consistently. | Accepted |
+| `WP30-REM-005` | Add pure static cases for `5.4.0`, `v5.4.0`, raw stdout framing, malformed/drifted values, and verifier/preflight agreement. | Accepted |
+| `WP30-REM-006` | Renew the complete proof inventory and obtain one fresh independent static validator before any new binding or execution decision. | Accepted |
 
 ## Recommended owner dispositions
 
 | ID | Recommendation | Status |
 | --- | --- | --- |
-| `WP30-DEC-001` | Accept the WP-30 Inconclusive disposition and `WP30-DEV-001` through `003` exactly as recorded. | Proposed |
-| `WP30-DEC-002` | Accept the three Inconclusive role reviews and fail-closed final-verifier result. | Proposed |
-| `WP30-DEC-003` | Accept mandatory cleanup and direct residual verification as passed. | Proposed |
-| `WP30-DEC-004` | Close WP-30 without retry and accept that it establishes no tenant-boundary or architecture result. | Proposed |
-| `WP30-DEC-005` | Accept `WP30-REM-001` through `006` as the next bounded remediation proposal. | Proposed |
-| `WP30-DEC-006` | After verified WP-30 publication, activate WP-31 for proof-only failure-diagnostic and final-verifier static remediation, renewed hashes, and one fresh independent static validator. | Proposed |
-| `WP30-DEC-007` | Keep dependencies, preflight, images, containers, databases, services, cleanup execution, proof/reproduction, application coding, final architecture selection, infrastructure, deployment, provider accounts/cost, and customer/live data closed during WP-31. | Proposed |
+| `WP30-DEC-001` | Accept the WP-30 Inconclusive disposition and `WP30-DEV-001` through `003` exactly as recorded. | Accepted |
+| `WP30-DEC-002` | Accept the three Inconclusive role reviews and fail-closed final-verifier result. | Accepted |
+| `WP30-DEC-003` | Accept mandatory cleanup and direct residual verification as passed. | Accepted |
+| `WP30-DEC-004` | Close WP-30 without retry and accept that it establishes no tenant-boundary or architecture result. | Accepted |
+| `WP30-DEC-005` | Accept `WP30-REM-001` through `006` as the next bounded remediation proposal. | Accepted |
+| `WP30-DEC-006` | After verified WP-30 publication, activate WP-31 for proof-only failure-diagnostic and final-verifier static remediation, renewed hashes, and one fresh independent static validator. | Accepted |
+| `WP30-DEC-007` | Keep dependencies, preflight, images, containers, databases, services, cleanup execution, proof/reproduction, application coding, final architecture selection, infrastructure, deployment, provider accounts/cost, and customer/live data closed during WP-31. | Accepted |
 
 ## Frozen WP-30 public inventory
 
@@ -164,7 +164,14 @@ Owner review and any later publication authorization apply only to these four pa
 Private authorization, credentials, command evidence, role reviews, and evidence inventory remain
 ignored under `internal-local/` and must not be published.
 
-## Next gate
+## Acceptance and publication
 
-WP-30 stops at owner review. No commit, push, retry, proof execution, remediation, or WP-31 action
-is authorized.
+On 2026-10-07, the owner accepted the complete Inconclusive stop packet, all deviations, role
+reviews, cleanup/residual and fail-closed verifier outcomes, 19-entry private inventory,
+`WP30-REM-001` through `006`, and `WP30-DEC-001` through `007`. WP-30 was closed without retry.
+
+The frozen four-path inventory was committed as
+`138ff4a WP-30: record controlled remediated execution` and pushed to `origin/main`. Local `HEAD`,
+cached `origin/main`, and live remote main matched
+`138ff4ae8548d9ee61707a1c714a352e6af9d320`. WP-31 then activated under the accepted static-only
+boundary. No later remediation changes the immutable WP-30 evidence or disposition.

@@ -2,6 +2,10 @@ import { createHash } from "node:crypto";
 import { readFileSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { assertExecutionAuthorized } from "./execution-authorization.mjs";
+import {
+  assertComposeEvidenceContract,
+  expectedComposeSemanticVersion,
+} from "./remediation-contract.mjs";
 
 const { packageId, evidenceDirectory } = assertExecutionAuthorized();
 const finalPhase = process.argv.includes("--final");
@@ -249,7 +253,19 @@ const privateManifest = readEvidence("case-manifest.json");
 const inventoryBytes = readFileSync(resolve(
   "../../internal-local/work-packages/TP-01/evidence/materialization/artifact-hashes.json",
 ));
-const expectedTools = { node: "v22.23.1", pnpm: "11.25.0", docker: "29.7.2", compose: "v5.4.0" };
+const expectedTools = {
+  node: "v22.23.1",
+  pnpm: "11.25.0",
+  docker: "29.7.2",
+  compose: expectedComposeSemanticVersion,
+};
+
+assertComposeEvidenceContract({
+  normalizedVersion: environment.tools?.compose,
+  rawVersion: environment.rawTools?.compose,
+  rawStdout: environment.rawTools?.composeStdout,
+  expectedVersion: environment.expectedTools?.compose,
+});
 
 if (
   authorization.status !== "ACCEPTED_FOR_EXECUTION" ||

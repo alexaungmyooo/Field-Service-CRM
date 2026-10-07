@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-30 Inconclusive and ready for owner review; execution closed |
-| Current phase | Technical Proof Stop Disposition and Remediation Readiness |
-| Current work package | `WP-30 Controlled TP-01 Remediated Execution` — Ready for Owner Review |
+| Status | Product Discovery closed — WP-31 static remediation ready for owner review |
+| Current phase | Technical Proof Static Remediation |
+| Current work package | `WP-31 Failure-Diagnostic Retention and Final-Verifier Consistency Remediation` — Ready for Owner Review |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -82,6 +82,7 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 23. `31_TP01_COMPOSE_CLEANUP_STATIC_REMEDIATION.md`
 24. `32_TP01_REMEDIATED_REBINDING_REAUTHORIZATION_READINESS.md`
 25. `33_TP01_CONTROLLED_REMEDIATED_EXECUTION_RESULT.md`
+26. `34_TP01_FAILURE_DIAGNOSTIC_FINAL_VERIFIER_STATIC_REMEDIATION.md`
 
 Current and later accepted work packages may add or mature:
 
@@ -920,6 +921,34 @@ dependency, generated output, or credential. All three reviews are `INCONCLUSIVE
 verification also failed closed because its frozen Compose check still expected raw `v5.4.0`
 instead of the accepted normalized `5.4.0` plus separate raw evidence. WP-30 establishes no
 tenant-boundary or architecture result, is non-retryable, and is `READY_FOR_OWNER_REVIEW`.
+
+## WP-30 acceptance, publication, and WP-31 activation — 2026-10-07
+
+The owner accepted the complete WP-30 Inconclusive stop packet, `WP30-DEV-001` through `003`, all
+three role reviews, mandatory cleanup and residual verification, fail-closed final verification,
+the 19-entry private evidence inventory, `WP30-REM-001` through `006`, and `WP30-DEC-001` through
+`007`. WP-30 was closed without retry.
+
+The frozen four-path public inventory was committed as
+`138ff4a WP-30: record controlled remediated execution` and pushed to `origin/main`. Local `HEAD`,
+cached `origin/main`, and live remote main matched
+`138ff4ae8548d9ee61707a1c714a352e6af9d320`.
+
+WP-31 is active for bounded proof-only static remediation. It may retain sanitized and bounded
+failed-child stdout/stderr, align final-verifier Compose checks with the accepted normalization
+contract, add dependency-free static tests, renew proof hashes, and use exactly one fresh
+independent static validator after freeze. Dependencies, preflight, images, containers, databases,
+services, cleanup execution, proof/reproduction, application coding, architecture selection,
+infrastructure, deployment, provider accounts/cost, customer/live data, and WP-31 publication
+remain closed.
+
+WP-31 now retains redacted and bounded diagnostics for both proof compilation and test-child
+failures, with explicit phase attribution and no argument-value retention. Final verification uses
+the same raw/normalized Compose evidence contract as preflight. Exact syntax and dependency-free
+tests passed; the renewed inventory contains 55 files. The single fresh independent validator
+found three static gaps across its review passes; all were corrected with complete hash renewal,
+and the same validator returned `PASS` with no unresolved finding and zero mutation. WP-31 is
+`READY_FOR_OWNER_REVIEW` and establishes no runtime, tenant-boundary, or architecture result.
 
 ## Private execution control
 

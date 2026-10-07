@@ -36,6 +36,27 @@ export function assertExactComposeVersion(
   return normalizedVersion;
 }
 
+export function assertComposeEvidenceContract({
+  normalizedVersion,
+  rawVersion,
+  rawStdout,
+  expectedVersion = expectedComposeSemanticVersion,
+}) {
+  const semanticLine = composeVersionFromStdout(rawStdout);
+  if (semanticLine !== rawVersion) {
+    throw new Error(
+      `Compose raw evidence mismatch: stdout contains ${semanticLine}, raw field contains ${rawVersion}`,
+    );
+  }
+  const normalized = assertExactComposeVersion(rawVersion, expectedVersion);
+  if (normalizedVersion !== normalized) {
+    throw new Error(
+      `Compose normalized evidence mismatch: expected ${normalized}, observed ${normalizedVersion}`,
+    );
+  }
+  return normalized;
+}
+
 export function cleanupComposeEnvironment(baseEnvironment, syntheticBootstrapPassword) {
   const existingBootstrapPassword = baseEnvironment.TP01_BOOTSTRAP_PASSWORD;
   const usesSyntheticValue =

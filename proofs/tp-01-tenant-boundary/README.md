@@ -7,25 +7,62 @@ This directory materializes checkpoint 1 of the accepted TP-01 contract in
 
 ## Current authorization
 
-WP-25 authorizes proof-only runtime/dependency-launcher remediation and static validation. It
-permits:
+WP-31 authorizes proof-only failure-diagnostic and final-verifier consistency remediation with
+dependency-free static validation. It permits:
 
-- restoring the unchanged reviewed dependencies from the existing local content-addressed store
-  under exact offline, frozen-lockfile, and ignore-scripts controls;
-- correcting the exact Node `v22.23.1` and pnpm `11.25.0` launcher chain;
-- preventing automatic dependency materialization during proof commands;
-- renewing static validation, private evidence, and artifact hashes; and
-- one fresh independent read-only static validation.
+- retaining bounded, sanitized failed-child stdout and stderr in a dedicated proof failure
+  artifact;
+- making the final verifier consume the accepted Compose raw/normalized contract;
+- built-in-only syntax, pure-contract, hashing, inventory, and scope checks;
+- renewing static evidence and artifact hashes; and
+- one fresh independent read-only static validation after the inventory is frozen.
 
-WP-25 does **not** authorize preflight, image access, containers, databases, services, SQL,
-fixtures, listeners, a TP-01 case or reproduction, execution-evidence verification, application
-code, architecture selection, infrastructure, deployment, provider accounts or cost, or
-customer/live data.
+WP-31 does **not** authorize dependencies, preflight, Docker/Compose commands, images, containers,
+databases, services, SQL, fixtures, listeners, cleanup execution, a TP-01 case or reproduction,
+execution-evidence verification, application code, architecture selection, infrastructure,
+deployment, provider accounts or cost, or customer/live data.
 
 The execution-facing scripts fail closed. They require later-package environment controls and a
 matching private `authorization.json` with status `ACCEPTED_FOR_EXECUTION`. The remediated
 inventory must be independently reviewed, owner-accepted, committed, published, and bound to a
 later exact execution revision before any execution-facing command may run.
+
+## WP-31 failure-diagnostic contract
+
+If the authorized Node test child exits nonzero, the command wrapper constructs a typed diagnostic
+without retaining command arguments. Known proof credential values, secret-shaped key/value pairs,
+bearer values, and PostgreSQL URL passwords are redacted before bounding. Each stream retains at
+most 8,192 UTF-16 code units,
+using bounded head/tail context when truncation is required, with original/retained size metadata.
+
+The proof runner covers both the TypeScript compilation child and the Node test child. It writes
+the diagnostic and failed phase to `primary-execution-failure.json` or
+`reproduction-execution-failure.json` before rethrowing the failure. The artifact is explicitly
+classified as synthetic-proof diagnostic evidence and records that customer/live data is not
+authorized. Successful children produce no failure artifact, and each run removes any stale
+artifact for its role before starting.
+
+The final verifier imports the same Compose contract as preflight. It requires exact agreement
+between preserved stdout, its single raw semantic line, and normalized `5.4.0`; both `5.4.0` and
+`v5.4.0` raw forms are accepted, while malformed framing, whitespace, value drift, or field
+disagreement fails closed.
+
+## WP-31 dependency-free static checks
+
+WP-31 authorizes syntax and pure-contract checks only. These commands do not invoke dependencies,
+preflight, Docker, cleanup, evidence verification, or any proof/reproduction path:
+
+```text
+$TP01_NODE_BIN --check scripts/command.mjs
+$TP01_NODE_BIN --check scripts/command.test.mjs
+$TP01_NODE_BIN --check scripts/proof-run.mjs
+$TP01_NODE_BIN --check scripts/remediation-contract.mjs
+$TP01_NODE_BIN --check scripts/remediation-contract.test.mjs
+$TP01_NODE_BIN --check scripts/evidence-verify.mjs
+$TP01_NODE_BIN scripts/command.test.mjs
+$TP01_NODE_BIN scripts/remediation-contract.test.mjs
+$TP01_NODE_BIN scripts/hash-inventory.mjs
+```
 
 ## WP-25 exact launcher remediation
 
