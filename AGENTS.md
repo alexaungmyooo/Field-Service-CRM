@@ -35,6 +35,7 @@ documents:
 - `docs/25_TP01_EVIDENCE_COMPLETENESS_REMEDIATION.md`
 - `docs/26_TP01_REMATERIALIZED_BINDING_CHECKPOINT2_AUTHORIZATION_DECISION.md`
 - `docs/27_TP01_EXECUTION_IDENTITIES_CHECKPOINT2_AUTHORIZATION.md`
+- `docs/28_TP01_RUNTIME_DEPENDENCY_LAUNCHER_REMEDIATION.md`
 
 Architecture-analysis authorization does not authorize architecture selection. Option documents
 must identify alternatives, evidence, assumptions, risks, unresolved inputs, and reversal cost

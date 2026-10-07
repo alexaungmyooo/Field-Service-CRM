@@ -252,21 +252,37 @@ to close accepted static blockers. Only syntax, manifest, TypeScript, hashing, i
 documentation checks are authorized in WP-21. Image, database, preflight, proof, reproduction,
 evidence-verification, and cleanup commands remain unauthorized to run.
 
+WP-24 demonstrated that invoking the ambient pnpm launcher can select a different Node runtime and
+can materialize dependencies before a nominal run/verification command. WP-25 therefore proposes
+one exact launcher chain:
+
+- an explicitly selected Node binary that must report `v22.23.1`;
+- the absolute `pnpm.mjs` must match its accepted SHA-256 before that same `process.execPath`
+  executes it, after which it must report `11.25.0`;
+- the Node directory is prepended to child `PATH`;
+- all pnpm operations are forced offline with lifecycle scripts disabled;
+- run commands refuse to start when `node_modules` is absent and fail if pnpm metadata changes;
+- dependency restoration accepts only `install --offline --frozen-lockfile --ignore-scripts` under
+  a separate exact authorization value; and
+- cleanup and final verification execute directly with the exact Node binary after dependencies may
+  have been removed, never through pnpm.
+
 | ID | Stage | Exact command interface | Required result |
 | --- | --- | --- | --- |
-| `TP1-CMD-001` | Preflight | `pnpm run preflight` | Verify repository revision, host/architecture, Node/pnpm/Docker/Compose versions, ports, clean proof path, ignored evidence path, zero active proof resources |
-| `TP1-CMD-002` | Lock materialization | `pnpm install --lockfile-only --ignore-scripts` | Create lockfile only in authorized materialization phase; no lifecycle scripts |
-| `TP1-CMD-003` | Supply-chain inventory | `pnpm run evidence:supply-chain` | Direct/transitive versions, integrity, licenses, advisories, and lock hash for review |
-| `TP1-CMD-004` | Dependency materialization | `pnpm install --frozen-lockfile --ignore-scripts` | Install exactly reviewed lockfile only after checkpoint approval |
-| `TP1-CMD-005` | Image verification | `pnpm run db:verify-image` | Resolve/pull only accepted digest/platform and record manifest evidence |
+| `TP1-CMD-001` | Preflight | `$TP01_NODE_BIN scripts/exact-pnpm.mjs run preflight` | Verify repository revision, host/architecture, exact Node/pnpm entry, Docker/Compose versions, ports, clean proof path, ignored evidence path, zero active proof resources |
+| `TP1-CMD-002` | Historical lock materialization (closed) | Historical ambient command: `pnpm install --lockfile-only --ignore-scripts` | Completed before WP-25; retained only as provenance and not authorized for future use |
+| `TP1-CMD-003` | Supply-chain inventory | `$TP01_NODE_BIN scripts/exact-pnpm.mjs run evidence:supply-chain` | Direct/transitive versions, integrity, licenses, advisories, and lock hash for review under a separately authorized network policy |
+| `TP1-CMD-004` | Dependency materialization | `$TP01_NODE_BIN scripts/exact-pnpm.mjs install --offline --frozen-lockfile --ignore-scripts` | Restore exactly the reviewed lockfile from an existing local store only after explicit authorization |
+| `TP1-CMD-005` | Image verification | `$TP01_NODE_BIN scripts/exact-pnpm.mjs run db:verify-image` | Resolve/pull only accepted digest/platform and record manifest evidence |
 | `TP1-CMD-006` | Database start | `docker compose up -d --wait postgres` | One healthy bounded digest-pinned local container |
-| `TP1-CMD-007` | Schema/fixture | `pnpm run db:reset` | Recreate proof roles/schema/policies/seed and emit deterministic fixture hash |
-| `TP1-CMD-008` | Matrix freeze check | `pnpm run matrix:verify` | Exactly 222 unique cases and expected outcomes match the accepted contract/hash |
-| `TP1-CMD-009` | Primary run | `pnpm run proof:run` | Execute all cases once and emit raw machine-readable evidence |
-| `TP1-CMD-010` | Reproduction | `pnpm run proof:reproduce` | Independent validator repeats from reset using same revision/lock/image/case manifest |
-| `TP1-CMD-011` | Interim evidence verification | `pnpm run evidence:verify` | Validate both runs and their authorization/environment/image/fixture/database-security/supply-chain/manifest/deviation bindings; emit combined audit/difference/state artifacts without final PASS |
-| `TP1-CMD-012` | Cleanup | `pnpm run cleanup` | Record pre-cleanup state, stop/remove processes, container, network, volume, generated secrets/temp files, and verify residual absence |
-| `TP1-CMD-013` | Final complete-packet verification | `pnpm run evidence:verify-final` | Revalidate every interim input plus cleanup and all role-separated reviews; only this interface may emit final PASS |
+| `TP1-CMD-007` | Schema/fixture | `$TP01_NODE_BIN scripts/exact-pnpm.mjs run db:reset` | Recreate proof roles/schema/policies/seed and emit deterministic fixture hash |
+| `TP1-CMD-008` | Matrix freeze check | `$TP01_NODE_BIN scripts/exact-pnpm.mjs run matrix:verify` | Exactly 222 unique cases and expected outcomes match the accepted contract/hash |
+| `TP1-CMD-009` | Primary run | `$TP01_NODE_BIN scripts/exact-pnpm.mjs run proof:run` | Execute all cases once and emit raw machine-readable evidence |
+| `TP1-CMD-010` | Reproduction | `$TP01_NODE_BIN scripts/exact-pnpm.mjs run proof:reproduce` | Independent validator repeats from reset using same revision/lock/image/case manifest |
+| `TP1-CMD-011` | Interim evidence verification | `$TP01_NODE_BIN scripts/exact-pnpm.mjs run evidence:verify` | Validate both runs and their authorization/environment/image/fixture/database-security/supply-chain/manifest/deviation bindings; emit combined audit/difference/state artifacts without final PASS |
+| `TP1-CMD-012` | Cleanup | `$TP01_NODE_BIN scripts/cleanup.mjs` | Record pre-cleanup state, remove proof resources and dependencies, and verify residual absence without package-manager side effects |
+| `TP1-CMD-013` | Final complete-packet verification | `$TP01_NODE_BIN scripts/evidence-verify.mjs --final` | Revalidate the complete packet without package-manager dependency materialization; only this interface may emit final PASS |
+| `TP1-CMD-014` | Exact launcher validation | `$TP01_NODE_BIN scripts/exact-pnpm.mjs --version` | Prove the pnpm entry hash is accepted before execution and that the exact Node process then observes pnpm `11.25.0` |
 
 The scripts must avoid shell expansion of secrets, write raw evidence only to the ignored
 private path, and stop on the first contract/environment violation. A command change after

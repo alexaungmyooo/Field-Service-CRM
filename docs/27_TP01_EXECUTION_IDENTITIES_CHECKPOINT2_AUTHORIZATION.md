@@ -161,3 +161,11 @@ accepted clean checkout, and run the exact accepted checkpoint-2 sequence. Until
 publication is verified, no effective authorization, checkout, preflight, dependency, image,
 container, database, service, proof, application, architecture, infrastructure, deployment, or
 customer/live-data action is authorized.
+
+## WP-24 outcome and superseded launcher assumption
+
+WP-24 stopped at its first preflight before any security measurement because the ambient launcher
+selected Node versions outside the accepted contract. Its later pnpm final-verifier interface also
+materialized dependencies from the local store before the verifier ran. The run is closed
+`INCONCLUSIVE` without retry, and its ambient `pnpm run ...` command assumption is superseded for
+future consideration by the WP-25 exact-launcher proposal in document 28.

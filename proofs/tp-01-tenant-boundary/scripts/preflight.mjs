@@ -4,7 +4,11 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { arch, hostname, platform, release } from "node:os";
 import { createServer } from "node:net";
 import { resolve } from "node:path";
-import { assertExactNode } from "./runtime-contract.mjs";
+import {
+  assertExactNode,
+  expectedNodeSha256,
+  inspectExactPnpm,
+} from "./runtime-contract.mjs";
 import { assertExecutionAuthorized } from "./execution-authorization.mjs";
 
 assertExactNode();
@@ -16,6 +20,8 @@ const expected = Object.freeze({
   docker: "29.7.2",
   compose: "v5.4.0",
 });
+
+const pnpmRuntime = inspectExactPnpm();
 
 function command(commandName, args, options = {}) {
   return execFileSync(commandName, args, { encoding: "utf8", ...options }).trim();
@@ -33,7 +39,7 @@ async function assertPortFree(port) {
 
 const observed = {
   node: process.version,
-  pnpm: command("pnpm", ["--version"]),
+  pnpm: pnpmRuntime.version,
   docker: command("docker", ["version", "--format", "{{.Client.Version}}"]),
   compose: command("docker", ["compose", "version", "--short"]),
 };
@@ -135,6 +141,10 @@ const environment = {
     verificationArtifact: "image.json",
   },
   repository: { revision, tree, proofPathClean: true },
+  launchers: {
+    node: { path: process.execPath, version: process.version, sha256: expectedNodeSha256 },
+    pnpm: pnpmRuntime,
+  },
   bindings: {
     authorizationSha256: hashBytes(authorizationBytes),
     artifactInventorySha256: hashBytes(inventoryBytes),

@@ -7,27 +7,61 @@ This directory materializes checkpoint 1 of the accepted TP-01 contract in
 
 ## Current authorization
 
-WP-21 authorizes bounded evidence-completeness remediation and rematerialization only. It permits:
+WP-25 authorizes proof-only runtime/dependency-launcher remediation and static validation. It
+permits:
 
-- measuring the connected database identity when a later package runs the proof;
-- materializing dedicated environment, fixture, database-security, state-integrity, cleanup, and
-  complete-packet evidence mechanics;
-- renewing static validation and exact artifact hashes; and
-- one fresh independent read-only inventory validation.
+- restoring the unchanged reviewed dependencies from the existing local content-addressed store
+  under exact offline, frozen-lockfile, and ignore-scripts controls;
+- correcting the exact Node `v22.23.1` and pnpm `11.25.0` launcher chain;
+- preventing automatic dependency materialization during proof commands;
+- renewing static validation, private evidence, and artifact hashes; and
+- one fresh independent read-only static validation.
 
-WP-21 does **not** authorize:
-
-- pulling or starting PostgreSQL;
-- applying SQL, creating a database, or binding ports;
-- starting HTTP or background processes;
-- running any TP-01 case or claiming a proof result;
-- using customer, live, or production-derived data; or
-- reusing these artifacts in application code.
+WP-25 does **not** authorize preflight, image access, containers, databases, services, SQL,
+fixtures, listeners, a TP-01 case or reproduction, execution-evidence verification, application
+code, architecture selection, infrastructure, deployment, provider accounts or cost, or
+customer/live data.
 
 The execution-facing scripts fail closed. They require later-package environment controls and a
 matching private `authorization.json` with status `ACCEPTED_FOR_EXECUTION`. The remediated
 inventory must be independently reviewed, owner-accepted, committed, published, and bound to a
 later exact execution revision before any execution-facing command may run.
+
+## WP-25 exact launcher remediation
+
+WP-24 stopped at preflight because the ambient pnpm/Node launcher selected Node versions outside
+the accepted contract. After cleanup removed dependencies, a later ambient pnpm final-verifier
+command also restored dependencies from the local store before executing the verifier. WP-25
+repairs those launcher controls without authorizing preflight or proof execution.
+
+Every future pnpm operation must start from an explicitly selected Node `v22.23.1` binary and an
+absolute `TP01_PNPM_ENTRY` whose accepted hash is verified before it is executed and whose version
+is then verified as `11.25.0`:
+
+```text
+$TP01_NODE_BIN scripts/exact-pnpm.mjs --version
+$TP01_NODE_BIN scripts/exact-pnpm.mjs run <authorized-script>
+```
+
+The launcher refuses run commands when dependencies are absent, forces pnpm offline with lifecycle
+scripts disabled, executes pnpm through the same exact Node process, and rejects dependency-metadata
+mutation. The only dependency-restoration shape it accepts is separately authorized:
+
+```text
+TP01_DEPENDENCY_RESTORE_AUTHORIZATION=WP-25_OFFLINE_FROZEN_IGNORE_SCRIPTS \
+  $TP01_NODE_BIN scripts/exact-pnpm.mjs install --offline --frozen-lockfile --ignore-scripts
+```
+
+Cleanup and final verification must run directly under `$TP01_NODE_BIN`, not through pnpm, because
+cleanup intentionally removes `node_modules`:
+
+```text
+$TP01_NODE_BIN scripts/cleanup.mjs
+$TP01_NODE_BIN scripts/evidence-verify.mjs --final
+```
+
+WP-25 permits exact offline dependency restoration and static checks only. Preflight, image,
+container, database, service, proof, reproduction, and evidence execution remain closed.
 
 ## Frozen environment
 
@@ -38,20 +72,20 @@ later exact execution revision before any execution-facing command may run.
   `sha256:afc7e2d441324c0388fa80c3d24f733b4194a4eb7f47dd8ee2b08eb1a24a647c`
 - `linux/arm64/v8`
 
-## WP-21 static commands
+## WP-25 static commands
 
 Only manifest verification, TypeScript static checking, syntax checking, artifact hashing, and
-private inventory validation are authorized in WP-21. No dependency or runtime command is opened.
+private inventory validation are authorized after the bounded dependency restoration. Each pnpm
+operation uses the exact launcher; ambient pnpm commands are historical and closed.
 
 ```text
-pnpm run matrix:verify
-pnpm run typecheck
-pnpm run evidence:hash
+$TP01_NODE_BIN scripts/exact-pnpm.mjs run matrix:verify
+$TP01_NODE_BIN scripts/exact-pnpm.mjs run typecheck
+$TP01_NODE_BIN scripts/exact-pnpm.mjs run evidence:hash
 ```
 
 Commands beginning with `db:` or `proof:`, plus `preflight`, `evidence:verify`,
-`evidence:verify-final`, and `cleanup`, are later-execution commands and reject WP-21 because the
-required private execution authorization record does not exist.
+`evidence:verify-final`, and `cleanup`, remain closed because WP-25 is not an execution package.
 
 ## Remediated evidence flow
 

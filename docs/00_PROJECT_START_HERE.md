@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-23 accepted for publication; TP-01 execution awaits verified publication |
-| Current phase | Technical Proof Preparation — TP-01 checkpoint-2 authorization readiness |
-| Current work package | `WP-23 TP-01 Execution Identity Instantiation and Checkpoint-2 Authorization` — Accepted for publication |
+| Status | Product Discovery closed — WP-25 ready for owner review; TP-01 execution closed |
+| Current phase | Technical Proof Remediation — TP-01 launcher and dependency controls |
+| Current work package | `WP-25 TP-01 Runtime and Dependency Launcher Remediation` — Ready for Owner Review |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -76,6 +76,7 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 17. `25_TP01_EVIDENCE_COMPLETENESS_REMEDIATION.md`
 18. `26_TP01_REMATERIALIZED_BINDING_CHECKPOINT2_AUTHORIZATION_DECISION.md`
 19. `27_TP01_EXECUTION_IDENTITIES_CHECKPOINT2_AUTHORIZATION.md`
+20. `28_TP01_RUNTIME_DEPENDENCY_LAUNCHER_REMEDIATION.md`
 
 Current and later accepted work packages may add or mature:
 
@@ -750,6 +751,52 @@ The owner accepted `WP23-DEC-001` through `WP23-DEC-010`, `TP1-EXEC-BIND-001` th
 the fresh-validator attestation, and the ineffective private draft exactly as recorded on
 2026-10-07. Commit/push is authorized only for the frozen seven-path public inventory. WP-24 may
 activate only after verified publication under the exact separate execution statement.
+
+## WP-23 publication and WP-24 result
+
+WP-23 was published and remotely verified at
+`73b12c2b66b898eb9a43e34d08c6f7d07e84dc43`. WP-24 then activated under the exact controlled
+checkpoint-2 boundary and stopped on its first preflight because the proof process resolved Node
+`v26.3.1` instead of accepted `v22.23.1`; the pnpm launcher separately reported `v24.19.0`.
+
+No image, container, database, service, fixture, proof case, or reproduction ran. Mandatory cleanup
+passed. A later final-verifier invocation correctly rejected the incomplete packet but its pnpm
+launcher unexpectedly rematerialized 115 packages from the local store before the verifier ran.
+Repeated cleanup removed them. All three reviews and the final disposition are `INCONCLUSIVE`.
+WP-24 is closed without retry and establishes no tenant-boundary result.
+
+## WP-25 authorization
+
+The owner accepted the WP-24 stop packet and activated WP-25 for proof-only runtime/dependency
+launcher remediation and static validation. WP-25 may restore the exact reviewed dependencies
+from the existing local store using offline, frozen-lockfile, ignore-scripts controls; correct the
+disposable proof launcher and evidence guards; renew all hashes; and use one fresh independent
+static validator.
+
+Registry/network access, dependency-version change, preflight, images, containers, databases,
+services, TP-01 execution/reproduction, application coding, architecture selection,
+infrastructure, deployment, provider accounts/cost, customer/live data, and Git publication remain
+closed.
+
+### WP-25 validation result
+
+The exact launcher now verifies the accepted pnpm-entry hash before execution, uses the accepted
+Node `v22.23.1` process and pnpm `11.25.0` entry, refuses proof commands when dependencies are
+absent, and preserves dependency metadata during static commands. Structured private evidence
+records an exact offline/frozen/ignore-scripts restoration rerun with status `0`, no hash drift,
+and an isolated missing-dependency refusal with status `1` before pnpm invocation.
+
+The rematerialized proof contains 52 files. Its artifact-inventory SHA-256 is
+`0209ca15cc412e6c0f4d7ef06a7ecb4e74e756c678449f0801deb40c1000ac69`; its supplementary
+content-set SHA-256 is `052c2349f79ef36a06d8619a0747588b353d67d5b0c9df9e1735474d6f8d4d2d`.
+The package, lockfile, and 222-case manifest remain unchanged.
+
+The one authorized independent validator `/root/wp25_static_validator` first returned `FAIL` with
+four actionable static findings. After correction and full hash renewal, the same validator
+returned `PASS` with no unresolved finding and zero mutations. No preflight, image, container,
+database, service, proof, reproduction, application, architecture, infrastructure, deployment,
+provider, customer/live-data, commit, or push action occurred. WP-25 is
+`READY_FOR_OWNER_REVIEW`.
 
 ## Private execution control
 
