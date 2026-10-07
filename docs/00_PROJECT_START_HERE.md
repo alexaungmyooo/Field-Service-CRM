@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-21 accepted for publication; TP-01 execution closed |
+| Status | Product Discovery closed — WP-22 accepted for publication; TP-01 execution closed |
 | Current phase | Technical Proof Preparation — TP-01 checkpoint-2 authorization readiness |
-| Current work package | `WP-21 TP-01 Evidence Completeness Remediation and Rematerialization` — Accepted for publication |
+| Current work package | `WP-22 TP-01 Rematerialized Binding and Checkpoint-2 Authorization Decision` — Accepted for publication |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -74,6 +74,7 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 15. `23_TP01_EXECUTION_ROLES_CHECKPOINT2_AUTHORIZATION.md`
 16. `24_TP01_SECURITY_REVIEW_GOVERNANCE_AMENDMENT.md`
 17. `25_TP01_EVIDENCE_COMPLETENESS_REMEDIATION.md`
+18. `26_TP01_REMATERIALIZED_BINDING_CHECKPOINT2_AUTHORIZATION_DECISION.md`
 
 Current and later accepted work packages may add or mature:
 
@@ -691,6 +692,38 @@ customer/live data.
 
 After verified publication, WP-22 may prepare the exact committed revision/tree/hash binding and
 checkpoint-2 authorization decision for owner review only. Execution remains separately closed.
+
+## WP-21 publication result
+
+The exact 18-path WP-21 public inventory was committed as
+`e824139 WP-21: accept TP-01 evidence rematerialization` and pushed to `origin/main`. Local `HEAD`,
+fetched `origin/main`, and `FETCH_HEAD` were verified at
+`e824139d3050e98c06e39d3663ddcae6ac1d02db`. The committed proof tree is
+`48ef14bb579d0e4b620dad7c7ef6f8c409445050`. WP-21 is `VERIFIED_AND_CLOSED`.
+
+No TP-01 command, dependency operation, image/container/database/service, application code,
+architecture selection, infrastructure, deployment, or customer/live-data operation occurred.
+
+## WP-22 authorization
+
+After verified WP-21 publication, the owner activated `WP-22 TP-01 Rematerialized Binding and
+Checkpoint-2 Authorization Decision` on 2026-10-07 for owner-decision documentation only. WP-22
+may bind the exact published revision, proof tree, artifact/package/lock/manifest hashes, unchanged
+image/runtime contract, role requirements, command order, evidence gates, and an exact future
+checkpoint-2 authorization statement.
+
+WP-22 may not create `authorization.json`, appoint or start an execution subagent, run preflight or
+any proof/runtime command, install dependencies, use images/containers/databases/services, write
+application code, select final architecture, create infrastructure, deploy, or use customer/live
+data.
+
+## WP-22 acceptance
+
+The owner accepted `WP22-DEC-001` through `WP22-DEC-008` and `TP1-REBIND-001` through
+`TP1-REBIND-010` exactly as recorded on 2026-10-07 and authorized publication of the frozen
+seven-path public inventory. The replacement binding is accepted; checkpoint 2 remains separately
+closed. After verified publication, WP-23 may instantiate one fresh reproduction-validator identity
+and prepare the private checkpoint-2 authorization decision for owner review only.
 
 ## Private execution control
 

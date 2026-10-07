@@ -347,15 +347,15 @@ verified WP-19; that checkpoint still grants no execution authority.
 | `TP1-READY-004` | Exact proof/evidence paths and non-scope | Accepted for checkpoint 1 | Materialized only in accepted disposable/private paths |
 | `TP1-READY-005` | Exact context/schema/enforcement-mode contract | Accepted for checkpoint 1 | Materialized as disposable proof mechanics; not executed |
 | `TP1-READY-006` | Exact 222-case matrix and oracle rules | Accepted for checkpoint 1 | 222-case manifest frozen and hashed |
-| `TP1-READY-007` | Exact command/resource/network/cleanup contract | WP-21 remediation materialized; validation pending | Full-packet verifier and pre/post cleanup evidence are now represented but not executed |
+| `TP1-READY-007` | Exact command/resource/network/cleanup contract | Rematerialized and statically inventory-validated; runtime pending | Full-packet verifier and pre/post cleanup evidence are represented but not executed |
 | `TP1-READY-008` | Generated lockfile/transitive/license/advisory inventory | Accepted for checkpoint 1 | Lock, tree, licenses, audit, and hashes recorded |
-| `TP1-READY-009` | Proof source/schema/scripts/case-manifest hashes | Old binding expired; WP-21 renewal pending | The 50-file WP-19 inventory cannot authorize the remediated proof |
+| `TP1-READY-009` | Proof source/schema/scripts/case-manifest hashes | Replacement binding owner-accepted; WP-22 publication pending | WP-21 published 51 files at `e824139d3050e98c06e39d3663ddcae6ac1d02db`; WP-22 freezes the accepted replacement binding |
 | `TP1-READY-010` | Named proof operator | Accepted role class | `TP1-OPERATOR-PRIMARY`; exact execution-turn task identity must be recorded before preflight |
 | `TP1-READY-011` | Named independent validator | Accepted role class; identity pending | Fresh `TP1-VALIDATOR-REPRO` canonical identity must be recorded and differ from operator |
 | `TP1-READY-012` | Independent TP-01 technical security reviewer | Assigned and scope-confirmed | `/root/tp01_security_review`; read-only, no-author, no-operator, no-validator attestation recorded |
 | `TP1-READY-013` | Explicit materialization authorization | Complete | Owner authorized WP-19 checkpoint 1; no execution authority |
-| `TP1-READY-014` | Explicit execution authorization | Not ready | WP-21 remediation is active; publication and a later new exact authorization remain required |
-| `TP1-READY-015` | Complete measured security evidence packet | Materialized, not proven | WP-21 represents measured identity and complete-packet evidence, but execution and runtime validation remain closed |
+| `TP1-READY-014` | Explicit execution authorization | Not ready | Verified WP-22 publication, exact execution identities, private authorization record, and explicit checkpoint-2 statement remain required |
+| `TP1-READY-015` | Complete measured security evidence packet | Materialized and statically inventory-validated; not proven at runtime | WP-21 represents measured identity and complete-packet evidence, but execution and runtime validation remain closed |
 
 ## Risks and stop conditions
 

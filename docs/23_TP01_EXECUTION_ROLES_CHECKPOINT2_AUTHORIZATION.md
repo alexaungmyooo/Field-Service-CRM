@@ -252,3 +252,15 @@ authorization.
 The owner accepted this scoped amendment and all three static findings for publication on
 2026-10-07. This acceptance authorizes documentation publication and later bounded remediation,
 not checkpoint-2 execution.
+
+## WP-21 publication and replacement-binding gate
+
+WP-21 was published and remotely verified at
+`e824139d3050e98c06e39d3663ddcae6ac1d02db`, with proof tree
+`48ef14bb579d0e4b620dad7c7ef6f8c409445050`. The old `TP1-BIND-*` values remain historical only.
+WP-22 records the proposed replacement binding and exact owner decision; this document does not
+itself restore checkpoint-2 readiness or authorize execution.
+
+The owner accepted the complete WP-22 replacement binding and dispositions on 2026-10-07. That
+acceptance supersedes the old binding values but does not authorize checkpoint 2. The fresh
+reproduction-validator identity and effective private execution authorization remain later gates.

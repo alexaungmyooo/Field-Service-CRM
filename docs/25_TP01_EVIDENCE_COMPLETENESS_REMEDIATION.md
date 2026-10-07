@@ -200,3 +200,13 @@ revision/tree/hash binding and checkpoint-2 authorization decision for owner rev
 This acceptance does not authorize TP-01 execution, dependency installation/change, an image,
 container, database, service, application code, final architecture selection, infrastructure,
 deployment, customer/live data, or any proof-result claim.
+
+## Publication result
+
+The frozen 18-path inventory was committed as
+`e824139 WP-21: accept TP-01 evidence rematerialization` and remotely verified at
+`e824139d3050e98c06e39d3663ddcae6ac1d02db`. The resulting proof Git tree is
+`48ef14bb579d0e4b620dad7c7ef6f8c409445050`. Publication did not execute TP-01 or cross any closed
+runtime, product, architecture-selection, infrastructure, deployment, or real-data gate.
+
+WP-21 is `VERIFIED_AND_CLOSED`. WP-22 is activated for owner-decision documentation only.
