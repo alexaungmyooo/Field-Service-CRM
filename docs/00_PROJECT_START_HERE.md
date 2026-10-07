@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-28 verified and closed; WP-29 ready for owner decision |
-| Current phase | Technical Proof Remediated Rebinding and Reauthorization Readiness |
-| Current work package | `WP-29 TP-01 Remediated Rebinding and Reauthorization Readiness` — Ready for Owner Decision |
+| Status | Product Discovery closed — WP-30 Inconclusive and ready for owner review; execution closed |
+| Current phase | Technical Proof Stop Disposition and Remediation Readiness |
+| Current work package | `WP-30 Controlled TP-01 Remediated Execution` — Ready for Owner Review |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -81,6 +81,7 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 22. `30_TP01_CONTROLLED_REAUTHORIZATION_EXECUTION_RESULT.md`
 23. `31_TP01_COMPOSE_CLEANUP_STATIC_REMEDIATION.md`
 24. `32_TP01_REMEDIATED_REBINDING_REAUTHORIZATION_READINESS.md`
+25. `33_TP01_CONTROLLED_REMEDIATED_EXECUTION_RESULT.md`
 
 Current and later accepted work packages may add or mature:
 
@@ -899,6 +900,26 @@ and prepare an explicitly ineffective private draft. Dependencies, preflight, im
 databases, services, cleanup execution, proof/reproduction, application coding, final architecture
 selection, infrastructure, deployment, provider accounts/cost, customer/live data, and WP-29
 publication remain closed.
+
+## WP-29 acceptance, publication, and WP-30 result — 2026-10-07
+
+The owner accepted `WP29-DEC-001` through `010`, `TP1-REMEDIATED-BIND-001` through `020`,
+advanced `WP29-WS-001`, rejected `WP29-WS-002/003`, and accepted the ineffective draft. The
+frozen four-path inventory was committed as `258c225 WP-29: accept TP-01 remediated rebinding` and
+pushed to `origin/main`. Local `HEAD`, cached `origin/main`, and live remote main matched
+`258c2252769d8a046769ae66f315e6db580464c1`.
+
+WP-30 then activated for run `wp30-2026-10-07-01`. Exact binding, offline dependency restoration,
+preflight, accepted-image verification, database start/reset/security capture, and 222-case
+manifest verification passed. The single primary test process exited 1 before producing primary
+result or audit streams. Failed-child stdout was not retained, so the exact assertion is unknown.
+No sealed primary evidence existed and reproduction correctly did not run.
+
+Mandatory cleanup passed and direct residual checks found no resource, process, listener,
+dependency, generated output, or credential. All three reviews are `INCONCLUSIVE`. Final
+verification also failed closed because its frozen Compose check still expected raw `v5.4.0`
+instead of the accepted normalized `5.4.0` plus separate raw evidence. WP-30 establishes no
+tenant-boundary or architecture result, is non-retryable, and is `READY_FOR_OWNER_REVIEW`.
 
 ## Private execution control
 

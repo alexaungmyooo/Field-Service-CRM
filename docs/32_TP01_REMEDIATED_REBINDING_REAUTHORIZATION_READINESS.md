@@ -4,7 +4,7 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Ready for Owner Decision — execution not authorized |
+| Status | Accepted, published, and closed — superseded by stopped WP-30 run |
 | Work package | `WP-29 TP-01 Remediated Rebinding and Reauthorization Readiness` |
 | Governing decisions | `DEC-128`, `DEC-147`, `DEC-155`, `DEC-157`, `DEC-158`, `DEC-159` |
 | Published remediation | WP-28 `VERIFIED_AND_CLOSED` |
@@ -179,6 +179,13 @@ published.
 
 ## Next gate
 
-WP-29 is ready for owner decision and stops here. No staging, commit, push, role creation,
-dependency operation, preflight, runtime resource, cleanup, proof execution, or WP-30 action is
-authorized.
+The owner accepted all twenty bindings, all ten recommendations, workspace option `WP29-WS-001`,
+rejection of `WP29-WS-002/003`, and the ineffective private draft. The frozen four-path inventory
+was committed as `258c225 WP-29: accept TP-01 remediated rebinding` and pushed to `origin/main`.
+Local `HEAD`, cached `origin/main`, and live remote main matched
+`258c2252769d8a046769ae66f315e6db580464c1`. WP-29 is `VERIFIED_AND_CLOSED`.
+
+The owner separately activated WP-30 run `wp30-2026-10-07-01` under the exact dedicated-checkout,
+fresh-role, offline-dependency, authorization, network, sequence, cleanup, stop, and non-scope
+controls recorded here. WP-30 stopped Inconclusive during its primary proof and is documented in
+document 33. No WP-29 draft or prior authorization remains effective.
