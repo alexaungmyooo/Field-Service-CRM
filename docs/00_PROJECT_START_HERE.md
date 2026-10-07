@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-25 ready for owner review; TP-01 execution closed |
-| Current phase | Technical Proof Remediation — TP-01 launcher and dependency controls |
-| Current work package | `WP-25 TP-01 Runtime and Dependency Launcher Remediation` — Ready for Owner Review |
+| Status | Product Discovery closed — WP-26 ready for owner decision; TP-01 execution closed |
+| Current phase | Technical Proof Reauthorization Readiness |
+| Current work package | `WP-26 TP-01 Reauthorization Readiness` — Ready for Owner Decision |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -77,6 +77,7 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 18. `26_TP01_REMATERIALIZED_BINDING_CHECKPOINT2_AUTHORIZATION_DECISION.md`
 19. `27_TP01_EXECUTION_IDENTITIES_CHECKPOINT2_AUTHORIZATION.md`
 20. `28_TP01_RUNTIME_DEPENDENCY_LAUNCHER_REMEDIATION.md`
+21. `29_TP01_REAUTHORIZATION_READINESS.md`
 
 Current and later accepted work packages may add or mature:
 
@@ -797,6 +798,30 @@ returned `PASS` with no unresolved finding and zero mutations. No preflight, ima
 database, service, proof, reproduction, application, architecture, infrastructure, deployment,
 provider, customer/live-data, commit, or push action occurred. WP-25 is
 `READY_FOR_OWNER_REVIEW`.
+
+### WP-25 acceptance and publication result
+
+The owner accepted `WP25-REM-001` through `WP25-REM-009`, `WP25-BIND-001` through
+`WP25-BIND-012`, `WP25-DEC-001` through `WP25-DEC-007`, the 52-file proof inventory, and the
+independent static-validation `PASS`. The exact 11-path public inventory was committed as
+`c588ac4 WP-25: accept TP-01 launcher remediation` and pushed to `origin/main`.
+
+Local `HEAD`, cached `origin/main`, and the live remote main were verified at
+`c588ac4e5b4d3307fbc99ffeadbbc3bbaa27bf6b`. The committed proof tree is
+`0e6b579811f59e13ff869ec40ea1e3bfd4edea49`. WP-25 is `VERIFIED_AND_CLOSED`.
+
+## WP-26 activation — 2026-10-07
+
+After verified WP-25 publication, the owner activated WP-26 for TP-01 reauthorization-readiness
+owner-decision documentation and private authorization preparation only. WP-26 may bind the
+published revision/tree and accepted hashes, analyze execution-workspace/dependency-provisioning
+options, assess role renewal, and prepare one explicitly ineffective private draft.
+
+Dependency installation/restoration/change, preflight, images, containers, databases, services,
+TP-01 execution/reproduction, application coding, final architecture selection, infrastructure,
+deployment, provider accounts/cost, customer/live data, Git publication, and external-system
+mutation remain closed. WP-26 may not create an effective `authorization.json` or instantiate a
+future execution role.
 
 ## Private execution control
 

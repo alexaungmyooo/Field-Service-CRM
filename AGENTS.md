@@ -36,6 +36,7 @@ documents:
 - `docs/26_TP01_REMATERIALIZED_BINDING_CHECKPOINT2_AUTHORIZATION_DECISION.md`
 - `docs/27_TP01_EXECUTION_IDENTITIES_CHECKPOINT2_AUTHORIZATION.md`
 - `docs/28_TP01_RUNTIME_DEPENDENCY_LAUNCHER_REMEDIATION.md`
+- `docs/29_TP01_REAUTHORIZATION_READINESS.md`
 
 Architecture-analysis authorization does not authorize architecture selection. Option documents
 must identify alternatives, evidence, assumptions, risks, unresolved inputs, and reversal cost
@@ -87,6 +88,13 @@ but it does not authorize execution unless the owner explicitly opens that separ
 then, do not create a harness, dependency manifest, schema, container, test environment, provider
 resource, credential, account, or measured result. A proof artifact is disposable evaluation work,
 not application implementation or an accepted dependency.
+
+TP-01 reauthorization readiness must bind a published revision and proof tree, preserve every
+expired run as non-resumable, identify how a dedicated checkout receives its ignored proof
+dependencies, and distinguish an ineffective private draft from an effective execution record.
+Neither a published proof revision nor locally present dependencies authorize preflight or runtime
+work. A later attempt requires a new run identity, fresh effective authorization, exact launcher
+interfaces, mandatory cleanup, and separately accepted execution roles.
 
 An exact proof contract may pin proof-only paths, versions, package integrity, local resources,
 commands, synthetic cases, evidence, reviewers, and cleanup for owner decision. It still does not

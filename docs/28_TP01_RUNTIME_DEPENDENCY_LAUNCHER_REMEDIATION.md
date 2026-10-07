@@ -4,7 +4,7 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Ready for Owner Review — independent static revalidation passed; execution closed |
+| Status | Verified and Closed — published; execution remains closed |
 | Work package | `WP-25 TP-01 Runtime and Dependency Launcher Remediation` |
 | Governing decision | `DEC-155` |
 | Predecessor | WP-24 `INCONCLUSIVE_CLOSED_FOR_OWNER_REVIEW` |
@@ -159,3 +159,18 @@ No file is staged. Commit and push remain unauthorized until later owner accepta
 The corrected frozen inventory passed revalidation by the same single independent static reviewer.
 WP-25 stops at `READY_FOR_OWNER_REVIEW`. Publication and any new checkpoint-2 attempt require
 separate owner gates.
+
+## Owner acceptance and publication result
+
+On 2026-10-07, the owner accepted `WP25-REM-001` through `WP25-REM-009`, `WP25-BIND-001` through
+`WP25-BIND-012`, `WP25-DEC-001` through `WP25-DEC-007`, the 52-file inventory, and the independent
+static-validation `PASS`, then authorized commit and push of exactly the frozen 11 public paths.
+
+The inventory was committed as `c588ac4 WP-25: accept TP-01 launcher remediation`. Local `HEAD`,
+cached `origin/main`, and live remote main were verified at
+`c588ac4e5b4d3307fbc99ffeadbbc3bbaa27bf6b`; the committed proof tree is
+`0e6b579811f59e13ff869ec40ea1e3bfd4edea49`. WP-25 is `VERIFIED_AND_CLOSED`.
+
+WP-26 is activated for reauthorization-readiness documentation and ineffective private
+authorization preparation only. It does not reopen WP-24, authorize dependencies or preflight, or
+grant any TP-01 execution authority.
