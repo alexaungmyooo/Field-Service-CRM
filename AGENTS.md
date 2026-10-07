@@ -37,6 +37,7 @@ documents:
 - `docs/27_TP01_EXECUTION_IDENTITIES_CHECKPOINT2_AUTHORIZATION.md`
 - `docs/28_TP01_RUNTIME_DEPENDENCY_LAUNCHER_REMEDIATION.md`
 - `docs/29_TP01_REAUTHORIZATION_READINESS.md`
+- `docs/30_TP01_CONTROLLED_REAUTHORIZATION_EXECUTION_RESULT.md`
 
 Architecture-analysis authorization does not authorize architecture selection. Option documents
 must identify alternatives, evidence, assumptions, risks, unresolved inputs, and reversal cost
@@ -95,6 +96,12 @@ dependencies, and distinguish an ineffective private draft from an effective exe
 Neither a published proof revision nor locally present dependencies authorize preflight or runtime
 work. A later attempt requires a new run identity, fresh effective authorization, exact launcher
 interfaces, mandatory cleanup, and separately accepted execution roles.
+
+A stopped proof run is immutable evidence, not an invitation to retry. Record the exact stop,
+cleanup, role reviews, final-verifier outcome, and residual state before proposing remediation.
+Cosmetic version-format mismatches may be normalized only through reviewed static remediation that
+still enforces exact semantic versions. Cleanup must remain callable before service start and must
+not depend on secrets or generated environment that may not exist after an early stop.
 
 An exact proof contract may pin proof-only paths, versions, package integrity, local resources,
 commands, synthetic cases, evidence, reviewers, and cleanup for owner decision. It still does not

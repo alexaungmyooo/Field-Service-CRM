@@ -189,3 +189,17 @@ WP-26 stops at owner decision. Acceptance may authorize publication of only the 
 inventory. Publication does not authorize the recommended WP-27 actions; those require a later
 explicit owner statement that names the revision, roles, dependency restoration, runtime sequence,
 network boundary, evidence, cleanup, stop, non-scope, and no-retry controls.
+
+## Owner acceptance, publication, and WP-27 activation
+
+On 2026-10-07, the owner accepted `WP26-DEC-001` through `WP26-DEC-010`,
+`TP1-REAUTH-BIND-001` through `TP1-REAUTH-BIND-016`, advanced `WP26-WS-001`, rejected
+`WP26-WS-002/003`, and accepted the ineffective draft. The exact five public paths were committed
+as `e6ab556 WP-26: accept TP-01 reauthorization readiness` and remotely verified at
+`e6ab556642a2150acaa2002f77fd56b76f24ad6b`. WP-26 is `VERIFIED_AND_CLOSED`.
+
+The owner separately activated WP-27 run `wp27-2026-10-07-01` under the exact dedicated-checkout,
+fresh-role, offline-dependency, effective-authorization, runtime, evidence, review, cleanup,
+network, stop, and non-scope controls recorded here. That authority applied only to the one new run
+and granted no application, architecture, infrastructure, deployment, provider, or customer-data
+authority.

@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-26 ready for owner decision; TP-01 execution closed |
-| Current phase | Technical Proof Reauthorization Readiness |
-| Current work package | `WP-26 TP-01 Reauthorization Readiness` — Ready for Owner Decision |
+| Status | Product Discovery closed — WP-27 Inconclusive and ready for owner review; TP-01 execution closed |
+| Current phase | Technical Proof Stop Disposition and Remediation Readiness |
+| Current work package | `WP-27 Controlled TP-01 Reauthorization and Execution` — Ready for Owner Review |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -78,6 +78,7 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 19. `27_TP01_EXECUTION_IDENTITIES_CHECKPOINT2_AUTHORIZATION.md`
 20. `28_TP01_RUNTIME_DEPENDENCY_LAUNCHER_REMEDIATION.md`
 21. `29_TP01_REAUTHORIZATION_READINESS.md`
+22. `30_TP01_CONTROLLED_REAUTHORIZATION_EXECUTION_RESULT.md`
 
 Current and later accepted work packages may add or mature:
 
@@ -822,6 +823,34 @@ TP-01 execution/reproduction, application coding, final architecture selection, 
 deployment, provider accounts/cost, customer/live data, Git publication, and external-system
 mutation remain closed. WP-26 may not create an effective `authorization.json` or instantiate a
 future execution role.
+
+### WP-26 acceptance and publication result
+
+The owner accepted `WP26-DEC-001` through `WP26-DEC-010`, `TP1-REAUTH-BIND-001` through
+`TP1-REAUTH-BIND-016`, workspace option `WP26-WS-001`, rejection of `WP26-WS-002/003`, and the
+ineffective private draft. The exact five-path public inventory was committed as
+`e6ab556 WP-26: accept TP-01 reauthorization readiness` and pushed to `origin/main`.
+
+Local `HEAD`, cached `origin/main`, and live remote main matched
+`e6ab556642a2150acaa2002f77fd56b76f24ad6b`. WP-26 is `VERIFIED_AND_CLOSED`.
+
+## WP-27 activation and result — 2026-10-07
+
+The owner authorized one new controlled TP-01 attempt, run `wp27-2026-10-07-01`, in a dedicated
+checkout at `c588ac4e5b4d3307fbc99ffeadbbc3bbaa27bf6b`, with one fresh reproduction validator,
+exact offline dependency restoration, a new effective private authorization, the recorded
+checkpoint-2 sequence, conditional exact-image retrieval, and mandatory cleanup.
+
+Dependencies restored from the existing local store with 115 reused and zero downloaded. The
+first preflight then failed closed because Docker Compose reported `5.4.0` while the frozen
+contract required `v5.4.0`. No image, container, database, service, fixture, proof case, or
+reproduction ran.
+
+The first cleanup call exposed a second defect: Compose required bootstrap-password interpolation
+even though no service had started. Cleanup was rerun with a synthetic interpolation-only value and
+passed, leaving no dependency or runtime residue. All three reviews are `INCONCLUSIVE`; final
+verification correctly rejected the incomplete packet. WP-27 establishes no tenant-boundary
+result, is non-retryable, and is `READY_FOR_OWNER_REVIEW`.
 
 ## Private execution control
 
