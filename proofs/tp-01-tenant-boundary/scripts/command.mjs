@@ -1,11 +1,13 @@
 import { spawnSync } from "node:child_process";
+import { homedir } from "node:os";
+import { pathToFileURL } from "node:url";
 
 export const diagnosticCharacterLimit = 8192;
 
 const secretKeyPattern =
   "(?:TP01_(?:BOOTSTRAP|RUNTIME)_PASSWORD|password|secret|token|authorization|api[_-]?key)";
 
-export function sanitizeDiagnosticText(value, sensitiveValues = []) {
+export function sanitizeDiagnosticText(value, sensitiveValues = [], localPaths = []) {
   const text = typeof value === "string" ? value : value == null ? "" : String(value);
   let sanitized = text;
   const exactSensitiveValues = [...new Set(sensitiveValues)]
@@ -13,6 +15,12 @@ export function sanitizeDiagnosticText(value, sensitiveValues = []) {
     .sort((left, right) => right.length - left.length);
   for (const sensitiveValue of exactSensitiveValues) {
     sanitized = sanitized.replaceAll(sensitiveValue, "[REDACTED]");
+  }
+  const exactLocalPaths = [...new Set(localPaths)]
+    .filter((localPath) => typeof localPath === "string" && localPath.length > 0)
+    .sort((left, right) => right.length - left.length);
+  for (const localPath of exactLocalPaths) {
+    sanitized = sanitized.replaceAll(localPath, "[LOCAL_PATH]");
   }
   return sanitized
     .replace(
@@ -47,12 +55,13 @@ export function boundedDiagnosticText(
   value,
   limit = diagnosticCharacterLimit,
   sensitiveValues = [],
+  localPaths = [],
 ) {
   if (!Number.isInteger(limit) || limit < 256) {
     throw new Error("diagnostic character limit must be an integer of at least 256");
   }
   const original = typeof value === "string" ? value : value == null ? "" : String(value);
-  const sanitized = sanitizeDiagnosticText(original, sensitiveValues);
+  const sanitized = sanitizeDiagnosticText(original, sensitiveValues, localPaths);
   const marker = "\n...[SANITIZED DIAGNOSTIC TRUNCATED]...\n";
   let text = sanitized;
   let truncated = false;
@@ -84,11 +93,18 @@ export class CommandExecutionError extends Error {
       environment?.TP01_IMAGE_PULL_AUTHORIZATION_TOKEN,
       environment?.PGPASSWORD,
     ];
-    const stdout = boundedDiagnosticText(result.stdout, diagnosticCharacterLimit, sensitiveValues);
+    const localPaths = [homedir(), process.cwd(), pathToFileURL(process.cwd()).href];
+    const stdout = boundedDiagnosticText(
+      result.stdout,
+      diagnosticCharacterLimit,
+      sensitiveValues,
+      localPaths,
+    );
     const stderr = boundedDiagnosticText(
       result.stderr ?? result.error?.message,
       diagnosticCharacterLimit,
       sensitiveValues,
+      localPaths,
     );
     super(
       `${sanitizeDiagnosticText(command)} failed (${status})` +

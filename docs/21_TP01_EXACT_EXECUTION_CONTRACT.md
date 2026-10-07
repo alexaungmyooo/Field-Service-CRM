@@ -275,6 +275,7 @@ one exact launcher chain:
 | `TP1-CMD-004` | Dependency materialization | `$TP01_NODE_BIN scripts/exact-pnpm.mjs install --offline --frozen-lockfile --ignore-scripts` | Restore exactly the reviewed lockfile from an existing local store only after explicit authorization |
 | `TP1-CMD-005` | Image verification | `$TP01_NODE_BIN scripts/exact-pnpm.mjs run db:verify-image` | Inspect the accepted digest/platform locally first; only if absent and separately authorized by a matching run-bound token, retrieve that exact digest/platform, then record source/network/inspection evidence |
 | `TP1-CMD-006` | Database start | `docker compose up -d --wait postgres` | One healthy bounded digest-pinned local container |
+| `TP1-CMD-006A` | Runtime publication and reachability gate | `$TP01_NODE_BIN scripts/exact-pnpm.mjs run runtime:verify-reachability` | Require exact Docker and Compose agreement on `127.0.0.1:55432 -> 5432/tcp`, healthy running service state, and direct loopback TCP reachability before fixture mutation |
 | `TP1-CMD-007` | Schema/fixture | `$TP01_NODE_BIN scripts/exact-pnpm.mjs run db:reset` | Recreate proof roles/schema/policies/seed and emit deterministic fixture hash |
 | `TP1-CMD-008` | Matrix freeze check | `$TP01_NODE_BIN scripts/exact-pnpm.mjs run matrix:verify` | Exactly 222 unique cases and expected outcomes match the accepted contract/hash |
 | `TP1-CMD-009` | Primary run | `$TP01_NODE_BIN scripts/exact-pnpm.mjs run proof:run` | Execute all cases once and emit raw machine-readable evidence |
@@ -307,6 +308,7 @@ materialization requires a reviewed revision before the primary run.
 | `TP1-EVID-013` | `database-security.json`: measured connection/session identity, role attributes, ownership, privileges, forced-RLS/policy state, security-definer/search-path controls, and transaction-local context |
 | `TP1-EVID-014` | `deviations.json`: explicit empty set or separately reviewed deviations; any unaccepted deviation blocks PASS |
 | `TP1-EVID-015` | `evidence-verification.json`: artifact hashes and complete-packet disposition; interim verification can never report final PASS |
+| `TP1-EVID-016` | `runtime-reachability.json`: run-bound exact Docker/Compose publisher mapping, healthy service state, and direct loopback TCP reachability; a minimized failure artifact replaces it on fail-closed stop |
 
 Each role review must record reviewer identity, canonical task identity, date, method, evidence
 inspected, findings by severity, unresolved risks, exact `PASS`/`FAIL`/`INCONCLUSIVE`

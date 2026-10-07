@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-37 controlled execution under owner review; Inconclusive |
-| Current phase | Technical Proof Controlled Execution Evidence Disposition |
-| Current work package | `WP-37 Controlled TP-01 Conditional Image Execution` |
+| Status | Product Discovery closed — WP-38 host-port/reachability remediation ready for owner review |
+| Current phase | Technical Proof Static Remediation |
+| Current work package | `WP-38 Host-Port Publication and Runtime Reachability Remediation` |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -89,6 +89,7 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 30. `38_TP01_CONDITIONAL_IMAGE_REBINDING_REAUTHORIZATION_READINESS.md`
 31. `39_TP01_EXECUTION_IDENTITY_CONDITIONAL_PULL_AUTHORIZATION_READINESS.md`
 32. `40_TP01_CONTROLLED_CONDITIONAL_IMAGE_EXECUTION_RESULT.md`
+33. `41_TP01_HOST_PORT_RUNTIME_REACHABILITY_STATIC_REMEDIATION.md`
 
 Current and later accepted work packages may add or mature:
 
@@ -927,6 +928,34 @@ dependency, generated output, or credential. All three reviews are `INCONCLUSIVE
 verification also failed closed because its frozen Compose check still expected raw `v5.4.0`
 instead of the accepted normalized `5.4.0` plus separate raw evidence. WP-30 establishes no
 tenant-boundary or architecture result, is non-retryable, and is `READY_FOR_OWNER_REVIEW`.
+
+## WP-37 acceptance, publication, and WP-38 activation — 2026-10-07
+
+The owner accepted the WP-37 Inconclusive disposition, `WP37-DEV-001`, all three role reviews,
+mandatory cleanup and residual verification, fail-closed final verification, the 22-entry private
+evidence inventory, `WP37-REM-001` through `007`, and `WP37-DEC-001` through `007`. WP-37 is closed
+without retry.
+
+The exact four-path public inventory was committed as
+`6482489 WP-37: record controlled conditional image execution` and pushed to `origin/main`. Local
+`HEAD`, cached `origin/main`, and live remote main matched
+`6482489284daef2f7f250912a94aec9819e10a88`. WP-37 is `VERIFIED_AND_CLOSED`.
+
+WP-38 is active for proof-only static remediation. It may correct the disposable publication
+interface, add exact Docker/Compose publisher and loopback-reachability controls, minimize failure
+diagnostics, renew proof hashes, and use exactly one fresh independent static validator after
+freeze. Dependencies, preflight, images, Docker/Compose runtime, containers, databases, services,
+cleanup execution, proof/reproduction, application coding, architecture selection, infrastructure,
+deployment, provider accounts/cost, customer/live data, network, and WP-38 publication remain
+closed.
+
+WP-38 now expresses exact long-form loopback publication on a dedicated bridge with IP
+masquerading disabled, requires Docker/Compose/TCP agreement before database reset, binds that
+evidence to the authorized package/run, and redacts local home/worktree paths before bounded
+diagnostic retention. Exact Node v22.23.1 syntax and both dependency-free tests pass. The renewed
+inventory contains 60 proof files. Fresh validator `/root/wp38_static_validator` returned `PASS`
+with no high, medium, or low finding and zero public/proof mutation. Actual Docker publication and
+no-egress behavior remain unmeasured. WP-38 is `READY_FOR_OWNER_REVIEW`.
 
 ## WP-30 acceptance, publication, and WP-31 activation — 2026-10-07
 

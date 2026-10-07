@@ -11,7 +11,10 @@ services:
       POSTGRES_PASSWORD: ${TP01_BOOTSTRAP_PASSWORD:?TP01_BOOTSTRAP_PASSWORD is required}
       PGDATA: /var/lib/postgresql/data/pgdata
     ports:
-      - "127.0.0.1:55432:5432"
+      - target: 5432
+        published: "55432"
+        host_ip: "127.0.0.1"
+        protocol: tcp
     networks:
       - tp01_internal
     volumes:
@@ -28,7 +31,9 @@ services:
 
 networks:
   tp01_internal:
-    internal: true
+    driver: bridge
+    driver_opts:
+      com.docker.network.bridge.enable_ip_masquerade: "false"
 
 volumes:
   tp01_postgres_data:

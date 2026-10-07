@@ -2,12 +2,17 @@ import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { run } from "./command.mjs";
 import { assertExecutionAuthorized } from "./execution-authorization.mjs";
+import { assertRuntimeReachabilityEvidence } from "./runtime-reachability-contract.mjs";
 import {
   captureDatabaseSecurityEvidence,
   captureFixtureEvidence,
 } from "./database-evidence.mjs";
 
-const { evidenceDirectory } = assertExecutionAuthorized();
+const { authorization, evidenceDirectory } = assertExecutionAuthorized();
+assertRuntimeReachabilityEvidence(
+  JSON.parse(readFileSync(resolve(evidenceDirectory, "runtime-reachability.json"), "utf8")),
+  authorization,
+);
 const runtimePassword = process.env.TP01_RUNTIME_PASSWORD;
 if (!runtimePassword) throw new Error("TP01_RUNTIME_PASSWORD is required");
 for (const name of ["001_roles.sql", "002_schema.sql", "003_rls.sql", "004_seed.sql"]) {

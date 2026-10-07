@@ -7,26 +7,71 @@ This directory materializes checkpoint 1 of the accepted TP-01 contract in
 
 ## Current authorization
 
-WP-34 authorizes proof-only conditional image-verification and registry-gate remediation with
-dependency-free static validation. It permits:
+WP-38 authorizes proof-only host-port publication, runtime-reachability, and diagnostic-minimization
+remediation with dependency-free static validation. It permits:
 
-- splitting local exact-digest inspection from conditional registry retrieval;
-- requiring a private run-bound pull token only when the accepted digest is absent;
-- recording whether the accepted image came from local cache or an authorized pull, whether
-  registry access occurred, and the exact digest/platform inspection;
+- correcting the disposable Compose publication interface while preserving exact loopback-only
+  exposure and disabled bridge masquerading;
+- adding exact Docker and Compose publisher-mapping checks plus a bounded TCP reachability gate;
+- requiring accepted run-bound reachability evidence before database reset and final evidence
+  verification;
+- redacting local home/worktree paths from bounded failed-child diagnostics;
 - built-in-only syntax, pure-contract, hashing, inventory, and scope checks;
 - renewing static evidence and artifact hashes; and
 - one fresh independent read-only static validation after the inventory is frozen.
 
-WP-34 does **not** authorize dependencies, preflight, Docker/Compose commands, image inspection or
-retrieval, containers, databases, services, SQL, fixtures, listeners, cleanup execution, a TP-01
-case or reproduction, execution-evidence verification, application code, architecture selection,
-infrastructure, deployment, provider accounts or cost, or customer/live data.
+WP-38 does **not** authorize dependencies, package-manager operations, preflight, Docker/Compose
+commands, image inspection or retrieval, containers, databases, services, SQL, fixtures,
+listeners, cleanup execution, a TP-01 case or reproduction, execution-evidence verification,
+application code, architecture selection, infrastructure, deployment, provider accounts or cost,
+customer/live data, or network access.
 
 The execution-facing scripts fail closed. They require later-package environment controls and a
 matching private `authorization.json` with status `ACCEPTED_FOR_EXECUTION`. The remediated
 inventory must be independently reviewed, owner-accepted, committed, published, and bound to a
 later exact execution revision before any execution-facing command may run.
+
+## WP-38 publication and runtime-reachability contract
+
+WP-37 measured an internally healthy PostgreSQL container whose accepted host endpoint was absent.
+The prior Compose source combined an internal-only network with a required host publication; the
+runtime reported target port `5432` but `PublishedPort: 0`. WP-38 removes that contradictory
+interface, uses explicit long-form loopback publication, and disables bridge IP masquerading to
+retain a no-egress proof network.
+
+A later authorized execution must run `runtime:verify-reachability` immediately after Compose
+reports healthy and before `db:reset`. The gate requires all three independent observations:
+
+- Docker inspect contains exactly `5432/tcp -> 127.0.0.1:55432`;
+- Compose reports exactly one healthy running `postgres` publisher with the same mapping; and
+- a bounded TCP connection to `127.0.0.1:55432` succeeds.
+
+Failure writes a minimized `runtime-reachability-failure.json` and stops before fixture mutation.
+Success writes run/package-bound `runtime-reachability.json`; both `db:reset` and the final evidence
+verifier reject missing, stale, wildcard, wrong-port, zero-port, unhealthy, or unreachable state.
+Static validation cannot establish that Docker Desktop will publish the corrected interface; that
+remains a separately authorized runtime measurement.
+
+Failed-child sanitization now removes the local home/worktree path before bounded retention, in
+addition to the existing credential, bearer, connection-string, and secret-shaped redactions.
+
+WP-38 dependency-free static checks are:
+
+```text
+$TP01_NODE_BIN --check scripts/runtime-reachability-contract.mjs
+$TP01_NODE_BIN --check scripts/runtime-reachability-contract.test.mjs
+$TP01_NODE_BIN --check scripts/runtime-reachability.mjs
+$TP01_NODE_BIN --check scripts/command.mjs
+$TP01_NODE_BIN --check scripts/command.test.mjs
+$TP01_NODE_BIN --check scripts/db-reset.mjs
+$TP01_NODE_BIN --check scripts/evidence-verify.mjs
+$TP01_NODE_BIN scripts/runtime-reachability-contract.test.mjs
+$TP01_NODE_BIN scripts/command.test.mjs
+$TP01_NODE_BIN scripts/hash-inventory.mjs
+```
+
+These commands do not invoke dependencies, preflight, Docker/Compose, cleanup, evidence
+verification, or a proof/reproduction path.
 
 ## WP-34 conditional image-verification contract
 

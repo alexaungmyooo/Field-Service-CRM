@@ -37,6 +37,14 @@ assert.equal(
   ),
   "pull [REDACTED]",
 );
+assert.equal(
+  sanitizeDiagnosticText(
+    "file:///Users/example/.codex/worktrees/proof/script.mjs",
+    [],
+    ["/Users/example"],
+  ),
+  "file://[LOCAL_PATH]/.codex/worktrees/proof/script.mjs",
+);
 
 const oversized = `${"head".repeat(3000)}${"tail".repeat(3000)}`;
 const bounded = boundedDiagnosticText(oversized);
@@ -102,4 +110,15 @@ assert.equal(spawnFailure.diagnostic.argumentCount, 1);
 assert.equal(JSON.stringify(spawnFailure.diagnostic).includes(argvOnlySecret), false);
 assert.equal(spawnFailure.message.includes(argvOnlySecret), false);
 
-process.stdout.write("WP-31 command diagnostic static tests passed\n");
+let localPathFailure;
+try {
+  run(process.execPath, ["-e", "process.stderr.write(process.cwd());process.exit(10)"]);
+} catch (error) {
+  localPathFailure = error;
+}
+assert.equal(localPathFailure instanceof CommandExecutionError, true);
+assert.equal(localPathFailure.diagnostic.stderr.text.includes(process.cwd()), false);
+assert.match(localPathFailure.diagnostic.stderr.text, /\[LOCAL_PATH\]/);
+assert.equal(localPathFailure.diagnostic.stderr.sanitizationApplied, true);
+
+process.stdout.write("WP-38 command diagnostic static tests passed\n");

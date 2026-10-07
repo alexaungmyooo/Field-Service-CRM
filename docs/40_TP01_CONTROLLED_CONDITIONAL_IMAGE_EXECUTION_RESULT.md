@@ -4,7 +4,7 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Ready for Owner Review — Inconclusive; no retry |
+| Status | Accepted, published, and closed — Inconclusive; no retry |
 | Work package | `WP-37 Controlled TP-01 Conditional Image Execution` |
 | Run ID | `wp37-2026-10-07-01` |
 | Governing decision | `DEC-167` |
@@ -113,25 +113,25 @@ The effective authorization was consumed and expired at the stop. WP-37 is non-r
 
 | ID | Control | Status |
 | --- | --- | --- |
-| `WP37-REM-001` | Preserve WP-37 and its 22-entry packet as immutable Inconclusive evidence; never retry or reinterpret it as a tenant-boundary result. | Proposed |
-| `WP37-REM-002` | Add a post-start, pre-fixture reachability gate that requires the exact loopback endpoint to accept a database connection before any primary measurement. | Proposed |
-| `WP37-REM-003` | Verify the effective Docker publisher mapping from runtime inspection and require exact `127.0.0.1:55432 -> 5432/tcp`; reject missing, wildcard, wrong-port, or zero-port publication. | Proposed |
-| `WP37-REM-004` | Keep container-internal health and host reachability as separate evidence controls; neither may substitute for the other. | Proposed |
-| `WP37-REM-005` | Retain only bounded sanitized publisher and connection diagnostics on failure; redact local user/worktree paths and exclude credentials, raw environment, and unrestricted logs. | Proposed |
-| `WP37-REM-006` | Diagnose and correct the disposable proof's publication interface, add dependency-free static contract tests where possible, and require controlled runtime validation only under a later explicit gate. | Proposed |
-| `WP37-REM-007` | Renew all affected proof hashes and obtain one fresh independent static validator before any new rebinding or execution decision. | Proposed |
+| `WP37-REM-001` | Preserve WP-37 and its 22-entry packet as immutable Inconclusive evidence; never retry or reinterpret it as a tenant-boundary result. | Accepted |
+| `WP37-REM-002` | Add a post-start, pre-fixture reachability gate that requires the exact loopback endpoint to accept a database connection before any primary measurement. | Accepted |
+| `WP37-REM-003` | Verify the effective Docker publisher mapping from runtime inspection and require exact `127.0.0.1:55432 -> 5432/tcp`; reject missing, wildcard, wrong-port, or zero-port publication. | Accepted |
+| `WP37-REM-004` | Keep container-internal health and host reachability as separate evidence controls; neither may substitute for the other. | Accepted |
+| `WP37-REM-005` | Retain only bounded sanitized publisher and connection diagnostics on failure; redact local user/worktree paths and exclude credentials, raw environment, and unrestricted logs. | Accepted |
+| `WP37-REM-006` | Diagnose and correct the disposable proof's publication interface, add dependency-free static contract tests where possible, and require controlled runtime validation only under a later explicit gate. | Accepted |
+| `WP37-REM-007` | Renew all affected proof hashes and obtain one fresh independent static validator before any new rebinding or execution decision. | Accepted |
 
 ## Recommended owner dispositions
 
 | ID | Recommendation | Status |
 | --- | --- | --- |
-| `WP37-DEC-001` | Accept the WP-37 Inconclusive disposition and `WP37-DEV-001` exactly as recorded. | Proposed |
-| `WP37-DEC-002` | Accept the three Inconclusive role reviews, skipped reproduction, and fail-closed final-verifier result. | Proposed |
-| `WP37-DEC-003` | Accept mandatory cleanup, direct residual verification, runtime-credential removal, and worktree archival as passed. | Proposed |
-| `WP37-DEC-004` | Close WP-37 without retry and accept that it establishes no tenant-boundary, security, or architecture result. | Proposed |
-| `WP37-DEC-005` | Accept `WP37-REM-001` through `007` as the next bounded remediation proposal. | Proposed |
-| `WP37-DEC-006` | After verified WP-37 publication, activate WP-38 for proof-only host-port publication and reachability remediation, renewed hashes, and one fresh independent static validator. | Proposed |
-| `WP37-DEC-007` | Keep dependencies, preflight, images, Docker/Compose runtime, containers, databases, services, cleanup execution, proof/reproduction, application coding, final architecture selection, infrastructure, deployment, provider accounts/cost, and customer/live data closed during WP-38. | Proposed |
+| `WP37-DEC-001` | Accept the WP-37 Inconclusive disposition and `WP37-DEV-001` exactly as recorded. | Accepted |
+| `WP37-DEC-002` | Accept the three Inconclusive role reviews, skipped reproduction, and fail-closed final-verifier result. | Accepted |
+| `WP37-DEC-003` | Accept mandatory cleanup, direct residual verification, runtime-credential removal, and worktree archival as passed. | Accepted |
+| `WP37-DEC-004` | Close WP-37 without retry and accept that it establishes no tenant-boundary, security, or architecture result. | Accepted |
+| `WP37-DEC-005` | Accept `WP37-REM-001` through `007` as the next bounded remediation proposal. | Accepted |
+| `WP37-DEC-006` | After verified WP-37 publication, activate WP-38 for proof-only host-port publication and reachability remediation, renewed hashes, and one fresh independent static validator. | Accepted |
+| `WP37-DEC-007` | Keep dependencies, preflight, images, Docker/Compose runtime, containers, databases, services, cleanup execution, proof/reproduction, application coding, final architecture selection, infrastructure, deployment, provider accounts/cost, and customer/live data closed during WP-38. | Accepted |
 
 ## Frozen WP-37 public inventory
 
@@ -145,9 +145,14 @@ Owner review and any later publication authorization apply only to these four pa
 Private authorization, credentials, command evidence, reviews, diagnostics, and inventories remain
 ignored under `internal-local/` and must not be published.
 
-## Next gate
+## Acceptance, publication, and next gate
 
-WP-37 stops at owner evidence disposition. No retry, remediation, dependency/runtime action,
-proof/reproduction, commit, push, or later package is authorized. If the owner accepts the complete
-packet and proposed dispositions, the exact frozen four-path public inventory may be published;
-only after verified publication may WP-38 be activated under a new explicit scope.
+The owner accepted the complete Inconclusive packet, `WP37-DEV-001`, all three role reviews,
+cleanup and residual verification, fail-closed final verification, the 22-entry private inventory,
+all seven remediation controls, and all seven decisions. The exact four-path inventory was
+committed as `6482489 WP-37: record controlled conditional image execution` and pushed to
+`origin/main`; local `HEAD`, cached `origin/main`, and live remote main matched
+`6482489284daef2f7f250912a94aec9819e10a88`. WP-37 is `VERIFIED_AND_CLOSED` without retry.
+
+WP-38 is active for proof-only static remediation. Runtime actions and WP-38 publication remain
+closed.

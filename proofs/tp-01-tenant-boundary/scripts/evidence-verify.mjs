@@ -7,6 +7,7 @@ import {
   assertComposeEvidenceContract,
   expectedComposeSemanticVersion,
 } from "./remediation-contract.mjs";
+import { assertRuntimeReachabilityEvidence } from "./runtime-reachability-contract.mjs";
 
 const { authorization: executionAuthorization, packageId, evidenceDirectory } =
   assertExecutionAuthorized();
@@ -246,6 +247,7 @@ function verifyState(name, expectedRun) {
 const authorization = readJson("authorization.json");
 const environment = readJson("environment.json");
 const image = readJson("image.json");
+const runtimeReachability = readJson("runtime-reachability.json");
 const fixture = readJson("fixture.json");
 const databaseSecurity = readJson("database-security.json");
 const supplyChain = readJson("supply-chain.json");
@@ -288,6 +290,7 @@ if (
 ) throw new Error("authorization, environment, inventory, revision, or manifest binding differs");
 
 assertImageEvidence(image, executionAuthorization);
+assertRuntimeReachabilityEvidence(runtimeReachability, executionAuthorization);
 
 const expectedCounts = {
   organizations: 4,

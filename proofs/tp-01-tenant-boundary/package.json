@@ -18,6 +18,7 @@
     "evidence:static": "node scripts/checkpoint-static-evidence.mjs",
     "evidence:hash": "node scripts/hash-inventory.mjs",
     "db:verify-image": "node scripts/db-verify-image.mjs",
+    "runtime:verify-reachability": "node scripts/runtime-reachability.mjs",
     "db:reset": "node scripts/db-reset.mjs",
     "proof:run": "node scripts/proof-run.mjs primary-results.jsonl",
     "proof:reproduce": "node scripts/proof-run.mjs reproduction-results.jsonl",
