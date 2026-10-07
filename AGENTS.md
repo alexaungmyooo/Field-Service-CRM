@@ -26,6 +26,7 @@ documents:
 - `docs/16_QUALITY_BASELINE_ARCHITECTURE_SHORTLIST_DECISION.md`
 - `docs/17_TECHNOLOGY_CATEGORY_PROVIDER_NEUTRAL_EVALUATION.md`
 - `docs/18_BUDGET_GEOGRAPHY_TEAM_FIT_NAMED_CANDIDATE_SHORTLIST.md`
+- `docs/19_NAMED_CANDIDATE_PROOF_SPECIFICATIONS_ARCHITECTURE_DECISION_READINESS.md`
 
 Architecture-analysis authorization does not authorize architecture selection. Option documents
 must identify alternatives, evidence, assumptions, risks, unresolved inputs, and reversal cost
@@ -64,6 +65,13 @@ Named-candidate analysis must use dated authoritative evidence, distinguish adve
 from a production cost model, and record geography, lifecycle, team fit, operational ownership,
 exit cost, missing evidence, and proof needs. A shortlist disposition does not install, select, or
 approve a candidate.
+
+Proof specifications must keep proof design, execution authorization, measured evidence,
+independent review, architecture decision, and implementation authorization as separate states.
+A proof plan does not authorize an account, cost, dependency, test environment, credential,
+customer data, executable prototype, or provider configuration. Every later proof authorization
+must freeze the exact candidate/version/configuration, synthetic fixture, cost and duration limits,
+authorized paths/accounts, reviewers, evidence location, cleanup, and stop conditions.
 
 ## Current authorization boundary
 

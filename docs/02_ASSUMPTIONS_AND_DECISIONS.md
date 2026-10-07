@@ -169,6 +169,11 @@ Accepted.
 | `DEC-119` | Treat Android as the mandatory first installed Technician target, keep iOS build compatibility for a later release decision, and keep Customer and Management delivery web-first. | This limits initial distribution cost while preserving the shared multi-platform and branded-delivery path. | Accepted |
 | `DEC-120` | Limit the initial maintained application stack to the team's evidenced TypeScript/Node/React and Dart/Flutter families unless a candidate proves a material gate advantage. | Reusing demonstrated delivery skills reduces learning and operating load for an owner-led team. | Accepted |
 | `DEC-121` | Advance a portable TypeScript/Flutter/PostgreSQL core and a small Singapore provider shortlist only for later proof planning; do not treat any candidate as selected. | The shortlist must narrow evaluation without bypassing tenant, offline, evidence, recovery, cost, or independent-review gates. | Accepted |
+| `DEC-122` | Approve `WP-16 Named Candidate Proof Specifications and Architecture Decision Readiness` for documentation and proof planning only after verified WP-15 publication. | The owner authorized bounded proof design while keeping proof execution, final selection, dependencies, coding, infrastructure, and deployment closed. | Accepted |
+| `DEC-123` | Require each technical proof to be independently authorizable, bounded, falsifiable, reproducible, evidence-producing, cost-limited, and reversible. | A general prototype can create sunk-cost preference without establishing whether a mandatory architecture gate passes. | Accepted |
+| `DEC-124` | Compare advancing provider candidates with the same portable workload, synthetic data profile, measurement method, and mandatory pass/fail gates before weighted preference scoring. | Candidate-specific demonstrations are not comparable and may hide tenant, recovery, cost, or exit failures. | Accepted |
+| `DEC-125` | Keep raw proof evidence private and immutable enough for review while publishing only sanitized conclusions and architecture-decision consequences. | Logs, traces, screenshots, credentials, provider identifiers, and security failure detail may be sensitive even when data is synthetic. | Accepted |
+| `DEC-126` | Prohibit final architecture selection until every applicable mandatory gate has a reviewed disposition and every unresolved exception names an owner, consequence, and later gate. | A score or familiar stack must not override a failed trust boundary or an unowned critical risk. | Accepted |
 
 ## Open decision register
 
@@ -261,6 +266,9 @@ Accepted.
 | `OPEN-094` | Which managed identity candidate satisfies tenant mapping, account recovery, support access, export, pricing, and fail-safe session requirements? | Security review and later proof | Identity selection |
 | `OPEN-095` | What measured evidence size, retention, retrieval, and egress profile should drive object-storage cost and lifecycle comparison? | Product, privacy, and cost review | Provider cost model |
 | `OPEN-096` | Which exact database access and offline storage libraries best preserve tenant enforcement, migrations, encryption, and testability? | Architecture/security review and later proof | Dependency selection |
+| `OPEN-097` | Which named people or qualified external reviewers will perform the required security, privacy/legal, field-device, recovery, accessibility, accounting, and operations reviews? | Product owner | Proof authorization and architecture acceptance |
+| `OPEN-098` | Which isolated provider accounts, billing owner, spending alerts, credential custody, and deletion-verification process may be used for authorized proofs? | Product owner, security, and finance review | Any paid or hosted proof authorization |
+| `OPEN-099` | Which exact Android devices, OS versions, Myanmar network profiles, Myanmar/English corpus, and accessibility test tools form the accepted field proof matrix? | Product owner, field-device, domain, and accessibility review | Field/offline proof authorization |
 
 ## Resolved question register
 

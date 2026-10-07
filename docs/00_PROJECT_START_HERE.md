@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-15 accepted for publication |
-| Current phase | Solution Architecture — Budget, geography, team fit, and named shortlist |
-| Current work package | `WP-15 Budget, Geography, Team Fit and Named Candidate Shortlist` — Accepted for publication |
+| Status | Product Discovery closed — WP-16 accepted for publication |
+| Current phase | Solution Architecture — Named-candidate proof specifications and decision readiness |
+| Current work package | `WP-16 Named Candidate Proof Specifications and Architecture Decision Readiness` — Accepted for publication |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -67,6 +67,7 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 8. `16_QUALITY_BASELINE_ARCHITECTURE_SHORTLIST_DECISION.md`
 9. `17_TECHNOLOGY_CATEGORY_PROVIDER_NEUTRAL_EVALUATION.md`
 10. `18_BUDGET_GEOGRAPHY_TEAM_FIT_NAMED_CANDIDATE_SHORTLIST.md`
+11. `19_NAMED_CANDIDATE_PROOF_SPECIFICATIONS_ARCHITECTURE_DECISION_READINESS.md`
 
 Current and later accepted work packages may add or mature:
 
@@ -451,6 +452,27 @@ accepted shortlist controls, not final technology or architecture selections. Af
 publication, WP-16 may specify named-candidate proofs and architecture-decision readiness only.
 Technical-proof execution, dependency installation, application coding, final architecture
 selection, infrastructure creation, and deployment remain closed.
+
+## WP-16 authorization
+
+After verified WP-15 publication, the owner authorized `WP-16 Named Candidate Proof
+Specifications and Architecture Decision Readiness` on 2026-10-07 for documentation and proof
+planning only. WP-16 may define bounded proof specifications, synthetic fixtures, pass/fail
+criteria, evidence and review requirements, cost/duration controls, sequencing, cleanup, and the
+evidence needed for each candidate architecture decision. It may not authorize or execute a proof,
+open or change a provider account, incur cost, install a dependency, create executable code or
+infrastructure, select a final architecture, deploy, or use customer/live data.
+
+## WP-16 acceptance
+
+The owner accepted WP-16 on 2026-10-07 and authorized publication. Acceptance confirms the proof
+state model, common proof contract, comparable-candidate envelope, synthetic fixtures, twelve proof
+specifications, WP-15 proof traceability, evidence and review plan, proof-wave dependencies,
+cost/cleanup controls, fifteen architecture-decision readiness rows, evidence-packet requirements,
+selection-readiness rules, risks, unresolved inputs, and the `NOT_READY` selection verdict.
+`DEC-123` through `DEC-126` become accepted proof-governance baselines. Acceptance does not
+authorize any proof, executable artifact, dependency, provider account, cost, infrastructure,
+final architecture selection, application coding, deployment, or customer/live-data use.
 
 ## Private execution control
 
