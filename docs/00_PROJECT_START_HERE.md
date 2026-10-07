@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-31 static remediation ready for owner review |
-| Current phase | Technical Proof Static Remediation |
-| Current work package | `WP-31 Failure-Diagnostic Retention and Final-Verifier Consistency Remediation` — Ready for Owner Review |
+| Status | Product Discovery closed — WP-32 reauthorization readiness under owner review |
+| Current phase | Technical Proof Rebinding and Reauthorization Readiness |
+| Current work package | `WP-32 TP-01 Remediated Rebinding and Reauthorization Readiness` |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -83,6 +83,7 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 24. `32_TP01_REMEDIATED_REBINDING_REAUTHORIZATION_READINESS.md`
 25. `33_TP01_CONTROLLED_REMEDIATED_EXECUTION_RESULT.md`
 26. `34_TP01_FAILURE_DIAGNOSTIC_FINAL_VERIFIER_STATIC_REMEDIATION.md`
+27. `35_TP01_DIAGNOSTIC_REBINDING_REAUTHORIZATION_READINESS.md`
 
 Current and later accepted work packages may add or mature:
 
@@ -949,6 +950,24 @@ tests passed; the renewed inventory contains 55 files. The single fresh independ
 found three static gaps across its review passes; all were corrected with complete hash renewal,
 and the same validator returned `PASS` with no unresolved finding and zero mutation. WP-31 is
 `READY_FOR_OWNER_REVIEW` and establishes no runtime, tenant-boundary, or architecture result.
+
+## WP-31 acceptance, publication, and WP-32 activation — 2026-10-07
+
+The owner accepted `WP31-REM-001` through `007`, `WP31-BIND-001` through `021`,
+`WP31-DEC-001` through `006`, the renewed 55-file inventory, and the independent static-validation
+`PASS`. The frozen eleven-path inventory was committed as
+`f1705e9 WP-31: accept diagnostic verifier remediation` and pushed to `origin/main`.
+
+Local `HEAD`, cached `origin/main`, and live remote main matched
+`f1705e93ec6e3e1433e7ec1aba5fd803bb312b2c`; the committed proof tree is
+`d360f992f0e082e80dded4de790efe3511546c77`. WP-31 is `VERIFIED_AND_CLOSED`.
+
+WP-32 is active for owner-decision documentation and explicitly ineffective private authorization
+preparation only. It may bind the exact published revision/tree/hashes, preserve stopped-run
+history, analyze future workspace/role/dependency readiness, and prepare a draft that cannot satisfy
+the execution guard. Dependencies, preflight, images, containers, databases, services, cleanup,
+proof/reproduction, application coding, final architecture selection, infrastructure, deployment,
+provider accounts/cost, customer/live data, and WP-32 publication remain closed.
 
 ## Private execution control
 

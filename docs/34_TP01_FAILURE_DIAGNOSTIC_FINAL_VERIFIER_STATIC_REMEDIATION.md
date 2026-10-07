@@ -4,13 +4,13 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Ready for Owner Review — independent static validation PASS |
+| Status | Accepted, published, and closed — independent static validation PASS |
 | Work package | `WP-31 Failure-Diagnostic Retention and Final-Verifier Consistency Remediation` |
 | Governing decision | `DEC-161` |
 | Owner | Aung Myo Oo |
 | Date | 2026-10-07 |
 | Runtime execution | Closed |
-| Publication | Not authorized |
+| Publication | Verified at `f1705e93ec6e3e1433e7ec1aba5fd803bb312b2c` |
 
 ## Objective
 
@@ -104,12 +104,12 @@ dependency-free tests passed. The validator made zero mutation.
 
 | ID | Recommendation | Status |
 | --- | --- | --- |
-| `WP31-DEC-001` | Accept `WP31-REM-001` through `WP31-REM-007` as the bounded correction of `WP30-DEV-002/003`. | Proposed |
-| `WP31-DEC-002` | Accept the renewed proof inventory and independent static-validation result exactly as recorded after freeze. | Proposed |
-| `WP31-DEC-003` | Preserve WP-30 as immutable Inconclusive evidence; do not infer the former failing assertion or retry that run. | Proposed |
-| `WP31-DEC-004` | Treat WP-31 as static harness evidence only, with no tenant-boundary, architecture, dependency, or execution result. | Proposed |
-| `WP31-DEC-005` | Require a later owner package to bind any future decision to the published WP-31 revision/tree and renewed hashes; do not authorize execution here. | Proposed |
-| `WP31-DEC-006` | Keep every dependency, runtime-resource, application, architecture-selection, infrastructure, deployment, provider, and customer/live-data gate closed. | Proposed |
+| `WP31-DEC-001` | Accept `WP31-REM-001` through `WP31-REM-007` as the bounded correction of `WP30-DEV-002/003`. | Accepted |
+| `WP31-DEC-002` | Accept the renewed proof inventory and independent static-validation result exactly as recorded after freeze. | Accepted |
+| `WP31-DEC-003` | Preserve WP-30 as immutable Inconclusive evidence; do not infer the former failing assertion or retry that run. | Accepted |
+| `WP31-DEC-004` | Treat WP-31 as static harness evidence only, with no tenant-boundary, architecture, dependency, or execution result. | Accepted |
+| `WP31-DEC-005` | Require a later owner package to bind any future decision to the published WP-31 revision/tree and renewed hashes; do not authorize execution here. | Accepted |
+| `WP31-DEC-006` | Keep every dependency, runtime-resource, application, architecture-selection, infrastructure, deployment, provider, and customer/live-data gate closed. | Accepted |
 
 ## Frozen public inventory
 
@@ -130,7 +130,14 @@ Owner review and any later publication authorization apply only to these eleven 
 Private authorization and validation evidence remain ignored under `internal-local/` and must not
 be published.
 
-## Next gate
+## Acceptance and publication
 
-WP-31 stops after renewed hash binding and one fresh independent static validation. Commit, push,
-execution, or any later binding package requires a new owner acceptance.
+The owner accepted all seven remediation controls, all twenty-one bindings, all six dispositions,
+the 55-file inventory, and the independent `PASS`. The exact eleven-path public inventory was
+committed as `f1705e9 WP-31: accept diagnostic verifier remediation` and pushed to `origin/main`.
+Local `HEAD`, cached `origin/main`, and live remote main matched
+`f1705e93ec6e3e1433e7ec1aba5fd803bb312b2c`; committed proof tree is
+`d360f992f0e082e80dded4de790efe3511546c77`. WP-31 is `VERIFIED_AND_CLOSED`.
+
+WP-32 is separately active for published rebinding and ineffective private authorization
+preparation only. No WP-31 artifact or prior authorization grants execution authority.
