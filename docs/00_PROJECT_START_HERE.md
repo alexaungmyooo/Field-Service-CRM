@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-34 ready for owner review |
-| Current phase | Technical Proof Static Remediation |
-| Current work package | `WP-34 Conditional Image Verification and Registry-Gate Remediation` — Ready for Owner Review |
+| Status | Product Discovery closed — WP-35 reauthorization readiness under owner review |
+| Current phase | Technical Proof Rebinding and Reauthorization Readiness |
+| Current work package | `WP-35 TP-01 Conditional Image Remediation Rebinding and Reauthorization Readiness` |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -86,6 +86,7 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 27. `35_TP01_DIAGNOSTIC_REBINDING_REAUTHORIZATION_READINESS.md`
 28. `36_TP01_CONTROLLED_DIAGNOSTIC_EXECUTION_RESULT.md`
 29. `37_TP01_CONDITIONAL_IMAGE_REGISTRY_GATE_STATIC_REMEDIATION.md`
+30. `38_TP01_CONDITIONAL_IMAGE_REBINDING_REAUTHORIZATION_READINESS.md`
 
 Current and later accepted work packages may add or mature:
 
@@ -1011,6 +1012,25 @@ independent static validator after freeze. Dependencies, preflight, image or Doc
 containers, databases, services, cleanup execution, proof/reproduction, application coding,
 architecture selection, infrastructure, deployment, provider accounts/cost, customer/live data,
 and WP-34 publication remain closed.
+
+## WP-34 acceptance, publication, and WP-35 activation — 2026-10-07
+
+The owner accepted `WP34-REM-001` through `008`, `WP34-BIND-001` through `015`,
+`WP34-DEC-001` through `006`, the renewed 57-file proof inventory, and the fresh independent
+static-validation `PASS`. The exact fourteen-path WP-34 public inventory was committed as
+`7fd5f57 WP-34: accept conditional image gate remediation` and pushed to `origin/main`.
+
+Local `HEAD`, cached `origin/main`, and live remote main matched
+`7fd5f57a2c121dbaa35995501e019a8609a6b0a3`; the committed proof tree is
+`a0e146ec6cf5759b08346d8f6ac9bc1dfeee215b`. WP-34 is `VERIFIED_AND_CLOSED`.
+
+WP-35 is active for owner-decision documentation and private ineffective authorization
+preparation only. It may bind the published revision/tree/hashes, preserve stopped-run history,
+analyze future workspace/dependency/role/image-token readiness, and prepare a draft that cannot
+satisfy the execution guard. Role creation, checkout creation, dependencies, preflight, images,
+containers, databases, services, cleanup, proof/reproduction, application coding, final
+architecture selection, infrastructure, deployment, provider accounts/cost, customer/live data,
+and WP-35 publication remain closed.
 
 ## Private execution control
 

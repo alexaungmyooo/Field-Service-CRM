@@ -4,14 +4,14 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Ready for Owner Review — independent static validation PASS |
+| Status | Accepted, published, and closed — independent static validation PASS |
 | Work package | `WP-34 Conditional Image Verification and Registry-Gate Remediation` |
 | Governing decisions | `DEC-164`, `WP33-REM-001` through `WP33-REM-007` |
 | Published base | `56d3a1f5c59080ab87fa82cdc4a67d418983b75c` |
 | Owner | Aung Myo Oo |
 | Date | 2026-10-07 |
 | Proof execution | Not authorized |
-| Publication | Not authorized |
+| Publication | Verified at `7fd5f57a2c121dbaa35995501e019a8609a6b0a3` |
 
 ## Objective and authority boundary
 
@@ -91,12 +91,12 @@ or external-system action.
 
 | ID | Recommendation | Status |
 | --- | --- | --- |
-| `WP34-DEC-001` | Accept `WP34-REM-001` through `WP34-REM-008` as the bounded correction of `WP33-DEV-001`. | Proposed |
-| `WP34-DEC-002` | Accept `WP34-BIND-001` through `WP34-BIND-015` only as a static proof candidate binding. | Proposed |
-| `WP34-DEC-003` | Accept the independent static result only after its exact identity, method, findings, limitations, and zero-mutation statement are recorded. | Proposed |
-| `WP34-DEC-004` | Preserve WP-33 as immutable Inconclusive evidence and prohibit retry or reinterpretation. | Proposed |
-| `WP34-DEC-005` | Require a later owner package to bind a published revision/tree, fresh execution roles, effective authorization, and private pull token before any runtime action can be considered. | Proposed |
-| `WP34-DEC-006` | Keep dependencies, preflight, images, containers, databases, services, cleanup execution, proof/reproduction, application coding, final architecture selection, infrastructure, deployment, provider accounts/cost, and customer/live data closed. | Proposed |
+| `WP34-DEC-001` | Accept `WP34-REM-001` through `WP34-REM-008` as the bounded correction of `WP33-DEV-001`. | Accepted |
+| `WP34-DEC-002` | Accept `WP34-BIND-001` through `WP34-BIND-015` only as a static proof candidate binding. | Accepted |
+| `WP34-DEC-003` | Accept the independent static result only after its exact identity, method, findings, limitations, and zero-mutation statement are recorded. | Accepted |
+| `WP34-DEC-004` | Preserve WP-33 as immutable Inconclusive evidence and prohibit retry or reinterpretation. | Accepted |
+| `WP34-DEC-005` | Require a later owner package to bind a published revision/tree, fresh execution roles, effective authorization, and private pull token before any runtime action can be considered. | Accepted |
+| `WP34-DEC-006` | Keep dependencies, preflight, images, containers, databases, services, cleanup execution, proof/reproduction, application coding, final architecture selection, infrastructure, deployment, provider accounts/cost, and customer/live data closed. | Accepted |
 
 ## Frozen WP-34 public inventory
 
@@ -120,7 +120,14 @@ Owner review and any later publication authorization apply only to these fourtee
 Private static evidence and the renewed artifact inventory remain ignored under `internal-local/`
 and must not be published.
 
-## Next gate
+## Acceptance, publication, and next gate
 
-Independent static validation, then owner review. No commit, push, runtime execution, rebinding, or
-next package is authorized.
+The owner accepted the complete remediation, all 15 bindings, all six recommendations, the
+57-file inventory, and the independent static-validation `PASS`. The exact fourteen-path public
+inventory was committed as `7fd5f57 WP-34: accept conditional image gate remediation` and pushed
+to `origin/main`. Local `HEAD`, cached `origin/main`, and live remote main matched
+`7fd5f57a2c121dbaa35995501e019a8609a6b0a3`; committed proof tree is
+`a0e146ec6cf5759b08346d8f6ac9bc1dfeee215b`. WP-34 is `VERIFIED_AND_CLOSED`.
+
+WP-35 is active for owner-decision documentation and an ineffective private draft only. Runtime
+actions and WP-35 publication remain closed.
