@@ -162,10 +162,10 @@ proof command ran during the correction.
 
 ## Readiness and remaining blockers
 
-Checkpoint 1 is `READY_FOR_OWNER_REVIEW`. TP-01 execution remains `NOT_AUTHORIZED` and
+Checkpoint 1 is `VERIFIED_AND_CLOSED`. TP-01 execution remains `NOT_AUTHORIZED` and
 `NOT_READY` because:
 
-- the exact checkpoint-1 revision and hashes have not yet been accepted and published;
+- the checkpoint-2 revision/hash binding has not yet been explicitly accepted for execution;
 - the proof operator is unassigned;
 - the independent reproduction validator for checkpoint 2 is unassigned;
 - the qualified security reviewer is unassigned;
@@ -187,9 +187,9 @@ The owner accepted each recommendation exactly as recorded on 2026-10-07.
 | `WP19-DEC-004` | Keep TP-01 execution closed until roles, revision/hashes, and checkpoint-2 authority are explicit. | Prevents checkpoint-1 acceptance from becoming implicit execution authority. | Accepted |
 | `WP19-DEC-005` | Treat this proof inventory as disposable and non-application. | Prevents proof mechanics from silently selecting the product architecture. | Accepted |
 
-## Acceptance criteria and next gate
+## Checkpoint criteria and next gate
 
-WP-19 is ready for owner review because:
+WP-19 met its owner-review criteria because:
 
 - creation and dependency installation stayed within the authorized proof-only boundary;
 - the exact direct dependencies and generated lockfile are frozen and hashed;
@@ -200,9 +200,9 @@ WP-19 is ready for owner review because:
 - raw evidence and dependencies remain ignored/private; and
 - no prohibited proof execution or product/infrastructure action occurred.
 
-If the owner accepts WP-19 and separately authorizes publication, the next package should assign
-the three required checkpoint-2 roles and prepare an exact execution authorization. Merely
-publishing WP-19 must not run TP-01 or authorize checkpoint 2.
+The owner subsequently accepted and published WP-19. WP-20 now prepares the three required
+checkpoint-2 roles and exact execution-authorization decision. Publishing WP-19 did not run TP-01
+or authorize checkpoint 2.
 
 ## Acceptance record
 
@@ -212,3 +212,7 @@ materialization baseline and independent inventory review. TP-01 execution, inde
 reproduction, qualified security acceptance, application coding, provider accounts, paid
 services, infrastructure, final architecture selection, deployment, and customer/live data remain
 closed.
+
+Publication was subsequently verified at
+`01bc6d58fb2c8d1c255e79ebf031faaf53fbb304`. This closes checkpoint 1 only and does not change
+the execution boundary.

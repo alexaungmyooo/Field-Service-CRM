@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-19 checkpoint 1 accepted for publication |
-| Current phase | Technical Proof Preparation — TP-01 materialization and supply-chain review |
-| Current work package | `WP-19 TP-01 Materialization and Supply-Chain Review` — Accepted for publication |
+| Status | Product Discovery closed — WP-20 accepted for publication; checkpoint 2 closed |
+| Current phase | Technical Proof Preparation — TP-01 checkpoint-2 authorization readiness |
+| Current work package | `WP-20 TP-01 Execution Roles and Checkpoint-2 Authorization` — Accepted for publication |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -71,6 +71,7 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 12. `20_PROOF_GOVERNANCE_DECISIONS_FIRST_TECHNICAL_PROOF_AUTHORIZATION.md`
 13. `21_TP01_EXACT_EXECUTION_CONTRACT.md`
 14. `22_TP01_MATERIALIZATION_SUPPLY_CHAIN_REVIEW.md`
+15. `23_TP01_EXECUTION_ROLES_CHECKPOINT2_AUTHORIZATION.md`
 
 Current and later accepted work packages may add or mature:
 
@@ -559,6 +560,51 @@ After verified publication, the owner authorized activation of `WP-20 TP-01 Exec
 Checkpoint-2 Authorization` for owner decision documentation only. Execution remains closed until
 the proof operator, independent reproduction validator, qualified security reviewer, exact
 revision, and artifact hashes are explicitly accepted.
+
+## WP-19 publication result
+
+The frozen 55-path WP-19 inventory was committed as
+`01bc6d5 WP-19: accept TP-01 checkpoint-1 materialization` and pushed to `origin/main`. Local
+`HEAD`, fetched `origin/main`, and `FETCH_HEAD` were verified at
+`01bc6d58fb2c8d1c255e79ebf031faaf53fbb304`. No merge, proof execution, database/image/service,
+application coding, infrastructure, deployment, customer/live data, or external configuration
+change occurred. WP-19 is `VERIFIED_AND_CLOSED`.
+
+## WP-20 authorization
+
+After verified WP-19 publication, the owner activated `WP-20 TP-01 Execution Roles and
+Checkpoint-2 Authorization` on 2026-10-07 for owner decision documentation only. WP-20 may bind
+the exact published revision and artifact hashes, propose explicit operator and independent
+validator assignments, record the missing qualified security reviewer, define independence and
+sign-off controls, assess checkpoint-2 readiness, and prepare the exact later execution-
+authorization statement. It may not execute preflight or TP-01, alter the frozen proof inventory,
+pull or start an image/container, apply SQL, bind ports, start services, create application code or
+infrastructure, select final architecture, deploy, or use customer/live data.
+
+## WP-20 readiness result
+
+WP-20 binds checkpoint 2 to verified commit
+`01bc6d58fb2c8d1c255e79ebf031faaf53fbb304`, proof-tree identity, package/lock/case-manifest
+hashes, the private 50-entry inventory digest, and the contracted image digest. It proposes the
+primary repository agent as operator and a fresh independent reproduction subagent under explicit
+separation controls. It does not fabricate the remaining qualified security reviewer.
+
+WP-20 reached `READY_FOR_OWNER_DECISION`; checkpoint 2 remained `NOT_READY` and `NOT_AUTHORIZED`.
+At that gate, a named qualified security reviewer and explicit owner dispositions remained
+blocking. No proof-root change, preflight, image/container/database/service, TP-01 execution,
+application code, infrastructure, deployment, customer/live data, WP-20 staging, commit, or push
+occurred.
+
+## WP-20 acceptance and unresolved execution authorization
+
+The owner accepted `WP20-DEC-001` through `WP20-DEC-008` and `TP1-BIND-001` through
+`TP1-BIND-007` exactly as recorded on 2026-10-07 and authorized WP-20 publication. The operator and
+independent-reproduction role classes are accepted under their stated separation controls.
+
+The supplied security-reviewer name and qualification remained literal placeholders. They do not
+identify or qualify a reviewer. Therefore `TP1-ROLE-004`, `TP1-AUTH-005`, and `TP1-AUTH-009`
+remain blocking, the attempted checkpoint-2 authorization is invalid under the accepted WP-20
+contract, and WP-21 is not activated. TP-01 execution remains closed.
 
 ## Private execution control
 

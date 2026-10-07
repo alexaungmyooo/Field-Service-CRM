@@ -9,7 +9,7 @@
 | Proof | `TP-01 Tenant Boundary and Authorization Contract` |
 | Source | `PROOF-SPEC-001`, accepted WP-17 governance |
 | Evidence snapshot | 2026-10-07 |
-| Authorization readiness | `CHECKPOINT_1_ACCEPTED_FOR_PUBLICATION`; execution `NOT_READY` |
+| Authorization readiness | `CHECKPOINT_1_VERIFIED_AND_CLOSED`; execution `NOT_READY` |
 | Technical-proof execution | Not authorized |
 | Dependency installation/artifact creation | Checkpoint 1 authorized and completed; further change closed |
 | Application coding/infrastructure/final architecture/deployment | Not authorized |
@@ -313,8 +313,8 @@ therefore remains open for named execution assignments.
 
 Authorization for checkpoint 1 does not authorize checkpoint 2. WP-19 created the lockfile,
 transitive dependency graph, executable case hash, and proof artifact hashes and obtained the
-authorized independent inventory review. Those artifacts remain pending owner acceptance and
-publication; none grants execution authority.
+authorized independent inventory review. The owner accepted and published those artifacts in
+verified WP-19; that checkpoint still grants no execution authority.
 
 ## Cleanup and recovery contract
 
@@ -339,12 +339,12 @@ publication; none grants execution authority.
 | `TP1-READY-006` | Exact 222-case matrix and oracle rules | Accepted for checkpoint 1 | 222-case manifest frozen and hashed |
 | `TP1-READY-007` | Exact command/resource/network/cleanup contract | Accepted for checkpoint 1 | Scripts materialized with fail-closed execution authorization |
 | `TP1-READY-008` | Generated lockfile/transitive/license/advisory inventory | Accepted for checkpoint 1 | Lock, tree, licenses, audit, and hashes recorded |
-| `TP1-READY-009` | Proof source/schema/scripts/case-manifest hashes | Accepted for checkpoint 1 | Exact 50-file private hash inventory independently validated |
-| `TP1-READY-010` | Named proof operator | Not ready | `OPEN-097` assignment required |
-| `TP1-READY-011` | Named independent validator | Not ready | `OPEN-097` assignment required and must differ from operator |
+| `TP1-READY-009` | Proof source/schema/scripts/case-manifest hashes | Published checkpoint baseline | Exact 50-file inventory is bound to verified commit `01bc6d58fb2c8d1c255e79ebf031faaf53fbb304` |
+| `TP1-READY-010` | Named proof operator | Accepted role class | `TP1-OPERATOR-PRIMARY`; exact execution-turn task identity must be recorded before preflight |
+| `TP1-READY-011` | Named independent validator | Accepted role class; identity pending | Fresh `TP1-VALIDATOR-REPRO` canonical identity must be recorded and differ from operator |
 | `TP1-READY-012` | Named qualified security reviewer | Not ready | `OPEN-097` specialist assignment required |
 | `TP1-READY-013` | Explicit materialization authorization | Complete | Owner authorized WP-19 checkpoint 1; no execution authority |
-| `TP1-READY-014` | Explicit execution authorization | Not ready | Later owner gate after checkpoint 1 review |
+| `TP1-READY-014` | Explicit execution authorization | Not ready | Placeholder reviewer fields invalidate the attempted checkpoint-2 authorization |
 
 ## Risks and stop conditions
 
@@ -387,17 +387,17 @@ later authorization checkpoint; a changed value requires owner review.
 ## Readiness verdict and next gate
 
 WP-18 is accepted and published as the exact contract. WP-19 checkpoint 1 is
-`ACCEPTED_FOR_PUBLICATION`; TP-01 execution remains `NOT_READY` and `NOT_AUTHORIZED`.
+`VERIFIED_AND_CLOSED`; TP-01 execution remains `NOT_READY` and `NOT_AUTHORIZED`.
 
 The disposable proof artifacts, lockfile, transitive/license/advisory inventory, case-manifest
 hash, and independent checkpoint-1 inventory validation now exist. Execution remains blocked
-because publication has not yet been verified, the operator, checkpoint-2 independent validator,
-and qualified security reviewer are unassigned, and no explicit checkpoint-2 execution
-authorization exists.
+because the operator and checkpoint-2 independent validator are not yet accepted, the qualified
+security reviewer is unassigned, and no explicit checkpoint-2 execution authorization exists.
 
 The exact checkpoint evidence and proposed owner dispositions are recorded in
-`22_TP01_MATERIALIZATION_SUPPLY_CHAIN_REVIEW.md`. Acceptance and publication of WP-19 must remain
-separate from role assignment and checkpoint-2 execution authorization.
+`22_TP01_MATERIALIZATION_SUPPLY_CHAIN_REVIEW.md`. The role proposals, exact revision/hash binding,
+and checkpoint-2 authorization-readiness decision are recorded separately in
+`23_TP01_EXECUTION_ROLES_CHECKPOINT2_AUTHORIZATION.md`.
 
 ## WP-18 acceptance criteria
 

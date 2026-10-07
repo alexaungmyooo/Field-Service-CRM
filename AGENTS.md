@@ -30,6 +30,7 @@ documents:
 - `docs/20_PROOF_GOVERNANCE_DECISIONS_FIRST_TECHNICAL_PROOF_AUTHORIZATION.md`
 - `docs/21_TP01_EXACT_EXECUTION_CONTRACT.md`
 - `docs/22_TP01_MATERIALIZATION_SUPPLY_CHAIN_REVIEW.md`
+- `docs/23_TP01_EXECUTION_ROLES_CHECKPOINT2_AUTHORIZATION.md`
 
 Architecture-analysis authorization does not authorize architecture selection. Option documents
 must identify alternatives, evidence, assumptions, risks, unresolved inputs, and reversal cost
@@ -93,6 +94,13 @@ private evidence path, dependency/lockfile generation, static artifact validatio
 supply-chain review. It does not authorize database image pull/start, schema application, HTTP or
 worker processes, proof cases, measurement, result claims, architecture acceptance, or reuse in
 application code. Keep generated dependency directories and raw evidence untracked.
+
+Execution-role and checkpoint-2 authorization documentation may bind an accepted repository
+revision, artifact hashes, role responsibilities, independence, sign-off order, expiry, and an
+exact later authorization statement. Documentation does not assign a fabricated person, establish
+specialist qualification, run preflight, verify/pull an image, start a service, apply SQL, execute
+a case, or accept a proof result. Missing explicit acceptance of any required role, revision, hash,
+or execution authorization keeps checkpoint 2 closed.
 
 ## Current authorization boundary
 
