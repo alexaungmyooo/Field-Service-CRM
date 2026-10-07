@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-16 accepted for publication |
-| Current phase | Solution Architecture — Named-candidate proof specifications and decision readiness |
-| Current work package | `WP-16 Named Candidate Proof Specifications and Architecture Decision Readiness` — Accepted for publication |
+| Status | Product Discovery closed — WP-17 accepted for publication |
+| Current phase | Solution Architecture — Proof governance and first-proof authorization planning |
+| Current work package | `WP-17 Proof Governance Decisions and First Technical Proof Authorization` — Accepted for publication |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -68,6 +68,7 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 9. `17_TECHNOLOGY_CATEGORY_PROVIDER_NEUTRAL_EVALUATION.md`
 10. `18_BUDGET_GEOGRAPHY_TEAM_FIT_NAMED_CANDIDATE_SHORTLIST.md`
 11. `19_NAMED_CANDIDATE_PROOF_SPECIFICATIONS_ARCHITECTURE_DECISION_READINESS.md`
+12. `20_PROOF_GOVERNANCE_DECISIONS_FIRST_TECHNICAL_PROOF_AUTHORIZATION.md`
 
 Current and later accepted work packages may add or mature:
 
@@ -473,6 +474,27 @@ selection-readiness rules, risks, unresolved inputs, and the `NOT_READY` selecti
 `DEC-123` through `DEC-126` become accepted proof-governance baselines. Acceptance does not
 authorize any proof, executable artifact, dependency, provider account, cost, infrastructure,
 final architecture selection, application coding, deployment, or customer/live-data use.
+
+## WP-17 authorization
+
+After verified WP-16 publication, the owner authorized `WP-17 Proof Governance Decisions and First
+Technical Proof Authorization` on 2026-10-07 for owner decision documentation only. WP-17 may
+recommend proof-evidence thresholds, reviewer independence, proof-account/cost controls, the first
+proof candidate, its bounded synthetic policy and future execution contract, stop conditions, and
+the exact later authorization gate. It may not authorize or execute the proof, create a harness or
+schema, install dependencies, open or modify accounts, incur cost, create infrastructure, select a
+final architecture, write application code, deploy, or use customer/live data.
+
+## WP-17 acceptance
+
+The owner accepted every WP-17 recommendation and disposition exactly as recorded on 2026-10-07
+and authorized publication. `PGD-001` through `PGD-010` and `DEC-128` through `DEC-134` become
+accepted proof-governance and first-proof authorization-planning baselines. Acceptance confirms
+the evidence threshold, independent role model, TP-01 priority and local/synthetic boundary,
+proof-only policy, zero-tolerance tenant outcome, disposable-artifact rule, non-passing outcomes,
+and separate exact execution authorization. It does not authorize TP-01 execution, a harness,
+schema, dependency installation, local service, provider account, cost, infrastructure, final
+architecture selection, application coding, deployment, or customer/live-data use.
 
 ## Private execution control
 

@@ -174,6 +174,14 @@ Accepted.
 | `DEC-124` | Compare advancing provider candidates with the same portable workload, synthetic data profile, measurement method, and mandatory pass/fail gates before weighted preference scoring. | Candidate-specific demonstrations are not comparable and may hide tenant, recovery, cost, or exit failures. | Accepted |
 | `DEC-125` | Keep raw proof evidence private and immutable enough for review while publishing only sanitized conclusions and architecture-decision consequences. | Logs, traces, screenshots, credentials, provider identifiers, and security failure detail may be sensitive even when data is synthetic. | Accepted |
 | `DEC-126` | Prohibit final architecture selection until every applicable mandatory gate has a reviewed disposition and every unresolved exception names an owner, consequence, and later gate. | A score or familiar stack must not override a failed trust boundary or an unowned critical risk. | Accepted |
+| `DEC-127` | Approve `WP-17 Proof Governance Decisions and First Technical Proof Authorization` for owner decision documentation only after verified WP-16 publication. | The owner authorized preparation of governance and a bounded first-proof authorization while keeping execution, selection, coding, dependencies, infrastructure, and deployment closed. | Accepted |
+| `DEC-128` | Accept a proof result as architecture-decision input only when the predeclared contract, reproducible evidence manifest, required review, limitations, and sanitized conclusion are complete. | A measurement without provenance and review is not trustworthy decision evidence. | Accepted |
+| `DEC-129` | Require the proof operator and independent result validator to be different roles, while reserving security/privacy/legal specialist acceptance for the decisions that require qualified review. | Reproduction and adversarial review reduce confirmation bias but do not replace specialist accountability. | Accepted |
+| `DEC-130` | Prepare tenant-boundary and authorization proof `PROOF-SPEC-001` as the first technical-proof candidate using a local-only, synthetic, provider-neutral execution boundary. | Tenant isolation is the non-negotiable platform trust boundary and can invalidate every later provider or client choice. | Accepted |
+| `DEC-131` | Use a bounded proof-only authorization policy derived from accepted platform/tenant invariants without treating it as the final product role-permission matrix. | The highest-risk isolation mechanics can be tested while `OPEN-032` remains a product-policy decision. | Accepted |
+| `DEC-132` | Require zero unauthorized cross-tenant disclosure or mutation and fail closed on missing, stale, conflicting, or unverified tenant context in the first proof. | A weighted score cannot compensate for breach of the tenant trust boundary. | Accepted |
+| `DEC-133` | Keep first-proof artifacts disposable and outside application paths; reuse in product code requires a later frozen implementation package and fresh review. | Proof shortcuts and test-specific design must not silently become production architecture. | Accepted |
+| `DEC-134` | Keep provider accounts, paid services, managed identity, binary media transfer, offline/mobile behavior, production performance, and final dependency selection outside the first proof. | A narrow local proof can test the core trust boundary without creating cost or coupling unrelated decisions. | Accepted |
 
 ## Open decision register
 
@@ -260,7 +268,6 @@ Accepted.
 | `OPEN-080` | Which production, platform, support, database/storage, network, backup, secret, build, and provider operations require dual control, step-up, session recording, review, or tenant notification? | Security, privacy, and operations review | Privileged-operations acceptance |
 | `OPEN-081` | What service ownership, runbook, escalation, support boundary, vendor-support, status-page, maintenance, and end-of-life responsibilities exist for every operational dependency? | Product owner and operations review | Operating-model acceptance |
 | `OPEN-082` | What component inventory, provenance, signing, vulnerability severity/remediation, patch cadence, exception, artifact retention, and dependency-exit requirements apply? | Security, engineering, and operations review | Supply-chain and lifecycle acceptance |
-| `OPEN-087` | What evidence threshold and reviewer set are required to move a proposal from `CONF-1` to `CONF-2` and then to accepted architecture? | Product owner and architecture governance | Selection gate acceptance |
 | `OPEN-092` | What measured Singapore-to-Myanmar latency, packet-loss, mobile-device, and weak-network results are acceptable for the named deployment candidates? | Architecture and field-device proof review | Geography/provider proof gate |
 | `OPEN-093` | What Myanmar and Singapore legal/privacy terms, customer notices, contracts, and cross-border handling apply to tenant data and evidence? | Owner and qualified legal/privacy review | Production residency approval |
 | `OPEN-094` | Which managed identity candidate satisfies tenant mapping, account recovery, support access, export, pricing, and fail-safe session requirements? | Security review and later proof | Identity selection |
@@ -283,6 +290,7 @@ Accepted.
 | `OPEN-089` | Accept `GEO-BASE-001` through `006` with Singapore as the initial evaluation geography; legal/privacy approval and measured connectivity remain open. | `DEC-118`, `OPEN-092`, `OPEN-093` | 2026-10-07 |
 | `OPEN-090` | Accept `TEAM-BASE-001` through `006` as the team/runtime evaluation baseline. | `DEC-120` | 2026-10-07 |
 | `OPEN-091` | Accept `CLIENT-BASE-001` through `005` as the initial client-platform and distribution evaluation baseline. | `DEC-119` | 2026-10-07 |
+| `OPEN-087` | Accept `PGD-001/002/007/009` and `PGE-001` through `010` as the proof evidence-state threshold; each ADR still requires its classified specialist and owner review before architecture acceptance. | `DEC-128`, `DEC-129` | 2026-10-07 |
 
 ## Decision lifecycle
 
