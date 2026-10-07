@@ -4,14 +4,14 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Ready for Owner Decision — not authorized for execution |
+| Status | Accepted, published, and closed — superseded by stopped WP-33 run |
 | Work package | `WP-32 TP-01 Remediated Rebinding and Reauthorization Readiness` |
 | Governing decisions | `DEC-128`, `DEC-147`, `DEC-155`, `DEC-158`, `DEC-160`, `DEC-161`, `DEC-162` |
 | Published remediation | WP-31 `VERIFIED_AND_CLOSED` |
 | Owner | Aung Myo Oo |
 | Date | 2026-10-07 |
 | TP-01 execution | Not authorized |
-| Publication | Not authorized |
+| Publication | Verified at `e34093c32648199a20cc5a43d4b711f35ef6fd1c` |
 
 ## Objective and authority boundary
 
@@ -146,16 +146,16 @@ Verdict: `READY_FOR_OWNER_DECISION`, but `NOT_READY_FOR_EXECUTION_AUTHORIZATION`
 
 | ID | Recommendation | Status |
 | --- | --- | --- |
-| `WP32-DEC-001` | Accept `TP1-DIAGNOSTIC-BIND-001` through `027` only as one candidate binding for a completely new attempt. | Proposed |
-| `WP32-DEC-002` | Preserve WP-24, WP-27, and WP-30 as separate immutable Inconclusive runs with expired authorizations and no retry. | Proposed |
-| `WP32-DEC-003` | Accept the diagnostic-retention and verifier-consistency contracts without treating static validation as runtime evidence. | Proposed |
-| `WP32-DEC-004` | Advance `WP32-WS-001`; reject `WP32-WS-002` and `WP32-WS-003`. | Proposed |
-| `WP32-DEC-005` | Require exactly one fresh reproduction-validator identity under later owner authority; do not reuse any prior run or static-validator identity. | Proposed |
-| `WP32-DEC-006` | Retain `/root` and `/root/tp01_security_review` only as proposed roles subject to new-package reconfirmation. | Proposed |
-| `WP32-DEC-007` | Accept the private draft shape as complete but ineffective; never rename or copy it to `authorization.json`. | Proposed |
-| `WP32-DEC-008` | Require exact offline/frozen/ignore-scripts dependency restoration in a dedicated checkout under later authority; prohibit npm and version change. | Proposed |
-| `WP32-DEC-009` | Permit a later WP-33 owner statement, only after verified WP-32 publication, to authorize a new run ID, dedicated checkout, fresh validator, exact offline restoration, effective authorization, and one fail-closed checkpoint-2 attempt. | Proposed |
-| `WP32-DEC-010` | Keep application coding, final architecture selection, infrastructure, deployment, provider accounts/cost, and customer/live data closed. | Proposed |
+| `WP32-DEC-001` | Accept `TP1-DIAGNOSTIC-BIND-001` through `027` only as one candidate binding for a completely new attempt. | Accepted |
+| `WP32-DEC-002` | Preserve WP-24, WP-27, and WP-30 as separate immutable Inconclusive runs with expired authorizations and no retry. | Accepted |
+| `WP32-DEC-003` | Accept the diagnostic-retention and verifier-consistency contracts without treating static validation as runtime evidence. | Accepted |
+| `WP32-DEC-004` | Advance `WP32-WS-001`; reject `WP32-WS-002` and `WP32-WS-003`. | Accepted |
+| `WP32-DEC-005` | Require exactly one fresh reproduction-validator identity under later owner authority; do not reuse any prior run or static-validator identity. | Accepted |
+| `WP32-DEC-006` | Retain `/root` and `/root/tp01_security_review` only as proposed roles subject to new-package reconfirmation. | Accepted |
+| `WP32-DEC-007` | Accept the private draft shape as complete but ineffective; never rename or copy it to `authorization.json`. | Accepted |
+| `WP32-DEC-008` | Require exact offline/frozen/ignore-scripts dependency restoration in a dedicated checkout under later authority; prohibit npm and version change. | Accepted |
+| `WP32-DEC-009` | Permit a later WP-33 owner statement, only after verified WP-32 publication, to authorize a new run ID, dedicated checkout, fresh validator, exact offline restoration, effective authorization, and one fail-closed checkpoint-2 attempt. | Accepted |
+| `WP32-DEC-010` | Keep application coding, final architecture selection, infrastructure, deployment, provider accounts/cost, and customer/live data closed. | Accepted |
 
 ## Frozen WP-32 public inventory
 
@@ -169,7 +169,14 @@ Owner review and any later publication authorization apply only to these four pa
 Private authorization and validation records remain ignored under `internal-local/` and must not be
 published.
 
-## Next gate
+## Acceptance, publication, and later result
 
-WP-32 stops at owner decision. No commit, push, role creation, checkout, dependency operation,
-preflight, runtime action, cleanup, proof/reproduction, or WP-33 action is authorized.
+The owner accepted all 27 bindings, all ten recommendations, workspace option `WP32-WS-001`,
+rejection of `WP32-WS-002/003`, and the ineffective draft. The exact four-path inventory was
+committed as `e34093c WP-32: accept TP-01 diagnostic rebinding` and pushed to `origin/main`.
+Local `HEAD`, cached `origin/main`, and live remote main matched
+`e34093c32648199a20cc5a43d4b711f35ef6fd1c`. WP-32 is `VERIFIED_AND_CLOSED`.
+
+The owner separately activated WP-33 run `wp33-2026-10-07-01`. WP-33 stopped Inconclusive before
+image verification on a conditional-network conflict and is documented in document 36. The WP-32
+draft never became effective and no stopped authorization may be reused.

@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-32 reauthorization readiness under owner review |
-| Current phase | Technical Proof Rebinding and Reauthorization Readiness |
-| Current work package | `WP-32 TP-01 Remediated Rebinding and Reauthorization Readiness` |
+| Status | Product Discovery closed — WP-33 Inconclusive and ready for owner review |
+| Current phase | Technical Proof Stop Disposition and Remediation Readiness |
+| Current work package | `WP-33 Controlled TP-01 Diagnostic Execution` — Ready for Owner Review |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -84,6 +84,7 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 25. `33_TP01_CONTROLLED_REMEDIATED_EXECUTION_RESULT.md`
 26. `34_TP01_FAILURE_DIAGNOSTIC_FINAL_VERIFIER_STATIC_REMEDIATION.md`
 27. `35_TP01_DIAGNOSTIC_REBINDING_REAUTHORIZATION_READINESS.md`
+28. `36_TP01_CONTROLLED_DIAGNOSTIC_EXECUTION_RESULT.md`
 
 Current and later accepted work packages may add or mature:
 
@@ -968,6 +969,27 @@ history, analyze future workspace/role/dependency readiness, and prepare a draft
 the execution guard. Dependencies, preflight, images, containers, databases, services, cleanup,
 proof/reproduction, application coding, final architecture selection, infrastructure, deployment,
 provider accounts/cost, customer/live data, and WP-32 publication remain closed.
+
+## WP-32 acceptance, publication, and WP-33 result — 2026-10-07
+
+The owner accepted `WP32-DEC-001` through `010`, `TP1-DIAGNOSTIC-BIND-001` through `027`,
+advanced `WP32-WS-001`, rejected `WP32-WS-002/003`, and accepted the ineffective private draft.
+The frozen four-path inventory was committed as
+`e34093c WP-32: accept TP-01 diagnostic rebinding` and pushed to `origin/main`. Local `HEAD`,
+cached `origin/main`, and live remote main matched
+`e34093c32648199a20cc5a43d4b711f35ef6fd1c`. WP-32 is `VERIFIED_AND_CLOSED`.
+
+WP-33 then activated for run `wp33-2026-10-07-01` at execution revision
+`f1705e93ec6e3e1433e7ec1aba5fd803bb312b2c`. The dedicated checkout, fresh validator attestation,
+exact offline restoration, effective authorization, and preflight passed. The accepted image
+digest was already local, but the frozen image-verification script unconditionally executes
+`docker pull`, conflicting with the owner's conditional-only registry authority. The operator
+stopped before the script; no registry access, image evidence, database, fixture, proof, sealed
+handoff, or reproduction occurred.
+
+Mandatory cleanup and direct residual verification passed. All three reviews are `INCONCLUSIVE`;
+final verification failed closed on missing `image.json`. WP-33 establishes no tenant-boundary or
+architecture result, is non-retryable, and is `READY_FOR_OWNER_REVIEW`.
 
 ## Private execution control
 
