@@ -7,25 +7,63 @@ This directory materializes checkpoint 1 of the accepted TP-01 contract in
 
 ## Current authorization
 
-WP-31 authorizes proof-only failure-diagnostic and final-verifier consistency remediation with
+WP-34 authorizes proof-only conditional image-verification and registry-gate remediation with
 dependency-free static validation. It permits:
 
-- retaining bounded, sanitized failed-child stdout and stderr in a dedicated proof failure
-  artifact;
-- making the final verifier consume the accepted Compose raw/normalized contract;
+- splitting local exact-digest inspection from conditional registry retrieval;
+- requiring a private run-bound pull token only when the accepted digest is absent;
+- recording whether the accepted image came from local cache or an authorized pull, whether
+  registry access occurred, and the exact digest/platform inspection;
 - built-in-only syntax, pure-contract, hashing, inventory, and scope checks;
 - renewing static evidence and artifact hashes; and
 - one fresh independent read-only static validation after the inventory is frozen.
 
-WP-31 does **not** authorize dependencies, preflight, Docker/Compose commands, images, containers,
-databases, services, SQL, fixtures, listeners, cleanup execution, a TP-01 case or reproduction,
-execution-evidence verification, application code, architecture selection, infrastructure,
-deployment, provider accounts or cost, or customer/live data.
+WP-34 does **not** authorize dependencies, preflight, Docker/Compose commands, image inspection or
+retrieval, containers, databases, services, SQL, fixtures, listeners, cleanup execution, a TP-01
+case or reproduction, execution-evidence verification, application code, architecture selection,
+infrastructure, deployment, provider accounts or cost, or customer/live data.
 
 The execution-facing scripts fail closed. They require later-package environment controls and a
 matching private `authorization.json` with status `ACCEPTED_FOR_EXECUTION`. The remediated
 inventory must be independently reviewed, owner-accepted, committed, published, and bound to a
 later exact execution revision before any execution-facing command may run.
+
+## WP-34 conditional image-verification contract
+
+The image verifier first inspects the exact accepted digest in the local cache. A valid local
+inspection selects `LOCAL_CACHE`, performs no registry operation, and does not require a pull
+token. If and only if the digest is absent, the verifier requires all of these controls before
+`docker pull` is reachable:
+
+- the effective private authorization and environment identify the same package and run;
+- `conditionalImagePull` is `AUTHORIZED_IF_ACCEPTED_DIGEST_ABSENT` for that package/run;
+- the authorization binds the exact accepted image reference and `linux/arm64/v8` platform; and
+- the private `TP01_IMAGE_PULL_AUTHORIZATION_TOKEN` hashes to the authorization's run-bound token
+  digest.
+
+The pull token is removed from the Docker child environment, never written to evidence, and is
+included in failed-child redaction. An absent digest without the complete binding fails closed.
+After either allowed path, exact repo digest, OS, architecture, and variant inspection must pass.
+`image.json` records `LOCAL_CACHE` or `CONDITIONAL_REGISTRY_PULL`, whether registry access occurred,
+the pre-decision local-presence result, and the minimized accepted inspection fields.
+
+WP-34 dependency-free static checks are:
+
+```text
+$TP01_NODE_BIN --check scripts/image-verification-contract.mjs
+$TP01_NODE_BIN --check scripts/image-verification-contract.test.mjs
+$TP01_NODE_BIN --check scripts/db-verify-image.mjs
+$TP01_NODE_BIN --check scripts/execution-authorization.mjs
+$TP01_NODE_BIN --check scripts/command.mjs
+$TP01_NODE_BIN --check scripts/command.test.mjs
+$TP01_NODE_BIN --check scripts/evidence-verify.mjs
+$TP01_NODE_BIN scripts/image-verification-contract.test.mjs
+$TP01_NODE_BIN scripts/command.test.mjs
+$TP01_NODE_BIN scripts/hash-inventory.mjs
+```
+
+These commands do not invoke dependencies, preflight, Docker/Compose, cleanup, evidence
+verification, or a proof/reproduction path.
 
 ## WP-31 failure-diagnostic contract
 

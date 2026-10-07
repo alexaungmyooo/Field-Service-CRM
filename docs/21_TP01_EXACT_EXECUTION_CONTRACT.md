@@ -273,7 +273,7 @@ one exact launcher chain:
 | `TP1-CMD-002` | Historical lock materialization (closed) | Historical ambient command: `pnpm install --lockfile-only --ignore-scripts` | Completed before WP-25; retained only as provenance and not authorized for future use |
 | `TP1-CMD-003` | Supply-chain inventory | `$TP01_NODE_BIN scripts/exact-pnpm.mjs run evidence:supply-chain` | Direct/transitive versions, integrity, licenses, advisories, and lock hash for review under a separately authorized network policy |
 | `TP1-CMD-004` | Dependency materialization | `$TP01_NODE_BIN scripts/exact-pnpm.mjs install --offline --frozen-lockfile --ignore-scripts` | Restore exactly the reviewed lockfile from an existing local store only after explicit authorization |
-| `TP1-CMD-005` | Image verification | `$TP01_NODE_BIN scripts/exact-pnpm.mjs run db:verify-image` | Resolve/pull only accepted digest/platform and record manifest evidence |
+| `TP1-CMD-005` | Image verification | `$TP01_NODE_BIN scripts/exact-pnpm.mjs run db:verify-image` | Inspect the accepted digest/platform locally first; only if absent and separately authorized by a matching run-bound token, retrieve that exact digest/platform, then record source/network/inspection evidence |
 | `TP1-CMD-006` | Database start | `docker compose up -d --wait postgres` | One healthy bounded digest-pinned local container |
 | `TP1-CMD-007` | Schema/fixture | `$TP01_NODE_BIN scripts/exact-pnpm.mjs run db:reset` | Recreate proof roles/schema/policies/seed and emit deterministic fixture hash |
 | `TP1-CMD-008` | Matrix freeze check | `$TP01_NODE_BIN scripts/exact-pnpm.mjs run matrix:verify` | Exactly 222 unique cases and expected outcomes match the accepted contract/hash |

@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-33 Inconclusive and ready for owner review |
-| Current phase | Technical Proof Stop Disposition and Remediation Readiness |
-| Current work package | `WP-33 Controlled TP-01 Diagnostic Execution` — Ready for Owner Review |
+| Status | Product Discovery closed — WP-34 ready for owner review |
+| Current phase | Technical Proof Static Remediation |
+| Current work package | `WP-34 Conditional Image Verification and Registry-Gate Remediation` — Ready for Owner Review |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -85,6 +85,7 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 26. `34_TP01_FAILURE_DIAGNOSTIC_FINAL_VERIFIER_STATIC_REMEDIATION.md`
 27. `35_TP01_DIAGNOSTIC_REBINDING_REAUTHORIZATION_READINESS.md`
 28. `36_TP01_CONTROLLED_DIAGNOSTIC_EXECUTION_RESULT.md`
+29. `37_TP01_CONDITIONAL_IMAGE_REGISTRY_GATE_STATIC_REMEDIATION.md`
 
 Current and later accepted work packages may add or mature:
 
@@ -990,6 +991,26 @@ handoff, or reproduction occurred.
 Mandatory cleanup and direct residual verification passed. All three reviews are `INCONCLUSIVE`;
 final verification failed closed on missing `image.json`. WP-33 establishes no tenant-boundary or
 architecture result, is non-retryable, and is `READY_FOR_OWNER_REVIEW`.
+
+## WP-33 acceptance, publication, and WP-34 activation — 2026-10-07
+
+The owner accepted the WP-33 Inconclusive disposition, `WP33-DEV-001`, all three role reviews,
+mandatory cleanup and residual verification, the fail-closed final verifier, the 16-entry private
+inventory, `WP33-REM-001` through `007`, and `WP33-DEC-001` through `007`. WP-33 is closed without
+retry. Its frozen four-path public inventory was committed as
+`56d3a1f WP-33: record controlled diagnostic execution` and pushed to `origin/main`.
+
+Local `HEAD`, cached `origin/main`, and live remote main matched
+`56d3a1f5c59080ab87fa82cdc4a67d418983b75c`. WP-33 is `VERIFIED_AND_CLOSED`.
+
+WP-34 is active for proof-only static remediation of conditional image verification and the
+registry gate. It may split local inspection from optional retrieval, require an explicit
+run-bound pull token only when the digest is absent, record source/network/digest/platform
+evidence, add dependency-free static tests, renew affected hashes, and use exactly one fresh
+independent static validator after freeze. Dependencies, preflight, image or Docker operations,
+containers, databases, services, cleanup execution, proof/reproduction, application coding,
+architecture selection, infrastructure, deployment, provider accounts/cost, customer/live data,
+and WP-34 publication remain closed.
 
 ## Private execution control
 

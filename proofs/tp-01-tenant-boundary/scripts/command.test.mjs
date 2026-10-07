@@ -30,6 +30,13 @@ assert.equal(
   "unlabelled [REDACTED]",
 );
 assert.equal(sanitizeDiagnosticText("short ab value", ["ab"]), "short [REDACTED] value");
+assert.equal(
+  sanitizeDiagnosticText(
+    "pull run-bound-image-token-value",
+    ["run-bound-image-token-value"],
+  ),
+  "pull [REDACTED]",
+);
 
 const oversized = `${"head".repeat(3000)}${"tail".repeat(3000)}`;
 const bounded = boundedDiagnosticText(oversized);
@@ -58,6 +65,18 @@ assert.match(observed.diagnostic.stderr.text, /^stderr \[REDACTED\]$/);
 assert.equal(observed.diagnostic.stdout.text.includes("do-not-retain"), false);
 assert.equal(observed.diagnostic.stderr.text.includes("unlabelled-child-value"), false);
 assert.equal(observed.message.includes("do-not-retain"), false);
+
+let imageTokenFailure;
+try {
+  run(process.execPath, ["-e", "process.stderr.write(process.env.TP01_IMAGE_PULL_AUTHORIZATION_TOKEN);process.exit(8)"], {
+    env: { ...process.env, TP01_IMAGE_PULL_AUTHORIZATION_TOKEN: "private-run-bound-pull-token" },
+  });
+} catch (error) {
+  imageTokenFailure = error;
+}
+assert.equal(imageTokenFailure instanceof CommandExecutionError, true);
+assert.equal(JSON.stringify(imageTokenFailure.diagnostic).includes("private-run-bound-pull-token"), false);
+assert.equal(imageTokenFailure.message.includes("private-run-bound-pull-token"), false);
 
 const argvOnlySecret = "argv-only-secret-value";
 let argvFailure;

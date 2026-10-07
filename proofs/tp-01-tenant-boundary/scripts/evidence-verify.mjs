@@ -2,19 +2,20 @@ import { createHash } from "node:crypto";
 import { readFileSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { assertExecutionAuthorized } from "./execution-authorization.mjs";
+import { assertImageEvidence } from "./image-verification-contract.mjs";
 import {
   assertComposeEvidenceContract,
   expectedComposeSemanticVersion,
 } from "./remediation-contract.mjs";
 
-const { packageId, evidenceDirectory } = assertExecutionAuthorized();
+const { authorization: executionAuthorization, packageId, evidenceDirectory } =
+  assertExecutionAuthorized();
 const finalPhase = process.argv.includes("--final");
 const manifestBytes = readFileSync("test/case-manifest.json");
 const manifest = JSON.parse(manifestBytes.toString("utf8"));
 const expectedById = new Map(manifest.cases.map((item) => [item.id, item]));
 const hashPattern = /^[a-f0-9]{64}$/;
 const uuidPattern = /^[a-f0-9]{8}-[a-f0-9]{4}-[1-5][a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12}$/i;
-const expectedImageDigest = "afc7e2d441324c0388fa80c3d24f733b4194a4eb7f47dd8ee2b08eb1a24a647c";
 const evidenceFiles = new Map();
 
 function sha256(bytes) {
@@ -286,11 +287,7 @@ if (
   sha256(privateManifest) !== sha256(manifestBytes)
 ) throw new Error("authorization, environment, inventory, revision, or manifest binding differs");
 
-if (
-  image.platform !== "linux/arm64/v8" ||
-  !image.image?.includes(expectedImageDigest) ||
-  !image.inspected?.includes(expectedImageDigest)
-) throw new Error("image evidence differs from the accepted digest/platform");
+assertImageEvidence(image, executionAuthorization);
 
 const expectedCounts = {
   organizations: 4,

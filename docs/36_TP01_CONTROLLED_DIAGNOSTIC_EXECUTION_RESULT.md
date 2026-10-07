@@ -4,7 +4,7 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Ready for Owner Review — Inconclusive; execution closed |
+| Status | Accepted, published, and closed — Inconclusive; no retry |
 | Work package | `WP-33 Controlled TP-01 Diagnostic Execution` |
 | Run ID | `wp33-2026-10-07-01` |
 | Governing decision | `DEC-163` |
@@ -90,25 +90,25 @@ The effective authorization expired at the stop. WP-33 is non-retryable.
 
 | ID | Control | Status |
 | --- | --- | --- |
-| `WP33-REM-001` | Preserve WP-33 and its 16-entry packet as immutable Inconclusive evidence; never retry or reinterpret it as a proof result. | Proposed |
-| `WP33-REM-002` | Split local exact-digest inspection from optional registry retrieval so a present accepted image is verified without network access. | Proposed |
-| `WP33-REM-003` | If the digest is absent, require a separate explicit run-bound pull token before contacting the registry; reject every other reference or platform. | Proposed |
-| `WP33-REM-004` | Record whether evidence came from local cache or a conditionally authorized pull, whether registry access occurred, and the inspected digest/platform. | Proposed |
-| `WP33-REM-005` | Keep image decision/validation helpers dependency-free and add pure cases for present, absent-with-token, absent-without-token, digest mismatch, and platform mismatch. | Proposed |
-| `WP33-REM-006` | Ensure cleanup remains independent of image-verification completion and never removes the accepted shared image cache. | Proposed |
-| `WP33-REM-007` | Renew the complete proof inventory and obtain one fresh independent static validator before any new binding or execution decision. | Proposed |
+| `WP33-REM-001` | Preserve WP-33 and its 16-entry packet as immutable Inconclusive evidence; never retry or reinterpret it as a proof result. | Accepted |
+| `WP33-REM-002` | Split local exact-digest inspection from optional registry retrieval so a present accepted image is verified without network access. | Accepted |
+| `WP33-REM-003` | If the digest is absent, require a separate explicit run-bound pull token before contacting the registry; reject every other reference or platform. | Accepted |
+| `WP33-REM-004` | Record whether evidence came from local cache or a conditionally authorized pull, whether registry access occurred, and the inspected digest/platform. | Accepted |
+| `WP33-REM-005` | Keep image decision/validation helpers dependency-free and add pure cases for present, absent-with-token, absent-without-token, digest mismatch, and platform mismatch. | Accepted |
+| `WP33-REM-006` | Ensure cleanup remains independent of image-verification completion and never removes the accepted shared image cache. | Accepted |
+| `WP33-REM-007` | Renew the complete proof inventory and obtain one fresh independent static validator before any new binding or execution decision. | Accepted |
 
 ## Recommended owner dispositions
 
 | ID | Recommendation | Status |
 | --- | --- | --- |
-| `WP33-DEC-001` | Accept the WP-33 Inconclusive disposition and `WP33-DEV-001` exactly as recorded. | Proposed |
-| `WP33-DEC-002` | Accept all three Inconclusive role reviews and the fail-closed final-verifier result. | Proposed |
-| `WP33-DEC-003` | Accept mandatory cleanup and direct residual verification as passed. | Proposed |
-| `WP33-DEC-004` | Close WP-33 without retry and accept that it establishes no tenant-boundary or architecture result. | Proposed |
-| `WP33-DEC-005` | Accept `WP33-REM-001` through `007` as the next bounded remediation proposal. | Proposed |
-| `WP33-DEC-006` | After verified WP-33 publication, activate WP-34 for proof-only conditional image-verification static remediation, renewed hashes, and one fresh independent static validator. | Proposed |
-| `WP33-DEC-007` | Keep dependencies, preflight, images, containers, databases, services, cleanup execution, proof/reproduction, application coding, final architecture selection, infrastructure, deployment, provider accounts/cost, and customer/live data closed during WP-34. | Proposed |
+| `WP33-DEC-001` | Accept the WP-33 Inconclusive disposition and `WP33-DEV-001` exactly as recorded. | Accepted |
+| `WP33-DEC-002` | Accept all three Inconclusive role reviews and the fail-closed final-verifier result. | Accepted |
+| `WP33-DEC-003` | Accept mandatory cleanup and direct residual verification as passed. | Accepted |
+| `WP33-DEC-004` | Close WP-33 without retry and accept that it establishes no tenant-boundary or architecture result. | Accepted |
+| `WP33-DEC-005` | Accept `WP33-REM-001` through `007` as the next bounded remediation proposal. | Accepted |
+| `WP33-DEC-006` | After verified WP-33 publication, activate WP-34 for proof-only conditional image-verification static remediation, renewed hashes, and one fresh independent static validator. | Accepted |
+| `WP33-DEC-007` | Keep dependencies, preflight, images, containers, databases, services, cleanup execution, proof/reproduction, application coding, final architecture selection, infrastructure, deployment, provider accounts/cost, and customer/live data closed during WP-34. | Accepted |
 
 ## Frozen WP-33 public inventory
 
@@ -122,7 +122,14 @@ Owner review and any later publication authorization apply only to these four pa
 Private authorization, credentials, command evidence, reviews, and inventories remain ignored
 under `internal-local/` and must not be published.
 
-## Next gate
+## Acceptance, publication, and next gate
 
-WP-33 stops at owner review. No commit, push, retry, proof execution, remediation, or WP-34 action
-is authorized.
+The owner accepted the complete Inconclusive packet, `WP33-DEV-001`, all three role reviews,
+cleanup and residual verification, fail-closed final verification, the 16-entry private evidence
+inventory, `WP33-REM-001` through `007`, and `WP33-DEC-001` through `007`. The exact four-path
+inventory was committed as `56d3a1f WP-33: record controlled diagnostic execution` and pushed to
+`origin/main`; local `HEAD`, cached `origin/main`, and live remote main matched
+`56d3a1f5c59080ab87fa82cdc4a67d418983b75c`. WP-33 is `VERIFIED_AND_CLOSED` without retry.
+
+WP-34 is active for proof-only static remediation. Runtime actions and WP-34 publication remain
+closed until their later explicit gates.

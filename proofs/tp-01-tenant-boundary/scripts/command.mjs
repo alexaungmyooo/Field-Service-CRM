@@ -81,6 +81,7 @@ export class CommandExecutionError extends Error {
     const sensitiveValues = [
       environment?.TP01_BOOTSTRAP_PASSWORD,
       environment?.TP01_RUNTIME_PASSWORD,
+      environment?.TP01_IMAGE_PULL_AUTHORIZATION_TOKEN,
       environment?.PGPASSWORD,
     ];
     const stdout = boundedDiagnosticText(result.stdout, diagnosticCharacterLimit, sensitiveValues);

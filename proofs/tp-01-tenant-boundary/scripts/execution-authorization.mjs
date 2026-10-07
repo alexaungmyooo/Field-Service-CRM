@@ -51,5 +51,5 @@ export function assertExecutionAuthorized() {
   if (dirty.status !== 0 || dirty.stdout.trim()) {
     throw new Error("reviewed TP-01 path must be clean before execution");
   }
-  return { packageId, evidenceDirectory };
+  return { authorization: record, packageId, evidenceDirectory };
 }
