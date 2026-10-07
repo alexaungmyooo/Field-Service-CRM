@@ -4,13 +4,13 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-13 ready for owner decision |
-| Current phase | Solution Architecture — Quality baseline and architecture shortlist decision |
-| Current work package | `WP-13 Quality Baseline and Architecture Shortlist Decision` — Ready for owner decision |
+| Status | Product Discovery closed — WP-14 accepted for publication |
+| Current phase | Solution Architecture — Technology category evaluation |
+| Current work package | `WP-14 Technology Category and Provider-Neutral Candidate Evaluation` — Accepted for publication |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
-| Last updated | 2026-10-01 |
+| Last updated | 2026-10-07 |
 
 ## Purpose
 
@@ -65,6 +65,7 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 6. `14_INTEGRATION_DEPLOYMENT_RESILIENCE_OPERATIONS_ARCHITECTURE.md`
 7. `15_ARCHITECTURE_SYNTHESIS_QUALITY_TARGETS_SELECTION_READINESS.md`
 8. `16_QUALITY_BASELINE_ARCHITECTURE_SHORTLIST_DECISION.md`
+9. `17_TECHNOLOGY_CATEGORY_PROVIDER_NEUTRAL_EVALUATION.md`
 
 Current and later accepted work packages may add or mature:
 
@@ -408,6 +409,26 @@ profile, `SHORTLIST-002` remains comparative, `SHORTLIST-003` is deferred, and
 `ADR-DISP-015` are accepted as the review/proof classification. Final architecture selection,
 technical-proof execution, application coding, dependencies, deployment, and external-system
 changes remain closed.
+
+## WP-14 authorization
+
+After verified WP-13 publication, the owner authorized `WP-14 Technology Category and
+Provider-Neutral Candidate Evaluation` for documentation and option analysis only. WP-14 may
+compare provider-neutral client, application/runtime, API, identity, operational data, offline,
+media, background work, reporting, observability, deployment, and recovery categories against the
+accepted evaluation baselines and Profiles 001/002. Final architecture selection, named-provider
+commitment, technical-proof execution, application coding, dependencies, deployment, and
+external-system changes remain closed.
+
+## WP-14 acceptance
+
+The owner accepted WP-14 on 2026-10-07 and authorized publication. Acceptance confirms the six
+evaluation principles, twenty provider-neutral technology-category dispositions, two coherent
+category sets, named-candidate entry requirements, risks, and defer/reject boundaries as the
+baseline for named-candidate analysis. It does not select a provider, product, framework,
+dependency, database, runtime, client technology, deployment topology, or final architecture;
+execute a technical proof; or authorize application coding or deployment. After verified
+publication, WP-15 may document owner planning decisions and analyze named candidates only.
 
 ## Private execution control
 

@@ -24,6 +24,7 @@ documents:
 - `docs/14_INTEGRATION_DEPLOYMENT_RESILIENCE_OPERATIONS_ARCHITECTURE.md`
 - `docs/15_ARCHITECTURE_SYNTHESIS_QUALITY_TARGETS_SELECTION_READINESS.md`
 - `docs/16_QUALITY_BASELINE_ARCHITECTURE_SHORTLIST_DECISION.md`
+- `docs/17_TECHNOLOGY_CATEGORY_PROVIDER_NEUTRAL_EVALUATION.md`
 
 Architecture-analysis authorization does not authorize architecture selection. Option documents
 must identify alternatives, evidence, assumptions, risks, unresolved inputs, and reversal cost
@@ -53,6 +54,10 @@ preferred stack or architecture may be treated as selected before the explicit s
 Shortlist decisions may narrow evaluation candidates and accept evaluation baselines without
 choosing a final architecture. Record every disposition, remaining blocker, required reviewer,
 proof dependency, and authority boundary explicitly.
+
+Technology-category evaluation must remain provider-neutral unless a later package explicitly
+authorizes named candidates. Category recommendations are not final architecture or dependency
+selection and must trace to accepted baselines, shortlist profiles, risks, and proof needs.
 
 ## Current authorization boundary
 

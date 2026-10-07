@@ -7,7 +7,7 @@
 | Status | Accepted WP-01 baseline — living decision register |
 | Work package | `WP-01 Product Vision and Boundaries` |
 | Owner | Aung Myo Oo |
-| Last updated | 2026-10-01 |
+| Last updated | 2026-10-07 |
 
 ## Purpose
 
@@ -160,6 +160,9 @@ Accepted.
 | `DEC-110` | Keep the initial integration envelope minimal: no payment-provider integration, and no accounting or other external system is required until separately prioritized and contracted. | The accepted product records external payment evidence, and unneeded integrations would delay field-service value. | Accepted |
 | `DEC-111` | Require tenant-isolation, authorization, offline synchronization, evidence/media, branded delivery, domain routing, scale/reporting, and recovery evidence before final architecture acceptance as applicable to shortlisted candidates. | These risks cannot be closed by document analysis alone. | Accepted |
 | `DEC-112` | Prefer managed operational capabilities where they meet accepted gates, budget, geography, reversibility, and team skills, without transferring product accountability to providers. | A small team needs low operational burden but cannot outsource tenant or business correctness. | Accepted |
+| `DEC-113` | Approve `WP-14 Technology Category and Provider-Neutral Candidate Evaluation` for documentation and option analysis only after verified WP-13 publication. | The owner authorized category comparison while keeping final selection, named providers, proofs, coding, and deployment closed. | Accepted |
+| `DEC-114` | Evaluate technology categories as a coherent fit to `SHORTLIST-001` and comparative `SHORTLIST-002`, not as isolated popularity choices. | A collection of individually attractive tools may violate the accepted simplicity, consistency, offline, or operating constraints. | Proposed |
+| `DEC-115` | Keep named vendors/products and dependency installation outside category evaluation until budget, geography/residency, evidence requirements, and a later named-candidate gate are resolved. | Provider fitness and total cost cannot be judged from category analysis alone. | Proposed |
 
 ## Open decision register
 
@@ -249,6 +252,8 @@ Accepted.
 | `OPEN-087` | What evidence threshold and reviewer set are required to move a proposal from `CONF-1` to `CONF-2` and then to accepted architecture? | Product owner and architecture governance | Selection gate acceptance |
 | `OPEN-088` | What monetary first-year infrastructure/provider budget and expected tenant/revenue envelope should replace the current lean-cost qualitative constraint? | Product owner and finance review | Cost scoring and provider shortlist |
 | `OPEN-089` | Which deployment geography and data-residency position is acceptable for the Myanmar launch before provider evaluation? | Product owner, legal/privacy, and architecture review | Hosting/provider shortlist |
+| `OPEN-090` | Which programming language/runtime and framework families match the team's demonstrated skills, hiring/support market, long-term maintenance, and proof needs? | Product owner and engineering review | Named technology shortlist |
+| `OPEN-091` | Which target mobile platforms and distribution constraints require installed clients rather than responsive/installable web delivery? | Product owner and architecture review | Client technology shortlist |
 
 ## Resolved question register
 
