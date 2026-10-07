@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-18 accepted for publication |
-| Current phase | Solution Architecture — TP-01 exact execution contract |
-| Current work package | `WP-18 TP-01 Exact Execution Contract` — Accepted for publication |
+| Status | Product Discovery closed — WP-19 checkpoint 1 accepted for publication |
+| Current phase | Technical Proof Preparation — TP-01 materialization and supply-chain review |
+| Current work package | `WP-19 TP-01 Materialization and Supply-Chain Review` — Accepted for publication |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -70,6 +70,7 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 11. `19_NAMED_CANDIDATE_PROOF_SPECIFICATIONS_ARCHITECTURE_DECISION_READINESS.md`
 12. `20_PROOF_GOVERNANCE_DECISIONS_FIRST_TECHNICAL_PROOF_AUTHORIZATION.md`
 13. `21_TP01_EXACT_EXECUTION_CONTRACT.md`
+14. `22_TP01_MATERIALIZATION_SUPPLY_CHAIN_REVIEW.md`
 
 Current and later accepted work packages may add or mature:
 
@@ -519,6 +520,45 @@ modes, 222-case matrix, resource/network limits, command interfaces, evidence, t
 cleanup, risks, and `NOT_READY` execution verdict. It does not create or install the proof,
 authorize materialization or execution, accept a final architecture/dependency, create application
 code or infrastructure, deploy, or permit customer/live data.
+
+## WP-19 authorization
+
+After verified WP-18 publication, the owner authorized `WP-19 TP-01 Materialization and
+Supply-Chain Review` on 2026-10-07. WP-19 may create only the accepted disposable inventory under
+`proofs/tp-01-tenant-boundary/`, generate the 222-case manifest and exact pnpm lockfile, install the
+accepted proof-only dependencies with lifecycle scripts disabled, produce private materialization
+and supply-chain evidence, perform static/non-proof inventory checks, and use one independent
+subagent to validate checkpoint 1. It may not pull/start PostgreSQL, create/apply a database or
+schema, bind an application/database port, start HTTP/background processes, execute TP-01 cases,
+make proof-result claims, write application code, create provider accounts or paid services,
+create infrastructure, select final architecture, or deploy.
+
+## WP-19 checkpoint-1 result
+
+Checkpoint 1 materialized exactly 50 non-dependency files under the accepted disposable proof
+path. The proof package and lockfile hashes, 222-case manifest, dependency tree, licenses,
+advisories, and file inventory are recorded in `22_TP01_MATERIALIZATION_SUPPLY_CHAIN_REVIEW.md`.
+Exact-runtime static manifest and TypeScript checks passed, and the one authorized independent
+subagent returned PASS for inventory completeness and consistency.
+
+WP-19 passed checkpoint review and is now accepted for publication. TP-01 was not executed. The proof
+operator, checkpoint-2 reproduction validator, and qualified security reviewer remain unassigned;
+database-image and execution operations remain closed. Publication authority is limited to the
+frozen checkpoint inventory.
+
+## WP-19 acceptance
+
+The owner accepted `WP19-DEC-001` through `WP19-DEC-005` and the checkpoint-1 inventory exactly as
+recorded on 2026-10-07 and authorized publication. Acceptance freezes the 50-file disposable proof
+inventory, package/lock/manifest hashes, dated supply-chain snapshot, and independent inventory
+PASS for checkpoint 1 only. It does not authorize TP-01 execution, treat the inventory review as
+independent reproduction or qualified security review, select an application architecture or
+dependency, create infrastructure, deploy, or permit customer/live data.
+
+After verified publication, the owner authorized activation of `WP-20 TP-01 Execution Roles and
+Checkpoint-2 Authorization` for owner decision documentation only. Execution remains closed until
+the proof operator, independent reproduction validator, qualified security reviewer, exact
+revision, and artifact hashes are explicitly accepted.
 
 ## Private execution control
 

@@ -29,6 +29,7 @@ documents:
 - `docs/19_NAMED_CANDIDATE_PROOF_SPECIFICATIONS_ARCHITECTURE_DECISION_READINESS.md`
 - `docs/20_PROOF_GOVERNANCE_DECISIONS_FIRST_TECHNICAL_PROOF_AUTHORIZATION.md`
 - `docs/21_TP01_EXACT_EXECUTION_CONTRACT.md`
+- `docs/22_TP01_MATERIALIZATION_SUPPLY_CHAIN_REVIEW.md`
 
 Architecture-analysis authorization does not authorize architecture selection. Option documents
 must identify alternatives, evidence, assumptions, risks, unresolved inputs, and reversal cost
@@ -86,6 +87,12 @@ commands, synthetic cases, evidence, reviewers, and cleanup for owner decision. 
 authorize file creation, dependency resolution/installation, container image download/start,
 network access, proof execution, or result acceptance. Missing lockfile, artifact hashes, named
 independent validation, or security review keeps the execution gate closed.
+
+Checkpoint-1 materialization authority is limited to the exact accepted disposable proof path,
+private evidence path, dependency/lockfile generation, static artifact validation, and
+supply-chain review. It does not authorize database image pull/start, schema application, HTTP or
+worker processes, proof cases, measurement, result claims, architecture acceptance, or reuse in
+application code. Keep generated dependency directories and raw evidence untracked.
 
 ## Current authorization boundary
 

@@ -1,0 +1,9 @@
+export const PROOF_CLOCK = "2026-10-07T12:00:00.000Z";
+export const PROOF_FIXTURE_SEED = "tp01-fixture-v1";
+export const DENIED_PROBE_SUBJECT_ID = "10000000-0000-4000-8000-000000000010";
+
+export type EnforcementMode =
+  | "APPLICATION_ONLY"
+  | "RLS_ONLY"
+  | "COMBINED"
+  | "CONTROLLED_NEGATIVE";

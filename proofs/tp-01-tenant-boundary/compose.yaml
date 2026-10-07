@@ -1,0 +1,40 @@
+name: field-service-crm-tp01
+
+services:
+  postgres:
+    image: postgres@sha256:afc7e2d441324c0388fa80c3d24f733b4194a4eb7f47dd8ee2b08eb1a24a647c
+    platform: linux/arm64/v8
+    container_name: field-service-crm-tp01-postgres
+    environment:
+      POSTGRES_DB: tp01
+      POSTGRES_USER: tp01_bootstrap
+      POSTGRES_PASSWORD: ${TP01_BOOTSTRAP_PASSWORD:?TP01_BOOTSTRAP_PASSWORD is required}
+      PGDATA: /var/lib/postgresql/data/pgdata
+    ports:
+      - "127.0.0.1:55432:5432"
+    networks:
+      - tp01_internal
+    volumes:
+      - tp01_postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U tp01_bootstrap -d tp01"]
+      interval: 2s
+      timeout: 2s
+      retries: 30
+    cpus: 1.0
+    mem_limit: 1g
+    pids_limit: 256
+    restart: "no"
+
+networks:
+  tp01_internal:
+    internal: true
+
+volumes:
+  tp01_postgres_data:
+    name: field-service-crm-tp01-postgres-data
+    driver: local
+    driver_opts:
+      type: tmpfs
+      device: tmpfs
+      o: size=2147483648,uid=999,gid=999,mode=0700

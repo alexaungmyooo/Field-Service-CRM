@@ -1,0 +1,3352 @@
+{
+  "schemaVersion": 1,
+  "contract": "TP-01",
+  "workPackage": "WP-19",
+  "status": "MATERIALIZED_NOT_EXECUTED",
+  "generatedFrom": "scripts/case-contract.mjs",
+  "fixtureSeed": "tp01-fixture-v1",
+  "proofClock": "2026-10-07T12:00:00.000Z",
+  "enforcementModes": [
+    "APPLICATION_ONLY",
+    "RLS_ONLY",
+    "COMBINED",
+    "CONTROLLED_NEGATIVE"
+  ],
+  "caseCount": 222,
+  "groupCounts": {
+    "TP1-CASE-001": 24,
+    "TP1-CASE-002": 48,
+    "TP1-CASE-003": 64,
+    "TP1-CASE-004": 32,
+    "TP1-CASE-005": 6,
+    "TP1-CASE-006": 8,
+    "TP1-CASE-007": 16,
+    "TP1-CASE-008": 24
+  },
+  "cases": [
+    {
+      "id": "TP1-C001",
+      "group": "TP1-CASE-001",
+      "path": "interactive",
+      "expected": "ALLOW",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-003"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "valid"
+    },
+    {
+      "id": "TP1-C002",
+      "group": "TP1-CASE-001",
+      "path": "repository",
+      "expected": "ALLOW",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-003"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "valid"
+    },
+    {
+      "id": "TP1-C003",
+      "group": "TP1-CASE-001",
+      "path": "background",
+      "expected": "ALLOW",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-003"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "valid"
+    },
+    {
+      "id": "TP1-C004",
+      "group": "TP1-CASE-001",
+      "path": "search-cache-report-export",
+      "expected": "ALLOW",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-003"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "valid"
+    },
+    {
+      "id": "TP1-C005",
+      "group": "TP1-CASE-001",
+      "path": "evidence-metadata",
+      "expected": "ALLOW",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-003"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "valid"
+    },
+    {
+      "id": "TP1-C006",
+      "group": "TP1-CASE-001",
+      "path": "platform-directory",
+      "expected": "ALLOW",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-003"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "valid"
+    },
+    {
+      "id": "TP1-C007",
+      "group": "TP1-CASE-001",
+      "path": "support-session",
+      "expected": "ALLOW",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-003"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "valid"
+    },
+    {
+      "id": "TP1-C008",
+      "group": "TP1-CASE-001",
+      "path": "audit-log-error",
+      "expected": "ALLOW",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-003"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "valid"
+    },
+    {
+      "id": "TP1-C009",
+      "group": "TP1-CASE-001",
+      "path": "interactive",
+      "expected": "ALLOW",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-003"
+      ],
+      "actor": "member-org-bravo",
+      "sourceOrganization": "org-bravo",
+      "targetOrganization": "org-bravo",
+      "contextVariant": "valid"
+    },
+    {
+      "id": "TP1-C010",
+      "group": "TP1-CASE-001",
+      "path": "repository",
+      "expected": "ALLOW",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-003"
+      ],
+      "actor": "member-org-bravo",
+      "sourceOrganization": "org-bravo",
+      "targetOrganization": "org-bravo",
+      "contextVariant": "valid"
+    },
+    {
+      "id": "TP1-C011",
+      "group": "TP1-CASE-001",
+      "path": "background",
+      "expected": "ALLOW",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-003"
+      ],
+      "actor": "member-org-bravo",
+      "sourceOrganization": "org-bravo",
+      "targetOrganization": "org-bravo",
+      "contextVariant": "valid"
+    },
+    {
+      "id": "TP1-C012",
+      "group": "TP1-CASE-001",
+      "path": "search-cache-report-export",
+      "expected": "ALLOW",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-003"
+      ],
+      "actor": "member-org-bravo",
+      "sourceOrganization": "org-bravo",
+      "targetOrganization": "org-bravo",
+      "contextVariant": "valid"
+    },
+    {
+      "id": "TP1-C013",
+      "group": "TP1-CASE-001",
+      "path": "evidence-metadata",
+      "expected": "ALLOW",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-003"
+      ],
+      "actor": "member-org-bravo",
+      "sourceOrganization": "org-bravo",
+      "targetOrganization": "org-bravo",
+      "contextVariant": "valid"
+    },
+    {
+      "id": "TP1-C014",
+      "group": "TP1-CASE-001",
+      "path": "platform-directory",
+      "expected": "ALLOW",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-003"
+      ],
+      "actor": "member-org-bravo",
+      "sourceOrganization": "org-bravo",
+      "targetOrganization": "org-bravo",
+      "contextVariant": "valid"
+    },
+    {
+      "id": "TP1-C015",
+      "group": "TP1-CASE-001",
+      "path": "support-session",
+      "expected": "ALLOW",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-003"
+      ],
+      "actor": "member-org-bravo",
+      "sourceOrganization": "org-bravo",
+      "targetOrganization": "org-bravo",
+      "contextVariant": "valid"
+    },
+    {
+      "id": "TP1-C016",
+      "group": "TP1-CASE-001",
+      "path": "audit-log-error",
+      "expected": "ALLOW",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-003"
+      ],
+      "actor": "member-org-bravo",
+      "sourceOrganization": "org-bravo",
+      "targetOrganization": "org-bravo",
+      "contextVariant": "valid"
+    },
+    {
+      "id": "TP1-C017",
+      "group": "TP1-CASE-001",
+      "path": "interactive",
+      "expected": "ALLOW",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-003"
+      ],
+      "actor": "member-org-charlie",
+      "sourceOrganization": "org-charlie",
+      "targetOrganization": "org-charlie",
+      "contextVariant": "valid"
+    },
+    {
+      "id": "TP1-C018",
+      "group": "TP1-CASE-001",
+      "path": "repository",
+      "expected": "ALLOW",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-003"
+      ],
+      "actor": "member-org-charlie",
+      "sourceOrganization": "org-charlie",
+      "targetOrganization": "org-charlie",
+      "contextVariant": "valid"
+    },
+    {
+      "id": "TP1-C019",
+      "group": "TP1-CASE-001",
+      "path": "background",
+      "expected": "ALLOW",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-003"
+      ],
+      "actor": "member-org-charlie",
+      "sourceOrganization": "org-charlie",
+      "targetOrganization": "org-charlie",
+      "contextVariant": "valid"
+    },
+    {
+      "id": "TP1-C020",
+      "group": "TP1-CASE-001",
+      "path": "search-cache-report-export",
+      "expected": "ALLOW",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-003"
+      ],
+      "actor": "member-org-charlie",
+      "sourceOrganization": "org-charlie",
+      "targetOrganization": "org-charlie",
+      "contextVariant": "valid"
+    },
+    {
+      "id": "TP1-C021",
+      "group": "TP1-CASE-001",
+      "path": "evidence-metadata",
+      "expected": "ALLOW",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-003"
+      ],
+      "actor": "member-org-charlie",
+      "sourceOrganization": "org-charlie",
+      "targetOrganization": "org-charlie",
+      "contextVariant": "valid"
+    },
+    {
+      "id": "TP1-C022",
+      "group": "TP1-CASE-001",
+      "path": "platform-directory",
+      "expected": "ALLOW",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-003"
+      ],
+      "actor": "member-org-charlie",
+      "sourceOrganization": "org-charlie",
+      "targetOrganization": "org-charlie",
+      "contextVariant": "valid"
+    },
+    {
+      "id": "TP1-C023",
+      "group": "TP1-CASE-001",
+      "path": "support-session",
+      "expected": "ALLOW",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-003"
+      ],
+      "actor": "member-org-charlie",
+      "sourceOrganization": "org-charlie",
+      "targetOrganization": "org-charlie",
+      "contextVariant": "valid"
+    },
+    {
+      "id": "TP1-C024",
+      "group": "TP1-CASE-001",
+      "path": "audit-log-error",
+      "expected": "ALLOW",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-003"
+      ],
+      "actor": "member-org-charlie",
+      "sourceOrganization": "org-charlie",
+      "targetOrganization": "org-charlie",
+      "contextVariant": "valid"
+    },
+    {
+      "id": "TP1-C025",
+      "group": "TP1-CASE-002",
+      "path": "interactive",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-003",
+        "TP1-POLICY-008"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-bravo",
+      "contextVariant": "cross-tenant"
+    },
+    {
+      "id": "TP1-C026",
+      "group": "TP1-CASE-002",
+      "path": "repository",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-003",
+        "TP1-POLICY-008"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-bravo",
+      "contextVariant": "cross-tenant"
+    },
+    {
+      "id": "TP1-C027",
+      "group": "TP1-CASE-002",
+      "path": "background",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-003",
+        "TP1-POLICY-008"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-bravo",
+      "contextVariant": "cross-tenant"
+    },
+    {
+      "id": "TP1-C028",
+      "group": "TP1-CASE-002",
+      "path": "search-cache-report-export",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-003",
+        "TP1-POLICY-008"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-bravo",
+      "contextVariant": "cross-tenant"
+    },
+    {
+      "id": "TP1-C029",
+      "group": "TP1-CASE-002",
+      "path": "evidence-metadata",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-003",
+        "TP1-POLICY-008"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-bravo",
+      "contextVariant": "cross-tenant"
+    },
+    {
+      "id": "TP1-C030",
+      "group": "TP1-CASE-002",
+      "path": "platform-directory",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-003",
+        "TP1-POLICY-008"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-bravo",
+      "contextVariant": "cross-tenant"
+    },
+    {
+      "id": "TP1-C031",
+      "group": "TP1-CASE-002",
+      "path": "support-session",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-003",
+        "TP1-POLICY-008"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-bravo",
+      "contextVariant": "cross-tenant"
+    },
+    {
+      "id": "TP1-C032",
+      "group": "TP1-CASE-002",
+      "path": "audit-log-error",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-003",
+        "TP1-POLICY-008"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-bravo",
+      "contextVariant": "cross-tenant"
+    },
+    {
+      "id": "TP1-C033",
+      "group": "TP1-CASE-002",
+      "path": "interactive",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-003",
+        "TP1-POLICY-008"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-charlie",
+      "contextVariant": "cross-tenant"
+    },
+    {
+      "id": "TP1-C034",
+      "group": "TP1-CASE-002",
+      "path": "repository",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-003",
+        "TP1-POLICY-008"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-charlie",
+      "contextVariant": "cross-tenant"
+    },
+    {
+      "id": "TP1-C035",
+      "group": "TP1-CASE-002",
+      "path": "background",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-003",
+        "TP1-POLICY-008"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-charlie",
+      "contextVariant": "cross-tenant"
+    },
+    {
+      "id": "TP1-C036",
+      "group": "TP1-CASE-002",
+      "path": "search-cache-report-export",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-003",
+        "TP1-POLICY-008"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-charlie",
+      "contextVariant": "cross-tenant"
+    },
+    {
+      "id": "TP1-C037",
+      "group": "TP1-CASE-002",
+      "path": "evidence-metadata",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-003",
+        "TP1-POLICY-008"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-charlie",
+      "contextVariant": "cross-tenant"
+    },
+    {
+      "id": "TP1-C038",
+      "group": "TP1-CASE-002",
+      "path": "platform-directory",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-003",
+        "TP1-POLICY-008"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-charlie",
+      "contextVariant": "cross-tenant"
+    },
+    {
+      "id": "TP1-C039",
+      "group": "TP1-CASE-002",
+      "path": "support-session",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-003",
+        "TP1-POLICY-008"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-charlie",
+      "contextVariant": "cross-tenant"
+    },
+    {
+      "id": "TP1-C040",
+      "group": "TP1-CASE-002",
+      "path": "audit-log-error",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-003",
+        "TP1-POLICY-008"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-charlie",
+      "contextVariant": "cross-tenant"
+    },
+    {
+      "id": "TP1-C041",
+      "group": "TP1-CASE-002",
+      "path": "interactive",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-003",
+        "TP1-POLICY-008"
+      ],
+      "actor": "member-org-bravo",
+      "sourceOrganization": "org-bravo",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "cross-tenant"
+    },
+    {
+      "id": "TP1-C042",
+      "group": "TP1-CASE-002",
+      "path": "repository",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-003",
+        "TP1-POLICY-008"
+      ],
+      "actor": "member-org-bravo",
+      "sourceOrganization": "org-bravo",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "cross-tenant"
+    },
+    {
+      "id": "TP1-C043",
+      "group": "TP1-CASE-002",
+      "path": "background",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-003",
+        "TP1-POLICY-008"
+      ],
+      "actor": "member-org-bravo",
+      "sourceOrganization": "org-bravo",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "cross-tenant"
+    },
+    {
+      "id": "TP1-C044",
+      "group": "TP1-CASE-002",
+      "path": "search-cache-report-export",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-003",
+        "TP1-POLICY-008"
+      ],
+      "actor": "member-org-bravo",
+      "sourceOrganization": "org-bravo",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "cross-tenant"
+    },
+    {
+      "id": "TP1-C045",
+      "group": "TP1-CASE-002",
+      "path": "evidence-metadata",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-003",
+        "TP1-POLICY-008"
+      ],
+      "actor": "member-org-bravo",
+      "sourceOrganization": "org-bravo",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "cross-tenant"
+    },
+    {
+      "id": "TP1-C046",
+      "group": "TP1-CASE-002",
+      "path": "platform-directory",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-003",
+        "TP1-POLICY-008"
+      ],
+      "actor": "member-org-bravo",
+      "sourceOrganization": "org-bravo",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "cross-tenant"
+    },
+    {
+      "id": "TP1-C047",
+      "group": "TP1-CASE-002",
+      "path": "support-session",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-003",
+        "TP1-POLICY-008"
+      ],
+      "actor": "member-org-bravo",
+      "sourceOrganization": "org-bravo",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "cross-tenant"
+    },
+    {
+      "id": "TP1-C048",
+      "group": "TP1-CASE-002",
+      "path": "audit-log-error",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-003",
+        "TP1-POLICY-008"
+      ],
+      "actor": "member-org-bravo",
+      "sourceOrganization": "org-bravo",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "cross-tenant"
+    },
+    {
+      "id": "TP1-C049",
+      "group": "TP1-CASE-002",
+      "path": "interactive",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-003",
+        "TP1-POLICY-008"
+      ],
+      "actor": "member-org-bravo",
+      "sourceOrganization": "org-bravo",
+      "targetOrganization": "org-charlie",
+      "contextVariant": "cross-tenant"
+    },
+    {
+      "id": "TP1-C050",
+      "group": "TP1-CASE-002",
+      "path": "repository",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-003",
+        "TP1-POLICY-008"
+      ],
+      "actor": "member-org-bravo",
+      "sourceOrganization": "org-bravo",
+      "targetOrganization": "org-charlie",
+      "contextVariant": "cross-tenant"
+    },
+    {
+      "id": "TP1-C051",
+      "group": "TP1-CASE-002",
+      "path": "background",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-003",
+        "TP1-POLICY-008"
+      ],
+      "actor": "member-org-bravo",
+      "sourceOrganization": "org-bravo",
+      "targetOrganization": "org-charlie",
+      "contextVariant": "cross-tenant"
+    },
+    {
+      "id": "TP1-C052",
+      "group": "TP1-CASE-002",
+      "path": "search-cache-report-export",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-003",
+        "TP1-POLICY-008"
+      ],
+      "actor": "member-org-bravo",
+      "sourceOrganization": "org-bravo",
+      "targetOrganization": "org-charlie",
+      "contextVariant": "cross-tenant"
+    },
+    {
+      "id": "TP1-C053",
+      "group": "TP1-CASE-002",
+      "path": "evidence-metadata",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-003",
+        "TP1-POLICY-008"
+      ],
+      "actor": "member-org-bravo",
+      "sourceOrganization": "org-bravo",
+      "targetOrganization": "org-charlie",
+      "contextVariant": "cross-tenant"
+    },
+    {
+      "id": "TP1-C054",
+      "group": "TP1-CASE-002",
+      "path": "platform-directory",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-003",
+        "TP1-POLICY-008"
+      ],
+      "actor": "member-org-bravo",
+      "sourceOrganization": "org-bravo",
+      "targetOrganization": "org-charlie",
+      "contextVariant": "cross-tenant"
+    },
+    {
+      "id": "TP1-C055",
+      "group": "TP1-CASE-002",
+      "path": "support-session",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-003",
+        "TP1-POLICY-008"
+      ],
+      "actor": "member-org-bravo",
+      "sourceOrganization": "org-bravo",
+      "targetOrganization": "org-charlie",
+      "contextVariant": "cross-tenant"
+    },
+    {
+      "id": "TP1-C056",
+      "group": "TP1-CASE-002",
+      "path": "audit-log-error",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-003",
+        "TP1-POLICY-008"
+      ],
+      "actor": "member-org-bravo",
+      "sourceOrganization": "org-bravo",
+      "targetOrganization": "org-charlie",
+      "contextVariant": "cross-tenant"
+    },
+    {
+      "id": "TP1-C057",
+      "group": "TP1-CASE-002",
+      "path": "interactive",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-003",
+        "TP1-POLICY-008"
+      ],
+      "actor": "member-org-charlie",
+      "sourceOrganization": "org-charlie",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "cross-tenant"
+    },
+    {
+      "id": "TP1-C058",
+      "group": "TP1-CASE-002",
+      "path": "repository",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-003",
+        "TP1-POLICY-008"
+      ],
+      "actor": "member-org-charlie",
+      "sourceOrganization": "org-charlie",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "cross-tenant"
+    },
+    {
+      "id": "TP1-C059",
+      "group": "TP1-CASE-002",
+      "path": "background",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-003",
+        "TP1-POLICY-008"
+      ],
+      "actor": "member-org-charlie",
+      "sourceOrganization": "org-charlie",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "cross-tenant"
+    },
+    {
+      "id": "TP1-C060",
+      "group": "TP1-CASE-002",
+      "path": "search-cache-report-export",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-003",
+        "TP1-POLICY-008"
+      ],
+      "actor": "member-org-charlie",
+      "sourceOrganization": "org-charlie",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "cross-tenant"
+    },
+    {
+      "id": "TP1-C061",
+      "group": "TP1-CASE-002",
+      "path": "evidence-metadata",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-003",
+        "TP1-POLICY-008"
+      ],
+      "actor": "member-org-charlie",
+      "sourceOrganization": "org-charlie",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "cross-tenant"
+    },
+    {
+      "id": "TP1-C062",
+      "group": "TP1-CASE-002",
+      "path": "platform-directory",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-003",
+        "TP1-POLICY-008"
+      ],
+      "actor": "member-org-charlie",
+      "sourceOrganization": "org-charlie",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "cross-tenant"
+    },
+    {
+      "id": "TP1-C063",
+      "group": "TP1-CASE-002",
+      "path": "support-session",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-003",
+        "TP1-POLICY-008"
+      ],
+      "actor": "member-org-charlie",
+      "sourceOrganization": "org-charlie",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "cross-tenant"
+    },
+    {
+      "id": "TP1-C064",
+      "group": "TP1-CASE-002",
+      "path": "audit-log-error",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-003",
+        "TP1-POLICY-008"
+      ],
+      "actor": "member-org-charlie",
+      "sourceOrganization": "org-charlie",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "cross-tenant"
+    },
+    {
+      "id": "TP1-C065",
+      "group": "TP1-CASE-002",
+      "path": "interactive",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-003",
+        "TP1-POLICY-008"
+      ],
+      "actor": "member-org-charlie",
+      "sourceOrganization": "org-charlie",
+      "targetOrganization": "org-bravo",
+      "contextVariant": "cross-tenant"
+    },
+    {
+      "id": "TP1-C066",
+      "group": "TP1-CASE-002",
+      "path": "repository",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-003",
+        "TP1-POLICY-008"
+      ],
+      "actor": "member-org-charlie",
+      "sourceOrganization": "org-charlie",
+      "targetOrganization": "org-bravo",
+      "contextVariant": "cross-tenant"
+    },
+    {
+      "id": "TP1-C067",
+      "group": "TP1-CASE-002",
+      "path": "background",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-003",
+        "TP1-POLICY-008"
+      ],
+      "actor": "member-org-charlie",
+      "sourceOrganization": "org-charlie",
+      "targetOrganization": "org-bravo",
+      "contextVariant": "cross-tenant"
+    },
+    {
+      "id": "TP1-C068",
+      "group": "TP1-CASE-002",
+      "path": "search-cache-report-export",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-003",
+        "TP1-POLICY-008"
+      ],
+      "actor": "member-org-charlie",
+      "sourceOrganization": "org-charlie",
+      "targetOrganization": "org-bravo",
+      "contextVariant": "cross-tenant"
+    },
+    {
+      "id": "TP1-C069",
+      "group": "TP1-CASE-002",
+      "path": "evidence-metadata",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-003",
+        "TP1-POLICY-008"
+      ],
+      "actor": "member-org-charlie",
+      "sourceOrganization": "org-charlie",
+      "targetOrganization": "org-bravo",
+      "contextVariant": "cross-tenant"
+    },
+    {
+      "id": "TP1-C070",
+      "group": "TP1-CASE-002",
+      "path": "platform-directory",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-003",
+        "TP1-POLICY-008"
+      ],
+      "actor": "member-org-charlie",
+      "sourceOrganization": "org-charlie",
+      "targetOrganization": "org-bravo",
+      "contextVariant": "cross-tenant"
+    },
+    {
+      "id": "TP1-C071",
+      "group": "TP1-CASE-002",
+      "path": "support-session",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-003",
+        "TP1-POLICY-008"
+      ],
+      "actor": "member-org-charlie",
+      "sourceOrganization": "org-charlie",
+      "targetOrganization": "org-bravo",
+      "contextVariant": "cross-tenant"
+    },
+    {
+      "id": "TP1-C072",
+      "group": "TP1-CASE-002",
+      "path": "audit-log-error",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-003",
+        "TP1-POLICY-008"
+      ],
+      "actor": "member-org-charlie",
+      "sourceOrganization": "org-charlie",
+      "targetOrganization": "org-bravo",
+      "contextVariant": "cross-tenant"
+    },
+    {
+      "id": "TP1-C073",
+      "group": "TP1-CASE-003",
+      "path": "interactive",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-002",
+        "TP1-POLICY-010"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "missing-organization"
+    },
+    {
+      "id": "TP1-C074",
+      "group": "TP1-CASE-003",
+      "path": "repository",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-002",
+        "TP1-POLICY-010"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "missing-organization"
+    },
+    {
+      "id": "TP1-C075",
+      "group": "TP1-CASE-003",
+      "path": "background",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-002",
+        "TP1-POLICY-010"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "missing-organization"
+    },
+    {
+      "id": "TP1-C076",
+      "group": "TP1-CASE-003",
+      "path": "search-cache-report-export",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-002",
+        "TP1-POLICY-010"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "missing-organization"
+    },
+    {
+      "id": "TP1-C077",
+      "group": "TP1-CASE-003",
+      "path": "evidence-metadata",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-002",
+        "TP1-POLICY-010"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "missing-organization"
+    },
+    {
+      "id": "TP1-C078",
+      "group": "TP1-CASE-003",
+      "path": "platform-directory",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-002",
+        "TP1-POLICY-010"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "missing-organization"
+    },
+    {
+      "id": "TP1-C079",
+      "group": "TP1-CASE-003",
+      "path": "support-session",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-002",
+        "TP1-POLICY-010"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "missing-organization"
+    },
+    {
+      "id": "TP1-C080",
+      "group": "TP1-CASE-003",
+      "path": "audit-log-error",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-002",
+        "TP1-POLICY-010"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "missing-organization"
+    },
+    {
+      "id": "TP1-C081",
+      "group": "TP1-CASE-003",
+      "path": "interactive",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-002",
+        "TP1-POLICY-010"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "malformed-identifier"
+    },
+    {
+      "id": "TP1-C082",
+      "group": "TP1-CASE-003",
+      "path": "repository",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-002",
+        "TP1-POLICY-010"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "malformed-identifier"
+    },
+    {
+      "id": "TP1-C083",
+      "group": "TP1-CASE-003",
+      "path": "background",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-002",
+        "TP1-POLICY-010"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "malformed-identifier"
+    },
+    {
+      "id": "TP1-C084",
+      "group": "TP1-CASE-003",
+      "path": "search-cache-report-export",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-002",
+        "TP1-POLICY-010"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "malformed-identifier"
+    },
+    {
+      "id": "TP1-C085",
+      "group": "TP1-CASE-003",
+      "path": "evidence-metadata",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-002",
+        "TP1-POLICY-010"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "malformed-identifier"
+    },
+    {
+      "id": "TP1-C086",
+      "group": "TP1-CASE-003",
+      "path": "platform-directory",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-002",
+        "TP1-POLICY-010"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "malformed-identifier"
+    },
+    {
+      "id": "TP1-C087",
+      "group": "TP1-CASE-003",
+      "path": "support-session",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-002",
+        "TP1-POLICY-010"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "malformed-identifier"
+    },
+    {
+      "id": "TP1-C088",
+      "group": "TP1-CASE-003",
+      "path": "audit-log-error",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-002",
+        "TP1-POLICY-010"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "malformed-identifier"
+    },
+    {
+      "id": "TP1-C089",
+      "group": "TP1-CASE-003",
+      "path": "interactive",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-002",
+        "TP1-POLICY-010"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "client-server-conflict"
+    },
+    {
+      "id": "TP1-C090",
+      "group": "TP1-CASE-003",
+      "path": "repository",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-002",
+        "TP1-POLICY-010"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "client-server-conflict"
+    },
+    {
+      "id": "TP1-C091",
+      "group": "TP1-CASE-003",
+      "path": "background",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-002",
+        "TP1-POLICY-010"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "client-server-conflict"
+    },
+    {
+      "id": "TP1-C092",
+      "group": "TP1-CASE-003",
+      "path": "search-cache-report-export",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-002",
+        "TP1-POLICY-010"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "client-server-conflict"
+    },
+    {
+      "id": "TP1-C093",
+      "group": "TP1-CASE-003",
+      "path": "evidence-metadata",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-002",
+        "TP1-POLICY-010"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "client-server-conflict"
+    },
+    {
+      "id": "TP1-C094",
+      "group": "TP1-CASE-003",
+      "path": "platform-directory",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-002",
+        "TP1-POLICY-010"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "client-server-conflict"
+    },
+    {
+      "id": "TP1-C095",
+      "group": "TP1-CASE-003",
+      "path": "support-session",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-002",
+        "TP1-POLICY-010"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "client-server-conflict"
+    },
+    {
+      "id": "TP1-C096",
+      "group": "TP1-CASE-003",
+      "path": "audit-log-error",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-002",
+        "TP1-POLICY-010"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "client-server-conflict"
+    },
+    {
+      "id": "TP1-C097",
+      "group": "TP1-CASE-003",
+      "path": "interactive",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-002",
+        "TP1-POLICY-010"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "stale-membership"
+    },
+    {
+      "id": "TP1-C098",
+      "group": "TP1-CASE-003",
+      "path": "repository",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-002",
+        "TP1-POLICY-010"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "stale-membership"
+    },
+    {
+      "id": "TP1-C099",
+      "group": "TP1-CASE-003",
+      "path": "background",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-002",
+        "TP1-POLICY-010"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "stale-membership"
+    },
+    {
+      "id": "TP1-C100",
+      "group": "TP1-CASE-003",
+      "path": "search-cache-report-export",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-002",
+        "TP1-POLICY-010"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "stale-membership"
+    },
+    {
+      "id": "TP1-C101",
+      "group": "TP1-CASE-003",
+      "path": "evidence-metadata",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-002",
+        "TP1-POLICY-010"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "stale-membership"
+    },
+    {
+      "id": "TP1-C102",
+      "group": "TP1-CASE-003",
+      "path": "platform-directory",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-002",
+        "TP1-POLICY-010"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "stale-membership"
+    },
+    {
+      "id": "TP1-C103",
+      "group": "TP1-CASE-003",
+      "path": "support-session",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-002",
+        "TP1-POLICY-010"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "stale-membership"
+    },
+    {
+      "id": "TP1-C104",
+      "group": "TP1-CASE-003",
+      "path": "audit-log-error",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-002",
+        "TP1-POLICY-010"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "stale-membership"
+    },
+    {
+      "id": "TP1-C105",
+      "group": "TP1-CASE-003",
+      "path": "interactive",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-002",
+        "TP1-POLICY-010"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "spoofed-host"
+    },
+    {
+      "id": "TP1-C106",
+      "group": "TP1-CASE-003",
+      "path": "repository",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-002",
+        "TP1-POLICY-010"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "spoofed-host"
+    },
+    {
+      "id": "TP1-C107",
+      "group": "TP1-CASE-003",
+      "path": "background",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-002",
+        "TP1-POLICY-010"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "spoofed-host"
+    },
+    {
+      "id": "TP1-C108",
+      "group": "TP1-CASE-003",
+      "path": "search-cache-report-export",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-002",
+        "TP1-POLICY-010"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "spoofed-host"
+    },
+    {
+      "id": "TP1-C109",
+      "group": "TP1-CASE-003",
+      "path": "evidence-metadata",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-002",
+        "TP1-POLICY-010"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "spoofed-host"
+    },
+    {
+      "id": "TP1-C110",
+      "group": "TP1-CASE-003",
+      "path": "platform-directory",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-002",
+        "TP1-POLICY-010"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "spoofed-host"
+    },
+    {
+      "id": "TP1-C111",
+      "group": "TP1-CASE-003",
+      "path": "support-session",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-002",
+        "TP1-POLICY-010"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "spoofed-host"
+    },
+    {
+      "id": "TP1-C112",
+      "group": "TP1-CASE-003",
+      "path": "audit-log-error",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-002",
+        "TP1-POLICY-010"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "spoofed-host"
+    },
+    {
+      "id": "TP1-C113",
+      "group": "TP1-CASE-003",
+      "path": "interactive",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-002",
+        "TP1-POLICY-010"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "cached-prior-organization"
+    },
+    {
+      "id": "TP1-C114",
+      "group": "TP1-CASE-003",
+      "path": "repository",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-002",
+        "TP1-POLICY-010"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "cached-prior-organization"
+    },
+    {
+      "id": "TP1-C115",
+      "group": "TP1-CASE-003",
+      "path": "background",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-002",
+        "TP1-POLICY-010"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "cached-prior-organization"
+    },
+    {
+      "id": "TP1-C116",
+      "group": "TP1-CASE-003",
+      "path": "search-cache-report-export",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-002",
+        "TP1-POLICY-010"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "cached-prior-organization"
+    },
+    {
+      "id": "TP1-C117",
+      "group": "TP1-CASE-003",
+      "path": "evidence-metadata",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-002",
+        "TP1-POLICY-010"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "cached-prior-organization"
+    },
+    {
+      "id": "TP1-C118",
+      "group": "TP1-CASE-003",
+      "path": "platform-directory",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-002",
+        "TP1-POLICY-010"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "cached-prior-organization"
+    },
+    {
+      "id": "TP1-C119",
+      "group": "TP1-CASE-003",
+      "path": "support-session",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-002",
+        "TP1-POLICY-010"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "cached-prior-organization"
+    },
+    {
+      "id": "TP1-C120",
+      "group": "TP1-CASE-003",
+      "path": "audit-log-error",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-002",
+        "TP1-POLICY-010"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "cached-prior-organization"
+    },
+    {
+      "id": "TP1-C121",
+      "group": "TP1-CASE-003",
+      "path": "interactive",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-002",
+        "TP1-POLICY-010"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-bravo",
+      "contextVariant": "cross-organization-resource-reference"
+    },
+    {
+      "id": "TP1-C122",
+      "group": "TP1-CASE-003",
+      "path": "repository",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-002",
+        "TP1-POLICY-010"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-bravo",
+      "contextVariant": "cross-organization-resource-reference"
+    },
+    {
+      "id": "TP1-C123",
+      "group": "TP1-CASE-003",
+      "path": "background",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-002",
+        "TP1-POLICY-010"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-bravo",
+      "contextVariant": "cross-organization-resource-reference"
+    },
+    {
+      "id": "TP1-C124",
+      "group": "TP1-CASE-003",
+      "path": "search-cache-report-export",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-002",
+        "TP1-POLICY-010"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-bravo",
+      "contextVariant": "cross-organization-resource-reference"
+    },
+    {
+      "id": "TP1-C125",
+      "group": "TP1-CASE-003",
+      "path": "evidence-metadata",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-002",
+        "TP1-POLICY-010"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-bravo",
+      "contextVariant": "cross-organization-resource-reference"
+    },
+    {
+      "id": "TP1-C126",
+      "group": "TP1-CASE-003",
+      "path": "platform-directory",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-002",
+        "TP1-POLICY-010"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-bravo",
+      "contextVariant": "cross-organization-resource-reference"
+    },
+    {
+      "id": "TP1-C127",
+      "group": "TP1-CASE-003",
+      "path": "support-session",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-002",
+        "TP1-POLICY-010"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-bravo",
+      "contextVariant": "cross-organization-resource-reference"
+    },
+    {
+      "id": "TP1-C128",
+      "group": "TP1-CASE-003",
+      "path": "audit-log-error",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-002",
+        "TP1-POLICY-010"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-bravo",
+      "contextVariant": "cross-organization-resource-reference"
+    },
+    {
+      "id": "TP1-C129",
+      "group": "TP1-CASE-003",
+      "path": "interactive",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-002",
+        "TP1-POLICY-010"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "missing-authority-or-purpose"
+    },
+    {
+      "id": "TP1-C130",
+      "group": "TP1-CASE-003",
+      "path": "repository",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-002",
+        "TP1-POLICY-010"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "missing-authority-or-purpose"
+    },
+    {
+      "id": "TP1-C131",
+      "group": "TP1-CASE-003",
+      "path": "background",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-002",
+        "TP1-POLICY-010"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "missing-authority-or-purpose"
+    },
+    {
+      "id": "TP1-C132",
+      "group": "TP1-CASE-003",
+      "path": "search-cache-report-export",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-002",
+        "TP1-POLICY-010"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "missing-authority-or-purpose"
+    },
+    {
+      "id": "TP1-C133",
+      "group": "TP1-CASE-003",
+      "path": "evidence-metadata",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-002",
+        "TP1-POLICY-010"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "missing-authority-or-purpose"
+    },
+    {
+      "id": "TP1-C134",
+      "group": "TP1-CASE-003",
+      "path": "platform-directory",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-002",
+        "TP1-POLICY-010"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "missing-authority-or-purpose"
+    },
+    {
+      "id": "TP1-C135",
+      "group": "TP1-CASE-003",
+      "path": "support-session",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-002",
+        "TP1-POLICY-010"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "missing-authority-or-purpose"
+    },
+    {
+      "id": "TP1-C136",
+      "group": "TP1-CASE-003",
+      "path": "audit-log-error",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-001",
+        "TP1-POLICY-002",
+        "TP1-POLICY-010"
+      ],
+      "actor": "member-org-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "missing-authority-or-purpose"
+    },
+    {
+      "id": "TP1-C137",
+      "group": "TP1-CASE-004",
+      "path": "interactive",
+      "expected": "ALLOW",
+      "policyTrace": [
+        "TP1-POLICY-005",
+        "TP1-POLICY-006",
+        "TP1-POLICY-009"
+      ],
+      "actor": "support-operator",
+      "sourceOrganization": "platform",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "active-correct-tenant-read"
+    },
+    {
+      "id": "TP1-C138",
+      "group": "TP1-CASE-004",
+      "path": "repository",
+      "expected": "ALLOW",
+      "policyTrace": [
+        "TP1-POLICY-005",
+        "TP1-POLICY-006",
+        "TP1-POLICY-009"
+      ],
+      "actor": "support-operator",
+      "sourceOrganization": "platform",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "active-correct-tenant-read"
+    },
+    {
+      "id": "TP1-C139",
+      "group": "TP1-CASE-004",
+      "path": "evidence-metadata",
+      "expected": "ALLOW",
+      "policyTrace": [
+        "TP1-POLICY-005",
+        "TP1-POLICY-006",
+        "TP1-POLICY-009"
+      ],
+      "actor": "support-operator",
+      "sourceOrganization": "platform",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "active-correct-tenant-read"
+    },
+    {
+      "id": "TP1-C140",
+      "group": "TP1-CASE-004",
+      "path": "support-session",
+      "expected": "ALLOW",
+      "policyTrace": [
+        "TP1-POLICY-005",
+        "TP1-POLICY-006",
+        "TP1-POLICY-009"
+      ],
+      "actor": "support-operator",
+      "sourceOrganization": "platform",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "active-correct-tenant-read"
+    },
+    {
+      "id": "TP1-C141",
+      "group": "TP1-CASE-004",
+      "path": "interactive",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-005",
+        "TP1-POLICY-006",
+        "TP1-POLICY-009"
+      ],
+      "actor": "support-operator",
+      "sourceOrganization": "platform",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "no-grant"
+    },
+    {
+      "id": "TP1-C142",
+      "group": "TP1-CASE-004",
+      "path": "repository",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-005",
+        "TP1-POLICY-006",
+        "TP1-POLICY-009"
+      ],
+      "actor": "support-operator",
+      "sourceOrganization": "platform",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "no-grant"
+    },
+    {
+      "id": "TP1-C143",
+      "group": "TP1-CASE-004",
+      "path": "evidence-metadata",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-005",
+        "TP1-POLICY-006",
+        "TP1-POLICY-009"
+      ],
+      "actor": "support-operator",
+      "sourceOrganization": "platform",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "no-grant"
+    },
+    {
+      "id": "TP1-C144",
+      "group": "TP1-CASE-004",
+      "path": "support-session",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-005",
+        "TP1-POLICY-006",
+        "TP1-POLICY-009"
+      ],
+      "actor": "support-operator",
+      "sourceOrganization": "platform",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "no-grant"
+    },
+    {
+      "id": "TP1-C145",
+      "group": "TP1-CASE-004",
+      "path": "interactive",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-005",
+        "TP1-POLICY-006",
+        "TP1-POLICY-009"
+      ],
+      "actor": "support-operator",
+      "sourceOrganization": "platform",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "expired-grant"
+    },
+    {
+      "id": "TP1-C146",
+      "group": "TP1-CASE-004",
+      "path": "repository",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-005",
+        "TP1-POLICY-006",
+        "TP1-POLICY-009"
+      ],
+      "actor": "support-operator",
+      "sourceOrganization": "platform",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "expired-grant"
+    },
+    {
+      "id": "TP1-C147",
+      "group": "TP1-CASE-004",
+      "path": "evidence-metadata",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-005",
+        "TP1-POLICY-006",
+        "TP1-POLICY-009"
+      ],
+      "actor": "support-operator",
+      "sourceOrganization": "platform",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "expired-grant"
+    },
+    {
+      "id": "TP1-C148",
+      "group": "TP1-CASE-004",
+      "path": "support-session",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-005",
+        "TP1-POLICY-006",
+        "TP1-POLICY-009"
+      ],
+      "actor": "support-operator",
+      "sourceOrganization": "platform",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "expired-grant"
+    },
+    {
+      "id": "TP1-C149",
+      "group": "TP1-CASE-004",
+      "path": "interactive",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-005",
+        "TP1-POLICY-006",
+        "TP1-POLICY-009"
+      ],
+      "actor": "support-operator",
+      "sourceOrganization": "platform",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "revoked-grant"
+    },
+    {
+      "id": "TP1-C150",
+      "group": "TP1-CASE-004",
+      "path": "repository",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-005",
+        "TP1-POLICY-006",
+        "TP1-POLICY-009"
+      ],
+      "actor": "support-operator",
+      "sourceOrganization": "platform",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "revoked-grant"
+    },
+    {
+      "id": "TP1-C151",
+      "group": "TP1-CASE-004",
+      "path": "evidence-metadata",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-005",
+        "TP1-POLICY-006",
+        "TP1-POLICY-009"
+      ],
+      "actor": "support-operator",
+      "sourceOrganization": "platform",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "revoked-grant"
+    },
+    {
+      "id": "TP1-C152",
+      "group": "TP1-CASE-004",
+      "path": "support-session",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-005",
+        "TP1-POLICY-006",
+        "TP1-POLICY-009"
+      ],
+      "actor": "support-operator",
+      "sourceOrganization": "platform",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "revoked-grant"
+    },
+    {
+      "id": "TP1-C153",
+      "group": "TP1-CASE-004",
+      "path": "interactive",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-005",
+        "TP1-POLICY-006",
+        "TP1-POLICY-009"
+      ],
+      "actor": "support-operator",
+      "sourceOrganization": "platform",
+      "targetOrganization": "org-bravo",
+      "contextVariant": "wrong-organization"
+    },
+    {
+      "id": "TP1-C154",
+      "group": "TP1-CASE-004",
+      "path": "repository",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-005",
+        "TP1-POLICY-006",
+        "TP1-POLICY-009"
+      ],
+      "actor": "support-operator",
+      "sourceOrganization": "platform",
+      "targetOrganization": "org-bravo",
+      "contextVariant": "wrong-organization"
+    },
+    {
+      "id": "TP1-C155",
+      "group": "TP1-CASE-004",
+      "path": "evidence-metadata",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-005",
+        "TP1-POLICY-006",
+        "TP1-POLICY-009"
+      ],
+      "actor": "support-operator",
+      "sourceOrganization": "platform",
+      "targetOrganization": "org-bravo",
+      "contextVariant": "wrong-organization"
+    },
+    {
+      "id": "TP1-C156",
+      "group": "TP1-CASE-004",
+      "path": "support-session",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-005",
+        "TP1-POLICY-006",
+        "TP1-POLICY-009"
+      ],
+      "actor": "support-operator",
+      "sourceOrganization": "platform",
+      "targetOrganization": "org-bravo",
+      "contextVariant": "wrong-organization"
+    },
+    {
+      "id": "TP1-C157",
+      "group": "TP1-CASE-004",
+      "path": "interactive",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-005",
+        "TP1-POLICY-006",
+        "TP1-POLICY-009"
+      ],
+      "actor": "support-operator",
+      "sourceOrganization": "platform",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "write-with-read-only"
+    },
+    {
+      "id": "TP1-C158",
+      "group": "TP1-CASE-004",
+      "path": "repository",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-005",
+        "TP1-POLICY-006",
+        "TP1-POLICY-009"
+      ],
+      "actor": "support-operator",
+      "sourceOrganization": "platform",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "write-with-read-only"
+    },
+    {
+      "id": "TP1-C159",
+      "group": "TP1-CASE-004",
+      "path": "evidence-metadata",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-005",
+        "TP1-POLICY-006",
+        "TP1-POLICY-009"
+      ],
+      "actor": "support-operator",
+      "sourceOrganization": "platform",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "write-with-read-only"
+    },
+    {
+      "id": "TP1-C160",
+      "group": "TP1-CASE-004",
+      "path": "support-session",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-005",
+        "TP1-POLICY-006",
+        "TP1-POLICY-009"
+      ],
+      "actor": "support-operator",
+      "sourceOrganization": "platform",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "write-with-read-only"
+    },
+    {
+      "id": "TP1-C161",
+      "group": "TP1-CASE-004",
+      "path": "interactive",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-005",
+        "TP1-POLICY-006",
+        "TP1-POLICY-009"
+      ],
+      "actor": "support-operator",
+      "sourceOrganization": "platform",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "resource-outside-scope"
+    },
+    {
+      "id": "TP1-C162",
+      "group": "TP1-CASE-004",
+      "path": "repository",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-005",
+        "TP1-POLICY-006",
+        "TP1-POLICY-009"
+      ],
+      "actor": "support-operator",
+      "sourceOrganization": "platform",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "resource-outside-scope"
+    },
+    {
+      "id": "TP1-C163",
+      "group": "TP1-CASE-004",
+      "path": "evidence-metadata",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-005",
+        "TP1-POLICY-006",
+        "TP1-POLICY-009"
+      ],
+      "actor": "support-operator",
+      "sourceOrganization": "platform",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "resource-outside-scope"
+    },
+    {
+      "id": "TP1-C164",
+      "group": "TP1-CASE-004",
+      "path": "support-session",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-005",
+        "TP1-POLICY-006",
+        "TP1-POLICY-009"
+      ],
+      "actor": "support-operator",
+      "sourceOrganization": "platform",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "resource-outside-scope"
+    },
+    {
+      "id": "TP1-C165",
+      "group": "TP1-CASE-004",
+      "path": "interactive",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-005",
+        "TP1-POLICY-006",
+        "TP1-POLICY-009"
+      ],
+      "actor": "support-operator",
+      "sourceOrganization": "platform",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "unverified-client-grant"
+    },
+    {
+      "id": "TP1-C166",
+      "group": "TP1-CASE-004",
+      "path": "repository",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-005",
+        "TP1-POLICY-006",
+        "TP1-POLICY-009"
+      ],
+      "actor": "support-operator",
+      "sourceOrganization": "platform",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "unverified-client-grant"
+    },
+    {
+      "id": "TP1-C167",
+      "group": "TP1-CASE-004",
+      "path": "evidence-metadata",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-005",
+        "TP1-POLICY-006",
+        "TP1-POLICY-009"
+      ],
+      "actor": "support-operator",
+      "sourceOrganization": "platform",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "unverified-client-grant"
+    },
+    {
+      "id": "TP1-C168",
+      "group": "TP1-CASE-004",
+      "path": "support-session",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-005",
+        "TP1-POLICY-006",
+        "TP1-POLICY-009"
+      ],
+      "actor": "support-operator",
+      "sourceOrganization": "platform",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "unverified-client-grant"
+    },
+    {
+      "id": "TP1-C169",
+      "group": "TP1-CASE-005",
+      "path": "platform-directory",
+      "expected": "ALLOW",
+      "policyTrace": [
+        "TP1-POLICY-005",
+        "TP1-POLICY-009"
+      ],
+      "actor": "platform-directory-operator",
+      "sourceOrganization": "platform",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "platform-directory-list"
+    },
+    {
+      "id": "TP1-C170",
+      "group": "TP1-CASE-005",
+      "path": "platform-directory",
+      "expected": "ALLOW",
+      "policyTrace": [
+        "TP1-POLICY-005",
+        "TP1-POLICY-009"
+      ],
+      "actor": "platform-directory-operator",
+      "sourceOrganization": "platform",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "platform-directory-status"
+    },
+    {
+      "id": "TP1-C171",
+      "group": "TP1-CASE-005",
+      "path": "platform-directory",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-005",
+        "TP1-POLICY-009"
+      ],
+      "actor": "platform-directory-operator",
+      "sourceOrganization": "platform",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "tenant-customer-read"
+    },
+    {
+      "id": "TP1-C172",
+      "group": "TP1-CASE-005",
+      "path": "platform-directory",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-005",
+        "TP1-POLICY-009"
+      ],
+      "actor": "platform-directory-operator",
+      "sourceOrganization": "platform",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "tenant-job-read"
+    },
+    {
+      "id": "TP1-C173",
+      "group": "TP1-CASE-005",
+      "path": "platform-directory",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-005",
+        "TP1-POLICY-009"
+      ],
+      "actor": "platform-directory-operator",
+      "sourceOrganization": "platform",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "tenant-evidence-read"
+    },
+    {
+      "id": "TP1-C174",
+      "group": "TP1-CASE-005",
+      "path": "platform-directory",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-005",
+        "TP1-POLICY-009"
+      ],
+      "actor": "platform-directory-operator",
+      "sourceOrganization": "platform",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "tenant-export-read"
+    },
+    {
+      "id": "TP1-C175",
+      "group": "TP1-CASE-006",
+      "path": "background",
+      "expected": "ALLOW",
+      "policyTrace": [
+        "TP1-POLICY-007",
+        "TP1-POLICY-009"
+      ],
+      "actor": "machine-worker-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "valid-job-context"
+    },
+    {
+      "id": "TP1-C176",
+      "group": "TP1-CASE-006",
+      "path": "background",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-007",
+        "TP1-POLICY-009"
+      ],
+      "actor": "machine-worker-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "missing-machine-identity"
+    },
+    {
+      "id": "TP1-C177",
+      "group": "TP1-CASE-006",
+      "path": "background",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-007",
+        "TP1-POLICY-009"
+      ],
+      "actor": "machine-worker-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "missing-organization"
+    },
+    {
+      "id": "TP1-C178",
+      "group": "TP1-CASE-006",
+      "path": "background",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-007",
+        "TP1-POLICY-009"
+      ],
+      "actor": "machine-worker-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "missing-purpose"
+    },
+    {
+      "id": "TP1-C179",
+      "group": "TP1-CASE-006",
+      "path": "background",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-007",
+        "TP1-POLICY-009"
+      ],
+      "actor": "machine-worker-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-bravo",
+      "contextVariant": "payload-tenant-substitution"
+    },
+    {
+      "id": "TP1-C180",
+      "group": "TP1-CASE-006",
+      "path": "background",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-007",
+        "TP1-POLICY-009"
+      ],
+      "actor": "machine-worker-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "replay-after-revocation"
+    },
+    {
+      "id": "TP1-C181",
+      "group": "TP1-CASE-006",
+      "path": "background",
+      "expected": "ALLOW",
+      "policyTrace": [
+        "TP1-POLICY-007",
+        "TP1-POLICY-009"
+      ],
+      "actor": "machine-worker-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "retry-same-correlation"
+    },
+    {
+      "id": "TP1-C182",
+      "group": "TP1-CASE-006",
+      "path": "background",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-007",
+        "TP1-POLICY-009"
+      ],
+      "actor": "machine-worker-alpha",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-bravo",
+      "contextVariant": "wrong-resource-organization"
+    },
+    {
+      "id": "TP1-C183",
+      "group": "TP1-CASE-007",
+      "path": "interactive",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-002",
+        "TP1-POLICY-003"
+      ],
+      "actor": "removed-member",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "removed-membership"
+    },
+    {
+      "id": "TP1-C184",
+      "group": "TP1-CASE-007",
+      "path": "repository",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-002",
+        "TP1-POLICY-003"
+      ],
+      "actor": "removed-member",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "removed-membership"
+    },
+    {
+      "id": "TP1-C185",
+      "group": "TP1-CASE-007",
+      "path": "background",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-002",
+        "TP1-POLICY-003"
+      ],
+      "actor": "removed-member",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "removed-membership"
+    },
+    {
+      "id": "TP1-C186",
+      "group": "TP1-CASE-007",
+      "path": "search-cache-report-export",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-002",
+        "TP1-POLICY-003"
+      ],
+      "actor": "removed-member",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "removed-membership"
+    },
+    {
+      "id": "TP1-C187",
+      "group": "TP1-CASE-007",
+      "path": "evidence-metadata",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-002",
+        "TP1-POLICY-003"
+      ],
+      "actor": "removed-member",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "removed-membership"
+    },
+    {
+      "id": "TP1-C188",
+      "group": "TP1-CASE-007",
+      "path": "platform-directory",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-002",
+        "TP1-POLICY-003"
+      ],
+      "actor": "removed-member",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "removed-membership"
+    },
+    {
+      "id": "TP1-C189",
+      "group": "TP1-CASE-007",
+      "path": "support-session",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-002",
+        "TP1-POLICY-003"
+      ],
+      "actor": "removed-member",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "removed-membership"
+    },
+    {
+      "id": "TP1-C190",
+      "group": "TP1-CASE-007",
+      "path": "audit-log-error",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-002",
+        "TP1-POLICY-003"
+      ],
+      "actor": "removed-member",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "removed-membership"
+    },
+    {
+      "id": "TP1-C191",
+      "group": "TP1-CASE-007",
+      "path": "interactive",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-002",
+        "TP1-POLICY-003"
+      ],
+      "actor": "member-org-suspended",
+      "sourceOrganization": "org-suspended",
+      "targetOrganization": "org-suspended",
+      "contextVariant": "suspended-organization"
+    },
+    {
+      "id": "TP1-C192",
+      "group": "TP1-CASE-007",
+      "path": "repository",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-002",
+        "TP1-POLICY-003"
+      ],
+      "actor": "member-org-suspended",
+      "sourceOrganization": "org-suspended",
+      "targetOrganization": "org-suspended",
+      "contextVariant": "suspended-organization"
+    },
+    {
+      "id": "TP1-C193",
+      "group": "TP1-CASE-007",
+      "path": "background",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-002",
+        "TP1-POLICY-003"
+      ],
+      "actor": "member-org-suspended",
+      "sourceOrganization": "org-suspended",
+      "targetOrganization": "org-suspended",
+      "contextVariant": "suspended-organization"
+    },
+    {
+      "id": "TP1-C194",
+      "group": "TP1-CASE-007",
+      "path": "search-cache-report-export",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-002",
+        "TP1-POLICY-003"
+      ],
+      "actor": "member-org-suspended",
+      "sourceOrganization": "org-suspended",
+      "targetOrganization": "org-suspended",
+      "contextVariant": "suspended-organization"
+    },
+    {
+      "id": "TP1-C195",
+      "group": "TP1-CASE-007",
+      "path": "evidence-metadata",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-002",
+        "TP1-POLICY-003"
+      ],
+      "actor": "member-org-suspended",
+      "sourceOrganization": "org-suspended",
+      "targetOrganization": "org-suspended",
+      "contextVariant": "suspended-organization"
+    },
+    {
+      "id": "TP1-C196",
+      "group": "TP1-CASE-007",
+      "path": "platform-directory",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-002",
+        "TP1-POLICY-003"
+      ],
+      "actor": "member-org-suspended",
+      "sourceOrganization": "org-suspended",
+      "targetOrganization": "org-suspended",
+      "contextVariant": "suspended-organization"
+    },
+    {
+      "id": "TP1-C197",
+      "group": "TP1-CASE-007",
+      "path": "support-session",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-002",
+        "TP1-POLICY-003"
+      ],
+      "actor": "member-org-suspended",
+      "sourceOrganization": "org-suspended",
+      "targetOrganization": "org-suspended",
+      "contextVariant": "suspended-organization"
+    },
+    {
+      "id": "TP1-C198",
+      "group": "TP1-CASE-007",
+      "path": "audit-log-error",
+      "expected": "DENY",
+      "policyTrace": [
+        "TP1-POLICY-002",
+        "TP1-POLICY-003"
+      ],
+      "actor": "member-org-suspended",
+      "sourceOrganization": "org-suspended",
+      "targetOrganization": "org-suspended",
+      "contextVariant": "suspended-organization"
+    },
+    {
+      "id": "TP1-C199",
+      "group": "TP1-CASE-008",
+      "path": "interactive",
+      "expected": "DENY_ON_CROSS_CONTEXT_AND_ALLOW_ON_RESTORED_CONTEXT",
+      "policyTrace": [
+        "TP1-POLICY-004",
+        "TP1-POLICY-008"
+      ],
+      "actor": "multi-org-member",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-bravo",
+      "contextVariant": "pool-reuse-concurrent-context",
+      "organizationSequence": [
+        "org-alpha",
+        "org-bravo",
+        "org-alpha"
+      ]
+    },
+    {
+      "id": "TP1-C200",
+      "group": "TP1-CASE-008",
+      "path": "repository",
+      "expected": "DENY_ON_CROSS_CONTEXT_AND_ALLOW_ON_RESTORED_CONTEXT",
+      "policyTrace": [
+        "TP1-POLICY-004",
+        "TP1-POLICY-008"
+      ],
+      "actor": "multi-org-member",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-bravo",
+      "contextVariant": "pool-reuse-concurrent-context",
+      "organizationSequence": [
+        "org-alpha",
+        "org-bravo",
+        "org-alpha"
+      ]
+    },
+    {
+      "id": "TP1-C201",
+      "group": "TP1-CASE-008",
+      "path": "background",
+      "expected": "DENY_ON_CROSS_CONTEXT_AND_ALLOW_ON_RESTORED_CONTEXT",
+      "policyTrace": [
+        "TP1-POLICY-004",
+        "TP1-POLICY-008"
+      ],
+      "actor": "multi-org-member",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-bravo",
+      "contextVariant": "pool-reuse-concurrent-context",
+      "organizationSequence": [
+        "org-alpha",
+        "org-bravo",
+        "org-alpha"
+      ]
+    },
+    {
+      "id": "TP1-C202",
+      "group": "TP1-CASE-008",
+      "path": "search-cache-report-export",
+      "expected": "DENY_ON_CROSS_CONTEXT_AND_ALLOW_ON_RESTORED_CONTEXT",
+      "policyTrace": [
+        "TP1-POLICY-004",
+        "TP1-POLICY-008"
+      ],
+      "actor": "multi-org-member",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-bravo",
+      "contextVariant": "pool-reuse-concurrent-context",
+      "organizationSequence": [
+        "org-alpha",
+        "org-bravo",
+        "org-alpha"
+      ]
+    },
+    {
+      "id": "TP1-C203",
+      "group": "TP1-CASE-008",
+      "path": "evidence-metadata",
+      "expected": "DENY_ON_CROSS_CONTEXT_AND_ALLOW_ON_RESTORED_CONTEXT",
+      "policyTrace": [
+        "TP1-POLICY-004",
+        "TP1-POLICY-008"
+      ],
+      "actor": "multi-org-member",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-bravo",
+      "contextVariant": "pool-reuse-concurrent-context",
+      "organizationSequence": [
+        "org-alpha",
+        "org-bravo",
+        "org-alpha"
+      ]
+    },
+    {
+      "id": "TP1-C204",
+      "group": "TP1-CASE-008",
+      "path": "platform-directory",
+      "expected": "DENY_ON_CROSS_CONTEXT_AND_ALLOW_ON_RESTORED_CONTEXT",
+      "policyTrace": [
+        "TP1-POLICY-004",
+        "TP1-POLICY-008"
+      ],
+      "actor": "multi-org-member",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-bravo",
+      "contextVariant": "pool-reuse-concurrent-context",
+      "organizationSequence": [
+        "org-alpha",
+        "org-bravo",
+        "org-alpha"
+      ]
+    },
+    {
+      "id": "TP1-C205",
+      "group": "TP1-CASE-008",
+      "path": "support-session",
+      "expected": "DENY_ON_CROSS_CONTEXT_AND_ALLOW_ON_RESTORED_CONTEXT",
+      "policyTrace": [
+        "TP1-POLICY-004",
+        "TP1-POLICY-008"
+      ],
+      "actor": "multi-org-member",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-bravo",
+      "contextVariant": "pool-reuse-concurrent-context",
+      "organizationSequence": [
+        "org-alpha",
+        "org-bravo",
+        "org-alpha"
+      ]
+    },
+    {
+      "id": "TP1-C206",
+      "group": "TP1-CASE-008",
+      "path": "audit-log-error",
+      "expected": "DENY_ON_CROSS_CONTEXT_AND_ALLOW_ON_RESTORED_CONTEXT",
+      "policyTrace": [
+        "TP1-POLICY-004",
+        "TP1-POLICY-008"
+      ],
+      "actor": "multi-org-member",
+      "sourceOrganization": "org-alpha",
+      "targetOrganization": "org-bravo",
+      "contextVariant": "pool-reuse-concurrent-context",
+      "organizationSequence": [
+        "org-alpha",
+        "org-bravo",
+        "org-alpha"
+      ]
+    },
+    {
+      "id": "TP1-C207",
+      "group": "TP1-CASE-008",
+      "path": "interactive",
+      "expected": "DENY_ON_CROSS_CONTEXT_AND_ALLOW_ON_RESTORED_CONTEXT",
+      "policyTrace": [
+        "TP1-POLICY-004",
+        "TP1-POLICY-008"
+      ],
+      "actor": "multi-org-member",
+      "sourceOrganization": "org-bravo",
+      "targetOrganization": "org-charlie",
+      "contextVariant": "pool-reuse-concurrent-context",
+      "organizationSequence": [
+        "org-bravo",
+        "org-charlie",
+        "org-bravo"
+      ]
+    },
+    {
+      "id": "TP1-C208",
+      "group": "TP1-CASE-008",
+      "path": "repository",
+      "expected": "DENY_ON_CROSS_CONTEXT_AND_ALLOW_ON_RESTORED_CONTEXT",
+      "policyTrace": [
+        "TP1-POLICY-004",
+        "TP1-POLICY-008"
+      ],
+      "actor": "multi-org-member",
+      "sourceOrganization": "org-bravo",
+      "targetOrganization": "org-charlie",
+      "contextVariant": "pool-reuse-concurrent-context",
+      "organizationSequence": [
+        "org-bravo",
+        "org-charlie",
+        "org-bravo"
+      ]
+    },
+    {
+      "id": "TP1-C209",
+      "group": "TP1-CASE-008",
+      "path": "background",
+      "expected": "DENY_ON_CROSS_CONTEXT_AND_ALLOW_ON_RESTORED_CONTEXT",
+      "policyTrace": [
+        "TP1-POLICY-004",
+        "TP1-POLICY-008"
+      ],
+      "actor": "multi-org-member",
+      "sourceOrganization": "org-bravo",
+      "targetOrganization": "org-charlie",
+      "contextVariant": "pool-reuse-concurrent-context",
+      "organizationSequence": [
+        "org-bravo",
+        "org-charlie",
+        "org-bravo"
+      ]
+    },
+    {
+      "id": "TP1-C210",
+      "group": "TP1-CASE-008",
+      "path": "search-cache-report-export",
+      "expected": "DENY_ON_CROSS_CONTEXT_AND_ALLOW_ON_RESTORED_CONTEXT",
+      "policyTrace": [
+        "TP1-POLICY-004",
+        "TP1-POLICY-008"
+      ],
+      "actor": "multi-org-member",
+      "sourceOrganization": "org-bravo",
+      "targetOrganization": "org-charlie",
+      "contextVariant": "pool-reuse-concurrent-context",
+      "organizationSequence": [
+        "org-bravo",
+        "org-charlie",
+        "org-bravo"
+      ]
+    },
+    {
+      "id": "TP1-C211",
+      "group": "TP1-CASE-008",
+      "path": "evidence-metadata",
+      "expected": "DENY_ON_CROSS_CONTEXT_AND_ALLOW_ON_RESTORED_CONTEXT",
+      "policyTrace": [
+        "TP1-POLICY-004",
+        "TP1-POLICY-008"
+      ],
+      "actor": "multi-org-member",
+      "sourceOrganization": "org-bravo",
+      "targetOrganization": "org-charlie",
+      "contextVariant": "pool-reuse-concurrent-context",
+      "organizationSequence": [
+        "org-bravo",
+        "org-charlie",
+        "org-bravo"
+      ]
+    },
+    {
+      "id": "TP1-C212",
+      "group": "TP1-CASE-008",
+      "path": "platform-directory",
+      "expected": "DENY_ON_CROSS_CONTEXT_AND_ALLOW_ON_RESTORED_CONTEXT",
+      "policyTrace": [
+        "TP1-POLICY-004",
+        "TP1-POLICY-008"
+      ],
+      "actor": "multi-org-member",
+      "sourceOrganization": "org-bravo",
+      "targetOrganization": "org-charlie",
+      "contextVariant": "pool-reuse-concurrent-context",
+      "organizationSequence": [
+        "org-bravo",
+        "org-charlie",
+        "org-bravo"
+      ]
+    },
+    {
+      "id": "TP1-C213",
+      "group": "TP1-CASE-008",
+      "path": "support-session",
+      "expected": "DENY_ON_CROSS_CONTEXT_AND_ALLOW_ON_RESTORED_CONTEXT",
+      "policyTrace": [
+        "TP1-POLICY-004",
+        "TP1-POLICY-008"
+      ],
+      "actor": "multi-org-member",
+      "sourceOrganization": "org-bravo",
+      "targetOrganization": "org-charlie",
+      "contextVariant": "pool-reuse-concurrent-context",
+      "organizationSequence": [
+        "org-bravo",
+        "org-charlie",
+        "org-bravo"
+      ]
+    },
+    {
+      "id": "TP1-C214",
+      "group": "TP1-CASE-008",
+      "path": "audit-log-error",
+      "expected": "DENY_ON_CROSS_CONTEXT_AND_ALLOW_ON_RESTORED_CONTEXT",
+      "policyTrace": [
+        "TP1-POLICY-004",
+        "TP1-POLICY-008"
+      ],
+      "actor": "multi-org-member",
+      "sourceOrganization": "org-bravo",
+      "targetOrganization": "org-charlie",
+      "contextVariant": "pool-reuse-concurrent-context",
+      "organizationSequence": [
+        "org-bravo",
+        "org-charlie",
+        "org-bravo"
+      ]
+    },
+    {
+      "id": "TP1-C215",
+      "group": "TP1-CASE-008",
+      "path": "interactive",
+      "expected": "DENY_ON_CROSS_CONTEXT_AND_ALLOW_ON_RESTORED_CONTEXT",
+      "policyTrace": [
+        "TP1-POLICY-004",
+        "TP1-POLICY-008"
+      ],
+      "actor": "multi-org-member",
+      "sourceOrganization": "org-charlie",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "pool-reuse-concurrent-context",
+      "organizationSequence": [
+        "org-charlie",
+        "org-alpha",
+        "org-charlie"
+      ]
+    },
+    {
+      "id": "TP1-C216",
+      "group": "TP1-CASE-008",
+      "path": "repository",
+      "expected": "DENY_ON_CROSS_CONTEXT_AND_ALLOW_ON_RESTORED_CONTEXT",
+      "policyTrace": [
+        "TP1-POLICY-004",
+        "TP1-POLICY-008"
+      ],
+      "actor": "multi-org-member",
+      "sourceOrganization": "org-charlie",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "pool-reuse-concurrent-context",
+      "organizationSequence": [
+        "org-charlie",
+        "org-alpha",
+        "org-charlie"
+      ]
+    },
+    {
+      "id": "TP1-C217",
+      "group": "TP1-CASE-008",
+      "path": "background",
+      "expected": "DENY_ON_CROSS_CONTEXT_AND_ALLOW_ON_RESTORED_CONTEXT",
+      "policyTrace": [
+        "TP1-POLICY-004",
+        "TP1-POLICY-008"
+      ],
+      "actor": "multi-org-member",
+      "sourceOrganization": "org-charlie",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "pool-reuse-concurrent-context",
+      "organizationSequence": [
+        "org-charlie",
+        "org-alpha",
+        "org-charlie"
+      ]
+    },
+    {
+      "id": "TP1-C218",
+      "group": "TP1-CASE-008",
+      "path": "search-cache-report-export",
+      "expected": "DENY_ON_CROSS_CONTEXT_AND_ALLOW_ON_RESTORED_CONTEXT",
+      "policyTrace": [
+        "TP1-POLICY-004",
+        "TP1-POLICY-008"
+      ],
+      "actor": "multi-org-member",
+      "sourceOrganization": "org-charlie",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "pool-reuse-concurrent-context",
+      "organizationSequence": [
+        "org-charlie",
+        "org-alpha",
+        "org-charlie"
+      ]
+    },
+    {
+      "id": "TP1-C219",
+      "group": "TP1-CASE-008",
+      "path": "evidence-metadata",
+      "expected": "DENY_ON_CROSS_CONTEXT_AND_ALLOW_ON_RESTORED_CONTEXT",
+      "policyTrace": [
+        "TP1-POLICY-004",
+        "TP1-POLICY-008"
+      ],
+      "actor": "multi-org-member",
+      "sourceOrganization": "org-charlie",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "pool-reuse-concurrent-context",
+      "organizationSequence": [
+        "org-charlie",
+        "org-alpha",
+        "org-charlie"
+      ]
+    },
+    {
+      "id": "TP1-C220",
+      "group": "TP1-CASE-008",
+      "path": "platform-directory",
+      "expected": "DENY_ON_CROSS_CONTEXT_AND_ALLOW_ON_RESTORED_CONTEXT",
+      "policyTrace": [
+        "TP1-POLICY-004",
+        "TP1-POLICY-008"
+      ],
+      "actor": "multi-org-member",
+      "sourceOrganization": "org-charlie",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "pool-reuse-concurrent-context",
+      "organizationSequence": [
+        "org-charlie",
+        "org-alpha",
+        "org-charlie"
+      ]
+    },
+    {
+      "id": "TP1-C221",
+      "group": "TP1-CASE-008",
+      "path": "support-session",
+      "expected": "DENY_ON_CROSS_CONTEXT_AND_ALLOW_ON_RESTORED_CONTEXT",
+      "policyTrace": [
+        "TP1-POLICY-004",
+        "TP1-POLICY-008"
+      ],
+      "actor": "multi-org-member",
+      "sourceOrganization": "org-charlie",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "pool-reuse-concurrent-context",
+      "organizationSequence": [
+        "org-charlie",
+        "org-alpha",
+        "org-charlie"
+      ]
+    },
+    {
+      "id": "TP1-C222",
+      "group": "TP1-CASE-008",
+      "path": "audit-log-error",
+      "expected": "DENY_ON_CROSS_CONTEXT_AND_ALLOW_ON_RESTORED_CONTEXT",
+      "policyTrace": [
+        "TP1-POLICY-004",
+        "TP1-POLICY-008"
+      ],
+      "actor": "multi-org-member",
+      "sourceOrganization": "org-charlie",
+      "targetOrganization": "org-alpha",
+      "contextVariant": "pool-reuse-concurrent-context",
+      "organizationSequence": [
+        "org-charlie",
+        "org-alpha",
+        "org-charlie"
+      ]
+    }
+  ]
+}

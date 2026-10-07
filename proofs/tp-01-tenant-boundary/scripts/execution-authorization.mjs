@@ -1,0 +1,55 @@
+import { createHash } from "node:crypto";
+import { spawnSync } from "node:child_process";
+import { readFileSync } from "node:fs";
+import { resolve } from "node:path";
+import { assertExactNode } from "./runtime-contract.mjs";
+
+export function assertExecutionAuthorized() {
+  assertExactNode();
+  if (process.env.TP01_EXECUTION_AUTHORIZATION !== "AUTHORIZED_BY_LATER_OWNER_PACKAGE") {
+    throw new Error("TP-01 execution is not authorized by WP-19");
+  }
+  const packageId = process.env.TP01_EXECUTION_PACKAGE;
+  const evidenceDirectory = process.env.TP01_EVIDENCE_DIR;
+  if (!packageId?.startsWith("WP-") || !evidenceDirectory) {
+    throw new Error("Later execution package and private evidence directory are required");
+  }
+  const record = JSON.parse(
+    readFileSync(resolve(evidenceDirectory, "authorization.json"), "utf8"),
+  );
+  const inventoryPath = resolve(
+    "../../internal-local/work-packages/TP-01/evidence/materialization/artifact-hashes.json",
+  );
+  const inventoryBytes = readFileSync(inventoryPath);
+  const inventorySha256 = createHash("sha256").update(inventoryBytes).digest("hex");
+  if (
+    record.status !== "ACCEPTED_FOR_EXECUTION" ||
+    record.packageId !== packageId ||
+    record.proof !== "TP-01" ||
+    record.artifactInventorySha256 !== inventorySha256
+  ) {
+    throw new Error("Private authorization record does not match the requested execution package");
+  }
+  const inventory = JSON.parse(inventoryBytes.toString("utf8"));
+  for (const entry of inventory.entries) {
+    const actual = createHash("sha256").update(readFileSync(resolve(entry.path))).digest("hex");
+    if (actual !== entry.sha256) throw new Error(`reviewed artifact changed: ${entry.path}`);
+  }
+  const repositoryRoot = resolve("../..");
+  const revision = spawnSync("git", ["rev-parse", "HEAD"], {
+    cwd: repositoryRoot,
+    encoding: "utf8",
+  });
+  if (revision.status !== 0 || revision.stdout.trim() !== record.repositoryRevision) {
+    throw new Error("repository revision differs from the authorized execution revision");
+  }
+  const dirty = spawnSync(
+    "git",
+    ["status", "--porcelain", "--", "proofs/tp-01-tenant-boundary"],
+    { cwd: repositoryRoot, encoding: "utf8" },
+  );
+  if (dirty.status !== 0 || dirty.stdout.trim()) {
+    throw new Error("reviewed TP-01 path must be clean before execution");
+  }
+  return { packageId, evidenceDirectory };
+}

@@ -9,9 +9,9 @@
 | Proof | `TP-01 Tenant Boundary and Authorization Contract` |
 | Source | `PROOF-SPEC-001`, accepted WP-17 governance |
 | Evidence snapshot | 2026-10-07 |
-| Authorization readiness | `NOT_READY` |
+| Authorization readiness | `CHECKPOINT_1_ACCEPTED_FOR_PUBLICATION`; execution `NOT_READY` |
 | Technical-proof execution | Not authorized |
-| Dependency installation/artifact creation | Not authorized |
+| Dependency installation/artifact creation | Checkpoint 1 authorized and completed; further change closed |
 | Application coding/infrastructure/final architecture/deployment | Not authorized |
 | Last updated | 2026-10-07 |
 
@@ -245,9 +245,12 @@ new contract revision before re-run.
 | `TP1-LIMIT-009` | Data | Deterministic synthetic fixture only; no customer/live/production-derived data |
 | `TP1-LIMIT-010` | Concurrency | Bounded generated pool-reuse/concurrency cases only; not a load/performance proof |
 
-## Proposed command contract
+## Materialized command contract
 
-These commands describe future scripts; none exists or is authorized to run.
+WP-19 materialized the command scripts. Only lock/dependency materialization, supply-chain
+collection, manifest verification, hashing, and TypeScript static checking were authorized and
+performed for checkpoint 1. Image, database, preflight, proof, reproduction, evidence-verification,
+and cleanup commands remain unauthorized to run.
 
 | ID | Stage | Exact command interface | Required result |
 | --- | --- | --- | --- |
@@ -306,11 +309,12 @@ therefore remains open for named execution assignments.
 | ID | Checkpoint | May occur only after explicit later authorization | Exit condition |
 | --- | --- | --- | --- |
 | `TP1-CHK-001` | Materialization | Create only the frozen proof path; resolve direct/transitive dependencies; generate lockfile, source/schema/tests/scripts, case manifest, and hashes; inspect licenses/advisories; do not run TP-01 | Independent inventory review accepts exact artifacts or returns revisions |
-| `TP1-CHK-002` | Execution | Install reviewed lockfile, obtain verified image, start bounded local environment, run primary/reproduction/evidence/cleanup commands | Reviewed pass/fail/inconclusive package; no architecture decision implied |
+| `TP1-CHK-002` | Execution | Reverify the accepted lock/dependency tree, obtain the verified image, start the bounded local environment, and run primary/reproduction/evidence/cleanup commands | Reviewed pass/fail/inconclusive package; no architecture decision implied |
 
-Authorization for checkpoint 1 does not authorize checkpoint 2. This split is required because the
-lockfile, transitive dependency graph, executable case hash, and proof artifact hashes do not exist
-yet and cannot be independently reviewed in WP-18.
+Authorization for checkpoint 1 does not authorize checkpoint 2. WP-19 created the lockfile,
+transitive dependency graph, executable case hash, and proof artifact hashes and obtained the
+authorized independent inventory review. Those artifacts remain pending owner acceptance and
+publication; none grants execution authority.
 
 ## Cleanup and recovery contract
 
@@ -328,18 +332,18 @@ yet and cannot be independently reviewed in WP-18.
 | ID | Requirement | State | Blocker/action |
 | --- | --- | --- | --- |
 | `TP1-READY-001` | Accepted governance and proof-only policy | Ready | WP-17 accepted |
-| `TP1-READY-002` | Exact direct runtime/package versions and integrity | Proposed | Owner disposition required |
-| `TP1-READY-003` | Exact database image/digest/platform | Proposed | Owner disposition required; recheck on later authorization date |
-| `TP1-READY-004` | Exact proof/evidence paths and non-scope | Proposed | Owner disposition required |
-| `TP1-READY-005` | Exact context/schema/enforcement-mode contract | Proposed | Owner disposition required; remains proof-only |
-| `TP1-READY-006` | Exact 222-case matrix and oracle rules | Proposed | Owner disposition required; executable manifest not created |
-| `TP1-READY-007` | Exact command/resource/network/cleanup contract | Proposed | Owner disposition required; scripts not created |
-| `TP1-READY-008` | Generated lockfile/transitive/license/advisory inventory | Not ready | Requires separately authorized materialization checkpoint |
-| `TP1-READY-009` | Proof source/schema/scripts/case-manifest hashes | Not ready | Artifacts do not exist; creation remains unauthorized |
+| `TP1-READY-002` | Exact direct runtime/package versions and integrity | Accepted for checkpoint 1 | Accepted in WP-18 and materialized exactly in WP-19 |
+| `TP1-READY-003` | Exact database image/digest/platform | Contract ready; execution recheck required | Image pull/verification remains closed until checkpoint 2 |
+| `TP1-READY-004` | Exact proof/evidence paths and non-scope | Accepted for checkpoint 1 | Materialized only in accepted disposable/private paths |
+| `TP1-READY-005` | Exact context/schema/enforcement-mode contract | Accepted for checkpoint 1 | Materialized as disposable proof mechanics; not executed |
+| `TP1-READY-006` | Exact 222-case matrix and oracle rules | Accepted for checkpoint 1 | 222-case manifest frozen and hashed |
+| `TP1-READY-007` | Exact command/resource/network/cleanup contract | Accepted for checkpoint 1 | Scripts materialized with fail-closed execution authorization |
+| `TP1-READY-008` | Generated lockfile/transitive/license/advisory inventory | Accepted for checkpoint 1 | Lock, tree, licenses, audit, and hashes recorded |
+| `TP1-READY-009` | Proof source/schema/scripts/case-manifest hashes | Accepted for checkpoint 1 | Exact 50-file private hash inventory independently validated |
 | `TP1-READY-010` | Named proof operator | Not ready | `OPEN-097` assignment required |
 | `TP1-READY-011` | Named independent validator | Not ready | `OPEN-097` assignment required and must differ from operator |
 | `TP1-READY-012` | Named qualified security reviewer | Not ready | `OPEN-097` specialist assignment required |
-| `TP1-READY-013` | Explicit materialization authorization | Not ready | Later owner gate |
+| `TP1-READY-013` | Explicit materialization authorization | Complete | Owner authorized WP-19 checkpoint 1; no execution authority |
 | `TP1-READY-014` | Explicit execution authorization | Not ready | Later owner gate after checkpoint 1 review |
 
 ## Risks and stop conditions
@@ -382,19 +386,18 @@ later authorization checkpoint; a changed value requires owner review.
 
 ## Readiness verdict and next gate
 
-WP-18 is `READY_FOR_OWNER_DECISION` as an exact contract and
-`NOT_READY_FOR_MATERIALIZATION_OR_TECHNICAL_PROOF_EXECUTION`.
+WP-18 is accepted and published as the exact contract. WP-19 checkpoint 1 is
+`ACCEPTED_FOR_PUBLICATION`; TP-01 execution remains `NOT_READY` and `NOT_AUTHORIZED`.
 
-Direct versions, image digest, proposed paths, case matrix, commands, limits, evidence, and cleanup
-are exact enough for owner disposition. Execution remains blocked because the proof artifacts,
-lockfile, transitive/license/advisory inventory, case-manifest hash, operator, independent
-validator, security reviewer, and two explicit checkpoint authorizations do not exist.
+The disposable proof artifacts, lockfile, transitive/license/advisory inventory, case-manifest
+hash, and independent checkpoint-1 inventory validation now exist. Execution remains blocked
+because publication has not yet been verified, the operator, checkpoint-2 independent validator,
+and qualified security reviewer are unassigned, and no explicit checkpoint-2 execution
+authorization exists.
 
-If the owner accepts WP-18 and authorizes publication, the next bounded package should be
-`WP-19 TP-01 Materialization and Supply-Chain Review`. It may be authorized to create only the
-frozen disposable proof artifacts and lockfile and to perform the materialization review; TP-01
-execution should remain closed until that checkpoint passes and the owner separately authorizes
-checkpoint 2.
+The exact checkpoint evidence and proposed owner dispositions are recorded in
+`22_TP01_MATERIALIZATION_SUPPLY_CHAIN_REVIEW.md`. Acceptance and publication of WP-19 must remain
+separate from role assignment and checkpoint-2 execution authorization.
 
 ## WP-18 acceptance criteria
 
