@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-20 accepted for publication; checkpoint 2 closed |
+| Status | Product Discovery closed — WP-20A accepted for publication; execution remediation required |
 | Current phase | Technical Proof Preparation — TP-01 checkpoint-2 authorization readiness |
-| Current work package | `WP-20 TP-01 Execution Roles and Checkpoint-2 Authorization` — Accepted for publication |
+| Current work package | `WP-20A TP-01 Security Review Governance Amendment` — Accepted for publication |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -72,6 +72,7 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 13. `21_TP01_EXACT_EXECUTION_CONTRACT.md`
 14. `22_TP01_MATERIALIZATION_SUPPLY_CHAIN_REVIEW.md`
 15. `23_TP01_EXECUTION_ROLES_CHECKPOINT2_AUTHORIZATION.md`
+16. `24_TP01_SECURITY_REVIEW_GOVERNANCE_AMENDMENT.md`
 
 Current and later accepted work packages may add or mature:
 
@@ -605,6 +606,43 @@ The supplied security-reviewer name and qualification remained literal placehold
 identify or qualify a reviewer. Therefore `TP1-ROLE-004`, `TP1-AUTH-005`, and `TP1-AUTH-009`
 remain blocking, the attempted checkpoint-2 authorization is invalid under the accepted WP-20
 contract, and WP-21 is not activated. TP-01 execution remains closed.
+
+## WP-20A owner-directed governance amendment
+
+On 2026-10-07 the owner directed a narrow revision for the solo-development context: an independent
+security-review subagent may perform TP-01's technical security review, while qualified human
+security review is deferred but remains mandatory before production deployment or any real/customer
+data. All other WP-20 controls remain unchanged.
+
+The assigned technical security-review identity is `/root/tp01_security_review`. It is separate
+from the primary operator and the future reproduction validator and is prohibited from authoring,
+operating, reproducing, or mutating TP-01. This amendment does not itself authorize checkpoint 2,
+activate WP-21, run a command, accept a proof result, or authorize production.
+
+## WP-20A validation result
+
+The assigned `/root/tp01_security_review` subagent confirmed its read-only, no-author,
+no-operator, no-validator scope and accepted the assignment as conditionally suitable for local
+synthetic TP-01 only. It confirmed that human production/real-data review must remain mandatory.
+
+Its static review also found three checkpoint-2 evidence blockers: the harness records the expected
+database role as a literal instead of measuring the connected role; the evidence verifier checks
+only result/audit/reproduction files rather than the complete authorization/environment/image/
+fixture/state/cleanup/reviewer packet; and dedicated environment, fixture, and state-integrity
+artifacts are not clearly emitted. Local inspection confirmed those findings.
+
+WP-20A is `READY_FOR_OWNER_DECISION`, but checkpoint 2 remains `NOT_READY` and `NOT_AUTHORIZED`.
+Changing the frozen proof to close these gaps will change accepted hashes and requires a separately
+authorized remediation/materialization review before execution.
+
+## WP-20A acceptance
+
+The owner accepted `WP20A-DEC-001` through `WP20A-DEC-005`, `TP1-GOV-EX-001` through `005`, and
+`TP1-SEC-STATIC-001` through `003` exactly as recorded on 2026-10-07 and authorized publication.
+After verified publication, WP-21 may remediate and rematerialize only the disposable TP-01
+evidence mechanics, governing documentation, and private evidence. TP-01 execution, images,
+containers, databases, services, application coding, final architecture selection, infrastructure,
+deployment, and customer/live data remain closed.
 
 ## Private execution control
 

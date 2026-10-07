@@ -31,6 +31,7 @@ documents:
 - `docs/21_TP01_EXACT_EXECUTION_CONTRACT.md`
 - `docs/22_TP01_MATERIALIZATION_SUPPLY_CHAIN_REVIEW.md`
 - `docs/23_TP01_EXECUTION_ROLES_CHECKPOINT2_AUTHORIZATION.md`
+- `docs/24_TP01_SECURITY_REVIEW_GOVERNANCE_AMENDMENT.md`
 
 Architecture-analysis authorization does not authorize architecture selection. Option documents
 must identify alternatives, evidence, assumptions, risks, unresolved inputs, and reversal cost
@@ -101,6 +102,13 @@ exact later authorization statement. Documentation does not assign a fabricated 
 specialist qualification, run preflight, verify/pull an image, start a service, apply SQL, execute
 a case, or accept a proof result. Missing explicit acceptance of any required role, revision, hash,
 or execution authorization keeps checkpoint 2 closed.
+
+For TP-01 only, the owner may assign an independent security-review subagent that is distinct from
+the proof operator and reproduction validator. Its review is bounded technical evidence, not
+qualified human or production security acceptance. A qualified human security review remains a
+mandatory gate before production deployment or any real/customer data. This scoped exception does
+not weaken case oracles, evidence, reproduction, stop, cleanup, tenant-isolation, or zero-leakage
+controls and does not apply automatically to later proofs.
 
 ## Current authorization boundary
 

@@ -298,7 +298,8 @@ and authorized for publication.
 | Proof owner | Aung Myo Oo | Identified | May own authorization/stop/cleanup; cannot independently validate own operated run |
 | Proof operator | Named person or explicitly authorized primary agent | `UNASSIGNED` | Blocking |
 | Independent validator | Different person or separately authorized independent agent that did not author/operate primary run | `UNASSIGNED` | Blocking |
-| Security reviewer | Named qualified reviewer with tenant-isolation/authorization review scope | `UNASSIGNED` | Blocking; automated review alone cannot accept security evidence |
+| TP-01 technical security reviewer | Independent security-review subagent with tenant-isolation/authorization review scope | `/root/tp01_security_review` assigned by `DEC-147` | May review local synthetic TP-01 evidence only; must not operate, reproduce, or mutate the proof |
+| Production/real-data security reviewer | Named qualified human reviewer | Deferred | Mandatory before production deployment or any real/customer data; not a TP-01 execution blocker under `TP1-GOV-EX-001` |
 | Owner decision | Aung Myo Oo | Identified | Occurs only after reviewed evidence; not proof execution |
 
 WP-18 does not silently appoint an agent or claim unavailable specialist capacity. `OPEN-097`
@@ -337,14 +338,15 @@ verified WP-19; that checkpoint still grants no execution authority.
 | `TP1-READY-004` | Exact proof/evidence paths and non-scope | Accepted for checkpoint 1 | Materialized only in accepted disposable/private paths |
 | `TP1-READY-005` | Exact context/schema/enforcement-mode contract | Accepted for checkpoint 1 | Materialized as disposable proof mechanics; not executed |
 | `TP1-READY-006` | Exact 222-case matrix and oracle rules | Accepted for checkpoint 1 | 222-case manifest frozen and hashed |
-| `TP1-READY-007` | Exact command/resource/network/cleanup contract | Accepted for checkpoint 1 | Scripts materialized with fail-closed execution authorization |
+| `TP1-READY-007` | Exact command/resource/network/cleanup contract | Accepted checkpoint-1 inventory; execution gap found | Security review found that full evidence-packet verification is not implemented |
 | `TP1-READY-008` | Generated lockfile/transitive/license/advisory inventory | Accepted for checkpoint 1 | Lock, tree, licenses, audit, and hashes recorded |
 | `TP1-READY-009` | Proof source/schema/scripts/case-manifest hashes | Published checkpoint baseline | Exact 50-file inventory is bound to verified commit `01bc6d58fb2c8d1c255e79ebf031faaf53fbb304` |
 | `TP1-READY-010` | Named proof operator | Accepted role class | `TP1-OPERATOR-PRIMARY`; exact execution-turn task identity must be recorded before preflight |
 | `TP1-READY-011` | Named independent validator | Accepted role class; identity pending | Fresh `TP1-VALIDATOR-REPRO` canonical identity must be recorded and differ from operator |
-| `TP1-READY-012` | Named qualified security reviewer | Not ready | `OPEN-097` specialist assignment required |
+| `TP1-READY-012` | Independent TP-01 technical security reviewer | Assigned and scope-confirmed | `/root/tp01_security_review`; read-only, no-author, no-operator, no-validator attestation recorded |
 | `TP1-READY-013` | Explicit materialization authorization | Complete | Owner authorized WP-19 checkpoint 1; no execution authority |
-| `TP1-READY-014` | Explicit execution authorization | Not ready | Placeholder reviewer fields invalidate the attempted checkpoint-2 authorization |
+| `TP1-READY-014` | Explicit execution authorization | Not ready | WP-20A is accepted for publication; WP-21 remediation and a later new exact authorization remain required |
+| `TP1-READY-015` | Complete measured security evidence packet | Not ready | Actual DB role is not measured; verifier omits authorization/environment/image/fixture/state/cleanup/reviewer checks; dedicated environment/fixture/state files are missing |
 
 ## Risks and stop conditions
 
@@ -358,8 +360,10 @@ verified WP-19; that checkpoint still grants no execution authority.
 | `TP1-CONTRACT-RISK-006` | 222 cases provide false completeness | Independent adversarial gap review; TP-01 conclusion limited to declared paths |
 | `TP1-CONTRACT-RISK-007` | Local proof is generalized to cloud/managed identity | Explicit provider/identity exclusion and later proof requirements |
 | `TP1-CONTRACT-RISK-008` | Proof code becomes application foundation | Disposable path and later implementation reauthorization under `DEC-133` |
-| `TP1-CONTRACT-RISK-009` | Unqualified automated review is treated as security acceptance | Named qualified security reviewer remains blocking |
+| `TP1-CONTRACT-RISK-009` | Automated technical review is treated as production security acceptance | Label TP-01 review as automated/limited; require qualified human review before production or real/customer data |
 | `TP1-CONTRACT-RISK-010` | Container/dependency operation starts without authority | Two checkpoints and explicit authorization per checkpoint |
+| `TP1-CONTRACT-RISK-011` | Literal expected role is mistaken for measured database identity | Query and retain actual role/attributes/ownership/grants/RLS evidence before any security conclusion |
+| `TP1-CONTRACT-RISK-012` | Partial verifier PASS is treated as complete evidence acceptance | Require one verifier/report to bind and validate the full `TP1-EVID-001` through `012` packet |
 
 Stop immediately if a version/digest/path/case/oracle differs, network leaves the allowed boundary,
 live/customer data appears, an unauthorized process/resource is required, a reviewer role is

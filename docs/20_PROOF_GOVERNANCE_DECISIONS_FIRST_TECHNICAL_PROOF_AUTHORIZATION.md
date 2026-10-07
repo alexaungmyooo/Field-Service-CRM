@@ -95,6 +95,20 @@ review role. The named assignments, availability, and any conflict must be froze
 This role model partially answers `OPEN-097`; it does not invent currently unavailable people or
 waive qualified specialist review.
 
+### TP-01 scoped security-review amendment
+
+`TP1-GOV-EX-001` is Accepted by owner direction on 2026-10-07. For the local-only, synthetic,
+provider-neutral TP-01 proof, `PGR-004` may be fulfilled by an independent security-review subagent
+that is separate from the proof operator and reproduction validator and did not author or mutate
+the proof. Its output is a bounded technical security review and may support TP-01's reviewed
+evidence classification with explicit automation and coverage limitations.
+
+This exception does not claim qualified human or production security acceptance. A named qualified
+human security reviewer remains mandatory before production deployment or use of any real/customer
+data. `PGD-001` through `PGD-010`, `PGE-001` through `PGE-010`, tenant zero-tolerance outcomes,
+independent reproduction, evidence completeness, stop conditions, cleanup, and owner disposition
+are unchanged. The exception does not automatically apply to another proof.
+
 ## Why the tenant-boundary proof is first
 
 | Criterion | `PROOF-SPEC-001` consequence |
