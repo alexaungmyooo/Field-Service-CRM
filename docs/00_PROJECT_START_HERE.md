@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-40 execution identity/reachability readiness ready for owner decision |
-| Current phase | Technical Proof Reauthorization Readiness |
-| Current work package | `WP-40 TP-01 Execution Identity and Reachability Authorization Readiness` |
+| Status | Product Discovery closed — WP-41 controlled reachability execution Inconclusive and ready for owner review |
+| Current phase | Technical Proof Evidence Disposition |
+| Current work package | `WP-41 Controlled TP-01 Reachability Execution` |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -92,6 +92,7 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 33. `41_TP01_HOST_PORT_RUNTIME_REACHABILITY_STATIC_REMEDIATION.md`
 34. `42_TP01_HOST_PORT_REMEDIATION_REBINDING_REAUTHORIZATION_READINESS.md`
 35. `43_TP01_EXECUTION_IDENTITY_REACHABILITY_AUTHORIZATION_READINESS.md`
+36. `44_TP01_CONTROLLED_REACHABILITY_EXECUTION_RESULT.md`
 
 Current and later accepted work packages may add or mature:
 
@@ -1002,6 +1003,35 @@ preflight, images, Docker/Compose, pull-token creation, containers, databases, s
 proof/reproduction, application coding, final architecture selection, infrastructure, deployment,
 provider accounts/cost, customer/live data, network, and WP-40 publication remain closed. WP-40 is
 `READY_FOR_OWNER_DECISION`.
+
+## WP-40 acceptance, publication, and WP-41 result — 2026-10-07
+
+The owner accepted `WP40-DEC-001` through `010`, `TP1-EXEC-REACH-BIND-001` through `011`, the
+named roles, fresh-validator attestation, and ineffective private draft. The frozen four-path
+inventory was committed as `3a5a404 WP-40: accept execution identity readiness` and pushed to
+`origin/main`.
+
+Local `HEAD`, cached `origin/main`, and live remote main matched
+`3a5a404cac934af8b4d0397a3da9c09bab3c5068`. WP-40 is `VERIFIED_AND_CLOSED`.
+
+WP-41 activated for run `wp41-2026-10-07-01` at accepted proof revision
+`ce851445a485883fb6f3ec5572508fb0902a4656`. The dedicated checkout, exact offline dependency
+restoration, effective authorization, preflight, local-first image inspection, and local-cache
+image verification passed. The accepted image was already local, so no pull token was created and
+no registry or other internet access occurred.
+
+The PostgreSQL service started healthy. The next mandatory command was rejected by the frozen
+exact-pnpm launcher because `runtime:verify-reachability` was not in its approved run-script set.
+The reachability script never started, so the operator stopped without bypass or retry before
+database reset. No primary proof, sealed handoff, or reproduction occurred.
+
+Mandatory cleanup, direct residual verification, and private runtime-credential removal passed.
+All three role recommendations are `INCONCLUSIVE`; final verification failed closed on missing
+mandatory reachability evidence. The 18-entry private packet has aggregate SHA-256
+`cc8b6599ecd96ccf11e44d5f56f23d8c121b4cf0dc3e3036c66d6dc625e68fd8`, and the dedicated
+checkout was archived after evidence preservation. WP-41 is `INCONCLUSIVE_CLOSED_NO_RETRY` and
+`READY_FOR_OWNER_REVIEW`; it establishes no tenant-boundary, reachability, no-egress, security, or
+architecture result.
 
 ## WP-30 acceptance, publication, and WP-31 activation — 2026-10-07
 

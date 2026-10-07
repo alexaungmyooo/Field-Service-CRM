@@ -4,7 +4,7 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Ready for Owner Decision — identity attestation only |
+| Status | Accepted, published, and closed |
 | Work package | `WP-40 TP-01 Execution Identity and Reachability Authorization Readiness` |
 | Governing decision | `DEC-170` |
 | Governance publication | `c120f0d738c93e7ceff75630a5dc678157ff98db` |
@@ -12,8 +12,8 @@
 | Proof tree | `ad27a2c754b2f7352b3beff314a8e3349758e17a` |
 | Owner | Aung Myo Oo |
 | Date | 2026-10-07 |
-| TP-01 execution | Not authorized |
-| Publication | Not authorized |
+| TP-01 execution | One WP-41 attempt authorized after publication; authorization now consumed |
+| Publication | Verified as `3a5a404cac934af8b4d0397a3da9c09bab3c5068` |
 
 ## Objective and authority boundary
 
@@ -37,7 +37,7 @@ architecture, write application code, create infrastructure, deploy, or use cust
 | `TP1-EXEC-REACH-BIND-004` | Artifact inventory `2b87f65acbde27aa63c72a4f752f00f66f1333e01d94d6c2c7f5c0784e8c9114` | Accepted by WP-39 |
 | `TP1-EXEC-REACH-BIND-005` | Content set `c44b2035b558c373eeea9e606a6dc2ac0373dab309d4d984f8ac70ec12637919` | Accepted by WP-39 |
 | `TP1-EXEC-REACH-BIND-006` | Published WP-39 document SHA-256 `68041008e259e8a435540d893bdebc30c1839e665d465f980089920db1720f6e` | Committed byte identity |
-| `TP1-EXEC-REACH-BIND-007` | Fresh reproduction validator `/root/wp40_reproduction_validator` | Attested; owner acceptance pending |
+| `TP1-EXEC-REACH-BIND-007` | Fresh reproduction validator `/root/wp40_reproduction_validator` | Accepted for WP-41 only; authority now consumed |
 | `TP1-EXEC-REACH-BIND-008` | Reproduction-validator attestation SHA-256 `3b7b8490166490f3a2735a306d7bfaa9a9d0a1180e66b0c1716dd0ca3c10638b` | Private identity evidence |
 | `TP1-EXEC-REACH-BIND-009` | Ineffective authorization draft SHA-256 `549e94666ffe2b47a8efb380b67bf2eab97cc46c20c8f04ee3fc7f45d00c9370` | Private; never executable |
 | `TP1-EXEC-REACH-BIND-010` | Runtime reachability status `NOT_AUTHORIZED`; run/package absent, `runtimeMeasured: false`, bypass false | Closed runtime gate |
@@ -156,16 +156,16 @@ Verdict: identity and authorization preparation are `READY_FOR_OWNER_DECISION`; 
 
 | ID | Recommendation | Status |
 | --- | --- | --- |
-| `WP40-DEC-001` | Accept `TP1-EXEC-REACH-BIND-001` through `011` as the exact candidate binding for one later new attempt. | Proposed |
-| `WP40-DEC-002` | Accept `/root` as the proposed primary operator for one later exact package/run only. | Proposed |
-| `WP40-DEC-003` | Accept `/root/wp40_reproduction_validator` as the fresh reproduction identity and accept its independence attestation. | Proposed |
-| `WP40-DEC-004` | Preserve `/root/tp01_security_review` as the proposed separate local synthetic technical reviewer, subject to later reconfirmation. | Proposed |
-| `WP40-DEC-005` | Accept the private draft as complete but ineffective; never rename or copy it to `authorization.json`. | Proposed |
-| `WP40-DEC-006` | Require exact offline/frozen/ignore-scripts dependency restoration in a later dedicated checkout and prohibit npm/version changes. | Proposed |
-| `WP40-DEC-007` | Require local-first image verification and separate run-bound token authority only after measured absence. | Proposed |
-| `WP40-DEC-008` | Require the three-view reachability gate before each reset, mandatory cleanup, role-separated reviews, fail-closed final verification, and no retry under every later outcome. | Proposed |
-| `WP40-DEC-009` | Require a separate explicit owner authorization before checkout creation, dependency restoration, effective authorization, token creation, or any checkpoint-2 command. | Proposed |
-| `WP40-DEC-010` | Keep application coding, final architecture selection, provider accounts/cost, infrastructure, deployment, and customer/live data closed. | Proposed |
+| `WP40-DEC-001` | Accept `TP1-EXEC-REACH-BIND-001` through `011` as the exact candidate binding for one later new attempt. | Accepted |
+| `WP40-DEC-002` | Accept `/root` as the proposed primary operator for one later exact package/run only. | Accepted |
+| `WP40-DEC-003` | Accept `/root/wp40_reproduction_validator` as the fresh reproduction identity and accept its independence attestation. | Accepted |
+| `WP40-DEC-004` | Preserve `/root/tp01_security_review` as the proposed separate local synthetic technical reviewer, subject to later reconfirmation. | Accepted |
+| `WP40-DEC-005` | Accept the private draft as complete but ineffective; never rename or copy it to `authorization.json`. | Accepted |
+| `WP40-DEC-006` | Require exact offline/frozen/ignore-scripts dependency restoration in a later dedicated checkout and prohibit npm/version changes. | Accepted |
+| `WP40-DEC-007` | Require local-first image verification and separate run-bound token authority only after measured absence. | Accepted |
+| `WP40-DEC-008` | Require the three-view reachability gate before each reset, mandatory cleanup, role-separated reviews, fail-closed final verification, and no retry under every later outcome. | Accepted |
+| `WP40-DEC-009` | Require a separate explicit owner authorization before checkout creation, dependency restoration, effective authorization, token creation, or any checkpoint-2 command. | Accepted |
+| `WP40-DEC-010` | Keep application coding, final architecture selection, provider accounts/cost, infrastructure, deployment, and customer/live data closed. | Accepted |
 
 ## Frozen WP-40 public inventory
 
@@ -179,9 +179,15 @@ Owner review and any later publication authorization apply only to these four pa
 Private identity, authorization, and validation records remain ignored under `internal-local/` and
 must not be published.
 
-## Next gate
+## Acceptance, publication, and next gate
 
-WP-40 stops at owner decision. The identity attestation grants no execution authority. Commit,
-push, checkout creation, dependency restoration, effective authorization, token creation,
-Docker/Compose, cleanup, proof/reproduction, and every later-package gate remain closed until a
-later explicit owner statement.
+The owner accepted all ten recommendations, all eleven execution/reachability bindings, `/root` as
+primary operator, `/root/wp40_reproduction_validator` and its independence attestation, and
+`/root/tp01_security_review` as technical security reviewer. The exact four-path inventory was
+committed as `3a5a404 WP-40: accept execution identity readiness` and pushed to `origin/main`.
+Local `HEAD`, cached `origin/main`, and live remote main matched
+`3a5a404cac934af8b4d0397a3da9c09bab3c5068`. WP-40 is `VERIFIED_AND_CLOSED`.
+
+The authorized WP-41 attempt is complete and Inconclusive. Its execution authorization is consumed
+and expired. WP-41 is at owner evidence disposition; no retry, remediation, commit, push, or later
+package is authorized.
