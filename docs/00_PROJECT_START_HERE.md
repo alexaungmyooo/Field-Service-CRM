@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-41 controlled reachability execution Inconclusive and ready for owner review |
-| Current phase | Technical Proof Evidence Disposition |
-| Current work package | `WP-41 Controlled TP-01 Reachability Execution` |
+| Status | Product Discovery closed — WP-42 exact launcher/reachability contract remediation ready for owner review |
+| Current phase | Technical Proof Static Remediation |
+| Current work package | `WP-42 Exact Launcher and Reachability Command Contract Remediation` |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -93,6 +93,7 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 34. `42_TP01_HOST_PORT_REMEDIATION_REBINDING_REAUTHORIZATION_READINESS.md`
 35. `43_TP01_EXECUTION_IDENTITY_REACHABILITY_AUTHORIZATION_READINESS.md`
 36. `44_TP01_CONTROLLED_REACHABILITY_EXECUTION_RESULT.md`
+37. `45_TP01_EXACT_LAUNCHER_REACHABILITY_STATIC_REMEDIATION.md`
 
 Current and later accepted work packages may add or mature:
 
@@ -1032,6 +1033,34 @@ mandatory reachability evidence. The 18-entry private packet has aggregate SHA-2
 checkout was archived after evidence preservation. WP-41 is `INCONCLUSIVE_CLOSED_NO_RETRY` and
 `READY_FOR_OWNER_REVIEW`; it establishes no tenant-boundary, reachability, no-egress, security, or
 architecture result.
+
+## WP-41 acceptance, publication, and WP-42 remediation — 2026-10-07
+
+The owner accepted the complete WP-41 Inconclusive disposition, `WP41-DEV-001`, the three role
+reviews, mandatory cleanup and residual verification, credential removal, fail-closed final
+verification, the 18-entry private inventory, `WP41-REM-001` through `007`, and `WP41-DEC-001`
+through `007`. WP-41 was closed without retry.
+
+The frozen four-path public inventory was committed as
+`1901f32 WP-41: record controlled reachability execution` and pushed to `origin/main`. Local
+`HEAD`, cached `origin/main`, and live remote main matched
+`1901f32e157f0fb70af0570dbd739f41dd18a49a`. WP-41 is `VERIFIED_AND_CLOSED`.
+
+WP-42 activated for proof-only static remediation. It adds exactly
+`runtime:verify-reachability` to the exact launcher allowlist, reconciles the launcher, package
+script, controlled sequence, and final-verifier evidence requirements, adds dependency-free
+contract tests, renews the proof hashes, and uses exactly one fresh independent static validator.
+Dependencies, preflight, images, Docker/Compose runtime, containers, databases, services, cleanup
+execution, proof/reproduction, application coding, architecture selection, infrastructure,
+deployment, provider accounts/cost, customer/live data, network, and WP-42 publication remain
+closed.
+
+The exact Node v22.23.1 syntax and dependency-free contract checks pass. The renewed proof
+inventory contains 62 files. Fresh validator `/root/wp42_static_validator` independently
+reproduced every path, byte count, hash, aggregate identity, command-contract control, and frozen
+scope and returned `PASS` with zero finding and zero repository mutation. WP-42 is
+`READY_FOR_OWNER_REVIEW`; this static result establishes no runtime reachability, tenant boundary,
+security acceptance, reproduction, or architecture outcome.
 
 ## WP-30 acceptance, publication, and WP-31 activation — 2026-10-07
 

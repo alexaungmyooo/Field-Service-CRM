@@ -267,6 +267,13 @@ one exact launcher chain:
 - cleanup and final verification execute directly with the exact Node binary after dependencies may
   have been removed, never through pnpm.
 
+The launcher allowlist must statically agree with the package-script interface and this command
+table. It permits the exact two-argument `run runtime:verify-reachability` shape and rejects
+variants, extra arguments, whitespace drift, and unlisted script names. Missing dependencies must
+fail before pnpm inspection or execution, and dependency-marker state must remain unchanged across
+every dependency-reading command. Cleanup and final complete-packet verification remain direct
+exact-Node interfaces and must not be added to the launcher allowlist.
+
 | ID | Stage | Exact command interface | Required result |
 | --- | --- | --- | --- |
 | `TP1-CMD-001` | Preflight | `$TP01_NODE_BIN scripts/exact-pnpm.mjs run preflight` | Verify repository revision, host/architecture, exact Node/pnpm entry, Docker/Compose versions, ports, clean proof path, ignored evidence path, zero active proof resources |
@@ -285,9 +292,12 @@ one exact launcher chain:
 | `TP1-CMD-013` | Final complete-packet verification | `$TP01_NODE_BIN scripts/evidence-verify.mjs --final` | Revalidate the complete packet without package-manager dependency materialization; only this interface may emit final PASS |
 | `TP1-CMD-014` | Exact launcher validation | `$TP01_NODE_BIN scripts/exact-pnpm.mjs --version` | Prove the pnpm entry hash is accepted before execution and that the exact Node process then observes pnpm `11.25.0` |
 
-The scripts must avoid shell expansion of secrets, write raw evidence only to the ignored
-private path, and stop on the first contract/environment violation. A command change after
-materialization requires a reviewed revision before the primary run.
+The scripts must avoid shell expansion of secrets, write raw evidence only to the ignored private
+path, and stop on the first contract/environment violation. The exact launcher command contract is
+covered by dependency-free built-in tests that verify allowlist/package agreement, exact-command
+acceptance, variant rejection, missing-dependency failure, and unchanged dependency-marker
+enforcement. A command change after materialization requires a reviewed revision before the
+primary run.
 
 ## Private evidence contract
 

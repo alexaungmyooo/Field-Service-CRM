@@ -7,29 +7,62 @@ This directory materializes checkpoint 1 of the accepted TP-01 contract in
 
 ## Current authorization
 
-WP-38 authorizes proof-only host-port publication, runtime-reachability, and diagnostic-minimization
-remediation with dependency-free static validation. It permits:
+WP-42 authorizes proof-only exact-launcher and reachability-command contract remediation with
+dependency-free static validation. It permits:
 
-- correcting the disposable Compose publication interface while preserving exact loopback-only
-  exposure and disabled bridge masquerading;
-- adding exact Docker and Compose publisher-mapping checks plus a bounded TCP reachability gate;
-- requiring accepted run-bound reachability evidence before database reset and final evidence
-  verification;
-- redacting local home/worktree paths from bounded failed-child diagnostics;
+- adding exactly `runtime:verify-reachability` to the exact launcher's approved run-script set;
+- extracting the pure launcher command and dependency-marker contract for built-in-only testing;
+- rejecting command variants and checking exact agreement with the package-script interface;
 - built-in-only syntax, pure-contract, hashing, inventory, and scope checks;
 - renewing static evidence and artifact hashes; and
 - one fresh independent read-only static validation after the inventory is frozen.
 
-WP-38 does **not** authorize dependencies, package-manager operations, preflight, Docker/Compose
-commands, image inspection or retrieval, containers, databases, services, SQL, fixtures,
-listeners, cleanup execution, a TP-01 case or reproduction, execution-evidence verification,
-application code, architecture selection, infrastructure, deployment, provider accounts or cost,
-customer/live data, or network access.
+WP-42 does **not** authorize dependency or package-manager operations, preflight, image inspection
+or retrieval, Docker/Compose commands, pull-token creation, containers, databases, services, SQL,
+fixtures, listeners, cleanup execution, a TP-01 case or reproduction, execution-evidence
+verification, application code, architecture selection, infrastructure, deployment, provider
+accounts or cost, customer/live data, or network access.
 
 The execution-facing scripts fail closed. They require later-package environment controls and a
 matching private `authorization.json` with status `ACCEPTED_FOR_EXECUTION`. The remediated
 inventory must be independently reviewed, owner-accepted, committed, published, and bound to a
 later exact execution revision before any execution-facing command may run.
+
+## WP-42 exact launcher and reachability-command contract
+
+WP-41 stopped before database reset because the frozen exact launcher rejected the already
+recorded `runtime:verify-reachability` package script. WP-42 adds that one name to the approved
+run-script set and does not widen the two-argument `run <script>` shape or any install, list, or
+version shape.
+
+The launcher and its dependency-free contract test now establish that:
+
+- `run runtime:verify-reachability` is accepted exactly once in the allowlist;
+- extra arguments, whitespace drift, underscore substitution, and the direct-Node-only
+  `evidence:verify-final` name remain rejected;
+- every launcher-approved name exists in `package.json`, and the reachability script resolves
+  exactly to `node scripts/runtime-reachability.mjs`;
+- run/list commands still fail before pnpm inspection when `node_modules` is absent; and
+- dependency-marker hashes are captured before a dependency-reading command and must remain
+  unchanged afterward.
+
+The controlled order remains database start, exact three-view reachability verification, then
+database reset. Cleanup and final complete-packet verification remain direct exact-Node commands;
+neither is added to the launcher allowlist. A later run must still produce accepted, run-bound
+`runtime-reachability.json` before reset or final PASS is possible.
+
+WP-42 dependency-free static checks are:
+
+```text
+$TP01_NODE_BIN --check scripts/exact-pnpm-contract.mjs
+$TP01_NODE_BIN --check scripts/exact-pnpm-contract.test.mjs
+$TP01_NODE_BIN --check scripts/exact-pnpm.mjs
+$TP01_NODE_BIN scripts/exact-pnpm-contract.test.mjs
+$TP01_NODE_BIN scripts/hash-inventory.mjs
+```
+
+These commands do not invoke dependencies, the package manager, preflight, images,
+Docker/Compose, cleanup, evidence verification, or a proof/reproduction path.
 
 ## WP-38 publication and runtime-reachability contract
 
