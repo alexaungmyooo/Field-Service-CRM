@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-38 host-port/reachability remediation ready for owner review |
-| Current phase | Technical Proof Static Remediation |
-| Current work package | `WP-38 Host-Port Publication and Runtime Reachability Remediation` |
+| Status | Product Discovery closed — WP-39 host-port remediation rebinding ready for owner decision |
+| Current phase | Technical Proof Reauthorization Readiness |
+| Current work package | `WP-39 TP-01 Host-Port Remediation Rebinding and Reauthorization Readiness` |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -90,6 +90,7 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 31. `39_TP01_EXECUTION_IDENTITY_CONDITIONAL_PULL_AUTHORIZATION_READINESS.md`
 32. `40_TP01_CONTROLLED_CONDITIONAL_IMAGE_EXECUTION_RESULT.md`
 33. `41_TP01_HOST_PORT_RUNTIME_REACHABILITY_STATIC_REMEDIATION.md`
+34. `42_TP01_HOST_PORT_REMEDIATION_REBINDING_REAUTHORIZATION_READINESS.md`
 
 Current and later accepted work packages may add or mature:
 
@@ -956,6 +957,26 @@ diagnostic retention. Exact Node v22.23.1 syntax and both dependency-free tests 
 inventory contains 60 proof files. Fresh validator `/root/wp38_static_validator` returned `PASS`
 with no high, medium, or low finding and zero public/proof mutation. Actual Docker publication and
 no-egress behavior remain unmeasured. WP-38 is `READY_FOR_OWNER_REVIEW`.
+
+## WP-38 acceptance, publication, and WP-39 activation — 2026-10-07
+
+The owner accepted `WP38-REM-001` through `009`, `WP38-BIND-001` through `018`,
+`WP38-DEC-001` through `007`, the renewed 60-file inventory, and the independent
+static-validation `PASS`. The frozen fifteen-path inventory was committed as
+`ce85144 WP-38: accept host-port reachability remediation` and pushed to `origin/main`.
+
+Local `HEAD`, cached `origin/main`, and live remote main matched
+`ce851445a485883fb6f3ec5572508fb0902a4656`; the committed proof tree is
+`ad27a2c754b2f7352b3beff314a8e3349758e17a`. WP-38 is `VERIFIED_AND_CLOSED`.
+
+WP-39 is active for owner-decision documentation and explicitly ineffective private
+reauthorization preparation only. It binds the verified revision/tree/hashes, preserves all five
+stopped-run histories, analyzes future workspace/role/dependency/reachability readiness, and
+prepares a draft that cannot satisfy any execution guard. No role was created. Proof changes,
+checkout creation, dependencies, preflight, images, Docker/Compose runtime, pull-token creation,
+containers, databases, services, listeners, cleanup, proof/reproduction, application coding,
+final architecture selection, infrastructure, deployment, provider accounts/cost, customer/live
+data, network, and WP-39 publication remain closed. WP-39 is `READY_FOR_OWNER_DECISION`.
 
 ## WP-30 acceptance, publication, and WP-31 activation — 2026-10-07
 

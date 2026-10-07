@@ -4,7 +4,7 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Ready for Owner Review |
+| Status | Accepted, published, and closed |
 | Work package | `WP-38 Host-Port Publication and Runtime Reachability Remediation` |
 | Governing decision | `DEC-168` |
 | Base publication | `6482489284daef2f7f250912a94aec9819e10a88` |
@@ -12,7 +12,7 @@
 | Owner | Aung Myo Oo |
 | Date | 2026-10-07 |
 | Runtime execution | Not authorized |
-| Publication | Not authorized |
+| Publication | Verified as `ce851445a485883fb6f3ec5572508fb0902a4656` |
 
 ## Objective and boundary
 
@@ -43,15 +43,15 @@ cannot prove Docker Desktop runtime behavior; later controlled measurement remai
 
 | ID | Implemented control | State |
 | --- | --- | --- |
-| `WP38-REM-001` | Preserve WP-37 as immutable Inconclusive evidence and never retry its expired run. | Implemented; owner acceptance pending |
-| `WP38-REM-002` | Express the required host publication in explicit long form and reject any `internal: true` publication source. | Implemented; owner acceptance pending |
-| `WP38-REM-003` | Disable bridge IP masquerading so correction of host ingress does not silently grant proof-container internet egress. | Implemented; owner acceptance pending |
-| `WP38-REM-004` | Require Docker inspect to contain exactly one `5432/tcp -> 127.0.0.1:55432` binding. | Implemented; owner acceptance pending |
-| `WP38-REM-005` | Require Compose to report one running, healthy `postgres` service with the same exact publisher and no wildcard, zero, wrong-port, extra, or wrong-protocol mapping. | Implemented; owner acceptance pending |
-| `WP38-REM-006` | Require direct bounded TCP reachability before database reset; write run/package-bound PASS evidence or minimized fail-closed evidence. | Implemented; owner acceptance pending |
-| `WP38-REM-007` | Make database reset and final evidence verification reject missing, stale-run, or inconsistent reachability evidence. | Implemented; owner acceptance pending |
-| `WP38-REM-008` | Redact local home/worktree paths from failed-child output before the existing 8,192-character bounded retention. | Implemented; owner acceptance pending |
-| `WP38-REM-009` | Add dependency-free source/contract/path-redaction tests and renew the complete proof inventory. | Implemented; owner acceptance pending |
+| `WP38-REM-001` | Preserve WP-37 as immutable Inconclusive evidence and never retry its expired run. | Accepted |
+| `WP38-REM-002` | Express the required host publication in explicit long form and reject any `internal: true` publication source. | Accepted |
+| `WP38-REM-003` | Disable bridge IP masquerading so correction of host ingress does not silently grant proof-container internet egress. | Accepted |
+| `WP38-REM-004` | Require Docker inspect to contain exactly one `5432/tcp -> 127.0.0.1:55432` binding. | Accepted |
+| `WP38-REM-005` | Require Compose to report one running, healthy `postgres` service with the same exact publisher and no wildcard, zero, wrong-port, extra, or wrong-protocol mapping. | Accepted |
+| `WP38-REM-006` | Require direct bounded TCP reachability before database reset; write run/package-bound PASS evidence or minimized fail-closed evidence. | Accepted |
+| `WP38-REM-007` | Make database reset and final evidence verification reject missing, stale-run, or inconsistent reachability evidence. | Accepted |
+| `WP38-REM-008` | Redact local home/worktree paths from failed-child output before the existing 8,192-character bounded retention. | Accepted |
+| `WP38-REM-009` | Add dependency-free source/contract/path-redaction tests and renew the complete proof inventory. | Accepted |
 
 ## Exact runtime contract for a later package
 
@@ -135,13 +135,13 @@ reachability, database behavior, and proof behavior remain unmeasured until sepa
 
 | ID | Recommendation | Status |
 | --- | --- | --- |
-| `WP38-DEC-001` | Accept `WP38-REM-001` through `009` as the bounded correction of `WP37-DEV-001` and the diagnostic-minimization finding. | Proposed |
-| `WP38-DEC-002` | Accept `WP38-BIND-001` through `018` only as a static proof candidate binding. | Proposed |
-| `WP38-DEC-003` | Accept the independent static result only after its exact identity, methods, findings, limitations, and zero-mutation statement are recorded. | Proposed |
-| `WP38-DEC-004` | Preserve WP-37 as immutable Inconclusive evidence and prohibit retry or reinterpretation. | Proposed |
-| `WP38-DEC-005` | After verified WP-38 publication, activate WP-39 for exact published rebinding, stopped-run preservation, workspace/role/dependency/reachability readiness analysis, and explicitly ineffective private reauthorization preparation only. | Proposed |
-| `WP38-DEC-006` | Do not treat static source correction as proof that Docker will publish the endpoint; require separately authorized runtime measurement. | Proposed |
-| `WP38-DEC-007` | Keep dependencies, preflight, images, Docker/Compose runtime, containers, databases, services, cleanup execution, proof/reproduction, application coding, final architecture selection, infrastructure, deployment, provider accounts/cost, and customer/live data closed. | Proposed |
+| `WP38-DEC-001` | Accept `WP38-REM-001` through `009` as the bounded correction of `WP37-DEV-001` and the diagnostic-minimization finding. | Accepted |
+| `WP38-DEC-002` | Accept `WP38-BIND-001` through `018` only as a static proof candidate binding. | Accepted |
+| `WP38-DEC-003` | Accept the independent static result only after its exact identity, methods, findings, limitations, and zero-mutation statement are recorded. | Accepted |
+| `WP38-DEC-004` | Preserve WP-37 as immutable Inconclusive evidence and prohibit retry or reinterpretation. | Accepted |
+| `WP38-DEC-005` | After verified WP-38 publication, activate WP-39 for exact published rebinding, stopped-run preservation, workspace/role/dependency/reachability readiness analysis, and explicitly ineffective private reauthorization preparation only. | Accepted |
+| `WP38-DEC-006` | Do not treat static source correction as proof that Docker will publish the endpoint; require separately authorized runtime measurement. | Accepted |
+| `WP38-DEC-007` | Keep dependencies, preflight, images, Docker/Compose runtime, containers, databases, services, cleanup execution, proof/reproduction, application coding, final architecture selection, infrastructure, deployment, provider accounts/cost, and customer/live data closed. | Accepted |
 
 ## Frozen WP-38 public inventory
 
@@ -166,10 +166,14 @@ Owner review and any later publication authorization apply only to these fifteen
 Private static evidence and the renewed artifact inventory remain ignored under `internal-local/`
 and must not be published.
 
-## Next gate
+## Acceptance, publication, and next gate
 
-WP-38 stops at owner review. No proof change occurred after the 60-file inventory freeze. Commit,
-push, runtime action, and every later-package gate remain closed until later owner acceptance. If
-the owner accepts the complete WP-38 package and authorizes its frozen publication, WP-39 may
-activate only after live-remote verification and only within the decision-documentation/private
-ineffective-draft boundary recorded in `WP38-DEC-005`.
+The owner accepted all nine remediation controls, all eighteen bindings, all seven decisions, the
+renewed 60-file inventory, and the independent static-validation `PASS`. The exact fifteen-path
+inventory was committed as `ce85144 WP-38: accept host-port reachability remediation` and pushed
+to `origin/main`; local `HEAD`, cached `origin/main`, and live remote main matched
+`ce851445a485883fb6f3ec5572508fb0902a4656`. The committed proof tree is
+`ad27a2c754b2f7352b3beff314a8e3349758e17a`. WP-38 is `VERIFIED_AND_CLOSED`.
+
+WP-39 is active for exact published rebinding, readiness analysis, and an explicitly ineffective
+private reauthorization draft only. Runtime action and WP-39 publication remain closed.
