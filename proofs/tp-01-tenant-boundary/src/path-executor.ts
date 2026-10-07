@@ -1,9 +1,7 @@
 import { Injectable } from "@nestjs/common";
 import { ProofAuditWriter } from "./audit.js";
 import { ProofDatabase } from "./database.js";
-import { MachineAuthorityVerifier } from "./machine.js";
 import { ProofAuthorizationPolicy } from "./policy.js";
-import { SupportGrantVerifier } from "./support.js";
 import type {
   AuthorizationDecision,
   AuthorizationRequest,
@@ -22,8 +20,6 @@ export class ProofPathExecutor {
     private readonly database: ProofDatabase,
     private readonly policy: ProofAuthorizationPolicy,
     private readonly audit: ProofAuditWriter,
-    private readonly support: SupportGrantVerifier,
-    private readonly machine: MachineAuthorityVerifier,
   ) {}
 
   evaluateApplication(
@@ -69,31 +65,37 @@ export class ProofPathExecutor {
   ): Promise<ProofObservation> {
     const started = performance.now();
     const before = await this.database.tenantStateHash(context);
-    let ids: ReadonlyArray<string> = [];
-
-    if (path === "platform-directory" && request.resourceKind === "ORGANIZATION_DIRECTORY") {
-      ids = await this.database.inContext(
-        context,
-        async (client) => {
+    const measured = await this.database.inContextWithIdentity(
+      context,
+      async (client): Promise<ReadonlyArray<string>> => {
+        if (path === "platform-directory" && request.resourceKind === "ORGANIZATION_DIRECTORY") {
           const result = await client.query<{ id: string }>(
             "SELECT id FROM platform.organizations WHERE ($1::uuid IS NULL OR id = $1)",
             [request.resourceOrganizationId],
           );
           return result.rows.map((row) => row.id);
-        },
-        "ROLLBACK",
-        false,
-      );
-    } else if (path === "support-session" && context.authoritySource === "SUPPORT_GRANT") {
-      ids = (await this.support.isActiveReadGrant(context, request.resourceKind, request.write))
-        ? [context.supportGrantId!]
-        : [];
-    } else if (path === "background" && context.authoritySource === "MACHINE_IDENTITY") {
-      ids = (await this.machine.isActive(context, request.resourceOrganizationId))
-        ? [context.machineJobId!]
-        : [];
-    } else {
-      ids = await this.database.inContext(context, async (client) => {
+        }
+        if (path === "support-session" && context.authoritySource === "SUPPORT_GRANT") {
+          if (!context.supportGrantId || !context.activeOrganizationId) return [];
+          const result = await client.query<{ active: boolean }>(
+            "SELECT security.can_access_tenant($1, $2, $3, $4) AS active",
+            [
+              context.activeOrganizationId,
+              request.write ? "UPDATE" : "READ",
+              request.resourceKind,
+              request.write,
+            ],
+          );
+          return result.rows[0]?.active ? [context.supportGrantId] : [];
+        }
+        if (path === "background" && context.authoritySource === "MACHINE_IDENTITY") {
+          if (!context.machineJobId || !request.resourceOrganizationId) return [];
+          const result = await client.query<{ active: boolean }>(
+            "SELECT security.can_access_tenant($1, 'UPDATE', 'BACKGROUND_JOB', true) AS active",
+            [request.resourceOrganizationId],
+          );
+          return result.rows[0]?.active ? [context.machineJobId] : [];
+        }
         if (path === "background") {
           const result = await client.query<{ id: string }>(
             `SELECT b.id FROM tenant.background_jobs b
@@ -159,8 +161,11 @@ export class ProofPathExecutor {
               [targetDisplayKey],
             );
         return result.rows.map((row) => row.id);
-      }, "ROLLBACK", false);
-    }
+      },
+      "ROLLBACK",
+      false,
+    );
+    const ids = measured.value;
 
     const outcome = ids.length > 0 ? "ALLOW" : "DENY";
     const after = await this.database.tenantStateHash(context);
@@ -172,7 +177,7 @@ export class ProofPathExecutor {
       mutationBeforeHash: before,
       mutationAfterHash: after,
       auditReference: null,
-      databaseRole: "tp01_runtime",
+      databaseRole: measured.databaseRole,
       durationMs: performance.now() - started,
     };
   }
@@ -187,6 +192,7 @@ export class ProofPathExecutor {
     const application = this.evaluateApplication(context, request);
     if (application.outcome === "DENY") {
       const auditReference = await this.audit.record(context, request, application);
+      const databaseRole = await this.database.currentDatabaseRole(context);
       return {
         mode: "COMBINED",
         outcome: "DENY",
@@ -195,7 +201,7 @@ export class ProofPathExecutor {
         mutationBeforeHash: await this.database.tenantStateHash(context),
         mutationAfterHash: await this.database.tenantStateHash(context),
         auditReference,
-        databaseRole: "tp01_runtime",
+        databaseRole,
         durationMs: performance.now() - started,
       };
     }

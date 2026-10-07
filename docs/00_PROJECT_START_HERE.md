@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-20A accepted for publication; execution remediation required |
+| Status | Product Discovery closed — WP-21 accepted for publication; TP-01 execution closed |
 | Current phase | Technical Proof Preparation — TP-01 checkpoint-2 authorization readiness |
-| Current work package | `WP-20A TP-01 Security Review Governance Amendment` — Accepted for publication |
+| Current work package | `WP-21 TP-01 Evidence Completeness Remediation and Rematerialization` — Accepted for publication |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -73,6 +73,7 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 14. `22_TP01_MATERIALIZATION_SUPPLY_CHAIN_REVIEW.md`
 15. `23_TP01_EXECUTION_ROLES_CHECKPOINT2_AUTHORIZATION.md`
 16. `24_TP01_SECURITY_REVIEW_GOVERNANCE_AMENDMENT.md`
+17. `25_TP01_EVIDENCE_COMPLETENESS_REMEDIATION.md`
 
 Current and later accepted work packages may add or mature:
 
@@ -604,8 +605,8 @@ independent-reproduction role classes are accepted under their stated separation
 
 The supplied security-reviewer name and qualification remained literal placeholders. They do not
 identify or qualify a reviewer. Therefore `TP1-ROLE-004`, `TP1-AUTH-005`, and `TP1-AUTH-009`
-remain blocking, the attempted checkpoint-2 authorization is invalid under the accepted WP-20
-contract, and WP-21 is not activated. TP-01 execution remains closed.
+remain blocking, the attempted checkpoint-2 authorization was invalid under the accepted WP-20
+contract, and WP-21 was not activated at that gate. TP-01 execution remains closed.
 
 ## WP-20A owner-directed governance amendment
 
@@ -631,9 +632,9 @@ only result/audit/reproduction files rather than the complete authorization/envi
 fixture/state/cleanup/reviewer packet; and dedicated environment, fixture, and state-integrity
 artifacts are not clearly emitted. Local inspection confirmed those findings.
 
-WP-20A is `READY_FOR_OWNER_DECISION`, but checkpoint 2 remains `NOT_READY` and `NOT_AUTHORIZED`.
-Changing the frozen proof to close these gaps will change accepted hashes and requires a separately
-authorized remediation/materialization review before execution.
+Before owner acceptance, WP-20A reached `READY_FOR_OWNER_DECISION`, while checkpoint 2 remained
+`NOT_READY` and `NOT_AUTHORIZED`. Changing the frozen proof to close these gaps changes accepted
+hashes and requires a separately authorized remediation/materialization review before execution.
 
 ## WP-20A acceptance
 
@@ -643,6 +644,53 @@ After verified publication, WP-21 may remediate and rematerialize only the dispo
 evidence mechanics, governing documentation, and private evidence. TP-01 execution, images,
 containers, databases, services, application coding, final architecture selection, infrastructure,
 deployment, and customer/live data remain closed.
+
+## WP-20A publication result
+
+The exact seven-document WP-20A inventory was committed as
+`03f0425 WP-20A: accept TP-01 security review amendment` and pushed to `origin/main`. Local
+`HEAD`, fetched `origin/main`, and `FETCH_HEAD` were verified at
+`03f0425b4089ae1c0173ac911a2f23461eeb6a92`. No proof artifact changed in that publication, and no
+execution, runtime resource, application code, infrastructure, deployment, or customer/live data
+was involved. WP-20A is `VERIFIED_AND_CLOSED`.
+
+## WP-21 authorization
+
+After verified WP-20A publication, the owner activated `WP-21 TP-01 Evidence Completeness
+Remediation and Rematerialization` on 2026-10-07. WP-21 may change only the disposable TP-01 proof,
+governing documentation, and ignored private evidence needed to measure actual database identity,
+emit dedicated environment/fixture/state-integrity evidence, verify the complete evidence packet,
+renew all artifact hashes, and obtain one fresh independent inventory validation.
+
+WP-21 may perform syntax, manifest, TypeScript, hash, inventory, and documentation validation. It
+may not execute preflight or TP-01, pull or inspect an image, start a container, create or access a
+database, apply SQL, create a fixture, bind a port, start a service, install dependencies, write
+application code, select final architecture, create infrastructure, deploy, or use customer/live
+data. Publication and checkpoint-2 execution each require a later explicit owner gate.
+
+## WP-21 validation result
+
+WP-21 rematerialized 51 proof files while leaving the lockfile, dependency set, SQL/schema/seed,
+runtime/image pins, and 222-case manifest unchanged. Exact-runtime JavaScript syntax, manifest, and
+TypeScript no-emit checks passed. The first independent inventory pass found four static defects;
+the proof was corrected, all hashes were renewed, and the same single authorized independent
+validator returned PASS for 51/51 file/hash consistency and static evidence completeness.
+
+This PASS does not establish database identity, tenant isolation, evidence generation, cleanup
+effectiveness, or any TP-01 result because no execution-facing command ran. WP-21 is
+accepted for publication, and checkpoint 2 remains `NOT_AUTHORIZED`.
+
+## WP-21 acceptance
+
+The owner accepted WP-21, `WP21-REM-001` through `WP21-REM-005`, and the rematerialized 51-file
+proof inventory exactly as recorded on 2026-10-07. Publication is authorized only for the frozen
+18-path public inventory. This acceptance does not establish a runtime proof result, restore the
+expired WP-20 binding, or authorize checkpoint 2, dependencies, images, containers, databases,
+services, application code, final architecture selection, infrastructure, deployment, or
+customer/live data.
+
+After verified publication, WP-22 may prepare the exact committed revision/tree/hash binding and
+checkpoint-2 authorization decision for owner review only. Execution remains separately closed.
 
 ## Private execution control
 

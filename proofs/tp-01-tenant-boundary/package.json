@@ -22,6 +22,7 @@
     "proof:run": "node scripts/proof-run.mjs primary-results.jsonl",
     "proof:reproduce": "node scripts/proof-run.mjs reproduction-results.jsonl",
     "evidence:verify": "node scripts/evidence-verify.mjs",
+    "evidence:verify-final": "node scripts/evidence-verify.mjs --final",
     "cleanup": "node scripts/cleanup.mjs"
   },
   "dependencies": {

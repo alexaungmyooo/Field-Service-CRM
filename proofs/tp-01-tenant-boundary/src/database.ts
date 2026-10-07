@@ -70,6 +70,48 @@ export class ProofDatabase implements OnModuleDestroy {
     }
   }
 
+  async inContextWithIdentity<T>(
+    context: SecurityContext,
+    operation: (client: PoolClient) => Promise<T>,
+    completion: "ROLLBACK" | "COMMIT" = "ROLLBACK",
+    requireOrganization = true,
+  ): Promise<{ readonly value: T; readonly databaseRole: string }> {
+    const client = await this.pool.connect();
+    try {
+      return await this.inContextOnClientWithIdentity(
+        client,
+        context,
+        operation,
+        completion,
+        requireOrganization,
+      );
+    } finally {
+      client.release();
+    }
+  }
+
+  async inContextOnClientWithIdentity<T>(
+    client: PoolClient,
+    context: SecurityContext,
+    operation: (client: PoolClient) => Promise<T>,
+    completion: "ROLLBACK" | "COMMIT" = "ROLLBACK",
+    requireOrganization = true,
+  ): Promise<{ readonly value: T; readonly databaseRole: string }> {
+    return this.inContextOnClient(
+      client,
+      context,
+      async (connectedClient) => {
+        const identity = await connectedClient.query<{ current_user: string }>("SELECT current_user");
+        const databaseRole = identity.rows[0]?.current_user;
+        if (!databaseRole) throw new Error("database did not report the connected role");
+        const value = await operation(connectedClient);
+        return { value, databaseRole };
+      },
+      completion,
+      requireOrganization,
+    );
+  }
+
   async withDedicatedClient<T>(operation: (client: PoolClient) => Promise<T>): Promise<T> {
     const client = await this.pool.connect();
     try {
@@ -99,6 +141,16 @@ export class ProofDatabase implements OnModuleDestroy {
       false,
     );
     return createHash("sha256").update(JSON.stringify(state)).digest("hex");
+  }
+
+  async currentDatabaseRole(context: SecurityContext): Promise<string> {
+    const measured = await this.inContextWithIdentity(
+      context,
+      async () => undefined,
+      "ROLLBACK",
+      false,
+    );
+    return measured.databaseRole;
   }
 
   async onModuleDestroy(): Promise<void> {

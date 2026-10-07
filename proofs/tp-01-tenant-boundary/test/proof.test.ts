@@ -191,7 +191,7 @@ async function runSimpleCase(item: ProofCase) {
     combined = {
       ...appObservation,
       mode: "COMBINED",
-      databaseRole: "tp01_runtime",
+      databaseRole: await database.currentDatabaseRole(databaseContext),
       auditReference,
     };
   }
@@ -307,8 +307,8 @@ async function probePoolPath(
     return result.rows.map((row) => row.id);
   };
   return dedicatedClient
-    ? database.inContextOnClient(dedicatedClient, context, operation)
-    : database.inContext(context, operation);
+    ? database.inContextOnClientWithIdentity(dedicatedClient, context, operation)
+    : database.inContextWithIdentity(context, operation);
 }
 
 async function runPoolCase(item: ProofCase) {
@@ -331,7 +331,7 @@ async function runPoolCase(item: ProofCase) {
     await probePoolPath(sourceContext, crossCase, client),
     await probePoolPath(restoredContext, restoredCase, client),
   ]);
-  assert.deepEqual(sequential.map((ids) => (ids.length ? "ALLOW" : "DENY")), [
+  assert.deepEqual(sequential.map((result) => (result.value.length ? "ALLOW" : "DENY")), [
     "ALLOW",
     "DENY",
     "ALLOW",
@@ -340,7 +340,7 @@ async function runPoolCase(item: ProofCase) {
     probePoolPath(sourceContext, sourceCase),
     probePoolPath(concurrentContext, concurrentCase),
   ]);
-  assert.ok(concurrent.every((ids) => ids.length === 1));
+  assert.ok(concurrent.every((result) => result.value.length === 1));
   const sourceStateAfter = await database.tenantStateHash(sourceContext);
   const concurrentStateAfter = await database.tenantStateHash(concurrentContext);
   assert.equal(sourceStateBefore, sourceStateAfter);
@@ -392,14 +392,16 @@ async function runPoolCase(item: ProofCase) {
     observations: [
       {
         mode: "COMBINED",
-        sequence: sequential.map((ids) => ids.length),
+        databaseRoles: sequential.map((result) => result.databaseRole),
+        sequence: sequential.map((result) => result.value.length),
         sameConnection: true,
         mutationBeforeHash: sourceStateBefore,
         mutationAfterHash: sourceStateAfter,
       },
       {
         mode: "CONTROLLED_NEGATIVE",
-        sequence: concurrent.map((ids) => ids.length),
+        databaseRoles: concurrent.map((result) => result.databaseRole),
+        sequence: concurrent.map((result) => result.value.length),
         concurrent: true,
         mutationBeforeHash: concurrentStateBefore,
         mutationAfterHash: concurrentStateAfter,

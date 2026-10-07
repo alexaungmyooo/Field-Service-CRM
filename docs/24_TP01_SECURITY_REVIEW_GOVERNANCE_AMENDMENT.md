@@ -129,3 +129,10 @@ After verified publication, WP-21 may change only the disposable proof/evidence 
 governing documentation, and private evidence required to close the three findings, renew hashes,
 and obtain one fresh independent inventory validation. TP-01 execution and every product,
 infrastructure, deployment, and real-data gate remain closed.
+
+## Post-publication activation
+
+WP-20A was published and remotely verified at
+`03f0425b4089ae1c0173ac911a2f23461eeb6a92`. The owner then activated WP-21 under the exact bounded
+scope in the acceptance record. This activation expires the old proof-artifact binding for any
+future execution; it does not authorize checkpoint 2 or any runtime command.

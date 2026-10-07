@@ -32,6 +32,7 @@ documents:
 - `docs/22_TP01_MATERIALIZATION_SUPPLY_CHAIN_REVIEW.md`
 - `docs/23_TP01_EXECUTION_ROLES_CHECKPOINT2_AUTHORIZATION.md`
 - `docs/24_TP01_SECURITY_REVIEW_GOVERNANCE_AMENDMENT.md`
+- `docs/25_TP01_EVIDENCE_COMPLETENESS_REMEDIATION.md`
 
 Architecture-analysis authorization does not authorize architecture selection. Option documents
 must identify alternatives, evidence, assumptions, risks, unresolved inputs, and reversal cost

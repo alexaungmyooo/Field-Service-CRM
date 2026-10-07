@@ -247,10 +247,10 @@ new contract revision before re-run.
 
 ## Materialized command contract
 
-WP-19 materialized the command scripts. Only lock/dependency materialization, supply-chain
-collection, manifest verification, hashing, and TypeScript static checking were authorized and
-performed for checkpoint 1. Image, database, preflight, proof, reproduction, evidence-verification,
-and cleanup commands remain unauthorized to run.
+WP-19 materialized the original command scripts. WP-21 later rematerialized the evidence mechanics
+to close accepted static blockers. Only syntax, manifest, TypeScript, hashing, inventory, and
+documentation checks are authorized in WP-21. Image, database, preflight, proof, reproduction,
+evidence-verification, and cleanup commands remain unauthorized to run.
 
 | ID | Stage | Exact command interface | Required result |
 | --- | --- | --- | --- |
@@ -264,10 +264,11 @@ and cleanup commands remain unauthorized to run.
 | `TP1-CMD-008` | Matrix freeze check | `pnpm run matrix:verify` | Exactly 222 unique cases and expected outcomes match the accepted contract/hash |
 | `TP1-CMD-009` | Primary run | `pnpm run proof:run` | Execute all cases once and emit raw machine-readable evidence |
 | `TP1-CMD-010` | Reproduction | `pnpm run proof:reproduce` | Independent validator repeats from reset using same revision/lock/image/case manifest |
-| `TP1-CMD-011` | Evidence verification | `pnpm run evidence:verify` | Hashes, completeness, zero skipped cases, secret/privacy scan, before/after state, and outcome summary |
-| `TP1-CMD-012` | Cleanup | `pnpm run cleanup` | Stop/remove processes, container, network, volume, generated secrets/temp files; record residual check |
+| `TP1-CMD-011` | Interim evidence verification | `pnpm run evidence:verify` | Validate both runs and their authorization/environment/image/fixture/database-security/supply-chain/manifest/deviation bindings; emit combined audit/difference/state artifacts without final PASS |
+| `TP1-CMD-012` | Cleanup | `pnpm run cleanup` | Record pre-cleanup state, stop/remove processes, container, network, volume, generated secrets/temp files, and verify residual absence |
+| `TP1-CMD-013` | Final complete-packet verification | `pnpm run evidence:verify-final` | Revalidate every interim input plus cleanup and all role-separated reviews; only this interface may emit final PASS |
 
-The future scripts must avoid shell expansion of secrets, write raw evidence only to the ignored
+The scripts must avoid shell expansion of secrets, write raw evidence only to the ignored
 private path, and stop on the first contract/environment violation. A command change after
 materialization requires a reviewed revision before the primary run.
 
@@ -287,6 +288,14 @@ materialization requires a reviewed revision before the primary run.
 | `TP1-EVID-010` | `cleanup.json`: resources/files/processes/ports/volumes/credentials before and after cleanup |
 | `TP1-EVID-011` | `operator-review.md`, `independent-validation.md`, and `security-review.md` |
 | `TP1-EVID-012` | `sanitized-conclusion.md`: measurement, failures, limitations, residual risks, expiry, decision effect |
+| `TP1-EVID-013` | `database-security.json`: measured connection/session identity, role attributes, ownership, privileges, forced-RLS/policy state, security-definer/search-path controls, and transaction-local context |
+| `TP1-EVID-014` | `deviations.json`: explicit empty set or separately reviewed deviations; any unaccepted deviation blocks PASS |
+| `TP1-EVID-015` | `evidence-verification.json`: artifact hashes and complete-packet disposition; interim verification can never report final PASS |
+
+Each role review must record reviewer identity, canonical task identity, date, method, evidence
+inspected, findings by severity, unresolved risks, exact `PASS`/`FAIL`/`INCONCLUSIVE`
+recommendation, and limitations. Final verification propagates `FAIL` before `INCONCLUSIVE`
+before `PASS` and exits nonzero for a non-passing disposition.
 
 Raw evidence is never committed. The sanitized conclusion is not public until separately reviewed
 and authorized for publication.
@@ -296,8 +305,8 @@ and authorized for publication.
 | Role | Required assignment | Current state | Execution consequence |
 | --- | --- | --- | --- |
 | Proof owner | Aung Myo Oo | Identified | May own authorization/stop/cleanup; cannot independently validate own operated run |
-| Proof operator | Named person or explicitly authorized primary agent | `UNASSIGNED` | Blocking |
-| Independent validator | Different person or separately authorized independent agent that did not author/operate primary run | `UNASSIGNED` | Blocking |
+| Proof operator | Named person or explicitly authorized primary agent | `TP1-OPERATOR-PRIMARY` role class accepted; exact execution identity pending | Blocking until later exact authorization |
+| Independent validator | Different person or separately authorized independent agent that did not author/operate primary run | `TP1-VALIDATOR-REPRO` role class accepted; fresh canonical identity pending | Blocking |
 | TP-01 technical security reviewer | Independent security-review subagent with tenant-isolation/authorization review scope | `/root/tp01_security_review` assigned by `DEC-147` | May review local synthetic TP-01 evidence only; must not operate, reproduce, or mutate the proof |
 | Production/real-data security reviewer | Named qualified human reviewer | Deferred | Mandatory before production deployment or any real/customer data; not a TP-01 execution blocker under `TP1-GOV-EX-001` |
 | Owner decision | Aung Myo Oo | Identified | Occurs only after reviewed evidence; not proof execution |
@@ -338,15 +347,15 @@ verified WP-19; that checkpoint still grants no execution authority.
 | `TP1-READY-004` | Exact proof/evidence paths and non-scope | Accepted for checkpoint 1 | Materialized only in accepted disposable/private paths |
 | `TP1-READY-005` | Exact context/schema/enforcement-mode contract | Accepted for checkpoint 1 | Materialized as disposable proof mechanics; not executed |
 | `TP1-READY-006` | Exact 222-case matrix and oracle rules | Accepted for checkpoint 1 | 222-case manifest frozen and hashed |
-| `TP1-READY-007` | Exact command/resource/network/cleanup contract | Accepted checkpoint-1 inventory; execution gap found | Security review found that full evidence-packet verification is not implemented |
+| `TP1-READY-007` | Exact command/resource/network/cleanup contract | WP-21 remediation materialized; validation pending | Full-packet verifier and pre/post cleanup evidence are now represented but not executed |
 | `TP1-READY-008` | Generated lockfile/transitive/license/advisory inventory | Accepted for checkpoint 1 | Lock, tree, licenses, audit, and hashes recorded |
-| `TP1-READY-009` | Proof source/schema/scripts/case-manifest hashes | Published checkpoint baseline | Exact 50-file inventory is bound to verified commit `01bc6d58fb2c8d1c255e79ebf031faaf53fbb304` |
+| `TP1-READY-009` | Proof source/schema/scripts/case-manifest hashes | Old binding expired; WP-21 renewal pending | The 50-file WP-19 inventory cannot authorize the remediated proof |
 | `TP1-READY-010` | Named proof operator | Accepted role class | `TP1-OPERATOR-PRIMARY`; exact execution-turn task identity must be recorded before preflight |
 | `TP1-READY-011` | Named independent validator | Accepted role class; identity pending | Fresh `TP1-VALIDATOR-REPRO` canonical identity must be recorded and differ from operator |
 | `TP1-READY-012` | Independent TP-01 technical security reviewer | Assigned and scope-confirmed | `/root/tp01_security_review`; read-only, no-author, no-operator, no-validator attestation recorded |
 | `TP1-READY-013` | Explicit materialization authorization | Complete | Owner authorized WP-19 checkpoint 1; no execution authority |
-| `TP1-READY-014` | Explicit execution authorization | Not ready | WP-20A is accepted for publication; WP-21 remediation and a later new exact authorization remain required |
-| `TP1-READY-015` | Complete measured security evidence packet | Not ready | Actual DB role is not measured; verifier omits authorization/environment/image/fixture/state/cleanup/reviewer checks; dedicated environment/fixture/state files are missing |
+| `TP1-READY-014` | Explicit execution authorization | Not ready | WP-21 remediation is active; publication and a later new exact authorization remain required |
+| `TP1-READY-015` | Complete measured security evidence packet | Materialized, not proven | WP-21 represents measured identity and complete-packet evidence, but execution and runtime validation remain closed |
 
 ## Risks and stop conditions
 
@@ -363,7 +372,7 @@ verified WP-19; that checkpoint still grants no execution authority.
 | `TP1-CONTRACT-RISK-009` | Automated technical review is treated as production security acceptance | Label TP-01 review as automated/limited; require qualified human review before production or real/customer data |
 | `TP1-CONTRACT-RISK-010` | Container/dependency operation starts without authority | Two checkpoints and explicit authorization per checkpoint |
 | `TP1-CONTRACT-RISK-011` | Literal expected role is mistaken for measured database identity | Query and retain actual role/attributes/ownership/grants/RLS evidence before any security conclusion |
-| `TP1-CONTRACT-RISK-012` | Partial verifier PASS is treated as complete evidence acceptance | Require one verifier/report to bind and validate the full `TP1-EVID-001` through `012` packet |
+| `TP1-CONTRACT-RISK-012` | Partial verifier PASS is treated as complete evidence acceptance | Interim verifier cannot emit final PASS; final verifier binds `TP1-EVID-001` through `015`, cleanup, and all reviews |
 
 Stop immediately if a version/digest/path/case/oracle differs, network leaves the allowed boundary,
 live/customer data appears, an unauthorized process/resource is required, a reviewer role is
@@ -393,10 +402,15 @@ later authorization checkpoint; a changed value requires owner review.
 WP-18 is accepted and published as the exact contract. WP-19 checkpoint 1 is
 `VERIFIED_AND_CLOSED`; TP-01 execution remains `NOT_READY` and `NOT_AUTHORIZED`.
 
-The disposable proof artifacts, lockfile, transitive/license/advisory inventory, case-manifest
-hash, and independent checkpoint-1 inventory validation now exist. Execution remains blocked
-because the operator and checkpoint-2 independent validator are not yet accepted, the qualified
-security reviewer is unassigned, and no explicit checkpoint-2 execution authorization exists.
+The WP-19 checkpoint-1 baseline remains the published historical materialization. WP-21 has now
+rematerialized its evidence mechanics and renewed the uncommitted 51-file inventory while
+preserving the lockfile, dependency set, SQL/fixture definitions, and 222-case manifest. Execution
+remains blocked because the renewed inventory has not completed its fresh independent review or
+owner publication gate, no committed revision/Git tree is bound, the fresh checkpoint-2
+reproduction-validator identity is not assigned, and no explicit checkpoint-2 execution
+authorization exists. `/root/tp01_security_review` is assigned only for bounded local synthetic
+technical review; qualified human review remains mandatory before production or real/customer
+data.
 
 The exact checkpoint evidence and proposed owner dispositions are recorded in
 `22_TP01_MATERIALIZATION_SUPPLY_CHAIN_REVIEW.md`. The role proposals, exact revision/hash binding,

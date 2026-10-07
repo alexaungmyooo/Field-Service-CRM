@@ -43,6 +43,11 @@ or accept an architecture.
 The following values are the only revision and artifact set proposed for checkpoint-2 owner
 acceptance:
 
+> **Expired for execution:** WP-21 changes the disposable proof evidence mechanics. The values
+> below remain the accepted historical WP-20 record but cannot authorize the rematerialized proof.
+> A later package must replace every affected binding with owner-accepted values from an exact
+> published revision.
+
 | Binding ID | Exact value | Meaning |
 | --- | --- | --- |
 | `TP1-BIND-001` | `01bc6d58fb2c8d1c255e79ebf031faaf53fbb304` | Published repository revision |
@@ -83,14 +88,15 @@ for production or real/customer data.
 | ---: | --- | --- |
 | 1 | Owner accepts exact binding and all role assignments | Accepted WP-20 dispositions name every role and exact binding |
 | 2 | Owner separately authorizes checkpoint 2 | Exact authorization names revision, hashes, roles, limits, and permitted commands |
-| 3 | Operator preflight | Clean bound revision/tree; 50 hashes; exact Node/pnpm/Docker/Compose; ports/resources clear; image not yet trusted until verified |
+| 3 | Operator preflight | Clean bound revision/tree; renewed hashes; exact Node/pnpm/Docker/Compose; ports/resources clear; dedicated environment/manifest/supply-chain/deviation evidence; image not yet trusted until verified |
 | 4 | Image verification and bounded environment start | Accepted digest/platform resolves exactly; one local container; synthetic-only fixture |
 | 5 | Primary execution and evidence sealing | Exactly 222 primary records plus audit/state evidence; deviations visible; primary files sealed before handoff |
 | 6 | Independent reproduction | Reset/reproduction by the validator with sealed primary evidence preserved |
-| 7 | Combined evidence verification | Both 222-record sets, audits, hashes, zero skipped cases, and semantic difference report verified together |
+| 7 | Interim evidence verification | Both 222-record sets, audits, measured database security, hashes, zero skipped cases, per-tenant state, deviations, and semantic difference report verified together without final PASS |
 | 8 | Verified cleanup | No listener, process, container, network, volume, credential, provider resource, or unaccepted residue |
-| 9 | Independent TP-01 technical security review | Recorded scope, automated-review limitation, evidence inspected, findings, residual risk, and Pass/Fail/Inconclusive recommendation |
-| 10 | Owner evidence disposition | Owner accepts, rejects, or requests remediation; no architecture choice is automatic |
+| 9 | Role-separated reviews | Operator, reproduction validator, and independent TP-01 technical security reviewer record evidence inspected, findings, limitations, residual risk, and recommendation |
+| 10 | Final complete-packet verification | Revalidate authorization through cleanup and all reviews; seal hashes and final Pass/Fail/Inconclusive evidence status |
+| 11 | Owner evidence disposition | Owner accepts, rejects, or requests remediation; no architecture choice is automatic |
 
 Failure or deviation at any stage stops progression. Cleanup is mandatory after Pass, Fail,
 Inconclusive, abort, or timeout.
@@ -110,6 +116,8 @@ this order:
 8. `pnpm run proof:reproduce` under the independent validator
 9. `pnpm run evidence:verify` after both result sets exist
 10. `pnpm run cleanup`
+11. role-separated operator, reproduction-validator, and technical-security review records
+12. `pnpm run evidence:verify-final` after cleanup and all three reviews
 
 This list is a future authorization boundary, not permission to run any command. The later package
 must clarify operator handoff and evidence-verifier arguments without changing a script or case;
@@ -121,13 +129,13 @@ required.
 | Input | State | Remaining action |
 | --- | --- | --- |
 | `TP1-AUTH-001` proof identity/scope | Ready | Accepted TP-01 scope and proof-only policy |
-| `TP1-AUTH-002` revision/artifact versions | Accepted | `TP1-BIND-001` through `007`; any drift expires acceptance |
-| `TP1-AUTH-003` environment/tool preflight | Not ready | Current preflight does not emit/bind the dedicated complete environment evidence required by the contract |
+| `TP1-AUTH-002` revision/artifact versions | Expired by WP-21 drift | Renew every affected binding after rematerialization review and publication |
+| `TP1-AUTH-003` environment/tool preflight | Materialized, not proven | WP-21 emits dedicated environment/binding evidence; later execution must measure it |
 | `TP1-AUTH-004` commands/resources/network | Accepted contract boundary | No command authorized until all remaining inputs pass |
 | `TP1-AUTH-005` roles/conflicts/availability | Partially ready | Security subagent assigned/confirmed; fresh reproduction-validator canonical identity remains required |
 | `TP1-AUTH-006` fixture/cases/oracles | Ready | Accepted 222-case manifest; reverify hash before execution |
-| `TP1-AUTH-007` evidence/retention/privacy | Not ready | Verifier omits full authorization/environment/image/fixture/state/cleanup/reviewer packet validation |
-| `TP1-AUTH-008` stop/cleanup/recovery | Not ready | Cleanup script exists, but the combined verifier does not validate cleanup evidence or every residual class |
+| `TP1-AUTH-007` evidence/retention/privacy | Materialized, not proven | Interim/final verifier split covers the complete packet and bounded credential scan; later execution/review required |
+| `TP1-AUTH-008` stop/cleanup/recovery | Materialized, not proven | Cleanup records pre/post state and final verification rejects residuals; later execution required |
 | `TP1-AUTH-009` exact owner execution statement | Not ready | Requires accepted bindings, all roles, and separate explicit authorization |
 
 ## Owner decision sheet
@@ -145,6 +153,11 @@ The owner accepted every recommendation exactly as recorded on 2026-10-07. Accep
 | `WP20-DEC-006` | Accept the ten-step command boundary only as a future checkpoint-2 interface. | Does not authorize any command in WP-20. | Accepted |
 | `WP20-DEC-007` | Keep checkpoint 2 `NOT_READY` until all `TP1-AUTH-*` inputs are ready and separately authorized. | Prevents partial owner acceptance from starting TP-01. | Accepted |
 | `WP20-DEC-008` | Require a new materialization review for any revision, tree, artifact, dependency, case, command, runtime, image, policy, or role change. | Preserves exact evidence provenance. | Accepted |
+
+WP-21 is the separately authorized rematerialization required by `WP20-DEC-008`. It adds a final
+complete-packet verifier command and splits interim verification from final PASS. The historical
+ten-step interface and old bindings above therefore cannot authorize execution; every unchanged
+role-separation, stop, cleanup, and non-scope control remains in force.
 
 ## Superseded later authorization statement
 
@@ -183,16 +196,16 @@ placeholders, omitting a role, or naming the old hashes after remediation must n
 
 ## Readiness verdict and next gate
 
-WP-20 is accepted for publication as role and authorization documentation, but checkpoint 2 is
-`NOT_READY` and `NOT_AUTHORIZED`. Exact revision/artifact bindings and the operator/independent-
-validator role classes are accepted. `DEC-147` now assigns `/root/tp01_security_review` for the
-bounded local proof and its scope is confirmed, but static evidence blockers, a fresh reproduction-
-validator identity, WP-20A publication, rematerialization review, and a valid checkpoint-2
-authorization remain pending.
+WP-20 is accepted and published as role and authorization documentation, but checkpoint 2 is
+`NOT_READY` and `NOT_AUTHORIZED`. The old revision/artifact bindings are expired by WP-21. The
+operator/independent-validator role classes remain accepted, and `DEC-147` assigns
+`/root/tp01_security_review` for bounded local proof review. WP-21 has materialized corrections for
+the three static blockers, but fresh independent inventory validation, owner acceptance,
+publication, a committed revision/Git-tree binding, a fresh reproduction-validator identity, and
+a valid checkpoint-2 authorization remain pending.
 
-The next action is review/publication of the scoped amendment followed by an evidence-completeness
-remediation package, not checkpoint-2 execution. Qualified human review remains mandatory before
-production or real/customer data.
+The next action is WP-21 inventory validation and owner review, not checkpoint-2 execution.
+Qualified human review remains mandatory before production or real/customer data.
 
 ## Acceptance record and invalid execution attempt
 
@@ -201,9 +214,9 @@ The owner accepted `WP20-DEC-001` through `WP20-DEC-008` and `TP1-BIND-001` thro
 independent-validator role classes are accepted under the documented controls.
 
 The owner message retained `[full name]` and `[tenant-isolation/authorization review experience]`
-as literal placeholders. Under the accepted validity rule above, that is not a reviewer assignment
-and cannot authorize checkpoint 2. WP-21 therefore remains inactive and every proof command remains
-closed.
+as literal placeholders. Under the accepted validity rule above, that was not a reviewer assignment
+and could not authorize checkpoint 2 at the time. The later `DEC-147` amendment and `DEC-149` WP-21
+activation supersede only that historical WP-21-inactive state; every proof command remains closed.
 
 ## WP-20A scoped amendment
 
@@ -215,7 +228,8 @@ security-review role. It is distinct from `TP1-OPERATOR-PRIMARY` and the future
 The amendment does not grant qualified human or production security acceptance. Human review is
 deferred to a mandatory gate before production deployment or any real/customer data. All other
 WP-20 bindings, commands, evidence, independence, stop, cleanup, and non-scope controls remain
-unchanged. WP-21 and checkpoint 2 remain inactive pending separate valid authorization.
+unchanged. At amendment publication, WP-21 and checkpoint 2 remained inactive pending separate
+valid authorization. `DEC-149` later activated WP-21 remediation only; checkpoint 2 remains closed.
 
 ## Independent security-assignment confirmation and static findings
 
@@ -226,9 +240,9 @@ conditionally acceptable for local synthetic TP-01 only.
 
 | Finding | Evidence | Consequence |
 | --- | --- | --- |
-| `TP1-SEC-STATIC-001` | `src/path-executor.ts` writes `databaseRole: "tp01_runtime"` as a literal; the verifier compares that literal. | Runtime database identity, role attributes, ownership, grants, and RLS-bypass state are not proven by this field. |
-| `TP1-SEC-STATIC-002` | `scripts/evidence-verify.mjs` validates primary/reproduction results and audit files but not the complete authorization, environment, image, fixture, state-integrity, cleanup, or reviewer packet. | An `evidence:verify` PASS is insufficient for the accepted `TP1-EVID-*` threshold. |
-| `TP1-SEC-STATIC-003` | The contract requires dedicated `environment.json`, `fixture.json`, and `state-integrity.json`; current scripts do not clearly emit them. | Provenance, synthetic-fixture attestation, and whole-proof state integrity remain incomplete. |
+| `TP1-SEC-STATIC-001` | WP-21 materializes a runtime `current_user` query for database-backed observations plus dedicated role/catalog/control evidence. | Materialized but not executed; later runtime evidence and security review remain required. |
+| `TP1-SEC-STATIC-002` | WP-21 binds the full authorization-through-review packet and prevents interim verification from emitting final PASS. | Materialized but not executed; complete-packet behavior remains a later proof result. |
+| `TP1-SEC-STATIC-003` | WP-21 explicitly materializes `environment.json`, `fixture.json`, per-run state snapshots, and derived `state-integrity.json`. | Materialized but not executed; artifact existence/content remain later runtime evidence. |
 
 Unless these gaps are closed under a newly accepted artifact binding, the technical security
 review must return `INCONCLUSIVE` even if all 222 case outputs appear to pass. Correcting the
