@@ -28,6 +28,7 @@ documents:
 - `docs/18_BUDGET_GEOGRAPHY_TEAM_FIT_NAMED_CANDIDATE_SHORTLIST.md`
 - `docs/19_NAMED_CANDIDATE_PROOF_SPECIFICATIONS_ARCHITECTURE_DECISION_READINESS.md`
 - `docs/20_PROOF_GOVERNANCE_DECISIONS_FIRST_TECHNICAL_PROOF_AUTHORIZATION.md`
+- `docs/21_TP01_EXACT_EXECUTION_CONTRACT.md`
 
 Architecture-analysis authorization does not authorize architecture selection. Option documents
 must identify alternatives, evidence, assumptions, risks, unresolved inputs, and reversal cost
@@ -79,6 +80,12 @@ but it does not authorize execution unless the owner explicitly opens that separ
 then, do not create a harness, dependency manifest, schema, container, test environment, provider
 resource, credential, account, or measured result. A proof artifact is disposable evaluation work,
 not application implementation or an accepted dependency.
+
+An exact proof contract may pin proof-only paths, versions, package integrity, local resources,
+commands, synthetic cases, evidence, reviewers, and cleanup for owner decision. It still does not
+authorize file creation, dependency resolution/installation, container image download/start,
+network access, proof execution, or result acceptance. Missing lockfile, artifact hashes, named
+independent validation, or security review keeps the execution gate closed.
 
 ## Current authorization boundary
 

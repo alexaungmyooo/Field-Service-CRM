@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-17 accepted for publication |
-| Current phase | Solution Architecture — Proof governance and first-proof authorization planning |
-| Current work package | `WP-17 Proof Governance Decisions and First Technical Proof Authorization` — Accepted for publication |
+| Status | Product Discovery closed — WP-18 accepted for publication |
+| Current phase | Solution Architecture — TP-01 exact execution contract |
+| Current work package | `WP-18 TP-01 Exact Execution Contract` — Accepted for publication |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -69,6 +69,7 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 10. `18_BUDGET_GEOGRAPHY_TEAM_FIT_NAMED_CANDIDATE_SHORTLIST.md`
 11. `19_NAMED_CANDIDATE_PROOF_SPECIFICATIONS_ARCHITECTURE_DECISION_READINESS.md`
 12. `20_PROOF_GOVERNANCE_DECISIONS_FIRST_TECHNICAL_PROOF_AUTHORIZATION.md`
+13. `21_TP01_EXACT_EXECUTION_CONTRACT.md`
 
 Current and later accepted work packages may add or mature:
 
@@ -495,6 +496,29 @@ proof-only policy, zero-tolerance tenant outcome, disposable-artifact rule, non-
 and separate exact execution authorization. It does not authorize TP-01 execution, a harness,
 schema, dependency installation, local service, provider account, cost, infrastructure, final
 architecture selection, application coding, deployment, or customer/live-data use.
+
+## WP-18 authorization
+
+After verified WP-17 publication, the owner authorized `WP-18 TP-01 Exact Execution Contract` on
+2026-10-07 for owner decision documentation and authorization-readiness only. WP-18 may inspect
+read-only local tool availability and current official lifecycle/package/image evidence; recommend
+exact proof-only versions, paths, dependency inventory, local environment, synthetic case matrix,
+commands, resource limits, evidence, reviewers, cleanup, and remaining blockers; and issue an
+execution-readiness verdict. It may not create proof artifacts, resolve/install dependencies,
+download/start a container image, run TP-01, open or modify provider accounts, incur cost, create
+infrastructure, select final architecture, write application code, deploy, or use customer/live
+data.
+
+## WP-18 acceptance
+
+The owner accepted every WP-18 recommendation and disposition exactly as recorded on 2026-10-07
+and authorized publication. `TP1-DEC-001` through `TP1-DEC-010` and `DEC-136` through `DEC-142`
+become accepted TP-01-only contract baselines. Acceptance confirms the exact direct tool/package
+versions, database image digest, proof/evidence paths, context and schema meanings, enforcement
+modes, 222-case matrix, resource/network limits, command interfaces, evidence, two checkpoints,
+cleanup, risks, and `NOT_READY` execution verdict. It does not create or install the proof,
+authorize materialization or execution, accept a final architecture/dependency, create application
+code or infrastructure, deploy, or permit customer/live data.
 
 ## Private execution control
 
