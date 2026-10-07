@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-36 execution-identity readiness under owner review |
-| Current phase | Technical Proof Execution Identity and Authorization Readiness |
-| Current work package | `WP-36 TP-01 Execution Identity and Conditional Pull Authorization Readiness` |
+| Status | Product Discovery closed — WP-37 controlled execution under owner review; Inconclusive |
+| Current phase | Technical Proof Controlled Execution Evidence Disposition |
+| Current work package | `WP-37 Controlled TP-01 Conditional Image Execution` |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -88,6 +88,7 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 29. `37_TP01_CONDITIONAL_IMAGE_REGISTRY_GATE_STATIC_REMEDIATION.md`
 30. `38_TP01_CONDITIONAL_IMAGE_REBINDING_REAUTHORIZATION_READINESS.md`
 31. `39_TP01_EXECUTION_IDENTITY_CONDITIONAL_PULL_AUTHORIZATION_READINESS.md`
+32. `40_TP01_CONTROLLED_CONDITIONAL_IMAGE_EXECUTION_RESULT.md`
 
 Current and later accepted work packages may add or mature:
 
@@ -1050,6 +1051,32 @@ dependencies, preflight, images, Docker/Compose, pull-token creation, containers
 services, cleanup, proof/reproduction, application coding, final architecture selection,
 infrastructure, deployment, provider accounts/cost, customer/live data, and WP-36 publication
 remain closed.
+
+## WP-36 acceptance, publication, and WP-37 result — 2026-10-07
+
+The owner accepted `WP36-DEC-001` through `010`, `TP1-EXEC-IMAGE-BIND-001` through `009`,
+primary operator `/root`, fresh reproduction validator `/root/wp36_reproduction_validator` and its
+attestation, technical security reviewer `/root/tp01_security_review`, and the ineffective private
+authorization draft. The exact four-path WP-36 inventory was committed as
+`91b65c4 WP-36: accept execution identity readiness` and pushed to `origin/main`.
+
+Local `HEAD`, cached `origin/main`, and live remote main matched
+`91b65c4ee5307416792aae2da2182775c054df5a`. WP-36 is `VERIFIED_AND_CLOSED`.
+
+WP-37 then activated for run `wp37-2026-10-07-01` at execution revision
+`7fd5f57a2c121dbaa35995501e019a8609a6b0a3`. The dedicated checkout, exact offline dependency
+restoration, effective private authorization, preflight, local-first image inspection, image
+verification, database start/reset, security capture, fixture creation, and 222-case manifest
+verification passed. The accepted image was already local, so no pull token was created and no
+registry or other internet access occurred.
+
+The database container was healthy internally, but Docker did not publish the required
+`127.0.0.1:55432` host binding: publisher evidence reported target `5432` with published port `0`,
+the host listener remained closed, and all 222 executable primary cases failed with
+`ECONNREFUSED`. No valid primary result packet or sealed handoff existed, so reproduction correctly
+did not run. Mandatory cleanup and direct residual verification passed; all three role reviews are
+`INCONCLUSIVE`; the final verifier failed closed on the blocking deviation. WP-37 establishes no
+tenant-boundary or architecture result, is non-retryable, and is `READY_FOR_OWNER_REVIEW`.
 
 ## Private execution control
 

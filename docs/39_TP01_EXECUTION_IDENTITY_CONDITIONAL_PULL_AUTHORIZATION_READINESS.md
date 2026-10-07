@@ -4,7 +4,7 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Ready for Owner Decision — ineffective draft only |
+| Status | Accepted, published, and closed |
 | Work package | `WP-36 TP-01 Execution Identity and Conditional Pull Authorization Readiness` |
 | Governing decision | `DEC-166` |
 | Governance publication | `9719c73208be5870ef1f4a0f03d6c4d7d79435f6` |
@@ -12,8 +12,8 @@
 | Proof tree | `a0e146ec6cf5759b08346d8f6ac9bc1dfeee215b` |
 | Owner | Aung Myo Oo |
 | Date | 2026-10-07 |
-| TP-01 execution | Not authorized |
-| Publication | Not authorized |
+| TP-01 execution | One WP-37 attempt authorized after publication; authorization now expired |
+| Publication | Verified as `91b65c4ee5307416792aae2da2182775c054df5a` |
 
 ## Objective and boundary
 
@@ -35,7 +35,7 @@ deploy, or publish this package.
 | `TP1-EXEC-IMAGE-BIND-003` | WP-35 governance publication `9719c73208be5870ef1f4a0f03d6c4d7d79435f6` | Verified |
 | `TP1-EXEC-IMAGE-BIND-004` | Artifact inventory `8867a18fd7dfbba0d74450b5218b95546b1f9230234bd653a7e9c299db0e484a` | Accepted by WP-35 |
 | `TP1-EXEC-IMAGE-BIND-005` | Content set `fb02cb587008a159bcd80b5b9f43f045f57783a83f07ee2023caacf84731ce2b` | Accepted by WP-35 |
-| `TP1-EXEC-IMAGE-BIND-006` | Fresh reproduction validator `/root/wp36_reproduction_validator` | Attested; owner acceptance pending |
+| `TP1-EXEC-IMAGE-BIND-006` | Fresh reproduction validator `/root/wp36_reproduction_validator` | Attested and accepted for WP-37 only |
 | `TP1-EXEC-IMAGE-BIND-007` | Reproduction-validator attestation SHA-256 `faeb54f72f718abdc80f1401a12a1f813936a5c03282e44d0232c1e7d6a102c2` | Private identity evidence |
 | `TP1-EXEC-IMAGE-BIND-008` | Ineffective authorization draft SHA-256 `5d8b80212482681abe8640beef732ba22a0a7822c4aa457b91ce11018dfdda7e` | Private; never executable |
 | `TP1-EXEC-IMAGE-BIND-009` | Conditional pull status `NOT_AUTHORIZED`; run/package/token/token-hash absent | Preserved closed gate |
@@ -47,10 +47,10 @@ match bindings `001` and `002`. WP-36 creates no checkout.
 
 | Role | Canonical identity | WP-36 state |
 | --- | --- | --- |
-| Proof owner | Aung Myo Oo | Identified; owns authorization and evidence disposition |
-| Primary operator | `/root` | Proposed for one later exact run; not yet accepted for execution |
-| Reproduction validator | `/root/wp36_reproduction_validator` | Fresh identity with recorded attestation; not yet accepted for execution |
-| Technical security reviewer | `/root/tp01_security_review` | Proposed separate read-only post-execution reviewer; reconfirmation pending |
+| Proof owner | Aung Myo Oo | Accepted; owns authorization and evidence disposition |
+| Primary operator | `/root` | Accepted for WP-37 only; authority consumed |
+| Reproduction validator | `/root/wp36_reproduction_validator` | Accepted for WP-37 only; reviewed the stop packet without reproduction |
+| Technical security reviewer | `/root/tp01_security_review` | Accepted for separate read-only WP-37 review; review complete |
 | Production/real-data reviewer | Named qualified human | Deferred mandatory gate before production or real/customer data |
 
 The reproduction validator attested that it is distinct from every prior TP-01 reproduction and
@@ -116,16 +116,16 @@ Verdict: identity and authorization preparation are `READY_FOR_OWNER_DECISION`; 
 
 | ID | Recommendation | Status |
 | --- | --- | --- |
-| `WP36-DEC-001` | Accept `/root` as the proposed primary operator for one later exact run only. | Proposed |
-| `WP36-DEC-002` | Accept `/root/wp36_reproduction_validator` as the fresh reproduction identity and accept its independence attestation. | Proposed |
-| `WP36-DEC-003` | Preserve `/root/tp01_security_review` as the proposed separate local synthetic technical reviewer, subject to later reconfirmation. | Proposed |
-| `WP36-DEC-004` | Accept `TP1-EXEC-IMAGE-BIND-001` through `009` as the exact future-run candidate binding. | Proposed |
-| `WP36-DEC-005` | Accept the private draft as complete but ineffective; never rename or copy it to `authorization.json`. | Proposed |
-| `WP36-DEC-006` | Accept the local-first image rule and require separate run-bound token authority only after measured absence. | Proposed |
-| `WP36-DEC-007` | Require exact offline/frozen/ignore-scripts dependency restoration in a later dedicated checkout and prohibit npm/version changes. | Proposed |
-| `WP36-DEC-008` | Require mandatory cleanup, role-separated reviews, fail-closed final verification, and no retry under every later outcome. | Proposed |
-| `WP36-DEC-009` | Require a separate explicit owner authorization before checkout creation, dependency restoration, effective authorization, token creation, or any checkpoint-2 command. | Proposed |
-| `WP36-DEC-010` | Keep application coding, final architecture selection, provider accounts/cost, infrastructure, deployment, and customer/live data closed. | Proposed |
+| `WP36-DEC-001` | Accept `/root` as the proposed primary operator for one later exact run only. | Accepted |
+| `WP36-DEC-002` | Accept `/root/wp36_reproduction_validator` as the fresh reproduction identity and accept its independence attestation. | Accepted |
+| `WP36-DEC-003` | Preserve `/root/tp01_security_review` as the proposed separate local synthetic technical reviewer, subject to later reconfirmation. | Accepted |
+| `WP36-DEC-004` | Accept `TP1-EXEC-IMAGE-BIND-001` through `009` as the exact future-run candidate binding. | Accepted |
+| `WP36-DEC-005` | Accept the private draft as complete but ineffective; never rename or copy it to `authorization.json`. | Accepted |
+| `WP36-DEC-006` | Accept the local-first image rule and require separate run-bound token authority only after measured absence. | Accepted |
+| `WP36-DEC-007` | Require exact offline/frozen/ignore-scripts dependency restoration in a later dedicated checkout and prohibit npm/version changes. | Accepted |
+| `WP36-DEC-008` | Require mandatory cleanup, role-separated reviews, fail-closed final verification, and no retry under every later outcome. | Accepted |
+| `WP36-DEC-009` | Require a separate explicit owner authorization before checkout creation, dependency restoration, effective authorization, token creation, or any checkpoint-2 command. | Accepted |
+| `WP36-DEC-010` | Keep application coding, final architecture selection, provider accounts/cost, infrastructure, deployment, and customer/live data closed. | Accepted |
 
 ## Frozen WP-36 public inventory
 
@@ -139,8 +139,15 @@ Owner review and any later publication authorization apply only to these four pa
 Private identity, authorization, and validation records remain ignored under `internal-local/` and
 must not be published.
 
-## Next gate
+## Acceptance, publication, and next gate
 
-WP-36 stops at owner decision. No commit, push, checkout, dependency operation, effective
-authorization, token creation, preflight, image/runtime action, cleanup, proof/reproduction, or
-later package is authorized.
+The owner accepted all ten recommendations, all nine execution/image bindings, `/root` as primary
+operator, `/root/wp36_reproduction_validator` and its independence attestation, and
+`/root/tp01_security_review` as technical security reviewer. The exact four-path inventory was
+committed as `91b65c4 WP-36: accept execution identity readiness` and pushed to `origin/main`.
+Local `HEAD`, cached `origin/main`, and live remote main matched
+`91b65c4ee5307416792aae2da2182775c054df5a`. WP-36 is `VERIFIED_AND_CLOSED`.
+
+The authorized WP-37 attempt is complete and Inconclusive. Its execution authorization is consumed
+and expired. WP-37 is at owner evidence disposition; no retry, remediation, commit, push, or later
+package is authorized.
