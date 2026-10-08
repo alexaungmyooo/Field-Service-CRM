@@ -4,16 +4,17 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Ready for Owner Decision — execution remains unauthorized |
+| Status | Accepted, published, and closed — WP-45 authorization consumed |
 | Work package | `WP-44 TP-01 Execution Identity and Private Authorization Readiness` |
 | Governing decision | `DEC-174` |
 | Governance publication | `85308d2a56993feebd2d10bb97d45aff0735775a` |
+| WP-44 publication | `7c27bb50f1becd4b5c808f30aab7d68c277d2458` |
 | Accepted proof revision | `0f2100b869bbb8e466c906b3a0d4213e827ef4cf` |
 | Proof tree | `1777020c393fd3a63134eac99d878b66261523eb` |
 | Owner | Aung Myo Oo |
 | Date | 2026-10-08 |
-| TP-01 execution | Not authorized |
-| Publication | Not authorized |
+| TP-01 execution | WP-45 ended Inconclusive; authorization expired; no retry |
+| Publication | Verified as `7c27bb50f1becd4b5c808f30aab7d68c277d2458` |
 
 ## Objective and authority boundary
 
@@ -163,16 +164,16 @@ Verdict: identity and authorization preparation are `READY_FOR_OWNER_DECISION`; 
 
 | ID | Recommendation | Status |
 | --- | --- | --- |
-| `WP44-DEC-001` | Accept `TP1-EXEC-LAUNCH-BIND-001` through `014` as the exact candidate binding for one later new attempt. | Proposed |
-| `WP44-DEC-002` | Accept `/root` as the proposed primary operator for one later exact package/run only. | Proposed |
-| `WP44-DEC-003` | Accept `/root/wp44_reproduction_validator` as the fresh reproduction identity and accept its independence attestation. | Proposed |
-| `WP44-DEC-004` | Preserve `/root/tp01_security_review` as the proposed separate local synthetic technical reviewer, subject to later reconfirmation. | Proposed |
-| `WP44-DEC-005` | Accept the private draft as complete but ineffective; never rename or copy it to `authorization.json`. | Proposed |
-| `WP44-DEC-006` | Require exact offline/frozen/ignore-scripts dependency restoration in a later dedicated checkout and prohibit npm/version changes. | Proposed |
-| `WP44-DEC-007` | Require local-first image verification and separate run-bound token authority only after measured absence. | Proposed |
-| `WP44-DEC-008` | Require the exact launcher and three-view reachability gate before each reset, mandatory cleanup, role-separated reviews, fail-closed final verification, and no retry under every later outcome. | Proposed |
-| `WP44-DEC-009` | Require a separate explicit owner authorization before checkout creation, dependency restoration, effective authorization, token creation, or any checkpoint-2 command. | Proposed |
-| `WP44-DEC-010` | Keep application coding, final architecture selection, provider accounts/cost, infrastructure, deployment, customer/live data, and network closed. | Proposed |
+| `WP44-DEC-001` | Accept `TP1-EXEC-LAUNCH-BIND-001` through `014` as the exact candidate binding for one later new attempt. | Accepted |
+| `WP44-DEC-002` | Accept `/root` as the proposed primary operator for one later exact package/run only. | Accepted |
+| `WP44-DEC-003` | Accept `/root/wp44_reproduction_validator` as the fresh reproduction identity and accept its independence attestation. | Accepted |
+| `WP44-DEC-004` | Preserve `/root/tp01_security_review` as the proposed separate local synthetic technical reviewer, subject to later reconfirmation. | Accepted |
+| `WP44-DEC-005` | Accept the private draft as complete but ineffective; never rename or copy it to `authorization.json`. | Accepted |
+| `WP44-DEC-006` | Require exact offline/frozen/ignore-scripts dependency restoration in a later dedicated checkout and prohibit npm/version changes. | Accepted |
+| `WP44-DEC-007` | Require local-first image verification and separate run-bound token authority only after measured absence. | Accepted |
+| `WP44-DEC-008` | Require the exact launcher and three-view reachability gate before each reset, mandatory cleanup, role-separated reviews, fail-closed final verification, and no retry under every later outcome. | Accepted |
+| `WP44-DEC-009` | Require a separate explicit owner authorization before checkout creation, dependency restoration, effective authorization, token creation, or any checkpoint-2 command. | Accepted |
+| `WP44-DEC-010` | Keep application coding, final architecture selection, provider accounts/cost, infrastructure, deployment, customer/live data, and network closed. | Accepted |
 
 ## Frozen WP-44 public inventory
 
@@ -188,7 +189,10 @@ must not be published.
 
 ## Next gate
 
-WP-44 stops at owner decision. Commit, push, checkout creation, dependency restoration, effective
-authorization, token creation, runtime activity, proof/reproduction, architecture selection,
-application implementation, infrastructure, deployment, provider actions, customer/live-data use,
-and network remain closed.
+The owner accepted WP-44 exactly as recorded and authorized its four-path publication. Commit
+`7c27bb50f1becd4b5c808f30aab7d68c277d2458` was verified on live `origin/main`. WP-44 then closed
+and its accepted identities and controls governed the separately authorized WP-45 attempt.
+
+WP-45 ended `INCONCLUSIVE_CLOSED_NO_RETRY`; see
+`docs/48_TP01_CONTROLLED_EXACT_LAUNCHER_EXECUTION_RESULT.md`. WP-44 grants no reusable execution
+authority. Any remediation or later run requires a new explicit owner gate.

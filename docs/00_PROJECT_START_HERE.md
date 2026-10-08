@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-44 execution identity and private authorization readiness ready for owner decision |
-| Current phase | Technical Proof Execution Authorization Readiness |
-| Current work package | `WP-44 TP-01 Execution Identity and Private Authorization Readiness` |
+| Status | Product Discovery closed — WP-45 accepted and publication authorized |
+| Current phase | Technical Proof Evidence Disposition |
+| Current work package | `WP-45 Controlled TP-01 Exact Launcher Execution` |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -96,6 +96,7 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 37. `45_TP01_EXACT_LAUNCHER_REACHABILITY_STATIC_REMEDIATION.md`
 38. `46_TP01_EXACT_LAUNCHER_REBINDING_REAUTHORIZATION_READINESS.md`
 39. `47_TP01_EXECUTION_IDENTITY_LAUNCHER_AUTHORIZATION_READINESS.md`
+40. `48_TP01_CONTROLLED_EXACT_LAUNCHER_EXECUTION_RESULT.md`
 
 Current and later accepted work packages may add or mature:
 
@@ -1083,7 +1084,7 @@ dependencies, preflight, images, Docker/Compose runtime, containers, databases, 
 proof/reproduction, application coding, architecture selection, infrastructure, deployment,
 provider accounts/cost, customer/live data, network, and WP-43 publication remain closed.
 
-## WP-43 acceptance, publication, and WP-44 readiness — 2026-10-08
+## WP-43 and WP-44 publication and WP-45 result — 2026-10-08
 
 The owner accepted `WP43-DEC-001` through `010`,
 `TP1-LAUNCHER-REMEDIATED-BIND-001` through `038`, advanced `WP43-WS-001` and
@@ -1102,11 +1103,36 @@ explicitly ineffective: it has no execution package, run ID, checkout, token, or
 17 action-authority flags and both effectiveness gates are false; and all six stopped attempts
 remain immutable.
 
-WP-44 is `READY_FOR_OWNER_DECISION` but checkpoint 2 remains `NOT_AUTHORIZED`. Checkout creation,
-dependencies, preflight, images, Docker/Compose runtime, pull-token creation, containers,
-databases, services, cleanup, proof/reproduction, application coding, architecture selection,
-infrastructure, deployment, provider accounts/cost, customer/live data, network, and WP-44
-publication remain closed.
+The owner accepted all ten WP-44 recommendations, fourteen execution/launcher bindings, the exact
+roles, validator attestation, and ineffective private draft. The frozen four-path inventory was
+committed as `7c27bb5 WP-44: accept execution identity readiness` and pushed to `origin/main`.
+Local `HEAD`, cached `origin/main`, and live remote main matched
+`7c27bb50f1becd4b5c808f30aab7d68c277d2458`. WP-44 is `VERIFIED_AND_CLOSED`.
+
+WP-45 then activated for run `wp45-2026-10-08-01` at accepted proof revision
+`0f2100b869bbb8e466c906b3a0d4213e827ef4cf`. Exact offline restoration reused 115 packages with
+zero downloads; preflight, local-cache image verification, service health, the exact-launcher
+three-view reachability gate, synthetic reset/security capture, and the 222-case manifest passed.
+No pull token or network access was required.
+
+The primary proof stopped because `TP01_DATABASE_URL` was absent from the private run environment.
+Although `127.0.0.1:55432` had passed all three reachability views, node-postgres fell back to its
+default endpoint and all 222 executable cases failed `ECONNREFUSED`; only the inventory test
+passed. Tracked tenant state remained unchanged. No valid primary packet existed, so reproduction
+was correctly skipped.
+
+Mandatory cleanup and direct residual verification passed, and the disposable checkout was
+removed. All three role reviews are `INCONCLUSIVE`; the direct-Node final verifier failed closed on
+missing `primary-results.jsonl`. The 22-entry private inventory is sealed. WP-45 establishes no
+tenant-boundary or architecture result, is non-retryable, and is `READY_FOR_OWNER_REVIEW`.
+
+The owner accepted the complete WP-45 Inconclusive disposition, `WP45-DEV-001` through `003`, all
+three role reviews, cleanup and residual verification, fail-closed final verification, the
+22-entry private inventory, `WP45-REM-001` through `008`, and `WP45-DEC-001` through `007`.
+WP-45 is closed without retry and its frozen four-path publication is authorized. WP-46 may
+activate only after verified publication for bounded proof-only static remediation of the database
+connection environment, operational-deviation evidence, and diagnostic metadata. All runtime and
+product gates remain closed.
 
 ## WP-30 acceptance, publication, and WP-31 activation — 2026-10-07
 
