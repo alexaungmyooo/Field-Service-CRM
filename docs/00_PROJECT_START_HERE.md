@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-42 exact launcher/reachability contract remediation ready for owner review |
-| Current phase | Technical Proof Static Remediation |
-| Current work package | `WP-42 Exact Launcher and Reachability Command Contract Remediation` |
+| Status | Product Discovery closed — WP-43 exact published rebinding ready for owner decision |
+| Current phase | Technical Proof Reauthorization Readiness |
+| Current work package | `WP-43 TP-01 Exact Published Rebinding and Reauthorization Readiness` |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -94,6 +94,7 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 35. `43_TP01_EXECUTION_IDENTITY_REACHABILITY_AUTHORIZATION_READINESS.md`
 36. `44_TP01_CONTROLLED_REACHABILITY_EXECUTION_RESULT.md`
 37. `45_TP01_EXACT_LAUNCHER_REACHABILITY_STATIC_REMEDIATION.md`
+38. `46_TP01_EXACT_LAUNCHER_REBINDING_REAUTHORIZATION_READINESS.md`
 
 Current and later accepted work packages may add or mature:
 
@@ -1061,6 +1062,25 @@ reproduced every path, byte count, hash, aggregate identity, command-contract co
 scope and returned `PASS` with zero finding and zero repository mutation. WP-42 is
 `READY_FOR_OWNER_REVIEW`; this static result establishes no runtime reachability, tenant boundary,
 security acceptance, reproduction, or architecture outcome.
+
+## WP-42 acceptance, publication, and WP-43 activation — 2026-10-07
+
+The owner accepted `WP42-REM-001` through `008`, `WP42-BIND-001` through `016`,
+`WP42-DEC-001` through `006`, the renewed 62-file inventory, and the independent static-validation
+`PASS`. The frozen nine-path public inventory was committed as
+`0f2100b WP-42: accept launcher reachability remediation` and pushed to `origin/main`.
+
+Local `HEAD`, cached `origin/main`, and live remote main matched
+`0f2100b869bbb8e466c906b3a0d4213e827ef4cf`; the committed proof tree is
+`1777020c393fd3a63134eac99d878b66261523eb`. WP-42 is `VERIFIED_AND_CLOSED`.
+
+WP-43 is active for exact published rebinding and reauthorization-readiness owner-decision
+documentation only. It may bind the verified revision/tree and accepted hashes, preserve all
+stopped-run history, and analyze workspace, role, launcher, reachability, and future authorization
+gates. It does not prepare any private authorization draft. Role creation, checkout creation,
+dependencies, preflight, images, Docker/Compose runtime, containers, databases, services, cleanup,
+proof/reproduction, application coding, architecture selection, infrastructure, deployment,
+provider accounts/cost, customer/live data, network, and WP-43 publication remain closed.
 
 ## WP-30 acceptance, publication, and WP-31 activation — 2026-10-07
 

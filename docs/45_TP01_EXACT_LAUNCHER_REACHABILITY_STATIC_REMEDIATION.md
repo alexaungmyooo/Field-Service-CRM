@@ -4,7 +4,7 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Ready for Owner Review |
+| Status | Accepted, published, and closed |
 | Work package | `WP-42 Exact Launcher and Reachability Command Contract Remediation` |
 | Governing decision | `DEC-172` |
 | Base publication | `1901f32e157f0fb70af0570dbd739f41dd18a49a` |
@@ -12,7 +12,7 @@
 | Owner | Aung Myo Oo |
 | Date | 2026-10-07 |
 | Runtime execution | Not authorized |
-| Publication | Not authorized |
+| Publication | Verified as `0f2100b869bbb8e466c906b3a0d4213e827ef4cf` |
 
 ## Objective and boundary
 
@@ -43,14 +43,14 @@ the cleanup-time listener observation as reachability evidence and does not retr
 
 | ID | Implemented control | State |
 | --- | --- | --- |
-| `WP42-REM-001` | Preserve WP-41 and its 18-entry packet as immutable Inconclusive evidence with no retry or result reinterpretation. | Implemented |
-| `WP42-REM-002` | Add exactly `runtime:verify-reachability` to the approved launcher run-script set without adding another name or widening the exact two-argument shape. | Implemented |
-| `WP42-REM-003` | Extract the command-classification and dependency-marker rules into a dependency-free contract module used by the real launcher. | Implemented |
-| `WP42-REM-004` | Require every launcher-approved script to exist in `package.json` and require the reachability script to resolve exactly to `node scripts/runtime-reachability.mjs`. | Implemented |
-| `WP42-REM-005` | Prove exact-command acceptance and reject extra arguments, whitespace drift, underscore substitution, and the direct-Node-only final-verifier name. | Implemented |
-| `WP42-REM-006` | Preserve fail-closed missing-dependency behavior and before/after dependency-marker integrity enforcement. | Implemented |
-| `WP42-REM-007` | Reconcile the controlled order as database start, exact three-view reachability gate, then database reset; retain cleanup and final verification as direct exact-Node interfaces. | Implemented |
-| `WP42-REM-008` | Run exact-Node syntax and dependency-free tests, renew the full proof inventory, and obtain exactly one fresh independent static validator after freeze. | Implemented; independent `PASS` |
+| `WP42-REM-001` | Preserve WP-41 and its 18-entry packet as immutable Inconclusive evidence with no retry or result reinterpretation. | Accepted |
+| `WP42-REM-002` | Add exactly `runtime:verify-reachability` to the approved launcher run-script set without adding another name or widening the exact two-argument shape. | Accepted |
+| `WP42-REM-003` | Extract the command-classification and dependency-marker rules into a dependency-free contract module used by the real launcher. | Accepted |
+| `WP42-REM-004` | Require every launcher-approved script to exist in `package.json` and require the reachability script to resolve exactly to `node scripts/runtime-reachability.mjs`. | Accepted |
+| `WP42-REM-005` | Prove exact-command acceptance and reject extra arguments, whitespace drift, underscore substitution, and the direct-Node-only final-verifier name. | Accepted |
+| `WP42-REM-006` | Preserve fail-closed missing-dependency behavior and before/after dependency-marker integrity enforcement. | Accepted |
+| `WP42-REM-007` | Reconcile the controlled order as database start, exact three-view reachability gate, then database reset; retain cleanup and final verification as direct exact-Node interfaces. | Accepted |
+| `WP42-REM-008` | Run exact-Node syntax and dependency-free tests, renew the full proof inventory, and obtain exactly one fresh independent static validator after freeze. | Accepted; independent `PASS` |
 
 ## Exact command-contract effect
 
@@ -125,12 +125,12 @@ self-cleaned operating-system temporary fixtures existed transiently.
 
 | ID | Recommendation | Status |
 | --- | --- | --- |
-| `WP42-DEC-001` | Accept `WP42-REM-001` through `008` as the bounded correction of `WP41-DEV-001`. | Proposed |
-| `WP42-DEC-002` | Accept `WP42-BIND-001` through `016` only as a static proof candidate binding. | Proposed |
-| `WP42-DEC-003` | Accept the single fresh independent static result only after its identity, methods, findings, limitations, and zero-mutation statement are recorded. | Proposed |
-| `WP42-DEC-004` | Preserve WP-41 as immutable Inconclusive evidence and prohibit retry or reinterpretation. | Proposed |
-| `WP42-DEC-005` | After verified WP-42 publication, activate WP-43 for exact published rebinding and reauthorization-readiness documentation only. | Proposed |
-| `WP42-DEC-006` | Keep dependencies, preflight, images, Docker/Compose runtime, containers, databases, services, cleanup execution, proof/reproduction, application coding, final architecture selection, infrastructure, deployment, provider accounts/cost, customer/live data, and network closed. | Proposed |
+| `WP42-DEC-001` | Accept `WP42-REM-001` through `008` as the bounded correction of `WP41-DEV-001`. | Accepted |
+| `WP42-DEC-002` | Accept `WP42-BIND-001` through `016` only as a static proof candidate binding. | Accepted |
+| `WP42-DEC-003` | Accept the single fresh independent static result only after its identity, methods, findings, limitations, and zero-mutation statement are recorded. | Accepted |
+| `WP42-DEC-004` | Preserve WP-41 as immutable Inconclusive evidence and prohibit retry or reinterpretation. | Accepted |
+| `WP42-DEC-005` | After verified WP-42 publication, activate WP-43 for exact published rebinding and reauthorization-readiness documentation only. | Accepted |
+| `WP42-DEC-006` | Keep dependencies, preflight, images, Docker/Compose runtime, containers, databases, services, cleanup execution, proof/reproduction, application coding, final architecture selection, infrastructure, deployment, provider accounts/cost, customer/live data, and network closed. | Accepted |
 
 ## Frozen WP-42 public inventory
 
@@ -149,9 +149,14 @@ Owner review and any later publication authorization apply only to these nine pa
 Private authorization, static evidence, validator records, and the renewed artifact inventory
 remain ignored under `internal-local/` and must not be published.
 
-## Next gate
+## Acceptance, publication, and next gate
 
-WP-42 stops at owner review. Commit, push, runtime activity, architecture selection, application
-implementation, infrastructure, deployment, provider actions, and customer/live-data use remain
-closed. The proposed later gate is WP-43 exact published rebinding and reauthorization-readiness
-documentation only, after explicit owner acceptance and verified WP-42 publication.
+The owner accepted all eight remediation controls, all sixteen bindings, all six recommendations,
+the renewed 62-file inventory, and the independent static-validation `PASS`. The exact nine-path
+inventory was committed as `0f2100b WP-42: accept launcher reachability remediation` and pushed to
+`origin/main`; local `HEAD`, cached `origin/main`, and live remote main matched
+`0f2100b869bbb8e466c906b3a0d4213e827ef4cf`. The committed proof tree is
+`1777020c393fd3a63134eac99d878b66261523eb`. WP-42 is `VERIFIED_AND_CLOSED`.
+
+WP-43 is active for exact published rebinding and reauthorization-readiness owner-decision
+documentation only. Execution and WP-43 publication remain closed.
