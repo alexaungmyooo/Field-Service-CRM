@@ -2,9 +2,12 @@ const stopCodePattern = /^[A-Z][A-Z0-9_]{2,63}$/;
 const artifactPattern = /^[a-z0-9][a-z0-9.-]{0,127}$/;
 
 function assertOperationalStopRecord(record) {
+  const allowedStage =
+    (record?.run === "PREFLIGHT" && record?.stage === "PRIVATE_ENVIRONMENT_ACTIVATION") ||
+    (["PRIMARY", "REPRODUCTION"].includes(record?.run) &&
+      ["TYPESCRIPT_COMPILE", "PROOF_TEST"].includes(record?.stage));
   if (
-    !["PRIMARY", "REPRODUCTION"].includes(record?.run) ||
-    !["TYPESCRIPT_COMPILE", "PROOF_TEST"].includes(record?.stage) ||
+    !allowedStage ||
     !stopCodePattern.test(record?.code ?? "") ||
     !artifactPattern.test(record?.evidenceArtifact ?? "") ||
     JSON.stringify(Object.keys(record).sort()) !==

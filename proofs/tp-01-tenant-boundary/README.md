@@ -7,30 +7,76 @@ This directory materializes checkpoint 1 of the accepted TP-01 contract in
 
 ## Current authorization
 
-WP-46 authorizes proof-only database-connection environment and diagnostic-metadata remediation
-with dependency-free static validation. It permits:
+WP-50 authorizes proof-only private-environment activation and preflight-launcher remediation with
+dependency-free static validation. It permits:
 
-- requiring the exact run-bound `TP01_DATABASE_URL` and prohibiting driver defaults/fallbacks;
-- validating and recording only non-secret endpoint, database, role, and credential-binding
-  metadata;
-- propagating the validated connection through reset, evidence capture, primary, reproduction, and
-  final verification interfaces;
-- separating owner-accepted contract deviations from fail-closed operational stops;
-- minimizing executable-path metadata in bounded failure diagnostics;
+- an exact non-evaluating parser for the private `KEY=literal value` transport;
+- a launcher whose only accepted operation is the exact preflight path;
+- literal preservation tests for spaces and credential metacharacters;
+- minimized activation-failure and formal stopped-preflight evidence;
 - built-in-only syntax, pure-contract, hashing, inventory, and scope checks;
-- renewing static evidence and artifact hashes; and
-- one fresh independent read-only static validation after the inventory is frozen.
+- renewal of every affected artifact hash; and
+- exactly one fresh independent read-only static validation after freeze.
 
-WP-46 does **not** authorize dependency or package-manager operations, preflight, image inspection
-or retrieval, Docker/Compose commands, pull-token creation, containers, databases, services, SQL,
-fixtures, listeners, cleanup execution, a TP-01 case or reproduction, execution-evidence
-verification, application code, architecture selection, infrastructure, deployment, provider
-accounts or cost, customer/live data, or network access.
+WP-50 does **not** authorize dependency or package-manager operations, credential generation or
+use, preflight, image inspection or retrieval, Docker/Compose commands, pull-token creation,
+containers, databases, services, SQL, fixtures, listeners, cleanup execution, a TP-01 case or
+reproduction, execution-evidence verification, application code, architecture selection,
+infrastructure, deployment, provider accounts or cost, customer/live data, or network access.
 
-The execution-facing scripts fail closed. They require later-package environment controls and a
-matching private `authorization.json` with status `ACCEPTED_FOR_EXECUTION`. The remediated
-inventory must be independently reviewed, owner-accepted, committed, published, and bound to a
-later exact execution revision before any execution-facing command may run.
+The execution-facing scripts remain closed. They require later owner acceptance, publication,
+rebinding, role assignment, and a new effective private authorization before any execution-facing
+command may run.
+
+## WP-50 private-environment activation contract
+
+The future private environment is data, not shell source. Each non-empty line is one
+`KEY=literal value` assignment. The parser splits only on the first `=`, preserves every remaining
+byte literally, accepts only the exact reviewed key set, and rejects blank lines, malformed keys,
+unknown or duplicate keys, empty values, embedded carriage returns or NULs, missing keys, invalid
+package/run context, and non-absolute evidence, Node, or pnpm paths. It performs no quote removal,
+variable expansion, command substitution, escape processing, or shell evaluation and does not
+mutate `process.env`.
+
+The launcher removes every ambient `TP01_*` entry, adds only parsed allowlisted values to the child
+environment, requires its configured Node binary to equal the already running exact Node process,
+requires the matching effective authorization, revision, clean proof, complete reviewed inventory,
+and authorization-bound Node/pnpm paths, and maps exactly this interface to the already reviewed
+exact-pnpm launcher:
+
+```text
+$TP01_NODE_BIN scripts/private-environment-launcher.mjs \
+  --environment /absolute/private/runtime.env preflight
+```
+
+No other operation or relative environment path is accepted. The launcher does not print the
+private values or place them in command arguments. A fail-closed activation with a separately
+validated package, run, and absolute evidence directory writes only
+`private-environment-activation-failure.json` plus a `PREFLIGHT` /
+`PRIVATE_ENVIRONMENT_ACTIVATION` operational stop in `deviations.json`. Neither artifact retains a
+credential, database URL, environment value, or absolute path. If even that non-secret context is
+unavailable, the launcher emits only a typed stderr status and cannot safely select an evidence
+directory.
+
+WP-50 dependency-free static checks are:
+
+```text
+$TP01_NODE_BIN --check scripts/private-environment-contract.mjs
+$TP01_NODE_BIN --check scripts/private-environment-contract.test.mjs
+$TP01_NODE_BIN --check scripts/private-environment-launcher.mjs
+$TP01_NODE_BIN --check scripts/private-environment-launcher.test.mjs
+$TP01_NODE_BIN --check scripts/deviation-contract.mjs
+$TP01_NODE_BIN --check scripts/deviation-contract.test.mjs
+$TP01_NODE_BIN --check scripts/execution-authorization.mjs
+$TP01_NODE_BIN scripts/private-environment-contract.test.mjs
+$TP01_NODE_BIN scripts/private-environment-launcher.test.mjs
+$TP01_NODE_BIN scripts/deviation-contract.test.mjs
+$TP01_NODE_BIN scripts/hash-inventory.mjs
+```
+
+These commands do not invoke dependencies, a package manager, preflight, images, Docker/Compose,
+cleanup, evidence verification, or any proof/reproduction path. Test credentials are inert literal
+strings held only in the dependency-free test process; they are not runtime credentials.
 
 ## WP-46 database-connection and diagnostic contract
 

@@ -4,14 +4,7 @@ import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { assertExactNode } from "./runtime-contract.mjs";
 
-export function assertExecutionAuthorized() {
-  assertExactNode();
-  if (process.env.TP01_EXECUTION_AUTHORIZATION !== "AUTHORIZED_BY_LATER_OWNER_PACKAGE") {
-    throw new Error("TP-01 execution is not authorized by WP-19");
-  }
-  const packageId = process.env.TP01_EXECUTION_PACKAGE;
-  const runId = process.env.TP01_RUN_ID;
-  const evidenceDirectory = process.env.TP01_EVIDENCE_DIR;
+export function assertExecutionContextAuthorized({ packageId, runId, evidenceDirectory }) {
   if (!packageId?.startsWith("WP-") || !runId || !evidenceDirectory) {
     throw new Error("Later execution package, run ID, and private evidence directory are required");
   }
@@ -56,4 +49,16 @@ export function assertExecutionAuthorized() {
     throw new Error("reviewed TP-01 path must be clean before execution");
   }
   return { authorization: record, packageId, runId, evidenceDirectory };
+}
+
+export function assertExecutionAuthorized(environment = process.env) {
+  assertExactNode();
+  if (environment.TP01_EXECUTION_AUTHORIZATION !== "AUTHORIZED_BY_LATER_OWNER_PACKAGE") {
+    throw new Error("TP-01 execution is not authorized by WP-19");
+  }
+  return assertExecutionContextAuthorized({
+    packageId: environment.TP01_EXECUTION_PACKAGE,
+    runId: environment.TP01_RUN_ID,
+    evidenceDirectory: environment.TP01_EVIDENCE_DIR,
+  });
 }
