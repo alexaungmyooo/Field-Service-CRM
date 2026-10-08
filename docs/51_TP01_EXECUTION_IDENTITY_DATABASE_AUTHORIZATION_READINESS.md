@@ -4,7 +4,7 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Accepted — publication authorized; execution awaits verified publication |
+| Status | Accepted, published, and closed |
 | Work package | `WP-48 TP-01 Execution Identity and Database Authorization Readiness` |
 | Governing decision | `DEC-178`; `DEC-179` |
 | Governance publication | `b86d868da52c8393d0e376b6f4eaf51c8298c89f` |
@@ -12,8 +12,8 @@
 | Proof tree | `8ecdb3c22b47f2e95cbf6007c6c90e6b2ae96b82` |
 | Owner | Aung Myo Oo |
 | Date | 2026-10-08 |
-| TP-01 execution | Not authorized |
-| Publication | Authorized for the frozen four-path inventory; verification pending |
+| TP-01 execution | Not authorized by WP-48; separate WP-49 result recorded in document 52 |
+| Publication | Verified as `a5b222169f82bfe282b516d41a9a561c50796916` |
 
 ## Objective and authority boundary
 
@@ -180,9 +180,12 @@ The owner accepted the eighteen bindings, exact proposed roles, validator attest
 private draft, ten recommendations, and frozen four-path public inventory on 2026-10-09. Commit
 and push are authorized only for that public inventory.
 
-After verified publication, the separately authorized WP-49 run `wp49-2026-10-08-01` may activate
-under its exact checkout, offline dependency, credential/URL binding, effective-authorization,
-conditional-image, launcher/reachability, cleanup, network, and non-scope controls. Before verified
-publication, no checkout, dependency, credential/URL/digest, preflight, image, Docker/Compose,
-container, database, service, cleanup, proof/reproduction, application, architecture-selection,
-infrastructure, deployment, provider, customer/live-data, or network action is authorized.
+The exact frozen four-path inventory was committed as
+`a5b2221 WP-48: accept database authorization readiness` and pushed to `origin/main`. Local
+`HEAD`, cached `origin/main`, and live remote main matched
+`a5b222169f82bfe282b516d41a9a561c50796916`. WP-48 is `VERIFIED_AND_CLOSED`.
+
+WP-49 then activated under the separate exact owner authorization for run
+`wp49-2026-10-08-01`. Its result is recorded separately in
+`52_TP01_CONTROLLED_DATABASE_CONNECTION_EXECUTION_RESULT.md`; WP-49 publication remains a later
+owner gate.

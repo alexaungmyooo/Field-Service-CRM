@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-48 accepted and publication authorized |
+| Status | Product Discovery closed — WP-49 accepted and publication authorized; no retry |
 | Current phase | Technical Proof Evidence Disposition |
-| Current work package | `WP-48 TP-01 Execution Identity and Database Authorization Readiness` |
+| Current work package | `WP-49 Controlled TP-01 Database Connection Execution` |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -100,6 +100,7 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 41. `49_TP01_DATABASE_CONNECTION_DIAGNOSTIC_STATIC_REMEDIATION.md`
 42. `50_TP01_DATABASE_CONNECTION_REMEDIATION_REBINDING_REAUTHORIZATION_READINESS.md`
 43. `51_TP01_EXECUTION_IDENTITY_DATABASE_AUTHORIZATION_READINESS.md`
+44. `52_TP01_CONTROLLED_DATABASE_CONNECTION_EXECUTION_RESULT.md`
 
 Current and later accepted work packages may add or mature:
 
@@ -1215,6 +1216,37 @@ authorized only for the frozen four-path WP-48 public inventory. After verified 
 WP-49 may activate for the exact owner-authorized run `wp49-2026-10-08-01` at accepted proof
 revision `bbcb4b266942f529322fbdc0f5e7f1270711dcc2`. Until then, every WP-49 execution gate
 remains closed.
+
+The exact frozen four-path WP-48 inventory was committed as
+`a5b2221 WP-48: accept database authorization readiness` and pushed to `origin/main`. Local
+`HEAD`, cached `origin/main`, and live remote main matched
+`a5b222169f82bfe282b516d41a9a561c50796916`. WP-48 is `VERIFIED_AND_CLOSED`.
+
+WP-49 activated for the exact owner-authorized run `wp49-2026-10-08-01` at proof revision
+`bbcb4b266942f529322fbdc0f5e7f1270711dcc2`. Exact offline restoration reused 115 packages with
+zero downloads, fresh credential and canonical database-URL digests were bound to an effective
+private authorization, and local inspection confirmed the accepted image without a pull token or
+registry access.
+
+The run stopped before preflight completed because the private runtime-environment file did not
+shell-quote the absolute evidence-directory value containing spaces. The authorization guard
+received no usable evidence directory and failed closed before preflight Docker/Compose inspection.
+No container, database, proof case, primary packet, reproduction, or interim verifier ran.
+
+Mandatory cleanup, credential removal, residual verification, and disposable-checkout removal
+passed. All three role reviews are `INCONCLUSIVE`; both independent reviewers reproduced every
+sealed stop-packet hash. The final verifier failed closed on absent `environment.json`. WP-49 is
+`INCONCLUSIVE_CLOSED_NO_RETRY`, establishes no tenant-boundary or architecture result, and is
+`READY_FOR_OWNER_REVIEW`. WP-49 commit, push, and remediation remain closed.
+
+The owner accepted the WP-49 Inconclusive disposition, both deviations, all three role reviews,
+cleanup and residual verification, credential/dependency and checkout removal, fail-closed final
+verification, 13-entry private inventory, `WP49-REM-001` through `007`, and `WP49-DEC-001`
+through `007`. WP-49 is closed without retry. Commit and push are authorized only for the frozen
+four-path public inventory. After verified publication, WP-50 may activate for the accepted
+proof-only private-environment and preflight-launcher static remediation with exactly one fresh
+independent static validator. All runtime, dependency, credential, product, architecture,
+infrastructure, deployment, provider, network, and customer/live-data gates remain closed.
 
 ## WP-30 acceptance, publication, and WP-31 activation — 2026-10-07
 
