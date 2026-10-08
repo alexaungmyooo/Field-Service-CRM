@@ -4,13 +4,13 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-43 exact published rebinding ready for owner decision |
-| Current phase | Technical Proof Reauthorization Readiness |
-| Current work package | `WP-43 TP-01 Exact Published Rebinding and Reauthorization Readiness` |
+| Status | Product Discovery closed — WP-44 execution identity and private authorization readiness ready for owner decision |
+| Current phase | Technical Proof Execution Authorization Readiness |
+| Current work package | `WP-44 TP-01 Execution Identity and Private Authorization Readiness` |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
-| Last updated | 2026-10-07 |
+| Last updated | 2026-10-08 |
 
 ## Purpose
 
@@ -95,6 +95,7 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 36. `44_TP01_CONTROLLED_REACHABILITY_EXECUTION_RESULT.md`
 37. `45_TP01_EXACT_LAUNCHER_REACHABILITY_STATIC_REMEDIATION.md`
 38. `46_TP01_EXACT_LAUNCHER_REBINDING_REAUTHORIZATION_READINESS.md`
+39. `47_TP01_EXECUTION_IDENTITY_LAUNCHER_AUTHORIZATION_READINESS.md`
 
 Current and later accepted work packages may add or mature:
 
@@ -1081,6 +1082,31 @@ gates. It does not prepare any private authorization draft. Role creation, check
 dependencies, preflight, images, Docker/Compose runtime, containers, databases, services, cleanup,
 proof/reproduction, application coding, architecture selection, infrastructure, deployment,
 provider accounts/cost, customer/live data, network, and WP-43 publication remain closed.
+
+## WP-43 acceptance, publication, and WP-44 readiness — 2026-10-08
+
+The owner accepted `WP43-DEC-001` through `010`,
+`TP1-LAUNCHER-REMEDIATED-BIND-001` through `038`, advanced `WP43-WS-001` and
+`WP43-LAUNCH-001`, rejected `WP43-WS-002/003` and `WP43-LAUNCH-002/003`, and accepted the
+no-private-draft disposition. The exact four-path public inventory was committed as
+`85308d2 WP-43: accept exact launcher rebinding` and pushed to `origin/main`.
+
+Local `HEAD`, cached `origin/main`, and live remote main matched
+`85308d2a56993feebd2d10bb97d45aff0735775a`. The accepted proof revision remains
+`0f2100b869bbb8e466c906b3a0d4213e827ef4cf` with tree
+`1777020c393fd3a63134eac99d878b66261523eb`. WP-43 is `VERIFIED_AND_CLOSED`.
+
+WP-44 created exactly one fresh identity, `/root/wp44_reproduction_validator`, which returned a
+`PASS` independence attestation and performed no mutation. The private authorization draft is
+explicitly ineffective: it has no execution package, run ID, checkout, token, or credential; all
+17 action-authority flags and both effectiveness gates are false; and all six stopped attempts
+remain immutable.
+
+WP-44 is `READY_FOR_OWNER_DECISION` but checkpoint 2 remains `NOT_AUTHORIZED`. Checkout creation,
+dependencies, preflight, images, Docker/Compose runtime, pull-token creation, containers,
+databases, services, cleanup, proof/reproduction, application coding, architecture selection,
+infrastructure, deployment, provider accounts/cost, customer/live data, network, and WP-44
+publication remain closed.
 
 ## WP-30 acceptance, publication, and WP-31 activation — 2026-10-07
 

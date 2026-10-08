@@ -4,7 +4,7 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Ready for Owner Decision — execution remains unauthorized |
+| Status | Accepted, published, and closed — execution remains unauthorized |
 | Work package | `WP-43 TP-01 Exact Published Rebinding and Reauthorization Readiness` |
 | Governing decision | `DEC-173` |
 | Governance publication | `0f2100b869bbb8e466c906b3a0d4213e827ef4cf` |
@@ -14,7 +14,7 @@
 | Date | 2026-10-07 |
 | TP-01 execution | Not authorized |
 | Private authorization draft | Not authorized and not created |
-| Publication | Not authorized |
+| Publication | Verified as `85308d2a56993feebd2d10bb97d45aff0735775a` |
 
 ## Objective and authority boundary
 
@@ -115,21 +115,21 @@ TCP reachability, no-egress behavior, database enforcement, or tenant isolation.
 
 ## Workspace and dependency choices
 
-| Option ID | Approach | Benefit | Risk and proposed disposition |
+| Option ID | Approach | Benefit | Owner disposition |
 | --- | --- | --- | --- |
-| `WP43-WS-001` | Under later authority, create a dedicated checkout at binding `001`, then restore exact dependencies offline/frozen/ignore-scripts from the existing local store. | Preserves revision custody and reproducible dependency evidence. | Advance; stop on missing local content or drift. |
-| `WP43-WS-002` | Execute from the current main checkout. | Avoids restoration. | Reject; owner-review documentation and ignored state weaken exact-revision custody. |
-| `WP43-WS-003` | Reuse a prior archived checkout or stopped run. | Appears to preserve prior preparation. | Reject; expired authority and historical state cannot become a new attempt. |
+| `WP43-WS-001` | Under later authority, create a dedicated checkout at binding `001`, then restore exact dependencies offline/frozen/ignore-scripts from the existing local store. | Preserves revision custody and reproducible dependency evidence. | Accepted: advance; stop on missing local content or drift. |
+| `WP43-WS-002` | Execute from the current main checkout. | Avoids restoration. | Accepted: reject; owner-review documentation and ignored state weaken exact-revision custody. |
+| `WP43-WS-003` | Reuse a prior archived checkout or stopped run. | Appears to preserve prior preparation. | Accepted: reject; expired authority and historical state cannot become a new attempt. |
 
 No checkout is created and no dependency or store path is read, copied, restored, or changed.
 
 ## Launcher and reachability choices
 
-| Option ID | Approach | Proposed disposition |
+| Option ID | Approach | Owner disposition |
 | --- | --- | --- |
-| `WP43-LAUNCH-001` | Require the exact launcher command plus Docker-inspect, Compose-publisher, and direct-TCP agreement before every database reset. | Advance for a future separately authorized attempt. |
-| `WP43-LAUNCH-002` | Bypass the launcher or invoke the reachability runner through an unrecorded interface. | Reject; defeats the published command contract and evidence custody. |
-| `WP43-LAUNCH-003` | Treat static source/test acceptance or WP-41 cleanup observation as runtime reachability evidence. | Reject; neither is accepted three-view run-bound evidence. |
+| `WP43-LAUNCH-001` | Require the exact launcher command plus Docker-inspect, Compose-publisher, and direct-TCP agreement before every database reset. | Accepted: advance for a future separately authorized attempt. |
+| `WP43-LAUNCH-002` | Bypass the launcher or invoke the reachability runner through an unrecorded interface. | Accepted: reject; defeats the published command contract and evidence custody. |
+| `WP43-LAUNCH-003` | Treat static source/test acceptance or WP-41 cleanup observation as runtime reachability evidence. | Accepted: reject; neither is accepted three-view run-bound evidence. |
 
 ## Role readiness
 
@@ -178,16 +178,16 @@ Verdict: `READY_FOR_OWNER_DECISION`, but `NOT_READY_FOR_EXECUTION_AUTHORIZATION`
 
 | ID | Recommendation | Status |
 | --- | --- | --- |
-| `WP43-DEC-001` | Accept `TP1-LAUNCHER-REMEDIATED-BIND-001` through `038` only as one candidate binding for a completely new attempt. | Proposed |
-| `WP43-DEC-002` | Preserve WP-24, WP-27, WP-30, WP-33, WP-37, and WP-41 as separate immutable Inconclusive runs with expired authorizations and no retry. | Proposed |
-| `WP43-DEC-003` | Accept the corrected exact-launcher and three-view reachability contracts without treating static validation or cleanup diagnostics as runtime evidence. | Proposed |
-| `WP43-DEC-004` | Advance `WP43-WS-001`; reject `WP43-WS-002` and `WP43-WS-003`. | Proposed |
-| `WP43-DEC-005` | Advance `WP43-LAUNCH-001`; reject `WP43-LAUNCH-002` and `WP43-LAUNCH-003`. | Proposed |
-| `WP43-DEC-006` | Require exactly one fresh reproduction-validator identity under later owner authority; do not reuse any prior run or static-validator identity. | Proposed |
-| `WP43-DEC-007` | Retain `/root` and `/root/tp01_security_review` only as proposed roles subject to new-package reconfirmation. | Proposed |
-| `WP43-DEC-008` | Accept that no private authorization draft exists under WP-43 and require separate later authority before any draft or effective record is created. | Proposed |
-| `WP43-DEC-009` | After verified WP-43 publication, permit only a separately authorized WP-44 execution-identity and private-authorization-readiness package before any checkout, dependency, token, or runtime decision. | Proposed |
-| `WP43-DEC-010` | Keep dependencies, preflight, images, Docker/Compose runtime, containers, databases, services, cleanup, proof/reproduction, application coding, final architecture selection, infrastructure, deployment, provider accounts/cost, customer/live data, and network closed. | Proposed |
+| `WP43-DEC-001` | Accept `TP1-LAUNCHER-REMEDIATED-BIND-001` through `038` only as one candidate binding for a completely new attempt. | Accepted |
+| `WP43-DEC-002` | Preserve WP-24, WP-27, WP-30, WP-33, WP-37, and WP-41 as separate immutable Inconclusive runs with expired authorizations and no retry. | Accepted |
+| `WP43-DEC-003` | Accept the corrected exact-launcher and three-view reachability contracts without treating static validation or cleanup diagnostics as runtime evidence. | Accepted |
+| `WP43-DEC-004` | Advance `WP43-WS-001`; reject `WP43-WS-002` and `WP43-WS-003`. | Accepted |
+| `WP43-DEC-005` | Advance `WP43-LAUNCH-001`; reject `WP43-LAUNCH-002` and `WP43-LAUNCH-003`. | Accepted |
+| `WP43-DEC-006` | Require exactly one fresh reproduction-validator identity under later owner authority; do not reuse any prior run or static-validator identity. | Accepted |
+| `WP43-DEC-007` | Retain `/root` and `/root/tp01_security_review` only as proposed roles subject to new-package reconfirmation. | Accepted |
+| `WP43-DEC-008` | Accept that no private authorization draft exists under WP-43 and require separate later authority before any draft or effective record is created. | Accepted |
+| `WP43-DEC-009` | After verified WP-43 publication, permit only a separately authorized WP-44 execution-identity and private-authorization-readiness package before any checkout, dependency, token, or runtime decision. | Accepted |
+| `WP43-DEC-010` | Keep dependencies, preflight, images, Docker/Compose runtime, containers, databases, services, cleanup, proof/reproduction, application coding, final architecture selection, infrastructure, deployment, provider accounts/cost, customer/live data, and network closed. | Accepted |
 
 ## Frozen WP-43 public inventory
 
@@ -201,10 +201,14 @@ Owner review and any later publication authorization apply only to these four pa
 Private authorization and validation records remain ignored under `internal-local/` and must not
 be published.
 
-## Next gate
+## Acceptance, publication, and next gate
 
-WP-43 stops at owner decision. Commit, push, role creation, private authorization preparation,
-checkout creation, dependencies, runtime activity, architecture selection, application
-implementation, infrastructure, deployment, provider actions, and customer/live-data use remain
-closed. After explicit owner acceptance and verified publication, the proposed next gate is WP-44
-execution-identity and private-authorization readiness only.
+The owner accepted all 38 bindings, all ten recommendations, advanced `WP43-WS-001` and
+`WP43-LAUNCH-001`, rejected both alternative sets, and accepted the no-private-draft disposition.
+The exact four-path inventory was committed as `85308d2 WP-43: accept exact launcher rebinding` and
+pushed to `origin/main`; local `HEAD`, cached `origin/main`, and live remote main matched
+`85308d2a56993feebd2d10bb97d45aff0735775a`. WP-43 is `VERIFIED_AND_CLOSED`.
+
+WP-44 is active for one fresh reproduction-validator identity, owner-decision documentation, and
+private ineffective authorization preparation only. Execution and WP-44 publication remain
+closed.
