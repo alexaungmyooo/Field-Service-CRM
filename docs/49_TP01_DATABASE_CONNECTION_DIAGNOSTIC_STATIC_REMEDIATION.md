@@ -4,7 +4,7 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Accepted; publication authorized |
+| Status | Accepted, published, and closed |
 | Work package | `WP-46 Database Connection Environment and Diagnostic Metadata Remediation` |
 | Governing decision | `DEC-176` |
 | Base publication | `d7438099639b5722b0ef13405235c9b130674104` |
@@ -13,7 +13,7 @@
 | Owner | Aung Myo Oo |
 | Date | 2026-10-08 |
 | Runtime execution | Not authorized |
-| Publication | Authorized; verification pending |
+| Publication | Verified as `bbcb4b266942f529322fbdc0f5e7f1270711dcc2` |
 
 ## Objective and authority boundary
 
@@ -214,9 +214,14 @@ The owner accepted all nine remediation controls, all twenty-seven static bindin
 both independent findings, the final independent `PASS`, all seven recommended dispositions, and
 the frozen twenty-path public inventory. Commit and push are authorized only for that inventory.
 
-After verified publication, WP-47 may activate for exact published rebinding and
-reauthorization-readiness owner-decision documentation only. Dependencies, preflight, images,
-Docker/Compose runtime, containers, databases, services, cleanup execution, proof/reproduction,
-application coding, final architecture selection, infrastructure, deployment, provider
-accounts/cost, customer/live data, and network remain closed. WP-47 publication requires later
-owner acceptance.
+The exact twenty-path public inventory was committed as
+`bbcb4b2 WP-46: accept database connection remediation` and pushed to `origin/main`. Local `HEAD`,
+cached `origin/main`, and live remote main matched
+`bbcb4b266942f529322fbdc0f5e7f1270711dcc2`; the committed proof tree is
+`8ecdb3c22b47f2e95cbf6007c6c90e6b2ae96b82`. WP-46 is `VERIFIED_AND_CLOSED`.
+
+WP-47 is active for exact published rebinding and reauthorization-readiness owner-decision
+documentation only. Dependencies, preflight, images, Docker/Compose runtime, containers,
+databases, services, cleanup execution, proof/reproduction, application coding, final architecture
+selection, infrastructure, deployment, provider accounts/cost, customer/live data, network, and
+WP-47 publication remain closed.

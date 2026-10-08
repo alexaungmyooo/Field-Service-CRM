@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-46 accepted and publication authorized |
+| Status | Product Discovery closed — WP-47 accepted and publication authorized |
 | Current phase | Technical Proof Evidence Disposition |
-| Current work package | `WP-46 Database Connection Environment and Diagnostic Metadata Remediation` |
+| Current work package | `WP-47 TP-01 Database Connection Remediation Rebinding and Reauthorization Readiness` |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -98,6 +98,7 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 39. `47_TP01_EXECUTION_IDENTITY_LAUNCHER_AUTHORIZATION_READINESS.md`
 40. `48_TP01_CONTROLLED_EXACT_LAUNCHER_EXECUTION_RESULT.md`
 41. `49_TP01_DATABASE_CONNECTION_DIAGNOSTIC_STATIC_REMEDIATION.md`
+42. `50_TP01_DATABASE_CONNECTION_REMEDIATION_REBINDING_REAUTHORIZATION_READINESS.md`
 
 Current and later accepted work packages may add or mature:
 
@@ -1169,6 +1170,28 @@ twenty-path WP-46 public inventory. After verified publication, WP-47 may activa
 published rebinding and reauthorization-readiness owner-decision documentation only. All runtime,
 product, architecture-selection, infrastructure, provider, network, and customer/live-data gates
 remain closed.
+
+The exact twenty-path WP-46 inventory was committed as
+`bbcb4b2 WP-46: accept database connection remediation` and pushed to `origin/main`. Local `HEAD`,
+cached `origin/main`, and live remote main matched
+`bbcb4b266942f529322fbdc0f5e7f1270711dcc2`; the committed proof tree is
+`8ecdb3c22b47f2e95cbf6007c6c90e6b2ae96b82`. WP-46 is `VERIFIED_AND_CLOSED`.
+
+WP-47 binds that exact publication, proof tree, 67-file inventory, authorization-bound database
+connection contract, independent static result, all seven immutable stopped attempts, workspace
+choices, role readiness, and remaining execution gates for owner decision. It creates no private
+authorization draft, role, subagent, run ID, credential, token, checkout, or dependency state.
+Dependencies, preflight, images, Docker/Compose runtime, containers, databases, services, cleanup,
+proof/reproduction, application coding, architecture selection, infrastructure, deployment,
+provider accounts/cost, customer/live data, network, and WP-47 publication remain closed. WP-47 is
+`READY_FOR_OWNER_DECISION` and `NOT_AUTHORIZED` for execution.
+
+The owner accepted `TP1-DATABASE-REMEDIATED-BIND-001` through `044`, `WP47-DEC-001` through
+`010`, advanced `WP47-WS-001` and `WP47-DBAUTH-001`, rejected both alternative sets, and accepted
+the no-private-authorization-draft disposition. Commit and push are authorized only for the frozen
+four-path WP-47 public inventory. After verified publication, WP-48 may activate for one fresh
+reproduction-validator identity, owner-decision documentation, and private ineffective
+authorization preparation only. All execution and product gates remain closed.
 
 ## WP-30 acceptance, publication, and WP-31 activation — 2026-10-07
 
