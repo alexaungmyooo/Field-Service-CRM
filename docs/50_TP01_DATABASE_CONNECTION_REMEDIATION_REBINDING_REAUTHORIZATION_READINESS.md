@@ -4,7 +4,7 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Accepted — publication authorized; execution remains unauthorized |
+| Status | Accepted, published, and closed — execution remains unauthorized |
 | Work package | `WP-47 TP-01 Database Connection Remediation Rebinding and Reauthorization Readiness` |
 | Governing decision | `DEC-177` |
 | Governance publication | `bbcb4b266942f529322fbdc0f5e7f1270711dcc2` |
@@ -15,7 +15,7 @@
 | Date | 2026-10-08 |
 | TP-01 execution | Not authorized |
 | Private authorization draft | Not authorized and not created |
-| Publication | Authorized; verification pending |
+| Publication | Verified as `b86d868da52c8393d0e376b6f4eaf51c8298c89f` |
 
 ## Objective and authority boundary
 
@@ -200,8 +200,13 @@ The owner accepted all forty-four bindings, advanced `WP47-WS-001` and `WP47-DBA
 the four alternatives, accepted all ten recommendations and the no-private-draft disposition, and
 authorized publication of the frozen four-path public inventory.
 
-After verified publication, WP-48 may activate for one fresh reproduction-validator identity,
-owner-decision documentation, and private ineffective authorization preparation only.
+The exact four-path public inventory was committed as
+`b86d868 WP-47: accept database connection rebinding` and pushed to `origin/main`. Local `HEAD`,
+cached `origin/main`, and live remote main matched
+`b86d868da52c8393d0e376b6f4eaf51c8298c89f`. WP-47 is `VERIFIED_AND_CLOSED`.
+
+WP-48 is active for one fresh reproduction-validator identity, owner-decision documentation, and
+private ineffective authorization preparation only.
 
 No commit, push, role/subagent, private authorization draft, checkout, dependency, preflight,
 image, Docker/Compose, container, database, service, cleanup, proof/reproduction, application,
