@@ -3,6 +3,7 @@ import {
   CommandExecutionError,
   boundedDiagnosticText,
   diagnosticCharacterLimit,
+  minimizeExecutable,
   run,
   sanitizeDiagnosticText,
 } from "./command.mjs";
@@ -29,6 +30,16 @@ assert.equal(
   sanitizeDiagnosticText("unlabelled exact-child-secret", ["exact-child-secret"]),
   "unlabelled [REDACTED]",
 );
+assert.deepEqual(minimizeExecutable("/Users/example/.nvm/versions/node/v22/bin/node"), {
+  executable: "node",
+  executablePathClass: "PATH_MINIMIZED",
+  executablePathRetained: false,
+});
+assert.deepEqual(minimizeExecutable("docker"), {
+  executable: "docker",
+  executablePathClass: "COMMAND_NAME",
+  executablePathRetained: false,
+});
 assert.equal(sanitizeDiagnosticText("short ab value", ["ab"]), "short [REDACTED] value");
 assert.equal(
   sanitizeDiagnosticText(
@@ -67,6 +78,11 @@ try {
 }
 assert.equal(observed instanceof CommandExecutionError, true);
 assert.equal(observed.diagnostic.status, 7);
+assert.equal(observed.diagnostic.schemaVersion, 2);
+assert.equal(observed.diagnostic.executable, "node");
+assert.equal(observed.diagnostic.executablePathClass, "PATH_MINIMIZED");
+assert.equal(observed.diagnostic.executablePathRetained, false);
+assert.equal(JSON.stringify(observed.diagnostic).includes(process.execPath), false);
 assert.equal(observed.diagnostic.argumentCount, 2);
 assert.match(observed.diagnostic.stdout.text, /^stdout TP01_RUNTIME_PASSWORD=\[REDACTED\]$/);
 assert.match(observed.diagnostic.stderr.text, /^stderr \[REDACTED\]$/);
@@ -121,4 +137,10 @@ assert.equal(localPathFailure.diagnostic.stderr.text.includes(process.cwd()), fa
 assert.match(localPathFailure.diagnostic.stderr.text, /\[LOCAL_PATH\]/);
 assert.equal(localPathFailure.diagnostic.stderr.sanitizationApplied, true);
 
-process.stdout.write("WP-38 command diagnostic static tests passed\n");
+const databaseUrlDiagnostic = sanitizeDiagnosticText(
+  "TP01_DATABASE_URL=postgresql://tp01_runtime:private-value@127.0.0.1:55432/tp01",
+);
+assert.equal(databaseUrlDiagnostic.includes("private-value"), false);
+assert.equal(databaseUrlDiagnostic.includes("postgresql://"), false);
+
+process.stdout.write("WP-46 command diagnostic static tests passed\n");

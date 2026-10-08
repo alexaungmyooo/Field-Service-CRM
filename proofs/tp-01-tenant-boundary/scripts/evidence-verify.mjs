@@ -2,6 +2,8 @@ import { createHash } from "node:crypto";
 import { readFileSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { assertExecutionAuthorized } from "./execution-authorization.mjs";
+import { assertDatabaseConnectionEvidence } from "./database-connection-contract.mjs";
+import { assertDeviationEvidence } from "./deviation-contract.mjs";
 import { assertImageEvidence } from "./image-verification-contract.mjs";
 import {
   assertComposeEvidenceContract,
@@ -28,6 +30,7 @@ function scanBoundedSecrets(name, bytes) {
   const forbidden = [
     /postgresql:\/\/[^\s:@]+:[^\s@]+@/i,
     /TP01_(?:BOOTSTRAP|RUNTIME)_PASSWORD\s*[=:]/i,
+    /TP01_DATABASE_URL\s*[=:]/i,
     /"(?:password|secret|accessToken|refreshToken)"\s*:\s*"(?!\*{3}|REDACTED|ABSENT)/i,
   ];
   if (forbidden.some((pattern) => pattern.test(text))) {
@@ -275,6 +278,7 @@ if (
   authorization.packageId !== packageId ||
   authorization.proof !== "TP-01" ||
   environment.packageId !== packageId ||
+  environment.runId !== authorization.runId ||
   environment.repository?.revision !== authorization.repositoryRevision ||
   environment.repository?.proofPathClean !== true ||
   JSON.stringify(environment.tools) !== JSON.stringify(expectedTools) ||
@@ -291,6 +295,11 @@ if (
 
 assertImageEvidence(image, executionAuthorization);
 assertRuntimeReachabilityEvidence(runtimeReachability, executionAuthorization);
+assertDatabaseConnectionEvidence(environment.databaseConnection, authorization);
+assertDatabaseConnectionEvidence(databaseSecurity.connectionContract, authorization);
+if (JSON.stringify(environment.databaseConnection) !== JSON.stringify(databaseSecurity.connectionContract)) {
+  throw new Error("preflight and database-security connection contracts differ");
+}
 
 const expectedCounts = {
   organizations: 4,
@@ -426,9 +435,10 @@ for (const [name, metadata] of Object.entries(supplyChain.files)) {
     throw new Error(`supply-chain binding differs for ${name}`);
   }
 }
-if (!Array.isArray(deviations.deviations) || deviations.deviations.length !== 0) {
-  throw new Error("unaccepted TP-01 deviations are present");
-}
+assertDeviationEvidence(deviations, {
+  requireNoAccepted: true,
+  requireNoOperationalStops: true,
+});
 
 const primary = verifyResults("primary-results.jsonl");
 const reproduction = verifyResults("reproduction-results.jsonl");
@@ -570,7 +580,8 @@ const report = {
   caseCount: 222,
   reproduction: "SEMANTIC_MATCH",
   unauthorizedMutationDetected: false,
-  unacceptedDeviations: 0,
+  acceptedContractDeviations: deviations.acceptedContractDeviations.length,
+  operationalStops: deviations.operationalStops.length,
   credentialScan: "PASS",
   reviews,
   files: Object.fromEntries(

@@ -7,17 +7,21 @@ This directory materializes checkpoint 1 of the accepted TP-01 contract in
 
 ## Current authorization
 
-WP-42 authorizes proof-only exact-launcher and reachability-command contract remediation with
-dependency-free static validation. It permits:
+WP-46 authorizes proof-only database-connection environment and diagnostic-metadata remediation
+with dependency-free static validation. It permits:
 
-- adding exactly `runtime:verify-reachability` to the exact launcher's approved run-script set;
-- extracting the pure launcher command and dependency-marker contract for built-in-only testing;
-- rejecting command variants and checking exact agreement with the package-script interface;
+- requiring the exact run-bound `TP01_DATABASE_URL` and prohibiting driver defaults/fallbacks;
+- validating and recording only non-secret endpoint, database, role, and credential-binding
+  metadata;
+- propagating the validated connection through reset, evidence capture, primary, reproduction, and
+  final verification interfaces;
+- separating owner-accepted contract deviations from fail-closed operational stops;
+- minimizing executable-path metadata in bounded failure diagnostics;
 - built-in-only syntax, pure-contract, hashing, inventory, and scope checks;
 - renewing static evidence and artifact hashes; and
 - one fresh independent read-only static validation after the inventory is frozen.
 
-WP-42 does **not** authorize dependency or package-manager operations, preflight, image inspection
+WP-46 does **not** authorize dependency or package-manager operations, preflight, image inspection
 or retrieval, Docker/Compose commands, pull-token creation, containers, databases, services, SQL,
 fixtures, listeners, cleanup execution, a TP-01 case or reproduction, execution-evidence
 verification, application code, architecture selection, infrastructure, deployment, provider
@@ -27,6 +31,59 @@ The execution-facing scripts fail closed. They require later-package environment
 matching private `authorization.json` with status `ACCEPTED_FOR_EXECUTION`. The remediated
 inventory must be independently reviewed, owner-accepted, committed, published, and bound to a
 later exact execution revision before any execution-facing command may run.
+
+## WP-46 database-connection and diagnostic contract
+
+Every later execution path must receive both a run-specific `TP01_RUNTIME_PASSWORD` and the exact
+canonical `TP01_DATABASE_URL` built from that same credential. The contract accepts only
+`postgresql`, `127.0.0.1`, port `55432`, database `tp01`, role `tp01_runtime`, no query/fragment,
+and an exact credential match. Missing or altered values fail before service use; node-postgres
+defaults and fallbacks are prohibited.
+
+The effective private authorization must bind its exact package and run IDs plus SHA-256 digests
+of the run credential and canonical URL under `databaseConnection`. Validation requires the
+environment package/run to match that record and both secret-derived values to match their
+authorized digests. The public environment example deliberately leaves the password and URL
+empty; it cannot be copied into a passing execution environment.
+
+Preflight and database-security evidence retain only non-secret contract metadata. The proof child
+environment is derived through the same validated contract and receives a dynamic marker over the
+package, run, URL, credential, and authorization-binding digest. The database client recomputes
+that marker before pool creation. Final verification checks both non-secret evidence records
+against the effective authorization and requires them to agree exactly.
+
+`deviations.json` now distinguishes owner-accepted contract variances from operational stops.
+Both lists must be empty for successful evidence verification. A failed primary or reproduction
+child appends a minimized operational-stop record instead of leaving an empty deviation artifact.
+
+Command diagnostics retain only the executable basename and a path classification. They do not
+retain an absolute launcher path, argument values, credentials, connection URLs, or local
+home/worktree paths.
+
+WP-46 dependency-free static checks are:
+
+```text
+$TP01_NODE_BIN --check scripts/database-connection-contract.mjs
+$TP01_NODE_BIN --check scripts/database-connection-contract.test.mjs
+$TP01_NODE_BIN --check scripts/deviation-contract.mjs
+$TP01_NODE_BIN --check scripts/deviation-contract.test.mjs
+$TP01_NODE_BIN --check scripts/execution-environment-contract.test.mjs
+$TP01_NODE_BIN --check scripts/command.mjs
+$TP01_NODE_BIN --check scripts/command.test.mjs
+$TP01_NODE_BIN --check scripts/preflight.mjs
+$TP01_NODE_BIN --check scripts/database-evidence.mjs
+$TP01_NODE_BIN --check scripts/db-reset.mjs
+$TP01_NODE_BIN --check scripts/proof-run.mjs
+$TP01_NODE_BIN --check scripts/evidence-verify.mjs
+$TP01_NODE_BIN scripts/database-connection-contract.test.mjs
+$TP01_NODE_BIN scripts/deviation-contract.test.mjs
+$TP01_NODE_BIN scripts/command.test.mjs
+$TP01_NODE_BIN scripts/execution-environment-contract.test.mjs
+$TP01_NODE_BIN scripts/hash-inventory.mjs
+```
+
+These commands do not invoke dependencies, pnpm, preflight, images, Docker/Compose, cleanup,
+execution-evidence verification, or any proof/reproduction path.
 
 ## WP-42 exact launcher and reachability-command contract
 

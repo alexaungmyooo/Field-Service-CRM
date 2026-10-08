@@ -10,6 +10,8 @@ import {
   inspectExactPnpm,
 } from "./runtime-contract.mjs";
 import { assertExecutionAuthorized } from "./execution-authorization.mjs";
+import { assertDatabaseConnectionEnvironment } from "./database-connection-contract.mjs";
+import { createDeviationEvidence } from "./deviation-contract.mjs";
 import {
   assertExactComposeVersion,
   composeVersionFromStdout,
@@ -17,7 +19,8 @@ import {
 } from "./remediation-contract.mjs";
 
 assertExactNode();
-const { packageId, evidenceDirectory } = assertExecutionAuthorized();
+const { authorization, packageId, runId, evidenceDirectory } = assertExecutionAuthorized();
+const databaseConnection = assertDatabaseConnectionEnvironment(process.env, authorization);
 
 const expected = Object.freeze({
   node: "v22.23.1",
@@ -130,17 +133,16 @@ writeFileSync(
 );
 const caseManifestBytes = readFileSync("test/case-manifest.json");
 writeFileSync(resolve(evidenceDirectory, "case-manifest.json"), caseManifestBytes);
-if (!existsSync(resolve(evidenceDirectory, "deviations.json"))) {
-  writeFileSync(
-    resolve(evidenceDirectory, "deviations.json"),
-    `${JSON.stringify({ schemaVersion: 1, proof: "TP-01", deviations: [] }, null, 2)}\n`,
-  );
-}
+writeFileSync(
+  resolve(evidenceDirectory, "deviations.json"),
+  `${JSON.stringify(createDeviationEvidence(), null, 2)}\n`,
+);
 
 const environment = {
   schemaVersion: 1,
   proof: "TP-01",
   packageId,
+  runId,
   capturedAt: new Date().toISOString(),
   host: { hostname: hostname(), platform: platform(), release: release(), architecture: arch() },
   tools: observed,
@@ -157,6 +159,7 @@ const environment = {
     node: { path: process.execPath, version: process.version, sha256: expectedNodeSha256 },
     pnpm: pnpmRuntime,
   },
+  databaseConnection,
   bindings: {
     authorizationSha256: hashBytes(authorizationBytes),
     artifactInventorySha256: hashBytes(inventoryBytes),

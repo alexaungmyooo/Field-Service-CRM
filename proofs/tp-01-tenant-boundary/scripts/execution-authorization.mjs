@@ -10,9 +10,10 @@ export function assertExecutionAuthorized() {
     throw new Error("TP-01 execution is not authorized by WP-19");
   }
   const packageId = process.env.TP01_EXECUTION_PACKAGE;
+  const runId = process.env.TP01_RUN_ID;
   const evidenceDirectory = process.env.TP01_EVIDENCE_DIR;
-  if (!packageId?.startsWith("WP-") || !evidenceDirectory) {
-    throw new Error("Later execution package and private evidence directory are required");
+  if (!packageId?.startsWith("WP-") || !runId || !evidenceDirectory) {
+    throw new Error("Later execution package, run ID, and private evidence directory are required");
   }
   const record = JSON.parse(
     readFileSync(resolve(evidenceDirectory, "authorization.json"), "utf8"),
@@ -24,7 +25,10 @@ export function assertExecutionAuthorized() {
   const inventorySha256 = createHash("sha256").update(inventoryBytes).digest("hex");
   if (
     record.status !== "ACCEPTED_FOR_EXECUTION" ||
+    record.effective !== true ||
+    record.checkpoint2Authorized !== true ||
     record.packageId !== packageId ||
+    record.runId !== runId ||
     record.proof !== "TP-01" ||
     record.artifactInventorySha256 !== inventorySha256
   ) {
@@ -51,5 +55,5 @@ export function assertExecutionAuthorized() {
   if (dirty.status !== 0 || dirty.stdout.trim()) {
     throw new Error("reviewed TP-01 path must be clean before execution");
   }
-  return { authorization: record, packageId, evidenceDirectory };
+  return { authorization: record, packageId, runId, evidenceDirectory };
 }

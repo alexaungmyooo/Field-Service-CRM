@@ -18,9 +18,10 @@ export function assertExecutionAuthorized(): void {
     throw new Error("TP-01 execution is not authorized by WP-19");
   }
   const packageId = process.env.TP01_EXECUTION_PACKAGE;
+  const runId = process.env.TP01_RUN_ID;
   const evidenceDirectory = process.env.TP01_EVIDENCE_DIR;
-  if (!packageId?.startsWith("WP-") || !evidenceDirectory) {
-    throw new Error("later execution package and private evidence directory are required");
+  if (!packageId?.startsWith("WP-") || !runId || !evidenceDirectory) {
+    throw new Error("later execution package, run ID, and private evidence directory are required");
   }
   const authorization = JSON.parse(
     readFileSync(resolve(evidenceDirectory, "authorization.json"), "utf8"),
@@ -31,7 +32,10 @@ export function assertExecutionAuthorized(): void {
   const inventoryBytes = readFileSync(inventoryPath);
   if (
     authorization.status !== "ACCEPTED_FOR_EXECUTION" ||
+    authorization.effective !== true ||
+    authorization.checkpoint2Authorized !== true ||
     authorization.packageId !== packageId ||
+    authorization.runId !== runId ||
     authorization.proof !== "TP-01" ||
     authorization.artifactInventorySha256 !== sha256(inventoryBytes)
   ) {

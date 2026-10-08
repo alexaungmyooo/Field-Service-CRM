@@ -4,7 +4,7 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Accepted — Inconclusive, closed without retry; publication authorized |
+| Status | Accepted, published, and closed — Inconclusive; no retry |
 | Work package | `WP-45 Controlled TP-01 Exact Launcher Execution` |
 | Governing decision | `DEC-175` |
 | Governance publication | `7c27bb50f1becd4b5c808f30aab7d68c277d2458` |
@@ -14,7 +14,7 @@
 | Owner | Aung Myo Oo |
 | Date | 2026-10-08 |
 | Outcome | `INCONCLUSIVE_CLOSED_NO_RETRY` |
-| Publication | Authorized; verification pending |
+| Publication | Verified as `d7438099639b5722b0ef13405235c9b130674104` |
 
 ## Objective and authority boundary
 
@@ -174,8 +174,13 @@ renewed hashing, and one fresh independent static validation. WP-46 runtime, dep
 application, architecture, infrastructure, deployment, provider, network, and customer/live-data
 gates remain closed.
 
-## Next gate
+## Publication and next gate
 
-WP-45 is accepted and closed without retry. Commit and push are authorized only for its frozen
-four-path public inventory. WP-46 activates only after that publication is remotely verified; its
-later publication requires a separate owner acceptance.
+The exact frozen four-path public inventory was committed as
+`d743809 WP-45: record controlled exact launcher execution` and pushed to `origin/main`. Local
+`HEAD`, cached `origin/main`, fetched state, and live remote main matched
+`d7438099639b5722b0ef13405235c9b130674104`. WP-45 is `VERIFIED_AND_CLOSED` and remains
+non-retryable.
+
+WP-46 is active only for the accepted proof-only static remediation, renewed hashing, and one fresh
+independent static validation. WP-46 publication requires separate owner acceptance.

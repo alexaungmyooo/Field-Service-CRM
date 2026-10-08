@@ -5,8 +5,38 @@ import type { SecurityContext } from "./types.js";
 
 @Injectable()
 export class ProofDatabase implements OnModuleDestroy {
+  private static requiredDatabaseUrl(): string {
+    const value = process.env.TP01_DATABASE_URL;
+    const runtimePassword = process.env.TP01_RUNTIME_PASSWORD;
+    const packageId = process.env.TP01_EXECUTION_PACKAGE;
+    const runId = process.env.TP01_RUN_ID;
+    const authorizationBinding = process.env.TP01_DATABASE_AUTHORIZATION_BINDING_SHA256;
+    const validationMarker = process.env.TP01_DATABASE_CONNECTION_VALIDATED;
+    const expectedMarker = createHash("sha256").update([
+      "TP01_DATABASE_CHILD_V1",
+      packageId,
+      runId,
+      value,
+      runtimePassword,
+      authorizationBinding,
+    ].join("\0")).digest("hex");
+    if (
+      !value ||
+      !runtimePassword ||
+      !packageId ||
+      !runId ||
+      !/^[a-f0-9]{64}$/.test(authorizationBinding ?? "") ||
+      validationMarker !== expectedMarker
+    ) {
+      throw new Error(
+        "validated TP01_DATABASE_URL is required; node-postgres defaults and fallbacks are prohibited",
+      );
+    }
+    return value;
+  }
+
   private readonly pool = new Pool({
-    connectionString: process.env.TP01_DATABASE_URL,
+    connectionString: ProofDatabase.requiredDatabaseUrl(),
     max: 4,
     idleTimeoutMillis: 1_000,
     connectionTimeoutMillis: 2_000,

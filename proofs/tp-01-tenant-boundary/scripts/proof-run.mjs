@@ -1,10 +1,13 @@
-import { rmSync, writeFileSync } from "node:fs";
+import { readFileSync, rmSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { run } from "./command.mjs";
+import { exactDatabaseChildEnvironment } from "./database-connection-contract.mjs";
+import { appendOperationalStop } from "./deviation-contract.mjs";
 import { assertExecutionAuthorized } from "./execution-authorization.mjs";
 import { captureStateSnapshot } from "./database-evidence.mjs";
 
-const { evidenceDirectory } = assertExecutionAuthorized();
+const { authorization, evidenceDirectory } = assertExecutionAuthorized();
+const proofEnvironment = exactDatabaseChildEnvironment(process.env, authorization);
 const resultFile = process.argv[2];
 if (!resultFile || !["primary-results.jsonl", "reproduction-results.jsonl"].includes(resultFile)) {
   throw new Error("result filename must be primary-results.jsonl or reproduction-results.jsonl");
@@ -28,7 +31,7 @@ try {
   run(process.execPath, [resolve("node_modules/typescript/bin/tsc"), "--outDir", "dist"]);
   executionPhase = "PROOF_TEST";
   run(process.execPath, ["--test", "--test-concurrency=1", resolve("dist/test/proof.test.js")], {
-    env: { ...process.env, TP01_RESULT_FILE: resultFile, TP01_AUDIT_FILE: auditFile },
+    env: { ...proofEnvironment, TP01_RESULT_FILE: resultFile, TP01_AUDIT_FILE: auditFile },
   });
 } catch (error) {
   executionError = error;
@@ -43,16 +46,29 @@ try {
       capturedAt: new Date().toISOString(),
       executionPhase,
       failure: error?.diagnostic ?? {
-        schemaVersion: 1,
+        schemaVersion: 2,
         status: null,
         signal: null,
         executable: "UNKNOWN",
+        executablePathClass: "UNKNOWN",
+        executablePathRetained: false,
         argumentCount: 0,
         stdout: null,
         stderr: null,
         unavailableReason: "NON_COMMAND_EXECUTION_ERROR",
       },
     }, null, 2)}\n`,
+  );
+  const deviationsPath = resolve(evidenceDirectory, "deviations.json");
+  const deviations = JSON.parse(readFileSync(deviationsPath, "utf8"));
+  writeFileSync(
+    deviationsPath,
+    `${JSON.stringify(appendOperationalStop(deviations, {
+      run: resultFile.startsWith("primary") ? "PRIMARY" : "REPRODUCTION",
+      stage: executionPhase,
+      code: error?.diagnostic ? "CHILD_EXIT_NONZERO" : "PROOF_RUN_ERROR",
+      evidenceArtifact: failureFile,
+    }), null, 2)}\n`,
   );
 }
 const after = captureStateSnapshot();

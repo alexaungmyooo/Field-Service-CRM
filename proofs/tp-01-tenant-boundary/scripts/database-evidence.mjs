@@ -1,5 +1,14 @@
 import { createHash } from "node:crypto";
 import { run } from "./command.mjs";
+import { assertDatabaseConnectionEnvironment } from "./database-connection-contract.mjs";
+import { assertExecutionAuthorized } from "./execution-authorization.mjs";
+
+const { authorization } = assertExecutionAuthorized();
+const databaseConnection = assertDatabaseConnectionEnvironment(process.env, authorization);
+
+export function captureDatabaseConnectionEvidence() {
+  return databaseConnection;
+}
 
 function psqlJson(sql, role, runtime = false) {
   const environment = runtime ? ["-e", "PGPASSWORD"] : [];

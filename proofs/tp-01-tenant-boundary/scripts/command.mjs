@@ -1,11 +1,22 @@
 import { spawnSync } from "node:child_process";
 import { homedir } from "node:os";
+import { basename } from "node:path";
 import { pathToFileURL } from "node:url";
 
 export const diagnosticCharacterLimit = 8192;
 
 const secretKeyPattern =
-  "(?:TP01_(?:BOOTSTRAP|RUNTIME)_PASSWORD|password|secret|token|authorization|api[_-]?key)";
+  "(?:TP01_(?:BOOTSTRAP|RUNTIME)_PASSWORD|TP01_DATABASE_URL|password|secret|token|authorization|api[_-]?key)";
+
+export function minimizeExecutable(command) {
+  const value = typeof command === "string" ? command : String(command);
+  const executable = sanitizeDiagnosticText(basename(value));
+  return Object.freeze({
+    executable,
+    executablePathClass: value === basename(value) ? "COMMAND_NAME" : "PATH_MINIMIZED",
+    executablePathRetained: false,
+  });
+}
 
 export function sanitizeDiagnosticText(value, sensitiveValues = [], localPaths = []) {
   const text = typeof value === "string" ? value : value == null ? "" : String(value);
@@ -87,9 +98,11 @@ export function boundedDiagnosticText(
 export class CommandExecutionError extends Error {
   constructor(command, args, result, environment = process.env) {
     const status = result.status ?? result.signal ?? "SPAWN_ERROR";
+    const minimizedExecutable = minimizeExecutable(command);
     const sensitiveValues = [
       environment?.TP01_BOOTSTRAP_PASSWORD,
       environment?.TP01_RUNTIME_PASSWORD,
+      environment?.TP01_DATABASE_URL,
       environment?.TP01_IMAGE_PULL_AUTHORIZATION_TOKEN,
       environment?.PGPASSWORD,
     ];
@@ -107,15 +120,15 @@ export class CommandExecutionError extends Error {
       localPaths,
     );
     super(
-      `${sanitizeDiagnosticText(command)} failed (${status})` +
+      `${minimizedExecutable.executable} failed (${status})` +
         (stderr.text ? `\n${stderr.text}` : ""),
     );
     this.name = "CommandExecutionError";
     this.diagnostic = Object.freeze({
-      schemaVersion: 1,
+      schemaVersion: 2,
       status: result.status,
       signal: result.signal,
-      executable: sanitizeDiagnosticText(command),
+      ...minimizedExecutable,
       argumentCount: args.length,
       stdout,
       stderr,

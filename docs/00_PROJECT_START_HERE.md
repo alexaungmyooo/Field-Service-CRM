@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-45 accepted and publication authorized |
+| Status | Product Discovery closed — WP-46 accepted and publication authorized |
 | Current phase | Technical Proof Evidence Disposition |
-| Current work package | `WP-45 Controlled TP-01 Exact Launcher Execution` |
+| Current work package | `WP-46 Database Connection Environment and Diagnostic Metadata Remediation` |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -97,6 +97,7 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 38. `46_TP01_EXACT_LAUNCHER_REBINDING_REAUTHORIZATION_READINESS.md`
 39. `47_TP01_EXECUTION_IDENTITY_LAUNCHER_AUTHORIZATION_READINESS.md`
 40. `48_TP01_CONTROLLED_EXACT_LAUNCHER_EXECUTION_RESULT.md`
+41. `49_TP01_DATABASE_CONNECTION_DIAGNOSTIC_STATIC_REMEDIATION.md`
 
 Current and later accepted work packages may add or mature:
 
@@ -1129,10 +1130,45 @@ tenant-boundary or architecture result, is non-retryable, and is `READY_FOR_OWNE
 The owner accepted the complete WP-45 Inconclusive disposition, `WP45-DEV-001` through `003`, all
 three role reviews, cleanup and residual verification, fail-closed final verification, the
 22-entry private inventory, `WP45-REM-001` through `008`, and `WP45-DEC-001` through `007`.
-WP-45 is closed without retry and its frozen four-path publication is authorized. WP-46 may
-activate only after verified publication for bounded proof-only static remediation of the database
-connection environment, operational-deviation evidence, and diagnostic metadata. All runtime and
-product gates remain closed.
+WP-45 was closed without retry. Its frozen four-path inventory was committed as
+`d743809 WP-45: record controlled exact launcher execution` and pushed to `origin/main`. Local
+`HEAD`, cached `origin/main`, fetched state, and live remote main matched
+`d7438099639b5722b0ef13405235c9b130674104`. WP-45 is `VERIFIED_AND_CLOSED`.
+
+WP-46 is active for bounded proof-only static remediation of the exact run-bound database
+connection, its propagation into proof children, accepted-versus-operational deviation evidence,
+and minimized executable-path diagnostics. It may add dependency-free static tests, renew the
+complete proof inventory, and use exactly one fresh independent static validator after freeze.
+Dependencies, preflight, images, Docker/Compose runtime, containers, databases, services, cleanup
+execution, proof/reproduction, application coding, architecture selection, infrastructure,
+deployment, provider accounts/cost, customer/live data, network, and WP-46 publication remain
+closed.
+
+WP-46 now requires the exact canonical database URL and runtime credential to match SHA-256
+bindings in the effective private authorization for the same package and run. Both MJS and
+TypeScript execution guards require that run, package, effective status, and checkpoint authority;
+the proof child receives a dynamic validation marker; final verification binds both non-secret
+connection records to the authorization. Accepted contract deviations and operational stops are
+separate, and executable diagnostics retain no absolute launcher path or database URL.
+
+Exact-Node syntax and four built-in-only test suites passed. The renewed inventory contains 67
+files; artifact inventory is
+`e8fb713d6b72c33d06b5496aed3627504eccb1630ecc1a202f6bd2dcf0272623` and canonical content set is
+`725bbc872079c22df9fa2a1be35fa500e05eaafcb086deabb0aced70b1adf209`.
+
+The sole fresh `/root/wp46_static_validator` found two successive high-severity run-binding gaps;
+both were corrected with complete hash renewal, and the same validator returned final `PASS` with
+no remaining critical, high, medium, or low finding and zero mutation. WP-46 is
+`READY_FOR_OWNER_REVIEW`. It establishes no runtime, tenant-boundary, or architecture result, and
+its exact twenty-path public inventory remains uncommitted and unpublished.
+
+The owner accepted `WP46-REM-001` through `009`, `WP46-BIND-001` through `027`,
+`WP46-DEC-001` through `007`, both finding resolutions, the renewed 67-file inventory, and the
+independent static-validation `PASS`. Commit and push are authorized only for the frozen
+twenty-path WP-46 public inventory. After verified publication, WP-47 may activate for exact
+published rebinding and reauthorization-readiness owner-decision documentation only. All runtime,
+product, architecture-selection, infrastructure, provider, network, and customer/live-data gates
+remain closed.
 
 ## WP-30 acceptance, publication, and WP-31 activation — 2026-10-07
 

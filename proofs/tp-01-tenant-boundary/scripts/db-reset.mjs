@@ -4,6 +4,7 @@ import { run } from "./command.mjs";
 import { assertExecutionAuthorized } from "./execution-authorization.mjs";
 import { assertRuntimeReachabilityEvidence } from "./runtime-reachability-contract.mjs";
 import {
+  captureDatabaseConnectionEvidence,
   captureDatabaseSecurityEvidence,
   captureFixtureEvidence,
 } from "./database-evidence.mjs";
@@ -27,5 +28,8 @@ writeFileSync(
 );
 writeFileSync(
   resolve(evidenceDirectory, "database-security.json"),
-  `${JSON.stringify(captureDatabaseSecurityEvidence(), null, 2)}\n`,
+  `${JSON.stringify({
+    ...captureDatabaseSecurityEvidence(),
+    connectionContract: captureDatabaseConnectionEvidence(),
+  }, null, 2)}\n`,
 );
