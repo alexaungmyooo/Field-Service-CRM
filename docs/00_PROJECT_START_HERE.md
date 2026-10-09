@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-57 accepted; publication authorized |
+| Status | Product Discovery closed — WP-58 accepted; publication authorized |
 | Current phase | Technical Proof Evidence Disposition |
-| Current work package | `WP-57 Reachability Compose Interpolation and Operational-Stop Accounting Remediation` |
+| Current work package | `WP-58 TP-01 Reachability Compose Interpolation and Operational-Stop Remediated Rebinding and Reauthorization Readiness` |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -109,6 +109,7 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 50. `58_TP01_EXECUTION_IDENTITY_FULL_SEQUENCE_AUTHORIZATION_READINESS.md`
 51. `59_TP01_CONTROLLED_FULL_SEQUENCE_EXECUTION_RESULT.md`
 52. `60_TP01_REACHABILITY_COMPOSE_INTERPOLATION_OPERATIONAL_STOP_STATIC_REMEDIATION.md`
+53. `61_TP01_REACHABILITY_COMPOSE_INTERPOLATION_OPERATIONAL_STOP_REMEDIATED_REBINDING_REAUTHORIZATION_READINESS.md`
 
 Current and later accepted work packages may add or mature:
 
@@ -1378,6 +1379,28 @@ renewed inventory, independent `PASS`, and exact frozen fourteen-path public/pro
 authorized its commit and push. Dependencies, credentials/environments, runtime,
 proof/reproduction, network, product work, architecture selection, infrastructure, deployment,
 provider operations, and customer/live data remain closed.
+
+The exact frozen fourteen-path WP-57 inventory was committed as
+`753e853 WP-57: accept reachability stop remediation` and pushed to `origin/main`. Local `HEAD`,
+cached `origin/main`, and live remote main matched
+`753e853725147c00f4c76d5288e6a3f002a4b7b3`; repository tree is
+`904738477644c969e1727203f2c003d66bf9e586` and proof tree is
+`53e22adde7a169ff66cabf33afb493eb5031443a`. WP-57 is `VERIFIED_AND_CLOSED`.
+
+WP-58 is active for owner-decision documentation that binds the exact published WP-57 revision,
+renewed 72-file proof inventory, interpolation and operational-stop contract, immutable stopped-run
+history, workspace/reachability choices, and remaining later authorization gates. WP-58 may create
+no execution role, reproduction-validator identity, private authorization draft, checkout,
+dependency state, credential/environment, token, runtime evidence, or execution authority. All
+material, runtime, product, architecture,
+infrastructure, deployment, provider, customer/live-data, and network gates remain closed.
+
+WP-58 documentation validation completed with independent binding, governance, and scope `PASS`
+results after resolving `WP58-VAL-001` and `WP58-VAL-002`. The owner accepted all 61 candidate
+bindings, all nine immutable stopped attempts, the dedicated-workspace and exact reachability
+choices, all ten decisions, the no-private-draft disposition, and the exact frozen four-path public
+inventory. Commit and push are authorized only for that inventory; every execution and material
+gate remains closed.
 
 The frozen twelve-path WP-50 inventory was committed as
 `35776fb WP-50: accept private environment remediation` and pushed to `origin/main`. Local `HEAD`,

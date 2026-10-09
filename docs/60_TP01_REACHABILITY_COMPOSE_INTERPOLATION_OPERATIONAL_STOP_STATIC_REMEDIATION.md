@@ -4,7 +4,7 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Accepted — static remediation and independent validation complete; publication authorized |
+| Status | Accepted, published, and closed — static remediation only |
 | Work package | `WP-57 Reachability Compose Interpolation and Operational-Stop Accounting Remediation` |
 | Governing decisions | `DEC-187`; `DEC-188` |
 | Verified base publication | `dca083c1a531ae05961e0822089ce0c674ad770e` |
@@ -13,7 +13,7 @@
 | Owner | Aung Myo Oo |
 | Date | 2026-10-09 |
 | TP-01 execution | Not authorized and not performed |
-| Publication | Authorized for the frozen fourteen-path public/proof inventory; verification pending |
+| Publication | Verified as `753e853725147c00f4c76d5288e6a3f002a4b7b3` |
 
 ## Objective and authority boundary
 
@@ -196,3 +196,23 @@ WP-57 is `OWNER_ACCEPTED_PUBLICATION_AUTHORIZED`. Commit and push are authorized
 frozen fourteen-path public/proof inventory. After verified publication, activate WP-58 for
 published-revision rebinding and reauthorization-readiness documentation only; runtime and all
 other closed boundaries remain closed.
+
+The exact frozen inventory was committed as
+`753e853 WP-57: accept reachability stop remediation` and pushed to `origin/main`. Local `HEAD`,
+cached `origin/main`, and live remote main matched
+`753e853725147c00f4c76d5288e6a3f002a4b7b3`; repository tree is
+`904738477644c969e1727203f2c003d66bf9e586` and proof tree is
+`53e22adde7a169ff66cabf33afb493eb5031443a`. WP-57 is `VERIFIED_AND_CLOSED`.
+
+WP-58 is active for owner-decision rebinding and reauthorization-readiness documentation only. It
+does not create an execution role, reproduction-validator identity, authorization draft, checkout,
+dependency state, credential/environment, runtime evidence, execution authority, product work,
+architecture selection, infrastructure,
+deployment, provider operation, customer/live-data access, or network authority.
+
+WP-58 independently reproduced the published proof and evidence identities, recorded all 61
+candidate bindings and nine immutable stopped attempts, and received binding, governance, and
+scope-validation `PASS` results after resolving two documentation findings. The owner accepted the
+complete WP-58 disposition and authorized commit and push only for its frozen four-path public
+inventory. No proof, material, runtime, product, architecture, infrastructure, deployment,
+provider, customer/live-data, or network gate is opened.
