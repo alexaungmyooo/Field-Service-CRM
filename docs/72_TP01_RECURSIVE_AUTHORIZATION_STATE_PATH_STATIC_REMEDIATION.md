@@ -201,3 +201,20 @@ restore or invoke dependencies, create credentials or environments, inspect/star
 runtime services, execute cleanup/proof/reproduction, use network access, change application code,
 select architecture, create infrastructure, deploy, incur provider cost, or access customer/live
 data.
+
+## Verified publication and WP-70 activation
+
+The exact ten-path inventory was published at
+`b89c54023f539a45608b8fc2057faec5db0a0103`; repository tree is
+`3651dcdd91e189a29aad25df83615db3051c54d4`, and proof tree is
+`7542b7459c0296dbbc6cf74636b0efb97201968a`. This document's committed SHA-256 is
+`11fca40acc65e6692a6e35ce5440efd0ce5e2c168aa0d88a91fc247da54a59cc`. The 80-file inventory,
+artifact-inventory SHA-256 `8cb9082083a4611f0fe2e3e3d61c0306a47ca62b4292e738a4f0c73f64a686e6`, and canonical
+content-set SHA-256 `aefb6865d7ffb89d906bb7d369b99e9300cb0f1f09581b0a99b8cd7889882f4c` remain unchanged.
+WP-69 is `VERIFIED_AND_CLOSED`.
+
+WP-70 is activated only for documentation-only published rebinding and reauthorization readiness.
+It may record the exact candidate, stopped history, options, roles/no-draft state, and later gates.
+It may not change the proof, instantiate identities, prepare an authorization draft, create
+materials or runtime state, execute TP-01, use network access, or open any product, architecture,
+infrastructure, deployment, provider, or customer/live-data gate.

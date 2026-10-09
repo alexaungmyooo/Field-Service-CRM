@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-69 accepted after independent static-validation PASS; publication authorized |
+| Status | Product Discovery closed — WP-70 rebinding accepted after independent documentation-validation PASS; publication authorized |
 | Current phase | Technical Proof Static Remediation |
-| Current work package | `WP-69 Recursive Authorization and State-Path Static Remediation` |
+| Current work package | `WP-70 TP-01 Recursive RLS Remediation Rebinding and Reauthorization Readiness` |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -121,6 +121,7 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 62. `70_TP01_EXECUTION_IDENTITY_DATABASE_EVIDENCE_CONTINUITY_AUTHORIZATION_READINESS.md`
 63. `71_TP01_CONTROLLED_DATABASE_EVIDENCE_CONTINUITY_EXECUTION_RESULT.md`
 64. `72_TP01_RECURSIVE_AUTHORIZATION_STATE_PATH_STATIC_REMEDIATION.md`
+65. `73_TP01_RECURSIVE_RLS_REMEDIATION_REBINDING_REAUTHORIZATION_READINESS.md`
 
 Current and later accepted work packages may add or mature:
 
@@ -1534,6 +1535,31 @@ one fresh independent static validator. Dependencies, credentials/environments, 
 Docker/Compose runtime, containers, databases, SQL, fixtures, cleanup execution, proof/reproduction,
 network, application coding, architecture selection, infrastructure, deployment, provider
 accounts/cost, and customer/live data remain closed.
+
+## WP-69 publication and WP-70 rebinding candidate — 2026-10-09
+
+The exact ten-path WP-69 public/proof inventory was committed as
+`b89c540 WP-69: accept recursive RLS static remediation` and published at
+`b89c54023f539a45608b8fc2057faec5db0a0103`. The repository tree is
+`3651dcdd91e189a29aad25df83615db3051c54d4`; proof tree is
+`7542b7459c0296dbbc6cf74636b0efb97201968a`. WP-69 is `VERIFIED_AND_CLOSED`.
+
+WP-70 binds that exact publication, the 80-file inventory and aggregate hashes, the acyclic forced-
+RLS candidate, all twelve immutable stopped attempts, clean-dedicated-checkout choice, exact-
+candidate choice, role/no-draft state, and later execution gates. It advances only the exact
+published candidate for later identity and ineffective-draft readiness. It rejects shared or
+stopped workspaces, every non-exact candidate, RLS/role/grant weakening, application-side
+substitution, and any claim that static PASS proves runtime PostgreSQL or tenant-isolation behavior.
+
+WP-70 creates no role, validator identity, authorization draft, run, checkout, dependency state,
+credential, environment, token, or runtime evidence. Fresh independent documentation validator
+`/root/wp70_doc_validator` returned `PASS` with no findings after reproducing the exact four-path
+scope, all published identities, 80 proof files, 43 bindings, ten decisions, twelve stopped
+attempts, and every closed gate. Under standing completion authority, WP-70 is accepted and
+commit/push are authorized only for that exact inventory. Dependencies, preflight, images,
+Docker/Compose, databases, SQL, cleanup, proof/reproduction, network, application coding, final
+architecture selection, infrastructure, deployment, provider accounts/cost, and customer/live
+data remain closed.
 
 WP-65 now provides an explicit database-evidence Compose environment for all seven reset calls and
 both before/after state snapshots in each PRIMARY or REPRODUCTION proof invocation. Reset and proof
