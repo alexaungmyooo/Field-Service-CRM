@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-82 independently validated; exact publication authorized |
-| Current phase | Technical Proof Rebinding Readiness |
-| Current work package | `WP-82 TP-01 Primary-Result Semantic Remediation Rebinding and Reauthorization Readiness` |
+| Status | Product Discovery closed — WP-83 independently validated; exact publication authorized |
+| Current phase | Technical Proof Execution-Identity Readiness |
+| Current work package | `WP-83 TP-01 Execution Identity and Primary-Result Semantic Authorization Readiness` |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -134,6 +134,7 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 75. `83_TP01_CONTROLLED_PRIMARY_HANDOFF_EXECUTION_RESULT.md`
 76. `84_TP01_PRIMARY_RESULT_SEMANTIC_ALIGNMENT_STATIC_REMEDIATION.md`
 77. `85_TP01_PRIMARY_RESULT_SEMANTIC_REMEDIATION_REBINDING_REAUTHORIZATION_READINESS.md`
+78. `86_TP01_EXECUTION_IDENTITY_PRIMARY_RESULT_SEMANTIC_AUTHORIZATION_READINESS.md`
 
 Current and later accepted work packages may add or mature:
 
@@ -2327,6 +2328,30 @@ credentials/environments, preflight, images,
 Docker/Compose, containers, databases, services, SQL, cleanup, proof/reproduction, network,
 application coding, architecture selection, infrastructure, deployment, provider accounts/cost,
 external systems, and customer/live data remain closed.
+
+## WP-82 publication and WP-83 readiness candidate — 2026-10-09
+
+The exact four-path WP-82 documentation inventory was published at
+`3bdd75aad97fb463ddb05e02d96866522520b30d`, with repository tree
+`5420a9a96172147844c26f55ea207a32dfdd643a`; the accepted proof revision remains
+`ecc2db47c4395d19962adcf21f45bf3ff0a0932f` and proof tree remains
+`45369309793a803e761ace440c291c7d1ebdfe37`. WP-82 is `VERIFIED_AND_CLOSED` with no runtime result.
+
+WP-83 records `/root` only as proposed primary operator, creates exactly one fresh proposed
+reproduction-validator identity `/root/wp83_reproduction_validator` with zero-authority
+attestation, preserves `/root/tp01_security_review` only as proposed bounded reviewer, and creates
+one ignored `DRAFT_NOT_AUTHORIZED` private authorization draft. No execution package or run exists;
+all 42 action-authority flags are false and all 18 stages are proposal-only.
+
+Fresh independent validator `/root/wp83_readiness_validator` resolved `WP83-VAL-001`, then returned
+`PASS` with zero mutation against the corrected exact four-path WP-83 public inventory. Under
+standing completion authority, `DEC-218`, `TP1-EXEC-SEMANTIC-BIND-001` through `056`,
+`WP83-DEC-001` through `010`, the exact proposed roles, attestation, ineffective draft, and all
+sixteen immutable attempts are accepted. Exact publication is authorized. Checkout, dependencies,
+credentials/environments, preflight, images, Docker/Compose,
+containers, databases, services, SQL, cleanup, proof/handoff/reproduction, network, application,
+architecture, infrastructure, deployment, provider accounts/cost, external systems, and
+customer/live data remain closed.
 
 ## Private execution control
 

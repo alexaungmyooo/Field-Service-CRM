@@ -225,3 +225,19 @@ Independent documentation validation passed with zero mutation after resolution 
 ten WP-82 decisions, the exact option dispositions, sixteen immutable stopped attempts, and the
 four-path inventory are accepted. After exact publication and live-remote verification, only WP-83
 identity and explicitly ineffective private-draft readiness may activate.
+
+## Verified publication and WP-83 activation
+
+The exact four-path WP-82 documentation inventory was committed as
+`3bdd75a WP-82: bind semantic remediation readiness` and published at
+`3bdd75aad97fb463ddb05e02d96866522520b30d`, with repository tree
+`5420a9a96172147844c26f55ea207a32dfdd643a` and unchanged proof tree
+`45369309793a803e761ace440c291c7d1ebdfe37`. Local `HEAD`, cached `origin/main`, and live remote
+main matched that publication. WP-82 is `VERIFIED_AND_CLOSED` with no runtime result.
+
+WP-83 may only record proposed roles, exactly one fresh zero-authority reproduction-validator
+identity, one ignored explicitly ineffective private draft, complete inherited bindings, and
+remaining closed gates in owner-decision documentation. It may not create a run or effective
+authorization, checkout, dependencies, materials, runtime or network state, proof/reproduction,
+application code, architecture selection, infrastructure, deployment, provider cost, external-
+system mutation, or customer/live-data access.
