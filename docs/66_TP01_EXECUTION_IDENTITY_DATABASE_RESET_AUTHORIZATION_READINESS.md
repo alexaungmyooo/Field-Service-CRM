@@ -226,3 +226,18 @@ clean dedicated checkout, exact run-bound dependency/material state, effective p
 authorization, and controlled command sequence. Without that separate authorization, checkpoint 2
 and every dependency, material, runtime, cleanup, proof, reproduction, evidence, network, product,
 architecture, infrastructure, deployment, provider, and customer/live-data gate remain closed.
+
+## WP-64 controlled execution disposition
+
+WP-64 was separately authorized under the owner's standing completion authority as run
+`wp64-2026-10-09-01`. It passed preparation, preflight, local-image verification without network,
+database start, PRIMARY reachability, and all four ordered reset SQL files. It then stopped
+fail-closed because nested database evidence capture invoked Docker Compose outside the accepted
+synthetic reset-interpolation environment. No fixture or database-security artifact completed, no
+proof case ran, no primary handoff existed, and reproduction correctly did not run.
+
+Mandatory cleanup, credential/dependency removal, residual verification, and disposable-checkout
+removal passed. All three role reviews are `INCONCLUSIVE`; the final verifier failed closed on the
+absent fixture. WP-64 is `INCONCLUSIVE_CLOSED_NO_RETRY` and establishes no tenant-boundary,
+security, architecture, or implementation result. The exact result and next bounded static gate
+are recorded in `docs/67_TP01_CONTROLLED_DATABASE_RESET_REMEDIATED_EXECUTION_RESULT.md`.

@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-63 accepted; publication authorized |
-| Current phase | Technical Proof Execution Identity and Authorization Readiness |
-| Current work package | `WP-63 TP-01 Execution Identity and Database Reset Authorization Readiness` |
+| Status | Product Discovery closed — WP-64 Inconclusive and closed; WP-65 static remediation pending verified activation |
+| Current phase | Technical Proof Static Remediation |
+| Current work package | `WP-65 TP-01 Reset Evidence-Capture Compose Interpolation Static Remediation` |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -1494,11 +1494,40 @@ the exact frozen four-path public inventory are accepted; publication is authori
 execution, material, runtime, network, product, architecture, infrastructure, deployment,
 provider, or customer/live-data authority is opened.
 
-The frozen twelve-path WP-50 inventory was committed as
-`35776fb WP-50: accept private environment remediation` and pushed to `origin/main`. Local `HEAD`,
-cached `origin/main`, and live remote main matched
-`35776fb5baf18e9230fe2a1bd4d41689949a42b7`; the published proof tree is
-`52cf1ab1f936614551285ebf6c85462042daba89`. WP-50 is `VERIFIED_AND_CLOSED`.
+The exact frozen four-path WP-63 inventory was committed as
+`5175a8d WP-63: accept database reset execution readiness` and pushed to `origin/main`. Local
+`HEAD`, cached `origin/main`, and live remote main matched
+`5175a8d6091498316f8f54dcca7c0be6784eb488`; repository tree is
+`a921bfb22c427aa8a00dff09c311e77f98b2a8ae` and proof tree remains
+`c86c7331a362f6da50471bb4fbfa3dd9bd70f236`. WP-63 is `VERIFIED_AND_CLOSED`.
+
+WP-64 ran once as `wp64-2026-10-09-01`. It passed exact preparation,
+offline/frozen/ignore-scripts restoration, preflight, local-image verification without registry
+access, bounded database start, PRIMARY three-view reachability, and all four ordered reset SQL
+files. It stopped fail-closed when nested database evidence capture invoked Docker Compose outside
+the accepted synthetic reset-interpolation environment. Fixture and database-security evidence did
+not complete; matrix verification, all proof cases, primary handoff, and reproduction did not run.
+
+The native PRIMARY `DB_RESET` operational stop recorded possible partial mutation conservatively.
+Mandatory cleanup removed the container, network, volume, dependencies, generated output, private
+runtime environment, and disposable checkout. Residual verification passed. All three role reviews
+are `INCONCLUSIVE`, both independent reviewers matched all 12 sealed entries, and the final
+verifier failed closed on absent `fixture.json`. The final private inventory contains 18 entries
+plus its inventory; aggregate SHA-256 is
+`0fc7b7734850b5c7b615eba45ddb82c6dc139aadadb7fb7c0ab32959af6fb5cc` and inventory SHA-256 is
+`f1696ad6e212b8aa4b047d3ea292dcc33e4f3cab2da17f60ba7dd4bfc52d5f3d`.
+
+Under standing completion authorization, WP-64 is accepted as
+`INCONCLUSIVE_CLOSED_NO_RETRY`; its exact four-path public inventory is authorized for commit and
+push. After verified publication, WP-65 may change only the disposable TP-01 proof, governing
+documentation, and ignored private static evidence needed to cover every Docker Compose call
+reachable from reset-time evidence capture with the same fresh non-secret, non-retained
+interpolation boundary; preserve lifecycle, secret-exclusion, diagnostic, partial-mutation, and
+operational-stop controls; add dependency-free tests; renew all affected hashes; and obtain exactly
+one fresh independent static validator. Dependencies, credentials/environments, preflight, images,
+Docker/Compose runtime, containers, databases, SQL, fixtures, cleanup execution, proof/reproduction,
+network, application coding, architecture selection, infrastructure, deployment, provider
+accounts/cost, and customer/live data remain closed.
 
 WP-51 is active for owner-decision documentation only. It binds the exact WP-50 publication,
 renewed proof inventory, private-environment contract, stopped-run history, workspace and future
