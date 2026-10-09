@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-66 accepted; publication authorized |
+| Status | Product Discovery closed — WP-67 accepted; publication authorized |
 | Current phase | Technical Proof Static Remediation |
-| Current work package | `WP-66 TP-01 Database Evidence Continuity Rebinding and Reauthorization Readiness` |
+| Current work package | `WP-67 TP-01 Execution Identity and Database Evidence Continuity Authorization Readiness` |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -118,6 +118,7 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 59. `67_TP01_CONTROLLED_DATABASE_RESET_REMEDIATED_EXECUTION_RESULT.md`
 60. `68_TP01_DATABASE_EVIDENCE_COMPOSE_INTERPOLATION_CONTINUITY_STATIC_REMEDIATION.md`
 61. `69_TP01_DATABASE_EVIDENCE_CONTINUITY_REBINDING_REAUTHORIZATION_READINESS.md`
+62. `70_TP01_EXECUTION_IDENTITY_DATABASE_EVIDENCE_CONTINUITY_AUTHORIZATION_READINESS.md`
 
 Current and later accepted work packages may add or mature:
 
@@ -1817,6 +1818,39 @@ authorization draft. WP-67 remains a later readiness package only; it may not cr
 effective authorization, checkout, dependency state, material, preflight, image/runtime action,
 cleanup execution, proof/reproduction, network authority, product work, architecture selection,
 infrastructure, deployment, provider action, or customer/live-data access.
+
+## WP-66 publication and WP-67 activation — 2026-10-09
+
+The exact frozen four-path WP-66 public inventory was committed as
+`f49e173 WP-66: accept database evidence continuity rebinding` and published at
+`f49e173d7b190cd9fb9b6a0c9829dfaf99a898c5`. The published repository tree is
+`0572a54631f1444300a541de39468868c1a23734`; the accepted proof revision remains
+`b628f3e77d4b296f1c357b7a290ee84b3dbb72bd`; and the proof tree remains
+`3696a8883d6f3d7eddead1460fc26b0af004d236`. The proof inventory contains 78 files;
+artifact-inventory SHA-256 is
+`43cc0ce26b5d73b8ea96f86d0b6dc38ba81ea380922fb92405b0016e02a2776e`; canonical
+no-terminal-LF content-set SHA-256 is
+`d38ed487b01614c480e1a6c50022b502ed8e5c642b042aa53beb7bf551ccac70`. WP-66 is
+`VERIFIED_AND_CLOSED`.
+
+WP-67 may record `/root` as proposed primary operator, create exactly one fresh proposed
+reproduction-validator identity `/root/wp67_reproduction_validator` and its separate
+zero-authority independence attestation, preserve `/root/tp01_security_review` as proposed bounded
+technical reviewer, prepare owner-decision documentation, and prepare exactly one ignored private
+draft that is explicitly `DRAFT_NOT_AUTHORIZED`, ineffective, checkpoint-closed, and
+non-retryable. The draft contains no package/run, checkout, dependency, credential, database URL,
+environment, token, or interpolation material and grants no action authority.
+
+The fresh identity attestation and independent readiness validation passed with zero mutation and
+no findings. Under standing completion authority, `DEC-198`, all 34 exact bindings,
+`WP67-DEC-001` through `010`, the proposed later roles, the explicitly ineffective private draft,
+and the exact four-path public inventory are accepted; publication is authorized only for that
+inventory. Checkout creation, dependencies, materials, preflight, images, Docker/Compose runtime,
+containers, databases, services, SQL, fixtures, cleanup execution, proof/reproduction, evidence
+verification, network, application coding, architecture selection, infrastructure, deployment,
+provider accounts/cost, and customer/live data remain closed. Only a later separately accepted
+WP-68 package could authorize one exact new controlled run and create a new effective private
+authorization.
 
 ## Private execution control
 

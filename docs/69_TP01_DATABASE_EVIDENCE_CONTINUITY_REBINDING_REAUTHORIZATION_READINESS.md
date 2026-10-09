@@ -4,7 +4,7 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Owner accepted under standing completion authority — publication authorized; execution unauthorized |
+| Status | Published and verified — WP-66 closed; execution unauthorized |
 | Work package | `WP-66 TP-01 Database Evidence Continuity Rebinding and Reauthorization Readiness` |
 | Governing decisions | `DEC-196`; `DEC-197` |
 | Governance publication | `b628f3e77d4b296f1c357b7a290ee84b3dbb72bd` |
@@ -14,8 +14,8 @@
 | Owner | Aung Myo Oo |
 | Date | 2026-10-09 |
 | TP-01 execution | Not authorized |
-| Private authorization draft | Not authorized and not created |
-| Publication | Authorized only for the exact frozen four-path inventory |
+| Private authorization draft | Not authorized and not created under WP-66 |
+| Publication | Completed at `f49e173d7b190cd9fb9b6a0c9829dfaf99a898c5` |
 
 ## Objective and authority boundary
 
@@ -181,17 +181,25 @@ Owner acceptance and publication authorization apply only to these four paths:
 Private authorization and validation records remain ignored under `internal-local/` and must not
 be published.
 
-## Next gate
+## Verified publication and next gate
 
 Under the owner's standing completion authority, all 40 exact bindings, both option-family
 dispositions, all ten decisions, the frozen four-path scope, and documentation checks are accepted.
-Publication is authorized only for the exact frozen four-path inventory. Acceptance remains a
-documentation decision and creates no role, draft, checkout, dependency state, material, runtime
-evidence, or execution permission.
+The exact frozen four-path inventory was published as
+`f49e173 WP-66: accept database evidence continuity rebinding`; local `HEAD`, cached remote, and
+live remote matched `f49e173d7b190cd9fb9b6a0c9829dfaf99a898c5`. The published repository tree
+is `0572a54631f1444300a541de39468868c1a23734`; the proof tree remains
+`3696a8883d6f3d7eddead1460fc26b0af004d236`. WP-66 is `VERIFIED_AND_CLOSED`.
+Acceptance and publication remain documentation decisions and create no role, draft, checkout,
+dependency state, material, runtime evidence, or execution permission.
 
-Only after verified WP-66 publication may WP-67 create exactly one fresh reproduction-validator
-identity, record its independence attestation, prepare owner-decision documentation, and prepare
-one explicitly ineffective private authorization draft. WP-67 may not create a run, effective
+WP-67 is now active and may create exactly one fresh proposed reproduction-validator identity,
+record its separate zero-authority independence attestation, prepare owner-decision documentation,
+and prepare one explicitly ineffective private authorization draft. The fresh identity attestation
+and independent readiness validation have passed with zero mutation and no findings. Under
+standing completion authority, the identity and WP-67 recommendations are accepted for readiness
+and exact-inventory publication only. WP-67
+may not create a run, effective
 authorization, checkout, run-bound dependency state, credential, URL, environment, digest, token,
 preflight, image/runtime action, cleanup execution, proof/reproduction, network authority, product
 work, architecture selection, infrastructure, deployment, provider action, or customer/live-data

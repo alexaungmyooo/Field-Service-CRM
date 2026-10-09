@@ -7,7 +7,7 @@
 | Status | Accepted WP-01 baseline — living decision register |
 | Work package | `WP-01 Product Vision and Boundaries` |
 | Owner | Aung Myo Oo |
-| Last updated | 2026-10-07 |
+| Last updated | 2026-10-09 |
 
 ## Purpose
 
@@ -245,6 +245,7 @@ Accepted.
 | `DEC-195` | Accept the WP-64 Inconclusive stopped-run packet, close it without retry, publish its frozen four-path inventory, and activate bounded proof-only reset evidence-capture Compose-interpolation static remediation. | WP-64 passed preparation, local-image verification, database start, PRIMARY reachability, and all four reset SQL files, but a nested database-evidence Compose call lacked the accepted synthetic interpolation environment; every reset-reachable Compose path must be corrected and reviewed statically before another run may be considered. | Accepted |
 | `DEC-196` | Accept one explicit invocation-scoped, fresh non-secret Compose-interpolation interface for every database-evidence Compose call reached by reset and by PRIMARY/REPRODUCTION before/after state snapshots. | Real bootstrap and runtime `TP01_*` credentials, database URL, pull token, and ambient `PGPASSWORD` remain excluded; only a temporary runtime-security `PGPASSWORD` clone is allowed, exact existing-service commands and formal stop accounting are mandatory, and complete hash renewal plus one fresh independent static validation must pass before rebinding. | Accepted |
 | `DEC-197` | Accept the exact published WP-65 revision, repository and proof trees, renewed 78-file inventory and aggregate hashes, invocation-scoped database-evidence continuity and stop controls, all eleven immutable stopped attempts, the dedicated-workspace choice, and the exact continuity choice as one indivisible candidate for later identity and private ineffective-draft readiness. | Published rebinding is documentation only: it creates no role, reproduction-validator identity, authorization draft, checkout, dependency state, credential/environment, runtime evidence, or execution permission; after verified WP-66 publication, only a separately bounded WP-67 identity/private ineffective-draft package may proceed. | Accepted |
+| `DEC-198` | Accept exactly one fresh attested reproduction-validator identity and one explicitly ineffective private authorization draft as readiness evidence for the published database-evidence-continuity candidate, after independent validation confirms every absence and authority boundary. | Identity separation and draft completeness grant no execution authority; a later controlled attempt requires a separately accepted exact WP-68 package/run, new effective authorization, material bindings, exact continuity and stop controls, mandatory cleanup, network boundary, and non-scope. | Accepted |
 
 ## Open decision register
 
