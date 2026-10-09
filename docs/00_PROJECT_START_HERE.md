@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-60 Inconclusive accepted; publication authorized |
-| Current phase | Technical Proof Evidence Disposition |
-| Current work package | `WP-60 Controlled TP-01 Reachability-Stop-Remediated Execution` |
+| Status | Product Discovery closed — WP-61 accepted; publication authorized |
+| Current phase | Technical Proof Static Remediation |
+| Current work package | `WP-61 Reset Compose Interpolation and Operational-Stop Static Remediation` |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -112,6 +112,7 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 53. `61_TP01_REACHABILITY_COMPOSE_INTERPOLATION_OPERATIONAL_STOP_REMEDIATED_REBINDING_REAUTHORIZATION_READINESS.md`
 54. `62_TP01_EXECUTION_IDENTITY_REACHABILITY_COMPOSE_INTERPOLATION_OPERATIONAL_STOP_AUTHORIZATION_READINESS.md`
 55. `63_TP01_CONTROLLED_REACHABILITY_COMPOSE_INTERPOLATION_OPERATIONAL_STOP_EXECUTION_RESULT.md`
+56. `64_TP01_DATABASE_RESET_COMPOSE_INTERPOLATION_OPERATIONAL_STOP_STATIC_REMEDIATION.md`
 
 Current and later accepted work packages may add or mature:
 
@@ -1441,6 +1442,22 @@ dependency removal, residual verification, checkout removal, and all three Incon
 passed; final verification failed closed. The owner standing completion authorization accepts the
 19-entry private packet, `WP60-DEV-001` through `003`, `WP60-REM-001` through `008`, all seven
 decisions, closure without retry, and publication of only the frozen four-path WP-60 inventory.
+
+The exact frozen four-path WP-60 inventory was committed as
+`d7b3987 WP-60: accept Inconclusive reachability-stop execution` and pushed to `origin/main`.
+Local `HEAD`, cached `origin/main`, and live remote main matched
+`d7b398709aa6cd0eb4f586f3cc38424fea339306`; repository tree is
+`057728fe332e29cd75d97ff9c60231c328019506` and the accepted proof tree remains
+`53e22adde7a169ff66cabf33afb493eb5031443a`. WP-60 is `VERIFIED_AND_CLOSED` without retry.
+
+WP-61 is active only for proof-only static remediation. It may give `db:reset` one fresh
+non-secret Compose-configuration interpolation value while keeping the real bootstrap credential
+excluded; add native phase-specific `DB_RESET` stop evidence and bounded diagnostics; add
+dependency-free tests; renew the complete proof inventory; and obtain exactly one fresh
+independent static validation after freeze. Dependencies, credentials/environments, preflight,
+images, Docker/Compose runtime, containers, databases, services, SQL, fixtures, cleanup execution,
+proof/reproduction, evidence execution, network, application coding, architecture selection,
+infrastructure, deployment, provider accounts/cost, and customer/live data remain closed.
 
 The frozen twelve-path WP-50 inventory was committed as
 `35776fb WP-50: accept private environment remediation` and pushed to `origin/main`. Local `HEAD`,

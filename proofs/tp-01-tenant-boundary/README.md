@@ -499,3 +499,24 @@ has run in WP-19.
 Raw materialization evidence belongs under the ignored path
 `internal-local/work-packages/TP-01/evidence/materialization/`. Do not commit raw package-manager,
 advisory, environment, or review evidence.
+
+## WP-61 database-reset Compose interpolation remediation
+
+WP-61 adds a proof-only static contract for database reset. After the reset independently verifies
+the required PRIMARY or REPRODUCTION reachability evidence, it creates one fresh random non-secret
+value for Compose configuration interpolation. The Docker child environment removes every
+`TP01_*` value and `PGPASSWORD`, retains the already bound non-proof environment such as
+`DOCKER_CONTEXT`, and adds only the synthetic interpolation value. The real bootstrap credential
+remains excluded.
+
+The value is supplied only to the four exact existing-service
+`docker compose exec -T postgres psql` calls. It is not part of SQL input or retained evidence,
+cannot authenticate to PostgreSQL, permits no Compose lifecycle command, and is cleared and
+deleted in `finally`. A reset failure writes bounded typed `database-reset-failure.json` evidence,
+truthfully records completed and attempted SQL steps plus whether partial mutation may have
+occurred, appends the exact PRIMARY/REPRODUCTION `DB_RESET` operational stop, and rethrows. The
+existing final verifier still rejects every operational stop.
+
+WP-61 validation is dependency-free and static only. It does not install or invoke dependencies,
+generate credentials, execute preflight, inspect or start images/containers/services, connect to a
+database, apply SQL, mutate fixtures, run cleanup, execute/reproduce TP-01, or use network access.

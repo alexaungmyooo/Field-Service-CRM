@@ -154,3 +154,15 @@ four-path inventory. Only after verified publication may WP-61 change the dispos
 governing documentation, and ignored private static evidence needed for the accepted bounded
 remediation. WP-61 grants no dependency, credential, runtime, network, product, architecture,
 infrastructure, deployment, provider, or customer/live-data authority.
+
+## Verified publication and WP-61 activation
+
+The exact frozen WP-60 inventory was committed and pushed as
+`d7b398709aa6cd0eb4f586f3cc38424fea339306`. Local `HEAD`, cached `origin/main`, and the live
+remote branch matched; repository tree `057728fe332e29cd75d97ff9c60231c328019506` and proof tree
+`53e22adde7a169ff66cabf33afb493eb5031443a` were recorded before WP-61 changed the proof.
+
+WP-61 is limited to the accepted reset Compose-interpolation and native operational-stop static
+remediation. No dependency, credential, runtime, Docker/Compose, database, SQL, fixture, cleanup,
+proof, reproduction, network, product, architecture, infrastructure, deployment, provider, or
+customer/live-data action is authorized by that activation.

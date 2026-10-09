@@ -39,6 +39,15 @@ for (const run of ["PRIMARY", "REPRODUCTION"]) {
   });
   assert.equal(reachabilityStopped.operationalStops[0].run, run);
   assert.equal(reachabilityStopped.operationalStops[0].stage, "RUNTIME_REACHABILITY");
+  const resetStopped = appendOperationalStop(initial, {
+    run,
+    stage: "DB_RESET",
+    code: "DATABASE_RESET_FAILED",
+    evidenceArtifact: "database-reset-failure.json",
+  });
+  assert.equal(resetStopped.operationalStops[0].run, run);
+  assert.equal(resetStopped.operationalStops[0].stage, "DB_RESET");
+  assert.throws(() => assertDeviationEvidence(resetStopped, { requireNoOperationalStops: true }));
 }
 assert.throws(() =>
   appendOperationalStop(initial, {
@@ -46,6 +55,14 @@ assert.throws(() =>
     stage: "PROOF_TEST",
     code: "INVALID_STAGE_PAIR",
     evidenceArtifact: "failure.json",
+  }),
+);
+assert.throws(() =>
+  appendOperationalStop(initial, {
+    run: "PREFLIGHT",
+    stage: "DB_RESET",
+    code: "INVALID_STAGE_PAIR",
+    evidenceArtifact: "database-reset-failure.json",
   }),
 );
 assert.throws(() =>
@@ -62,8 +79,20 @@ assert.throws(() => appendOperationalStop(initial, {
   code: "contains secret=value",
   evidenceArtifact: "failure.json",
 }));
+assert.throws(() => appendOperationalStop(initial, {
+  run: "PRIMARY",
+  stage: "DB_RESET",
+  code: "bad-code",
+  evidenceArtifact: "database-reset-failure.json",
+}));
+assert.throws(() => appendOperationalStop(initial, {
+  run: "PRIMARY",
+  stage: "DB_RESET",
+  code: "DATABASE_RESET_FAILED",
+  evidenceArtifact: "../database-reset-failure.json",
+}));
 assert.throws(() => assertDeviationEvidence({ ...initial, acceptedContractDeviations: [{}] }, {
   requireNoAccepted: true,
 }));
 
-process.stdout.write("WP-46 deviation contract tests passed\n");
+process.stdout.write("WP-61 deviation contract tests passed\n");
