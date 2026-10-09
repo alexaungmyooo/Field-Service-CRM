@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-89 accepted; exact publication authorized |
-| Current phase | Technical Proof Host-Access Probe Result Review |
-| Current work package | `WP-89 Controlled Docker Host Access Probe Result` |
+| Status | Product Discovery closed — WP-90 accepted; exact publication authorized |
+| Current phase | Technical Proof Host-Access-Remediated Rebinding and Reauthorization Readiness |
+| Current work package | `WP-90 TP-01 Host-Access-Remediated Rebinding and Reauthorization Readiness` |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -141,6 +141,7 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 82. `90_TP01_DOCKER_HOST_ACCESS_PROBE_CONTROL_MATERIALIZATION.md`
 83. `91_TP01_DOCKER_HOST_ACCESS_PROBE_EXECUTION_AUTHORIZATION_READINESS.md`
 84. `92_TP01_CONTROLLED_DOCKER_HOST_ACCESS_PROBE_RESULT.md`
+85. `93_TP01_HOST_ACCESS_REMEDIATED_REBINDING_REAUTHORIZATION_READINESS.md`
 
 Current and later accepted work packages may add or mature:
 
@@ -1889,6 +1890,29 @@ no-cleanup disposition. Commit and push are authorized only for the exact four-p
 inventory. After verified publication, WP-90 may prepare owner-decision documentation and one
 private ineffective TP-01 reauthorization candidate only. Every execution and product gate
 remains closed.
+
+## WP-89 publication and WP-90 reauthorization-readiness activation — 2026-10-10
+
+The exact four-path WP-89 public inventory was published at
+`f4cc84e1065a9bfd42d605022a85caf7b1d30cdf`, with repository tree
+`6048487a0b4e548613e01d9c2ddda9792b4784a1`; local `HEAD`, cached `origin/main`, and live remote
+main matched. The proof tree remained `45369309793a803e761ace440c291c7d1ebdfe37`. WP-89 is
+`VERIFIED_AND_CLOSED`; its consumed host-readiness receipt is historical evidence only.
+
+WP-90 is active only for owner-decision documentation and one ignored, explicitly ineffective
+TP-01 reauthorization draft. It may bind the published revision, unchanged 86-file proof identity,
+closed-attempt history, workspace/proof/host-access options, proposed later stages, and all-false
+authority flags. It may not create a run or validator identity, checkout, dependency state,
+credential, environment, run-bound control, effective authorization, preflight, Docker/image/
+runtime state, proof/reproduction evidence, application code, architecture decision,
+infrastructure, deployment, provider cost, network action, or customer/live-data access.
+
+The owner accepted `DEC-225`, `WP90-BIND-001` through `040`, `WP90-DEC-001` through `010`, the
+recorded option dispositions, ineffective private draft, and root static-validation `PASS`.
+Commit and push are authorized only for the exact four-path WP-90 public inventory. After verified
+publication, WP-91 may instantiate exactly one fresh reproduction-validator identity and prepare
+owner-decision documentation plus one private ineffective authorization draft only. Every
+materialization, execution, product, and operational gate remains closed.
 
 ## WP-70 publication and WP-71 identity readiness — 2026-10-09
 

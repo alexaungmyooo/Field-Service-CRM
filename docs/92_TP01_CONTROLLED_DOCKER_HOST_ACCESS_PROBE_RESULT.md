@@ -108,3 +108,16 @@ absence of stop/retry, and no-cleanup disposition. Commit and push are authorize
 exact four-path WP-89 public inventory after final validation. After verified publication, WP-90
 may prepare owner-decision documentation and one private ineffective TP-01 reauthorization
 candidate only; no execution is authorized.
+
+## Verified publication and WP-90 boundary
+
+The exact four-path WP-89 public inventory was published as
+`f4cc84e1065a9bfd42d605022a85caf7b1d30cdf`, with repository tree
+`6048487a0b4e548613e01d9c2ddda9792b4784a1`. Local `HEAD`, cached `origin/main`, and live remote
+main matched. The proof tree remained `45369309793a803e761ace440c291c7d1ebdfe37`, and this
+published document hashes to
+`a46df0d40aabf8ed9e1b42ce1fccedb7be1a9e1bcc7d04e5a9246693b24fbd38`.
+
+WP-89 is `VERIFIED_AND_CLOSED`. WP-90 may prepare only owner-decision documentation and one
+private ineffective TP-01 reauthorization draft. The consumed receipt cannot be reused, and no
+identity, material, Docker, proof, architecture, or product authority follows from publication.
