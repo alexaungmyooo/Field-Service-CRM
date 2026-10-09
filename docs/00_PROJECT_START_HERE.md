@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-61 accepted; publication authorized |
-| Current phase | Technical Proof Static Remediation |
-| Current work package | `WP-61 Reset Compose Interpolation and Operational-Stop Static Remediation` |
+| Status | Product Discovery closed — WP-62 accepted; publication authorized |
+| Current phase | Technical Proof Rebinding and Reauthorization Readiness |
+| Current work package | `WP-62 TP-01 Database Reset Remediation Rebinding and Reauthorization Readiness` |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -113,6 +113,7 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 54. `62_TP01_EXECUTION_IDENTITY_REACHABILITY_COMPOSE_INTERPOLATION_OPERATIONAL_STOP_AUTHORIZATION_READINESS.md`
 55. `63_TP01_CONTROLLED_REACHABILITY_COMPOSE_INTERPOLATION_OPERATIONAL_STOP_EXECUTION_RESULT.md`
 56. `64_TP01_DATABASE_RESET_COMPOSE_INTERPOLATION_OPERATIONAL_STOP_STATIC_REMEDIATION.md`
+57. `65_TP01_DATABASE_RESET_REMEDIATION_REBINDING_REAUTHORIZATION_READINESS.md`
 
 Current and later accepted work packages may add or mature:
 
@@ -1458,6 +1459,22 @@ independent static validation after freeze. Dependencies, credentials/environmen
 images, Docker/Compose runtime, containers, databases, services, SQL, fixtures, cleanup execution,
 proof/reproduction, evidence execution, network, application coding, architecture selection,
 infrastructure, deployment, provider accounts/cost, and customer/live data remain closed.
+
+WP-61 primary and sole fresh independent static validation passed with no severity findings. The
+owner's standing completion authorization accepted all eight controls, all 16 bindings, all six
+decisions, the renewed 74-file inventory, and the exact frozen 11-path inventory. It was committed
+as `67b4733 WP-61: accept reset interpolation remediation` and pushed to `origin/main`. Local
+`HEAD`, cached `origin/main`, and live remote main matched
+`67b4733584fde8f3ecaf2f9f7c15ef883c9b127b`; repository tree is
+`d6d29df9388e9d283e1b01d7bf568ba022f257e8` and proof tree is
+`c86c7331a362f6da50471bb4fbfa3dd9bd70f236`. WP-61 is `VERIFIED_AND_CLOSED`.
+
+WP-62 records 53 exact candidate bindings, all ten immutable stopped attempts, the accepted
+dedicated-workspace and exact reset-remediation choices, role and no-draft boundaries, and ten
+accepted owner decisions. Primary and independent read-only validation passed after resolving
+`WP62-VAL-001`, an interim `DEC-193` status mismatch. Under standing completion authorization,
+the exact four-path public inventory is accepted and publication is authorized. WP-62 creates no
+execution identity, authorization draft, material, runtime evidence, or execution permission.
 
 The frozen twelve-path WP-50 inventory was committed as
 `35776fb WP-50: accept private environment remediation` and pushed to `origin/main`. Local `HEAD`,

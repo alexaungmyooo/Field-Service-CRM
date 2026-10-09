@@ -116,3 +116,19 @@ WP-61 is `OWNER_ACCEPTED_PUBLICATION_AUTHORIZED` under the owner's standing comp
 authorization. Commit and push are permitted only for the exact 11-path inventory. After verified
 publication, WP-62 may begin as rebinding/readiness documentation only; it cannot create an
 execution identity or authorization draft, execute TP-01, or select architecture.
+
+## Verified publication and WP-62 activation
+
+The exact frozen 11-path inventory was committed as
+`67b4733 WP-61: accept reset interpolation remediation` and pushed to `origin/main`. Local
+`HEAD`, cached `origin/main`, and live remote main matched
+`67b4733584fde8f3ecaf2f9f7c15ef883c9b127b`; repository tree is
+`d6d29df9388e9d283e1b01d7bf568ba022f257e8` and proof tree is
+`c86c7331a362f6da50471bb4fbfa3dd9bd70f236`. The worktree was clean after publication. WP-61 is
+`VERIFIED_AND_CLOSED`.
+
+WP-62 is active for owner-decision rebinding and reauthorization-readiness documentation only.
+It may create no execution identity, reproduction-validator identity, private authorization draft,
+run, checkout, dependency state, credential/environment, token, preflight, runtime evidence,
+cleanup action, proof/reproduction, network authority, product work, architecture selection,
+infrastructure, deployment, provider action, or customer/live-data access.
