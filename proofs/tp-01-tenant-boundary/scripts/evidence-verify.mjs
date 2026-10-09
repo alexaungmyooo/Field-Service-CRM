@@ -14,6 +14,7 @@ import {
   expectedComposeSemanticVersion,
 } from "./remediation-contract.mjs";
 import { assertRuntimeReachabilityEvidence } from "./runtime-reachability-contract.mjs";
+import { assertPrimaryResultContext } from "./primary-result-context-contract.mjs";
 
 const { authorization: executionAuthorization, packageId, evidenceDirectory } =
   assertExecutionAuthorized();
@@ -131,6 +132,8 @@ function stableResult(record) {
       mutationBeforeHash: value.mutationBeforeHash,
       mutationAfterHash: value.mutationAfterHash,
     })),
+    cleanupReset: record.cleanupReset,
+    organizationSequence: record.organizationSequence ?? null,
   };
 }
 
@@ -156,9 +159,7 @@ function verifyResults(name) {
     if (!record.namedAdapter?.adapter || !record.namedAdapter?.outcome) {
       throw new Error(`${record.caseId} has no named path-adapter evidence`);
     }
-    if (!record.authoritativeContext || !record.cleanupReset) {
-      throw new Error(`${record.caseId} lacks context or reset evidence`);
-    }
+    assertPrimaryResultContext(expected, record);
     if (expected.group === "TP1-CASE-008") {
       if (
         record.observations?.length !== 2 ||

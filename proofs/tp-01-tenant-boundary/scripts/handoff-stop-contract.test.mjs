@@ -3,8 +3,10 @@ import { readFileSync } from "node:fs";
 import {
   assertPrimaryHandoffSealStopEvidence,
   assertPrimaryHandoffStopClosure,
+  createPrimaryHandoffSealStopEvidence,
   prohibitedPrimaryHandoffStopArtifacts,
 } from "./handoff-stop-contract.mjs";
+import { assertPrimaryResultContext } from "./primary-result-context-contract.mjs";
 
 const context = { packageId: "WP-77", runId: "wp77-static-test-01" };
 const valid = {
@@ -43,6 +45,63 @@ assert.throws(() => assertPrimaryHandoffSealStopEvidence({ ...valid, extra: true
 assert.throws(() =>
   assertPrimaryHandoffSealStopEvidence(valid, { ...context, runId: "different-run" }),
 );
+
+let semanticError;
+try {
+  assertPrimaryResultContext(
+    {
+      id: "TP1-C199",
+      group: "TP1-CASE-008",
+      organizationSequence: ["org-alpha", "org-bravo", "org-alpha"],
+    },
+    {
+      caseId: "TP1-C199",
+      organizationSequence: ["org-alpha", "org-bravo", "org-alpha"],
+      authoritativeContext: {
+        source: "00000000-0000-4000-8000-000000000001",
+        concurrent: "00000000-0000-4000-8000-000000000002",
+        restored: "00000000-0000-4000-8000-000000000001",
+      },
+      cleanupReset: "PER_CASE_TRANSACTION_ROLLBACK_AND_AUDIT_APPEND",
+    },
+  );
+} catch (error) {
+  semanticError = error;
+}
+const semanticStop = createPrimaryHandoffSealStopEvidence({
+  ...context,
+  toolSha256: "b".repeat(64),
+  error: semanticError,
+});
+assert.equal(assertPrimaryHandoffSealStopEvidence(semanticStop, context), semanticStop);
+assert.deepEqual(semanticStop.semanticFailure, {
+  errorCode: "TP1_PRIMARY_RESULT_CONTEXT_INVALID",
+  caseId: "TP1-C199",
+  semanticCheck: "POOL_CLEANUP_RESET",
+});
+assert.equal(JSON.stringify(semanticStop).includes("00000000"), false);
+
+const genericStop = createPrimaryHandoffSealStopEvidence({
+  ...context,
+  toolSha256: "c".repeat(64),
+  error: new Error("raw secret-looking diagnostic must not be retained"),
+});
+assert.equal(assertPrimaryHandoffSealStopEvidence(genericStop, context), genericStop);
+assert.deepEqual(genericStop.semanticFailure, {
+  errorCode: "PRIMARY_RESULT_SEMANTIC_VALIDATION_FAILED",
+  caseId: "UNAVAILABLE",
+  semanticCheck: "UNAVAILABLE",
+});
+assert.equal(JSON.stringify(genericStop).includes("secret-looking"), false);
+for (const semanticFailure of [
+  { ...semanticStop.semanticFailure, caseId: "TP1-C9999" },
+  { ...semanticStop.semanticFailure, semanticCheck: "bad-check" },
+  { ...semanticStop.semanticFailure, extra: true },
+]) {
+  assert.throws(() =>
+    assertPrimaryHandoffSealStopEvidence({ ...semanticStop, semanticFailure }, context),
+  );
+}
 
 assert.deepEqual(
   assertPrimaryHandoffStopClosure({

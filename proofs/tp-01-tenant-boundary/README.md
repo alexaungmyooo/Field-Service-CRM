@@ -7,15 +7,14 @@ This directory materializes checkpoint 1 of the accepted TP-01 contract in
 
 ## Current authorization
 
-WP-77 authorizes proof-only static remediation of the primary-handoff seal interface and
-operational-stop consistency defects exposed by immutable WP-76. It permits the exact exclusive
-copy correction through `node:fs` `constants.COPYFILE_EXCL`, dependency-free module-instantiation
-coverage, one typed minimized primary-handoff seal-tool stop, a final-verifier branch that closes
-that exact stop as `INCONCLUSIVE`, governing documentation, affected hash/inventory renewal,
-ignored private static evidence, and exactly one fresh independent read-only static validation
-after freeze.
+WP-81 authorizes proof-only static remediation of the result-context semantic mismatch exposed by
+immutable WP-80. It permits one group-aware PRIMARY-result context/reset contract, exact inclusion
+of cleanup-reset and organization-sequence semantics in PRIMARY/REPRODUCTION comparison,
+dependency-free positive and fail-closed coverage, minimized structured semantic-failure metadata,
+governing documentation, affected hash/inventory renewal, ignored private static evidence, and
+exactly one fresh independent read-only static validation after freeze.
 
-WP-77 does **not** authorize dependencies or package-manager operations, credential or environment
+WP-81 does **not** authorize dependencies or package-manager operations, credential or environment
 generation/use, preflight, image inspection or retrieval, Docker/Compose commands, pull-token
 creation, containers, databases, services, SQL execution, fixtures, listeners, cleanup execution,
 a TP-01 case, handoff, reproduction, execution-evidence verification, application code,
@@ -25,6 +24,42 @@ or network access.
 The execution-facing scripts remain closed. They require later owner acceptance, publication,
 rebinding, role assignment, and a new effective private authorization before any execution-facing
 command may run.
+
+## WP-81 primary-result context and reset contract
+
+The emitted proof result remains unchanged. `TP1-CASE-008` pool-reuse cases must retain the exact
+cleanup marker `SAME_CONNECTION_TRANSACTION_CONTEXT_RESET_AND_CONCURRENT_ISOLATION`, their frozen
+three-organization sequence, and authoritative `source`, `concurrent`, and `restored` synthetic
+organization identities. Every other case must retain
+`PER_CASE_TRANSACTION_ROLLBACK_AND_AUDIT_APPEND`, must not carry an organization sequence, and
+must carry either the exact resolved context shape or one minimized resolution-denied reason.
+
+The final evidence verifier applies this contract to both PRIMARY and REPRODUCTION result files.
+Its stable semantic comparison now includes `cleanupReset` and `organizationSequence`, so a
+reproduction cannot claim a match after changing either reset meaning or the pool-reuse sequence.
+Structured validation failures expose only an error code, case ID, and semantic-check identifier;
+they retain no credential, URL, path, raw output, or context value.
+
+The handoff-stop contract preserves immutable schema-version-1 WP-80 evidence and adds a version-2
+creation path for future controls. Version 2 carries exactly one nested `semanticFailure` object
+with `errorCode`, `caseId`, and `semanticCheck`; unknown errors collapse to three explicit
+`UNAVAILABLE`/generic values. The builder consumes the result-context minimizer directly, and the
+prospective private failure writer retains the validated record with exclusive-create semantics.
+
+WP-81 dependency-free public static checks are:
+
+```text
+$TP01_NODE_BIN --check scripts/primary-result-context-contract.mjs
+$TP01_NODE_BIN --check scripts/primary-result-context-contract.test.mjs
+$TP01_NODE_BIN --check scripts/evidence-verify.mjs
+$TP01_NODE_BIN scripts/primary-result-context-contract.test.mjs
+$TP01_NODE_BIN scripts/handoff-stop-contract.test.mjs
+```
+
+Complete validation syntax-checks every `scripts/*.mjs` file and executes every built-in-only
+`scripts/*.test.mjs` suite. These checks do not invoke dependencies, pnpm/npm, credentials,
+preflight, images, Docker/Compose, a database, SQL, cleanup, proof, handoff, reproduction, or
+network access. Static PASS establishes only the prospective proof-control contract.
 
 ## WP-77 primary-handoff stop consistency contract
 

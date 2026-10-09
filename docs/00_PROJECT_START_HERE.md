@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-80 Inconclusive and independently validated; exact publication authorized |
+| Status | Product Discovery closed — WP-81 independently validated; exact publication authorized |
 | Current phase | Technical Proof Static Remediation |
-| Current work package | `WP-80 Controlled TP-01 Primary-Handoff Execution` |
+| Current work package | `WP-81 Primary-Result Semantic Alignment and Handoff Diagnostic Remediation` |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -132,6 +132,7 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 73. `81_TP01_PRIMARY_HANDOFF_REMEDIATION_REBINDING_REAUTHORIZATION_READINESS.md`
 74. `82_TP01_EXECUTION_IDENTITY_PRIMARY_HANDOFF_AUTHORIZATION_READINESS.md`
 75. `83_TP01_CONTROLLED_PRIMARY_HANDOFF_EXECUTION_RESULT.md`
+76. `84_TP01_PRIMARY_RESULT_SEMANTIC_ALIGNMENT_STATIC_REMEDIATION.md`
 
 Current and later accepted work packages may add or mature:
 
@@ -2266,6 +2267,41 @@ evidence, dependency-free tests, affected hashes/inventory, and one fresh indepe
 validation. Dependencies, credentials, runtime, Docker/Compose, databases, cleanup execution,
 proof/reproduction, network, application coding, architecture selection, infrastructure,
 deployment, provider accounts/cost, and customer/live data remain closed.
+
+## WP-80 publication and WP-81 static candidate — 2026-10-09
+
+The exact four-path WP-80 inventory passed fresh public-packet validation and was published at
+`93295af37df943c4f7810ef245c41294ffaea2fc`, with repository tree
+`ef13e09ebd4a09cff05e70c08d2518658bad8a38`; the proof tree remained
+`b5f144de1e948030e0c61aaeae90d36b79f0466a`. WP-80 is `VERIFIED_AND_CLOSED` without retry.
+
+WP-81 preserves the proof emitter and manifest and corrects only later semantic controls. A new
+dependency-free contract distinguishes ordinary per-case rollback from `TP1-CASE-008` pool-reuse
+context reset, validates exact context shapes, and produces minimized typed semantic failures. The
+execution-evidence verifier now applies this contract to both runs and includes cleanup-reset and
+organization-sequence meaning in PRIMARY/REPRODUCTION comparison.
+
+Exact Node v22.23.1 passed 53 syntax checks, 18 public dependency-free suites, the private retained-
+222-record semantic suite, and the private exclusive-create failure-evidence suite. The renewed
+proof inventory contains 86 files; artifact-inventory SHA-256 is
+`c3f843736e6dc9024928ed9b37f19a143bd2c872f266e48d76fe51c2c8e3936f`, and canonical content-
+set SHA-256 is `b13af7f9221cad17474d3a3d2c30216410f51407d0af07c55c79c6c9b0603fe3`.
+
+Initial independent review found that the minimized diagnostic was not yet connected to a formal
+retained-evidence creator. The renewed candidate preserves legacy WP-80 stop evidence, adds a
+version-2 formal builder and exact schema for case/check metadata, and provides an exclusive-create
+private failure writer. The same sole fresh validator reproduced the renewed eleven-path scope,
+86-entry inventory, both aggregate hashes, all 53 syntax checks, all 18 public suites, both private
+suites, schema-version compatibility, secret/ignore/whitespace controls, and closed gates, and
+returned `PASS` with zero findings and zero mutation. Private report SHA-256 is
+`6fccd4e70621fe34b35405ec4e69dc6e6ae5d58aad6d392c2ee21f5b3a1c30ea`.
+
+Under standing completion authority, `DEC-216`, `WP81-REM-001` through `009`, `WP81-BIND-001`
+through `031`, `WP81-DEC-001` through `006`, resolved `WP81-VAL-001`, the renewed 86-file proof
+identity, and the exact eleven-path public/proof inventory are accepted. Publication is authorized
+only for that frozen inventory after the same validator confirms the final disposition-only delta.
+Static evidence is not a TP-01 runtime result and grants no dependency, runtime, network, product,
+architecture, infrastructure, deployment, provider/cost, or customer/live-data authority.
 
 ## Private execution control
 

@@ -193,3 +193,20 @@ organization-sequence evidence across runs, improve minimized semantic-failure e
 dependency-free tests, renew affected hashes/inventory, and obtain exactly one fresh independent
 static validator. All runtime, product, architecture, infrastructure, deployment, provider,
 network, and customer/live-data gates remain closed.
+
+## Verified publication and successor static candidate
+
+The exact four-path WP-80 inventory passed fresh independent public-packet validation and was
+published at `93295af37df943c4f7810ef245c41294ffaea2fc`, with repository tree
+`ef13e09ebd4a09cff05e70c08d2518658bad8a38`. Local `HEAD`, cached `origin/main`, and live remote
+main matched that publication. WP-80 is `VERIFIED_AND_CLOSED` without retry.
+
+WP-81 then preserved the emitted proof result and manifest and corrected only later group-specific
+semantic validation, PRIMARY/REPRODUCTION comparison, and minimized semantic-failure metadata.
+Its renewed 86-file static candidate and exact validation state are recorded in
+`84_TP01_PRIMARY_RESULT_SEMANTIC_ALIGNMENT_STATIC_REMEDIATION.md`. The same sole fresh validator
+found and then confirmed resolution of the formal diagnostic-integration gap and returned `PASS`
+on the renewed candidate with zero findings and zero mutation. Exact publication is authorized;
+until verified publication, it grants no rebinding, identity, authorization, dependency, runtime,
+proof, network, product, architecture, infrastructure, deployment, provider, or customer/live-data
+authority.
