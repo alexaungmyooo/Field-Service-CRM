@@ -236,3 +236,18 @@ reproduction, use network access, change application code, select architecture, 
 infrastructure, deploy, incur provider cost, or access customer/live data. Any later execution
 would require new identities and a separate exact authorization chain; it is not authorized by
 WP-73.
+
+## Verified publication and WP-74 activation
+
+The exact frozen WP-73 inventory was published at
+`052b6b7855bd726d5fe1de44db0067ba54eb23ff` with repository tree
+`fef38848093945a7a69bec8b882f1233493da139` and proof tree
+`c2cbcb3f117653d2f42f0ee688dab5baf0055c8f`. This document's committed SHA-256 is
+`218d4c7eb28dd04fe4dcf6db545c6a0aff36f6ffaaae8e605717fdada707fab3`. WP-73 is
+`VERIFIED_AND_CLOSED`.
+
+WP-74 is activated only for documentation-only published rebinding and reauthorization readiness.
+It may record the exact candidate, stopped history, workspace and candidate choices, role/no-draft
+state, and later gates. It may not change the proof, instantiate identities, prepare a private
+authorization draft, create material or runtime state, execute TP-01, use network access, or open
+any product, architecture, infrastructure, deployment, provider, or customer-data gate.

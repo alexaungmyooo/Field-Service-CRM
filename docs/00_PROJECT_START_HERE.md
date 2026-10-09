@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-73 proof-only static remediation accepted after independent validation PASS; publication authorized |
+| Status | Product Discovery closed — WP-74 rebinding accepted after independent documentation validation PASS; publication authorized |
 | Current phase | Technical Proof Static Remediation |
-| Current work package | `WP-73 Audit-Detail Parameter Typing Static Remediation` |
+| Current work package | `WP-74 TP-01 Audit-Parameter Remediation Rebinding and Reauthorization Readiness` |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -125,6 +125,7 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 66. `74_TP01_EXECUTION_IDENTITY_RECURSIVE_RLS_AUTHORIZATION_READINESS.md`
 67. `75_TP01_CONTROLLED_RECURSIVE_RLS_EXECUTION_RESULT.md`
 68. `76_TP01_AUDIT_DETAIL_PARAMETER_TYPING_STATIC_REMEDIATION.md`
+69. `77_TP01_AUDIT_PARAMETER_REMEDIATION_REBINDING_REAUTHORIZATION_READINESS.md`
 
 Current and later accepted work packages may add or mature:
 
@@ -1231,6 +1232,32 @@ Docker/Compose,
 containers, databases, services, SQL, cleanup, proof/reproduction, network, application coding,
 final architecture selection, infrastructure, deployment, provider accounts/cost, and
 customer/live data remain closed.
+
+## WP-73 publication and WP-74 rebinding candidate — 2026-10-09
+
+The exact frozen nine-path WP-73 public/proof inventory was committed as
+`052b6b7 WP-73: accept audit parameter typing remediation` and published at
+`052b6b7855bd726d5fe1de44db0067ba54eb23ff`. The published repository tree is
+`fef38848093945a7a69bec8b882f1233493da139`; the proof tree is
+`c2cbcb3f117653d2f42f0ee688dab5baf0055c8f`. The 82-file inventory and aggregate hashes remain
+`93d1e7975dc13d3f1bd5e5471473b3008dd99df56630447ce78779ecfa12a759` and
+`89f63f1749ac20a453f0c45923e2d7de3b8a722541d9fb872650c7a2facae222`. WP-73 is
+`VERIFIED_AND_CLOSED`.
+
+WP-74 binds that publication as one indivisible prospective candidate. It preserves all thirteen
+stopped attempts, advances only a later clean dedicated checkout at the exact published revision
+and the exact typed audit candidate, rejects shared or stopped workspaces, non-exact variants,
+interpolation or security weakening, and static-PASS-as-runtime-evidence. It creates no identity,
+private authorization draft, run, material, dependency state, or execution authority. Fresh
+independent documentation validator `/root/wp74_doc_validator` reproduced the live publication,
+82 entries and both hashes, every bound artifact hash, all 39 bindings, ten decisions, thirteen
+stopped attempts, all option dispositions, exact four-path scope, clean index/whitespace, secret
+absence, and every closed gate. It returned `PASS` with zero findings and zero mutation.
+
+Under standing completion authority, all 39 bindings, ten decisions, workspace and audit-candidate
+dispositions, `DEC-205`, and the exact four-path public inventory are accepted; commit and push are
+authorized only for that inventory. Every dependency, material, runtime, network, product,
+architecture, infrastructure, deployment, provider, and customer-data gate remains closed.
 
 The exact twenty-path WP-46 inventory was committed as
 `bbcb4b2 WP-46: accept database connection remediation` and pushed to `origin/main`. Local `HEAD`,
