@@ -239,3 +239,17 @@ Only after verified publication may a separate WP-60 package request
 authorization for exactly one controlled run under a new run ID and a new effective private
 authorization bound to the accepted proof revision and all accepted controls. WP-59 itself creates
 no execution authority, and no WP-60 action may be inferred from acceptance or publication alone.
+
+## WP-60 controlled result
+
+After verified WP-59 publication, the owner standing completion authorization opened exactly one
+WP-60 run, `wp60-2026-10-09-01`, at the accepted proof revision. Exact offline restoration,
+effective private binding, preflight, local-image verification, database start, and the corrected
+PRIMARY three-view reachability gate passed without registry or general internet access.
+
+The first database reset then failed closed before SQL because Docker Compose required a
+configuration interpolation value that the reset operation did not receive. No fixture, proof
+case, primary packet, or reproduction ran. Mandatory cleanup, credential/dependency removal,
+residual verification, three role-separated reviews, and fail-closed final disposition completed.
+WP-60 is accepted as `INCONCLUSIVE_CLOSED_NO_RETRY`; see
+`docs/63_TP01_CONTROLLED_REACHABILITY_COMPOSE_INTERPOLATION_OPERATIONAL_STOP_EXECUTION_RESULT.md`.
