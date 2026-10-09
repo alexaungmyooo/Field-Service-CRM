@@ -4,7 +4,7 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Accepted — owner decision recorded; execution unauthorized; publication authorized |
+| Status | Accepted, published, and closed — execution unauthorized |
 | Work package | `WP-58 TP-01 Reachability Compose Interpolation and Operational-Stop Remediated Rebinding and Reauthorization Readiness` |
 | Governing decisions | `DEC-188`; `DEC-189` |
 | Governance publication | `753e853725147c00f4c76d5288e6a3f002a4b7b3` |
@@ -15,7 +15,7 @@
 | Date | 2026-10-09 |
 | TP-01 execution | Not authorized |
 | Private authorization draft | Not authorized and not created |
-| Publication | Authorized for the frozen four-path public inventory; verification pending |
+| Publication | Verified as `78cf459e970a6b4bd64f8cc7e553d3e0beaaabcd` |
 
 ## Objective and authority boundary
 
@@ -215,3 +215,23 @@ and prepare owner-decision documentation plus one explicitly ineffective private
 draft. Checkout creation,
 dependency restoration, credential/environment generation, preflight, runtime work, proof,
 reproduction, and all other closed boundaries remain unauthorized until separately accepted.
+
+The exact frozen inventory was committed as
+`78cf459 WP-58: accept reachability remediation rebinding` and pushed to `origin/main`. Local
+`HEAD`, cached `origin/main`, and live remote main matched
+`78cf459e970a6b4bd64f8cc7e553d3e0beaaabcd`; repository tree is
+`b5a9efcc97543cf0d01638d0586ca80a4b19d225` and proof tree remains
+`53e22adde7a169ff66cabf33afb493eb5031443a`. WP-58 is `VERIFIED_AND_CLOSED`.
+
+WP-59 is active only for the exact fresh reproduction-validator identity, one explicitly
+ineffective private authorization draft, and owner-decision documentation. It creates no run,
+effective authorization, checkout, run-bound dependency state, credential/environment, token,
+runtime evidence, execution authority, product work, architecture selection, infrastructure,
+deployment, provider operation, customer/live-data access, or network authority.
+
+WP-59 recorded exactly one fresh reproduction-validator identity and one explicitly ineffective
+private draft. Independent binding, draft, and scope/governance validation returned `PASS` after
+`WP59-VAL-001` was resolved by adding the distinct false synthetic-interpolation-generation gate
+and renewing the draft hash. Under the owner's standing completion authorization, all 30 WP-59
+bindings, exact proposed roles, attestation, ineffective draft, ten decisions, and frozen
+four-path inventory are accepted for publication. No execution or material authority is opened.
