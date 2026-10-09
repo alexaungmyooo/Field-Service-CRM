@@ -246,3 +246,26 @@ That later gate would require a new run identity and a newly created effective p
 authorization bound to exact run material and operations. No checkout, dependency, credential,
 environment, image, network, runtime, SQL, cleanup, proof, reproduction, product, architecture,
 infrastructure, deployment, provider, or customer/live-data action is authorized under WP-75.
+
+## Verified publication and WP-76 disposition
+
+The exact four-path WP-75 inventory was committed as
+`b66e580 WP-75: accept audit parameter execution readiness` and published at
+`b66e5806e67f101ee214dbba45940d2546d1864c`. The published governance repository tree is
+`fc38a84737f6c574d489b51050ebd5e75ccdaaee`; the accepted proof revision remains
+`052b6b7855bd726d5fe1de44db0067ba54eb23ff`; and the proof tree remains
+`c2cbcb3f117653d2f42f0ee688dab5baf0055c8f`. WP-75 is `VERIFIED_AND_CLOSED`.
+
+Under standing completion authority, WP-76 then performed exactly one controlled synthetic run,
+`wp76-2026-10-09-01`. Preparation, preflight, local accepted-image verification, bounded database
+start, PRIMARY reachability/reset/security capture, matrix verification, and one PRIMARY command
+passed. PRIMARY produced 222 exact result matches and 222 audit records with unchanged state.
+
+The private handoff-seal tool failed during Node module instantiation because `node:fs` has no
+named export `COPYFILE_EXCL`. No seal, handoff verification, or reproduction authority existed, so
+reproduction correctly did not run. Mandatory cleanup, private-material/dependency/checkout
+removal, and residual verification passed; the final verifier failed closed on the absent
+reproduction phase. WP-76 is accepted only as `INCONCLUSIVE_CLOSED_NO_RETRY`; it establishes no
+TP-01 or architecture result. The exact outcome, evidence identities, findings, and bounded next
+static-remediation gate are recorded in
+`79_TP01_CONTROLLED_AUDIT_PARAMETER_EXECUTION_RESULT.md`.
