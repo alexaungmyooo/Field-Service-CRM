@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-85 accepted; exact publication authorized |
-| Current phase | Technical Proof Host-Access Readiness Planning |
-| Current work package | `WP-85 Docker Host Access Readiness` |
+| Status | Product Discovery closed — WP-86 accepted; exact publication authorized |
+| Current phase | Technical Proof Host-Access Probe Authorization Readiness |
+| Current work package | `WP-86 Docker Host Access Probe Authorization Readiness` |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -137,6 +137,7 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 78. `86_TP01_EXECUTION_IDENTITY_PRIMARY_RESULT_SEMANTIC_AUTHORIZATION_READINESS.md`
 79. `87_TP01_CONTROLLED_SEMANTIC_REMEDIATION_EXECUTION_RESULT.md`
 80. `88_TP01_DOCKER_HOST_ACCESS_READINESS.md`
+81. `89_TP01_DOCKER_HOST_ACCESS_PROBE_AUTHORIZATION_READINESS.md`
 
 Current and later accepted work packages may add or mature:
 
@@ -1783,6 +1784,32 @@ root static-validation `PASS` exactly as recorded. Commit and push are authorize
 exact four-path WP-85 public inventory. After verified publication, WP-86 may prepare owner-
 decision documentation and one private ineffective authorization draft only. Docker/API execution
 and every runtime, proof, network, product, architecture, infrastructure, deployment,
+provider/cost, and customer/live-data gate remain closed.
+
+## WP-85 publication and WP-86 authorization-readiness activation — 2026-10-09
+
+The exact four-path WP-85 inventory was published at
+`b5d3e3a6e1ad68101017a92f22ed95d9f745093d`, with repository tree
+`f04c446c754c4ddfa88519553980f4e71928d609`; local `HEAD`, cached `origin/main`, and live remote
+main matched. The proof tree remained `45369309793a803e761ace440c291c7d1ebdfe37`. WP-85 is
+`VERIFIED_AND_CLOSED` without any Docker or proof execution.
+
+WP-86 is active only for owner-decision documentation and private ineffective authorization
+preparation for a future read-only Docker host-access probe. It may bind the exact publication,
+future command shape, minimized receipt, expiry, proposed roles, and closed authority flags. It may
+not instantiate a validator, create executable controls or an effective authorization, contact the
+Docker API, inspect or retrieve images, invoke Compose, operate runtime resources, restore
+dependencies, generate credentials, run preflight/proof/reproduction/cleanup, use network, change
+application code, select architecture, create infrastructure, deploy, incur provider cost, or
+access customer/live data.
+
+The owner accepted `DEC-221`, `WP86-BIND-001` through `022`, `WP86-DEC-001` through `010`,
+`/root` only as proposed probe operator, `/root/wp86_docker_access_validator` only as the reserved
+proposed fresh validator, the ineffective private draft, and static-validation `PASS`. Commit and
+push are authorized only for the exact four-path WP-86 inventory. After verified publication,
+WP-87 may materialize documentation/private static controls and instantiate exactly that one fresh
+validator for zero-authority attestation. Docker/API execution, context inspection, version
+handshake, and every runtime, proof, network, product, architecture, infrastructure, deployment,
 provider/cost, and customer/live-data gate remain closed.
 
 ## WP-70 publication and WP-71 identity readiness — 2026-10-09

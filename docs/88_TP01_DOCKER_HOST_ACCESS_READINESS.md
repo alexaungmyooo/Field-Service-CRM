@@ -154,3 +154,15 @@ Commit and push are authorized only for the exact frozen inventory after final s
 After verified publication, WP-86 may prepare owner-decision documentation and a new explicitly
 ineffective private authorization draft for the read-only host-access probe. Probe execution still
 requires a separate exact owner authorization.
+
+## Verified publication and successor readiness boundary
+
+The exact four-path WP-85 public inventory was published at
+`b5d3e3a6e1ad68101017a92f22ed95d9f745093d`, with repository tree
+`f04c446c754c4ddfa88519553980f4e71928d609`; local `HEAD`, cached `origin/main`, and live remote
+main matched. WP-85 is `VERIFIED_AND_CLOSED` with planning evidence only.
+
+WP-86 is active only for owner-decision documentation and one private explicitly ineffective
+authorization draft. It grants no validator instantiation, executable control, Docker/API access,
+runtime, dependency, credential, proof, network, product, architecture, infrastructure,
+deployment, provider/cost, or customer/live-data authority.
