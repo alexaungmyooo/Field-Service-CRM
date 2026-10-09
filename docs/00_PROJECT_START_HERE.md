@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-68 Inconclusive; closed without retry; publication authorized after validation PASS |
+| Status | Product Discovery closed — WP-69 accepted after independent static-validation PASS; publication authorized |
 | Current phase | Technical Proof Static Remediation |
-| Current work package | `WP-68 Controlled TP-01 Database Evidence Continuity Execution` |
+| Current work package | `WP-69 Recursive Authorization and State-Path Static Remediation` |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -120,6 +120,7 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 61. `69_TP01_DATABASE_EVIDENCE_CONTINUITY_REBINDING_REAUTHORIZATION_READINESS.md`
 62. `70_TP01_EXECUTION_IDENTITY_DATABASE_EVIDENCE_CONTINUITY_AUTHORIZATION_READINESS.md`
 63. `71_TP01_CONTROLLED_DATABASE_EVIDENCE_CONTINUITY_EXECUTION_RESULT.md`
+64. `72_TP01_RECURSIVE_AUTHORIZATION_STATE_PATH_STATIC_REMEDIATION.md`
 
 Current and later accepted work packages may add or mature:
 
@@ -1887,7 +1888,35 @@ is WP-69 proof-only static remediation of the recursive authorization/state path
 hashes and one fresh independent static validator. Runtime, application coding, final architecture
 selection, infrastructure, deployment, provider accounts/cost, network, and customer/live data
 remain closed. Final independent validation of the exact four-path public packet returned `PASS`
-with no findings; commit and push are authorized under standing completion authority.
+with no findings. The packet was published at
+`2aa7fabf614ced1eb23240b59debcfcbee12449b`, repository tree
+`9e3741ef0bcfca426cefb3b299d29105e78fdbb8`; WP-68 is `VERIFIED_AND_CLOSED` without retry.
+
+## WP-69 recursive authorization/state-path static remediation — 2026-10-09
+
+Static analysis traced the exact WP-68 failure to a forced-RLS cycle:
+`platform.organizations` policy → `can_discover_organization` → `can_access_tenant` → the same
+organization policy. WP-69 separates membership/support/machine authority from organization
+lifecycle lookup, adds an identity-preserving organization-row visibility function, and removes
+the recursive function edge while keeping all six protected tables under enabled and forced RLS.
+The runtime role remains non-owner, non-superuser, and `NOBYPASSRLS`; the owner remains non-login.
+
+The final evidence verifier now distinguishes four exact security-definer authority functions from
+the security-invoker row-visibility function. A new dependency-free graph contract proves the
+effective policy/function graph acyclic and rejects cycle, RLS weakening, owner-login, or frozen
+semantic drift. Exact Node `v22.23.1` syntax checks passed for all 47 proof scripts, and all 15
+built-in-only test suites passed. The renewed proof inventory contains 80 files; artifact-inventory
+SHA-256 is `8cb9082083a4611f0fe2e3e3d61c0306a47ca62b4292e738a4f0c73f64a686e6`, and canonical
+content-set SHA-256 is `aefb6865d7ffb89d906bb7d369b99e9300cb0f1f09581b0a99b8cd7889882f4c`.
+
+The sole fresh independent static validator, `/root/wp69_static_validator`, returned `PASS` with no
+findings after reproducing the exact ten-path scope, all 80 file hashes and both aggregate
+identities, 47 syntax checks, 15 suites, and every security and closure control. Under standing
+completion authority, WP-69 is accepted and commit/push are authorized only for that exact
+inventory. Static PASS is not a tenant-isolation proof or execution authorization. Dependencies,
+credentials, runtime, Docker/Compose, databases, services, cleanup, proof/reproduction, network,
+application coding, final architecture selection, infrastructure, deployment, provider
+accounts/cost, and customer/live data remain closed.
 
 ## Private execution control
 

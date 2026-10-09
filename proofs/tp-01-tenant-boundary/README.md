@@ -7,22 +7,71 @@ This directory materializes checkpoint 1 of the accepted TP-01 contract in
 
 ## Current authorization
 
-WP-57 authorizes proof-only static remediation of the reachability Compose-interpolation and
-operational-stop-accounting gaps exposed by WP-56. It permits an ephemeral non-secret
-interpolation interface for read-only Compose publisher inspection, formal primary/reproduction
-reachability-stop evidence, dependency-free syntax and pure tests, governing documentation,
-affected hash/inventory renewal, ignored private static evidence, and exactly one fresh independent
-read-only static validation after freeze.
+WP-69 authorizes proof-only static remediation of the recursive RLS authorization/state path
+exposed by immutable WP-68. It permits a non-recursive authority helper, an identity-preserving
+organization-row visibility function, exact final-verifier catalog expectations, dependency-free
+call-graph and preservation tests, governing documentation, complete hash/inventory renewal,
+ignored private static evidence, and exactly one fresh independent read-only static validation
+after freeze.
 
-WP-57 does **not** authorize dependencies or package-manager operations, credential or environment
+WP-69 does **not** authorize dependencies or package-manager operations, credential or environment
 generation/use, preflight, image inspection or retrieval, Docker/Compose commands, pull-token
-creation, containers, databases, services, SQL, fixtures, listeners, cleanup execution, a TP-01
-case or reproduction, execution-evidence verification, application code, architecture selection,
-infrastructure, deployment, provider accounts or cost, customer/live data, or network access.
+creation, containers, databases, services, SQL execution, fixtures, listeners, cleanup execution,
+a TP-01 case or reproduction, execution-evidence verification, application code, architecture
+selection, infrastructure, deployment, provider accounts or cost, customer/live data, or network
+access.
 
 The execution-facing scripts remain closed. They require later owner acceptance, publication,
 rebinding, role assignment, and a new effective private authorization before any execution-facing
 command may run.
+
+## WP-69 recursive authorization/state-path contract
+
+WP-68 established one exact recursive path: forced RLS on `platform.organizations` invoked
+`organization_authority_policy`, which called `can_discover_organization`, which called
+`can_access_tenant`, whose active-organization lookup selected `platform.organizations` and
+re-entered the same forced policy. PostgreSQL stopped all 222 cases with `54001` before any case
+oracle could pass.
+
+The remediated graph preserves forced RLS and separates authority from lifecycle lookup:
+
+```text
+tenant/audit policies -> can_access_tenant
+can_access_tenant -> has_tenant_authority + platform.organizations
+platform.organizations policy -> organization_row_visible
+organization_row_visible -> can_discover_organization (runtime caller only)
+can_discover_organization -> has_tenant_authority
+```
+
+`has_tenant_authority` validates transaction-local organization and subject context and the exact
+membership, support-grant, or machine-identity authority without querying the organization table.
+`organization_row_visible` is security-invoker: it admits the non-login `tp01_owner` only for the
+internal security-definer lifecycle lookup and otherwise delegates direct runtime visibility to
+bounded organization discovery. Direct runtime remains non-owner, non-superuser, and
+`NOBYPASSRLS`; all six protected tables retain both `ENABLE` and `FORCE ROW LEVEL SECURITY`.
+Organization discovery preserves the platform-directory role path and requires an active
+organization plus valid tenant authority for tenant-scoped discovery.
+
+The final evidence verifier now requires the new authority helper as an owned security definer and
+the row-visibility function as an owned security invoker, both with fixed search paths. The public
+roles, case manifest, 222 case oracles, state hashing, proof runner, database-evidence capture,
+dependency versions, Compose definition, and all execution controls are unchanged.
+
+WP-69 dependency-free static checks are:
+
+```text
+$TP01_NODE_BIN --check scripts/rls-authorization-graph-contract.mjs
+$TP01_NODE_BIN --check scripts/rls-authorization-graph-contract.test.mjs
+$TP01_NODE_BIN --check scripts/evidence-verify.mjs
+$TP01_NODE_BIN scripts/rls-authorization-graph-contract.test.mjs
+$TP01_NODE_BIN scripts/hash-inventory.mjs
+```
+
+Complete validation syntax-checks every `scripts/*.mjs` file and executes every built-in-only
+`scripts/*.test.mjs` suite. These checks do not invoke dependencies, pnpm/npm, credentials,
+preflight, images, Docker/Compose, a database, SQL, cleanup, proof/reproduction, or network access.
+Static PASS establishes only that the prospective graph is acyclic and the frozen controls are
+preserved; it is not a runtime tenant-isolation result.
 
 ## WP-57 reachability interpolation and operational-stop contract
 

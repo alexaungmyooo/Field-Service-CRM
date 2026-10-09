@@ -167,3 +167,13 @@ validation and is committed, pushed, and live-remote verified, WP-69 may perform
 bounded proof-only static remediation. No dependency, credential, runtime, network, product,
 architecture, infrastructure, deployment, provider, or customer/live-data permission carries
 forward.
+
+## Successor static-remediation disposition
+
+After verified WP-68 publication, WP-69 traced the exact cycle as
+`platform.organizations` policy → `can_discover_organization` → `can_access_tenant` →
+`platform.organizations` policy. WP-69 prospectively separates the authority check from the active-
+organization lookup and places an identity-preserving row-visibility function at the organization
+policy boundary while retaining forced RLS. This successor work does not alter WP-68 evidence,
+rerun a case, or convert the Inconclusive result into PASS. Its static-only result is recorded in
+`72_TP01_RECURSIVE_AUTHORIZATION_STATE_PATH_STATIC_REMEDIATION.md`.

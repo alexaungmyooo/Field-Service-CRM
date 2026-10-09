@@ -10,9 +10,8 @@ RETURNS uuid LANGUAGE sql STABLE AS $$
   SELECT security.context_text(setting_name)::uuid
 $$;
 
-CREATE OR REPLACE FUNCTION security.can_access_tenant(
+CREATE OR REPLACE FUNCTION security.has_tenant_authority(
   target_organization_id uuid,
-  requested_action text,
   requested_resource_kind text,
   requested_write boolean
 )
@@ -30,12 +29,6 @@ DECLARE
   proof_clock timestamptz := security.context_text('app.proof_clock')::timestamptz;
 BEGIN
   IF target_organization_id IS DISTINCT FROM current_org OR current_subject IS NULL THEN
-    RETURN false;
-  END IF;
-  IF NOT EXISTS (
-    SELECT 1 FROM platform.organizations o
-    WHERE o.id = target_organization_id AND o.lifecycle_state = 'ACTIVE'
-  ) THEN
     RETURN false;
   END IF;
   IF authority = 'MEMBERSHIP' THEN
@@ -71,23 +64,77 @@ BEGIN
 END
 $$;
 
-CREATE OR REPLACE FUNCTION security.can_discover_organization(target_organization_id uuid)
+CREATE OR REPLACE FUNCTION security.organization_row_visible(
+  target_organization_id uuid,
+  target_lifecycle_state text
+)
 RETURNS boolean
-LANGUAGE sql
+LANGUAGE plpgsql
+STABLE
+SET search_path = pg_catalog, security
+AS $$
+BEGIN
+  IF current_user = 'tp01_owner' THEN
+    RETURN true;
+  END IF;
+  RETURN security.can_discover_organization(target_organization_id, target_lifecycle_state);
+END
+$$;
+
+CREATE OR REPLACE FUNCTION security.can_access_tenant(
+  target_organization_id uuid,
+  requested_action text,
+  requested_resource_kind text,
+  requested_write boolean
+)
+RETURNS boolean
+LANGUAGE plpgsql
+STABLE
+SECURITY DEFINER
+SET search_path = pg_catalog, security, platform
+AS $$
+BEGIN
+  IF NOT security.has_tenant_authority(
+    target_organization_id,
+    requested_resource_kind,
+    requested_write
+  ) THEN
+    RETURN false;
+  END IF;
+  RETURN EXISTS (
+    SELECT 1 FROM platform.organizations o
+    WHERE o.id = target_organization_id AND o.lifecycle_state = 'ACTIVE'
+  );
+END
+$$;
+
+CREATE OR REPLACE FUNCTION security.can_discover_organization(
+  target_organization_id uuid,
+  target_lifecycle_state text
+)
+RETURNS boolean
+LANGUAGE plpgsql
 STABLE
 SECURITY DEFINER
 SET search_path = pg_catalog, security
 AS $$
-  SELECT
-    (
-      security.context_text('app.authority_source') = 'PLATFORM_DIRECTORY'
-      AND EXISTS (
-        SELECT 1 FROM security.platform_roles r
-        WHERE r.subject_id = security.context_uuid('app.subject_id')
-          AND r.role_key = 'ORGANIZATION_DIRECTORY'
-      )
-    )
-    OR security.can_access_tenant(target_organization_id, 'DISCOVER', 'ORGANIZATION_DIRECTORY', false)
+BEGIN
+  IF security.context_text('app.authority_source') = 'PLATFORM_DIRECTORY' THEN
+    RETURN EXISTS (
+      SELECT 1 FROM security.platform_roles r
+      WHERE r.subject_id = security.context_uuid('app.subject_id')
+        AND r.role_key = 'ORGANIZATION_DIRECTORY'
+    );
+  END IF;
+  IF target_lifecycle_state IS DISTINCT FROM 'ACTIVE' THEN
+    RETURN false;
+  END IF;
+  RETURN security.has_tenant_authority(
+    target_organization_id,
+    'ORGANIZATION_DIRECTORY',
+    false
+  );
+END
 $$;
 
 CREATE OR REPLACE FUNCTION security.can_write_audit(target_organization_id uuid)
@@ -111,20 +158,26 @@ $$;
 
 ALTER FUNCTION security.context_text(text) OWNER TO tp01_owner;
 ALTER FUNCTION security.context_uuid(text) OWNER TO tp01_owner;
+ALTER FUNCTION security.has_tenant_authority(uuid, text, boolean) OWNER TO tp01_owner;
+ALTER FUNCTION security.organization_row_visible(uuid, text) OWNER TO tp01_owner;
 ALTER FUNCTION security.can_access_tenant(uuid, text, text, boolean) OWNER TO tp01_owner;
-ALTER FUNCTION security.can_discover_organization(uuid) OWNER TO tp01_owner;
+ALTER FUNCTION security.can_discover_organization(uuid, text) OWNER TO tp01_owner;
 ALTER FUNCTION security.can_write_audit(uuid) OWNER TO tp01_owner;
 REVOKE ALL ON FUNCTION security.context_text(text), security.context_uuid(text),
+  security.has_tenant_authority(uuid, text, boolean),
+  security.organization_row_visible(uuid, text),
   security.can_access_tenant(uuid, text, text, boolean),
-  security.can_discover_organization(uuid), security.can_write_audit(uuid) FROM PUBLIC;
+  security.can_discover_organization(uuid, text), security.can_write_audit(uuid) FROM PUBLIC;
 GRANT EXECUTE ON FUNCTION security.context_text(text), security.context_uuid(text),
+  security.has_tenant_authority(uuid, text, boolean),
+  security.organization_row_visible(uuid, text),
   security.can_access_tenant(uuid, text, text, boolean),
-  security.can_discover_organization(uuid), security.can_write_audit(uuid) TO tp01_runtime;
+  security.can_discover_organization(uuid, text), security.can_write_audit(uuid) TO tp01_runtime;
 
 ALTER TABLE platform.organizations ENABLE ROW LEVEL SECURITY;
 ALTER TABLE platform.organizations FORCE ROW LEVEL SECURITY;
 CREATE POLICY organizations_authority_policy ON platform.organizations
-  USING (security.can_discover_organization(id));
+  USING (security.organization_row_visible(id, lifecycle_state));
 
 ALTER TABLE tenant.resources ENABLE ROW LEVEL SECURITY;
 ALTER TABLE tenant.resources FORCE ROW LEVEL SECURITY;

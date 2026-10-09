@@ -168,7 +168,7 @@ Names and columns created later are disposable proof mechanics, not the product 
 | ID | Mode | Required behavior |
 | --- | --- | --- |
 | `TP1-MODE-001` | Application context enforcement | Guard/context/repository boundary rejects invalid authority and always supplies authoritative organization context |
-| `TP1-MODE-002` | PostgreSQL forced RLS | Non-owner, non-superuser, non-`BYPASSRLS` runtime role; `ENABLE` and `FORCE ROW LEVEL SECURITY`; transaction-local organization/authority context |
+| `TP1-MODE-002` | PostgreSQL forced RLS | Non-owner, non-superuser, non-`BYPASSRLS` runtime role; `ENABLE` and `FORCE ROW LEVEL SECURITY` on all protected tables; transaction-local organization/authority context; acyclic owner-context lifecycle lookup without runtime bypass |
 | `TP1-MODE-003` | Combined defense in depth | Application and database controls active; pool checkout/transaction reset prevents context leakage |
 | `TP1-MODE-004` | Controlled negative fault | One layer is deliberately bypassed only in dedicated proof cases to show the other layer's protection/limitation; never represented as an allowed production mode |
 
@@ -325,7 +325,7 @@ primary run.
 | `TP1-EVID-010` | `cleanup.json`: resources/files/processes/ports/volumes/credentials before and after cleanup |
 | `TP1-EVID-011` | `operator-review.md`, `independent-validation.md`, and `security-review.md` |
 | `TP1-EVID-012` | `sanitized-conclusion.md`: measurement, failures, limitations, residual risks, expiry, decision effect |
-| `TP1-EVID-013` | `database-security.json`: measured connection/session identity, role attributes, ownership, privileges, forced-RLS/policy state, security-definer/search-path controls, and transaction-local context |
+| `TP1-EVID-013` | `database-security.json`: measured connection/session identity, role attributes, ownership, privileges, forced-RLS/policy state, security-definer and security-invoker/search-path controls, acyclic organization-row visibility, and transaction-local context |
 | `TP1-EVID-014` | `deviations.json`: owner-accepted contract variances remain distinct from fail-closed operational stops; private-environment activation plus primary/reproduction reachability, database-reset, compilation, and proof-test stops use exact stage/run pairs; database-reset failure also retains a minimized typed failure artifact with truthful SQL-step progress and possible-partial-mutation status; any operational stop or unaccepted deviation blocks PASS |
 | `TP1-EVID-015` | `evidence-verification.json`: artifact hashes and complete-packet disposition; interim verification can never report final PASS |
 | `TP1-EVID-016` | `runtime-reachability.json`: run-bound primary/reproduction phase, exact Docker/Compose publisher mapping, healthy service state, direct loopback TCP reachability, and non-secret evidence that Compose inspection excluded real credentials and retained no interpolation value; each reset requires its independently derived expected phase and final complete-packet verification requires `REPRODUCTION`; a minimized failure artifact plus formal operational stop replaces it on fail-closed stop |

@@ -403,8 +403,19 @@ const expectedPolicies = new Set([
 if ([...expectedPolicies].some(
   (policy) => !databaseSecurity.policies.some((item) => item.policyname === policy),
 )) throw new Error("one or more expected RLS policies are absent");
-const securityDefiners = databaseSecurity.securityFunctions.filter((item) => item.function_name.startsWith("can_"));
-if (securityDefiners.length !== 3) throw new Error("security-definer function inventory differs");
+const expectedSecurityDefiners = new Set([
+  "can_access_tenant",
+  "can_discover_organization",
+  "can_write_audit",
+  "has_tenant_authority",
+]);
+const securityDefiners = databaseSecurity.securityFunctions.filter(
+  (item) => item.security_definer === true,
+);
+if (
+  securityDefiners.length !== expectedSecurityDefiners.size ||
+  securityDefiners.some((item) => !expectedSecurityDefiners.has(item.function_name))
+) throw new Error("security-definer function inventory differs");
 for (const functionRecord of securityDefiners) {
   if (
     functionRecord.owner !== "tp01_owner" ||
@@ -412,6 +423,15 @@ for (const functionRecord of securityDefiners) {
     !functionRecord.configuration.some((value) => value.startsWith("search_path="))
   ) throw new Error(`${functionRecord.function_name} lacks owner/definer/search_path evidence`);
 }
+const organizationRowVisibility = databaseSecurity.securityFunctions.find(
+  (item) => item.function_name === "organization_row_visible",
+);
+if (
+  !organizationRowVisibility ||
+  organizationRowVisibility.owner !== "tp01_owner" ||
+  organizationRowVisibility.security_definer !== false ||
+  !organizationRowVisibility.configuration.some((value) => value.startsWith("search_path="))
+) throw new Error("organization row-visibility function lacks owner/invoker/search_path evidence");
 
 if (typeof supplyChain.files !== "object" || supplyChain.files === null) {
   throw new Error("supply-chain evidence is incomplete");
