@@ -129,3 +129,26 @@ static-validation `PASS`. Commit and push are authorized only for the exact four
 inventory after final validation. After verified publication, WP-91 may instantiate exactly one
 fresh reproduction-validator identity and prepare one private ineffective authorization draft.
 No checkout, materialization, Docker, proof, reproduction, or application execution is authorized.
+
+## Verified publication and WP-91 activation
+
+The exact four-path WP-90 public inventory was published at
+`15947077215509d5ee13a710af3cf44d787f5f57`, with repository tree
+`86be4083aaf6f3906bf62be0a66d8e744e465959`. Local `HEAD`, cached `origin/main`, and live remote
+main matched. This document's published SHA-256 is
+`3f18bfe0ab33b740e53f718140600f12517fe302561c59e0d758eb9284491c46`; proof tree remains
+`45369309793a803e761ace440c291c7d1ebdfe37`. WP-90 is `VERIFIED_AND_CLOSED`.
+
+WP-91 may record proposed identities, instantiate exactly one fresh reproduction-validator
+identity with zero authority, prepare one ignored explicitly ineffective private authorization
+draft, and produce owner-decision documentation and static validation. It may not create a run,
+checkout, dependency state, credential/environment, run-bound control, effective authorization,
+preflight, image or Docker/Compose state, container, database, service, proof, reproduction,
+cleanup execution, application code, architecture decision, infrastructure, deployment,
+provider/cost action, network action, external-system mutation, or customer/live-data access.
+
+The owner accepted the complete WP-91 identity-readiness packet and authorized publication only
+of its exact four-path public inventory. This acceptance does not authorize WP-92 or any checkout,
+material, effective authorization, preflight, Docker/runtime, proof, reproduction, or product
+action. A separate owner gate must bind any controlled successor to the verified WP-91 publication
+revision.

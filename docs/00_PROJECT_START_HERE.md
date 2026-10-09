@@ -4,13 +4,13 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-90 accepted; exact publication authorized |
-| Current phase | Technical Proof Host-Access-Remediated Rebinding and Reauthorization Readiness |
-| Current work package | `WP-90 TP-01 Host-Access-Remediated Rebinding and Reauthorization Readiness` |
+| Status | Product Discovery closed — WP-90 verified and closed; WP-91 accepted for exact publication |
+| Current phase | Technical Proof Execution Identity and Host-Access-Remediated Authorization Readiness |
+| Current work package | `WP-91 TP-01 Execution Identity and Host-Access-Remediated Authorization Readiness` |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
-| Last updated | 2026-10-09 |
+| Last updated | 2026-10-10 |
 
 ## Purpose
 
@@ -142,6 +142,7 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 83. `91_TP01_DOCKER_HOST_ACCESS_PROBE_EXECUTION_AUTHORIZATION_READINESS.md`
 84. `92_TP01_CONTROLLED_DOCKER_HOST_ACCESS_PROBE_RESULT.md`
 85. `93_TP01_HOST_ACCESS_REMEDIATED_REBINDING_REAUTHORIZATION_READINESS.md`
+86. `94_TP01_EXECUTION_IDENTITY_HOST_ACCESS_REMEDIATED_AUTHORIZATION_READINESS.md`
 
 Current and later accepted work packages may add or mature:
 
@@ -1913,6 +1914,32 @@ Commit and push are authorized only for the exact four-path WP-90 public invento
 publication, WP-91 may instantiate exactly one fresh reproduction-validator identity and prepare
 owner-decision documentation plus one private ineffective authorization draft only. Every
 materialization, execution, product, and operational gate remains closed.
+
+## WP-90 publication and WP-91 identity-readiness candidate — 2026-10-10
+
+The exact four-path WP-90 public inventory was published at
+`15947077215509d5ee13a710af3cf44d787f5f57`, with repository tree
+`86be4083aaf6f3906bf62be0a66d8e744e465959`; local `HEAD`, cached `origin/main`, and live remote
+main matched. The proof tree remained `45369309793a803e761ace440c291c7d1ebdfe37`. WP-90 is
+`VERIFIED_AND_CLOSED`.
+
+WP-91 instantiated exactly one fresh proposed reproduction-validator identity,
+`/root/wp91_reproduction_validator`, with a zero-authority independence attestation. `/root` and
+`/root/tp01_security_review` remain proposed identities only. The ignored private draft is
+`DRAFT_NOT_AUTHORIZED`; no package/run exists, all 38 authority flags are false, exactly 28
+identity/material/result values are null, and all 18 stages are proposal-only.
+
+WP-91 prepared only owner-decision documentation, ignored private authorization-readiness
+records, and static validation. It may not create a checkout, dependency state, credential,
+environment, run-bound control, effective authorization, preflight, image/Docker state, runtime,
+proof/reproduction evidence, application code, architecture decision, infrastructure, deployment,
+provider cost, network action, or customer/live-data access.
+
+The owner accepted `DEC-226`, `TP1-EXEC-HOST-BIND-001` through `044`, `WP91-DEC-001` through
+`010`, the proposed role identities, independence attestation, ineffective private draft, and root
+static-validation `PASS`. Commit and push are authorized only for the exact four-path WP-91 public
+inventory. WP-92 execution remains closed pending a separate authorization bound to the verified
+WP-91 publication revision.
 
 ## WP-70 publication and WP-71 identity readiness — 2026-10-09
 
