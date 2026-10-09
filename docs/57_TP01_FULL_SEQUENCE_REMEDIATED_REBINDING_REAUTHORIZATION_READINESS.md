@@ -4,7 +4,7 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Accepted — publication authorized; execution unauthorized |
+| Status | Accepted, published, and closed — execution unauthorized |
 | Work package | `WP-54 TP-01 Full-Sequence Remediated Rebinding and Reauthorization Readiness` |
 | Governing decision | `DEC-184`; proposed `DEC-185` |
 | Governance publication | `09f5a620502b294a6bc5fa3ee2c8397bc6da3094` |
@@ -15,7 +15,7 @@
 | Date | 2026-10-09 |
 | TP-01 execution | Not authorized |
 | Private authorization draft | Not authorized and not created |
-| Publication | Authorized for the frozen four-path public inventory; verification pending |
+| Publication | Verified as `7604646942ba828883abfbc998b93dfbb19ca333` |
 
 ## Objective and authority boundary
 
@@ -175,3 +175,22 @@ the no-private-authorization-draft disposition. Commit and push are authorized o
 four-path public inventory. After verified publication, WP-55 may create exactly one fresh
 reproduction-validator identity and prepare owner-decision documentation plus one explicitly
 ineffective private authorization draft. WP-54 authorizes no execution or broader action.
+
+The exact frozen four-path inventory was committed as
+`7604646 WP-54: accept full-sequence remediation rebinding` and pushed to `origin/main`. Local
+`HEAD`, cached `origin/main`, and live remote main matched
+`7604646942ba828883abfbc998b93dfbb19ca333`; the proof tree remained
+`356ed3d79707ba3b7c77db8c09f80cc26b2ffd54`. WP-54 is `VERIFIED_AND_CLOSED`.
+
+WP-55 created exactly one fresh reproduction-validator identity and prepared one explicitly
+ineffective private authorization draft plus owner-decision documentation. It created no checkout,
+dependency, credential, environment, run ID, token, effective authorization, runtime resource, or
+execution authority.
+
+The owner accepted all ten WP-55 recommendations, all 24 execution/full-sequence readiness
+bindings, the exact proposed roles, the fresh-validator attestation, and the ineffective draft.
+Publication is authorized only for the frozen four-path WP-55 inventory. After verified
+publication, WP-56 may perform exactly one new controlled run under the separately accepted exact
+run, revision, launcher, material, cleanup, network, role, and non-scope controls. No product,
+architecture-selection, infrastructure, deployment, provider-cost, or customer/live-data gate is
+opened.
