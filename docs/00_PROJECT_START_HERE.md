@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-70 rebinding accepted after independent documentation-validation PASS; publication authorized |
+| Status | Product Discovery closed — WP-71 readiness accepted after independent validation PASS; publication authorized |
 | Current phase | Technical Proof Static Remediation |
-| Current work package | `WP-70 TP-01 Recursive RLS Remediation Rebinding and Reauthorization Readiness` |
+| Current work package | `WP-71 TP-01 Execution Identity and Recursive RLS Authorization Readiness` |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -122,6 +122,7 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 63. `71_TP01_CONTROLLED_DATABASE_EVIDENCE_CONTINUITY_EXECUTION_RESULT.md`
 64. `72_TP01_RECURSIVE_AUTHORIZATION_STATE_PATH_STATIC_REMEDIATION.md`
 65. `73_TP01_RECURSIVE_RLS_REMEDIATION_REBINDING_REAUTHORIZATION_READINESS.md`
+66. `74_TP01_EXECUTION_IDENTITY_RECURSIVE_RLS_AUTHORIZATION_READINESS.md`
 
 Current and later accepted work packages may add or mature:
 
@@ -1560,6 +1561,40 @@ commit/push are authorized only for that exact inventory. Dependencies, prefligh
 Docker/Compose, databases, SQL, cleanup, proof/reproduction, network, application coding, final
 architecture selection, infrastructure, deployment, provider accounts/cost, and customer/live
 data remain closed.
+
+## WP-70 publication and WP-71 identity readiness — 2026-10-09
+
+The exact four-path WP-70 inventory was committed as
+`620906d WP-70: accept recursive RLS rebinding` and published at
+`620906d1aaf8a20306aa1782963958ba3f05f985`. Repository tree is
+`7a359a4aba2d5d02ca8dccb63ad6052f94fdc0d3`; the accepted proof revision remains
+`b89c54023f539a45608b8fc2057faec5db0a0103` and proof tree remains
+`7542b7459c0296dbbc6cf74636b0efb97201968a`. WP-70 is `VERIFIED_AND_CLOSED`.
+
+WP-71 records `/root` only as proposed primary operator, creates exactly one fresh proposed
+reproduction-validator identity `/root/wp71_reproduction_validator`, preserves
+`/root/tp01_security_review` only as proposed bounded technical reviewer, and prepares exactly one
+ignored private draft. The attestation is `PASS` with zero authority and zero operation. The draft
+is `DRAFT_NOT_AUTHORIZED`; contains no package/run, checkout, dependency state, credential,
+database URL, private environment, pull token, or runtime material; preserves all twelve stopped
+attempts; lists 19 proposal-only stages; and keeps all 32 action-authority flags false.
+
+WP-71 may perform only identity/readiness documentation, ignored private draft preparation, and
+static validation. It may not create an effective authorization or run, create a checkout, restore
+or invoke dependencies, generate runtime materials, run preflight, inspect or retrieve images,
+invoke Docker/Compose, start containers/databases/services, execute SQL, cleanup, proof, or
+reproduction, use network access, change application code, select final architecture, create
+infrastructure, deploy, incur provider cost, or access customer/live data.
+
+Root validation and fresh independent readiness validator `/root/wp71_readiness_validator`
+returned `PASS` with no findings. They reproduced the live WP-70 publication, exact repository and
+proof trees, all 80 proof entries and both aggregate hashes, the published WP-70 document and
+private validation hashes, the exact four-path public scope, the ignored draft and attestation,
+all 36 bindings, all ten decisions, twelve immutable attempts, 32 false authority flags, 19
+proposal-only stages, and every closed gate. Under standing completion authority, WP-71 is
+accepted and commit/push are authorized only for the exact frozen four-path inventory. A later
+WP-72 package is the only possible next controlled-execution gate; WP-71 itself authorizes no
+runtime action.
 
 WP-65 now provides an explicit database-evidence Compose environment for all seven reset calls and
 both before/after state snapshots in each PRIMARY or REPRODUCTION proof invocation. Reset and proof

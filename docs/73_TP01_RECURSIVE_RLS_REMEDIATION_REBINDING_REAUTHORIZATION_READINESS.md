@@ -209,3 +209,20 @@ dependencies, generate or use credentials/environments, inspect or retrieve imag
 Docker/Compose, create or start containers/databases/services, execute SQL, cleanup, proof, or
 reproduction, use network access, change application code, select architecture, create
 infrastructure, deploy, incur provider cost, or access customer/live data.
+
+## Verified publication and WP-71 activation
+
+The exact frozen WP-70 public inventory was committed as
+`620906d WP-70: accept recursive RLS rebinding` and pushed to `origin/main`. Local `HEAD`, cached
+`origin/main`, and the live remote matched
+`620906d1aaf8a20306aa1782963958ba3f05f985`; repository tree is
+`7a359a4aba2d5d02ca8dccb63ad6052f94fdc0d3`, while the accepted proof revision remains
+`b89c54023f539a45608b8fc2057faec5db0a0103` and proof tree remains
+`7542b7459c0296dbbc6cf74636b0efb97201968a`. WP-70 is `VERIFIED_AND_CLOSED`.
+
+WP-71 is active only for execution-identity decisions, exactly one fresh proposed reproduction-
+validator identity, one ignored explicitly ineffective authorization draft, public owner-decision
+documentation, and static readiness validation. Checkout creation, dependencies, credentials,
+environments, tokens, preflight, images, Docker/Compose runtime, containers, databases, services,
+SQL, cleanup, proof/reproduction, network, application coding, final architecture selection,
+infrastructure, deployment, provider accounts/cost, and customer/live data remain closed.
