@@ -4,7 +4,7 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Owner accepted under standing completion authority — publication authorized; execution unauthorized |
+| Status | Accepted and published — successor WP-68 execution closed Inconclusive without retry |
 | Work package | `WP-67 TP-01 Execution Identity and Database Evidence Continuity Authorization Readiness` |
 | Governing decisions | `DEC-196`; `DEC-197`; `DEC-198` |
 | Governance publication | `f49e173d7b190cd9fb9b6a0c9829dfaf99a898c5` |
@@ -15,7 +15,7 @@
 | Date | 2026-10-09 |
 | TP-01 execution | Not authorized |
 | Private draft | Prepared but explicitly ineffective |
-| Publication | Authorized only for the exact frozen four-path public inventory |
+| Publication | Verified at `ab35ce9e9522f7b66c7929679072c24a8c92dd98` |
 
 ## Objective and authority boundary
 
@@ -181,3 +181,21 @@ Under standing completion authority, the exact frozen four-path public inventory
 authorized for commit and push. The ignored private records remain unpublished. Publication does
 not authorize checkout, dependency, material, runtime, network, proof, product, architecture,
 infrastructure, deployment, provider, or customer/live-data action.
+
+## Verified publication and successor outcome
+
+The exact frozen WP-67 inventory was published at
+`ab35ce9e9522f7b66c7929679072c24a8c92dd98`, repository tree
+`85c06a268c2594cdee7ceae078bf2b699c52da1e`, with unchanged proof revision
+`b628f3e77d4b296f1c357b7a290ee84b3dbb72bd` and proof tree
+`3696a8883d6f3d7eddead1460fc26b0af004d236`. Local `HEAD`, cached `origin/main`, and the live
+remote branch were verified before WP-68 execution.
+
+WP-68 consumed the separately created effective authorization for exact run
+`wp68-2026-10-09-01`; this did not retroactively make the WP-67 private draft effective. The run
+passed preparation through matrix verification, then stopped fail-closed when all 222 executable
+tenant-boundary cases returned PostgreSQL `54001` (`stack depth limit exceeded`). It produced no
+complete primary result packet or handoff and no reproduction. Cleanup and residual verification
+passed, final verification failed closed, and WP-68 is `INCONCLUSIVE_CLOSED_NO_RETRY`. Its exact
+result and evidence disposition are recorded in
+`71_TP01_CONTROLLED_DATABASE_EVIDENCE_CONTINUITY_EXECUTION_RESULT.md`.

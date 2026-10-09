@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-67 accepted; publication authorized |
+| Status | Product Discovery closed — WP-68 Inconclusive; closed without retry; publication authorized after validation PASS |
 | Current phase | Technical Proof Static Remediation |
-| Current work package | `WP-67 TP-01 Execution Identity and Database Evidence Continuity Authorization Readiness` |
+| Current work package | `WP-68 Controlled TP-01 Database Evidence Continuity Execution` |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -119,6 +119,7 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 60. `68_TP01_DATABASE_EVIDENCE_COMPOSE_INTERPOLATION_CONTINUITY_STATIC_REMEDIATION.md`
 61. `69_TP01_DATABASE_EVIDENCE_CONTINUITY_REBINDING_REAUTHORIZATION_READINESS.md`
 62. `70_TP01_EXECUTION_IDENTITY_DATABASE_EVIDENCE_CONTINUITY_AUTHORIZATION_READINESS.md`
+63. `71_TP01_CONTROLLED_DATABASE_EVIDENCE_CONTINUITY_EXECUTION_RESULT.md`
 
 Current and later accepted work packages may add or mature:
 
@@ -1851,6 +1852,42 @@ verification, network, application coding, architecture selection, infrastructur
 provider accounts/cost, and customer/live data remain closed. Only a later separately accepted
 WP-68 package could authorize one exact new controlled run and create a new effective private
 authorization.
+
+## WP-67 publication and WP-68 result — 2026-10-09
+
+The exact frozen four-path WP-67 public inventory was committed as
+`ab35ce9 WP-67: accept database evidence execution readiness` and published at
+`ab35ce9e9522f7b66c7929679072c24a8c92dd98`. The published repository tree is
+`85c06a268c2594cdee7ceae078bf2b699c52da1e`; the accepted proof revision remains
+`b628f3e77d4b296f1c357b7a290ee84b3dbb72bd`; and the proof tree remains
+`3696a8883d6f3d7eddead1460fc26b0af004d236`. WP-67 is `VERIFIED_AND_CLOSED`.
+
+WP-68 then executed the single authorized synthetic run `wp68-2026-10-09-01`. Exact offline,
+frozen, ignore-scripts dependency restoration; preflight; local accepted-image inspection with no
+registry access; PostgreSQL start; PRIMARY three-view reachability; ordered reset; fixture and
+database-security evidence; and the frozen 222-case matrix check all passed. The PRIMARY proof
+stopped fail-closed when all 222 executable cases returned PostgreSQL `54001` (`stack depth limit
+exceeded`). PRIMARY state hashes were unchanged, but no case oracle passed, no complete primary
+packet or handoff existed, and reproduction correctly did not run.
+
+Mandatory authorization-independent cleanup passed. The private runtime environment, generated
+dependencies, runtime resources, and dedicated checkout were removed; independent residual
+verification passed. All three role reviews are `INCONCLUSIVE`, and final verification failed
+closed on the incomplete primary-and-reproduction sequence. A provisional 17-entry seal mismatch
+was preserved and explicitly renewed without runtime or proof re-execution; both independent roles
+verified the final 18-entry seal at SHA-256
+`0c3337922eb8eaeed3f52f2be5fc5c208bccceb2eb034504804e124d83a6a6ed`. The final private
+inventory contains 21 entries, aggregate SHA-256
+`8e96485e97abdd104d66ae7f9f5d65d4c85df5882aec589aabf7f6dc35954a7b`, and inventory-file
+SHA-256 `0920bec66d2b0fe14e32e3515eb154c9e4b60614095fb9532f3c25288517ccb7`.
+
+Under standing completion authority, WP-68 is `INCONCLUSIVE_CLOSED_NO_RETRY`. It establishes no
+tenant-isolation, zero-leakage, architecture, or implementation result. The bounded next candidate
+is WP-69 proof-only static remediation of the recursive authorization/state path, with renewed
+hashes and one fresh independent static validator. Runtime, application coding, final architecture
+selection, infrastructure, deployment, provider accounts/cost, network, and customer/live data
+remain closed. Final independent validation of the exact four-path public packet returned `PASS`
+with no findings; commit and push are authorized under standing completion authority.
 
 ## Private execution control
 
