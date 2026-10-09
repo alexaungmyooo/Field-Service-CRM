@@ -203,3 +203,20 @@ authorization draft. WP-63 may not create a run, effective authorization, checko
 dependency state, credential, URL, environment, token, runtime evidence, or network authority.
 Any later controlled execution requires another exact owner-authorized package and run-bound
 effective private authorization after WP-63 is accepted and published.
+
+## Verified publication and WP-63 activation
+
+The exact frozen four-path WP-62 inventory was committed as
+`faee541 WP-62: accept database reset remediation rebinding` and pushed to `origin/main`. Local
+`HEAD`, cached `origin/main`, and live remote main matched
+`faee541ce30175b54310309d6830878cbb606583`; repository tree is
+`01c1f3c77b5ceb162b2c8844abb7089f640f8ace` and proof tree remains
+`c86c7331a362f6da50471bb4fbfa3dd9bd70f236`. The worktree was clean after publication. WP-62 is
+`VERIFIED_AND_CLOSED`.
+
+WP-63 is active only for one fresh reproduction-validator identity and independence attestation,
+one explicitly ineffective private authorization draft, and owner-decision documentation. It may
+create no effective authorization, run, checkout, dependency state, credential/database URL/raw-
+literal environment, pull token, preflight, image/runtime action, cleanup execution,
+proof/reproduction, network authority, product work, architecture selection, infrastructure,
+deployment, provider action, or customer/live-data access.
