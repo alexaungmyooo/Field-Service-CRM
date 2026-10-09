@@ -142,3 +142,17 @@ for the exact four-path WP-87 public inventory after final validation. After ver
 WP-88 may prepare owner-decision documentation and a private ineffective run-specific
 authorization candidate. Actual Docker/API probing still requires its own later exact owner
 authorization.
+
+## Verified publication and WP-88 boundary
+
+The exact four-path WP-87 public inventory was published as
+`e5f19a3ebe9d6657f8af0a5a63e74ef2b2681489`, with repository tree
+`502b629c155ca15fbbe01b240c41675b66f2462f`. Local `HEAD`, cached `origin/main`, and live remote
+main matched. The proof tree remained `45369309793a803e761ace440c291c7d1ebdfe37`, and this
+published document hashes to
+`3464ed853e9e950db6b4647b7c149c0afa22f004266df57394f376005c82db86`.
+
+WP-87 is `VERIFIED_AND_CLOSED` without Docker/API execution. WP-88 may prepare only owner-decision
+documentation and one private ineffective run-specific authorization candidate. Actual probe
+execution, effective authorization, Docker/API access, operational evidence, and every other
+closed gate require later exact owner authorization.

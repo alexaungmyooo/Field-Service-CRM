@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-87 accepted; exact publication authorized |
-| Current phase | Technical Proof Host-Access Probe Static Materialization |
-| Current work package | `WP-87 Docker Host Access Probe Control Materialization and Validator Instantiation` |
+| Status | Product Discovery closed — WP-88 accepted; exact publication authorized |
+| Current phase | Technical Proof Host-Access Probe Execution Authorization Readiness |
+| Current work package | `WP-88 Docker Host Access Probe Execution Authorization Readiness` |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -139,6 +139,7 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 80. `88_TP01_DOCKER_HOST_ACCESS_READINESS.md`
 81. `89_TP01_DOCKER_HOST_ACCESS_PROBE_AUTHORIZATION_READINESS.md`
 82. `90_TP01_DOCKER_HOST_ACCESS_PROBE_CONTROL_MATERIALIZATION.md`
+83. `91_TP01_DOCKER_HOST_ACCESS_PROBE_EXECUTION_AUTHORIZATION_READINESS.md`
 
 Current and later accepted work packages may add or mature:
 
@@ -1838,6 +1839,30 @@ ineffective draft, and independent static-validation `PASS`. Commit and push are
 for the exact four-path WP-87 public inventory. After verified publication, WP-88 may prepare
 owner-decision documentation and one private ineffective run-specific authorization candidate;
 actual Docker/API probe execution and every other closed gate remain closed.
+
+## WP-87 publication and WP-88 authorization-readiness activation — 2026-10-09
+
+The exact four-path WP-87 public inventory was published at
+`e5f19a3ebe9d6657f8af0a5a63e74ef2b2681489`, with repository tree
+`502b629c155ca15fbbe01b240c41675b66f2462f`; local `HEAD`, cached `origin/main`, and live remote
+main matched. The proof tree remained `45369309793a803e761ace440c291c7d1ebdfe37`. WP-87 is
+`VERIFIED_AND_CLOSED` with static controls only and no Docker/API execution.
+
+WP-88 is active only for owner-decision documentation and one ignored, explicitly ineffective,
+run-specific authorization candidate for a possible later WP-89 probe. It may bind the accepted
+publication, exact control hashes, proposed roles, proposed package/probe IDs, command/evidence
+contract, and closed authority flags. It may not discover or bind an operator process UID or
+Docker executable, create an effective authorization, assign execution timestamps/evidence paths,
+contact Docker, inspect a context, perform a version handshake, create a receipt/stop, use network,
+or perform any runtime, proof, product, architecture, infrastructure, deployment, provider/cost,
+or customer/live-data action.
+
+The owner accepted `DEC-223`, `WP88-BIND-001` through `032`, `WP88-DEC-001` through `010`, the
+proposed WP-89 package and probe identities, proposed roles, exact control hashes, ineffective
+private draft, and root static-validation `PASS`. Commit and push are authorized only for the
+exact four-path WP-88 public inventory. After verified publication, exactly one controlled WP-89
+probe may create fresh effective private authorization and perform only the accepted two local
+Docker operations, ending after one receipt or typed stop. Every other gate remains closed.
 
 ## WP-70 publication and WP-71 identity readiness — 2026-10-09
 
