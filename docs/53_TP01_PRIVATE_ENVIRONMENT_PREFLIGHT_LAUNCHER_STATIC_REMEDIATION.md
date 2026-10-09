@@ -4,14 +4,14 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Accepted — publication authorized |
+| Status | Accepted, published, and closed |
 | Work package | `WP-50 Private Environment Activation and Preflight Launcher Remediation` |
 | Governing decision | `DEC-180`; proposed `DEC-181` |
 | Base publication | `f1f17f1bef03d74d46efa6f3acfb18a29a50249d` |
 | Owner | Aung Myo Oo |
 | Date | 2026-10-09 |
 | Runtime result | None; static remediation only |
-| Publication | Authorized for the frozen twelve-path inventory; verification pending |
+| Publication | Verified as `35776fb5baf18e9230fe2a1bd4d41689949a42b7` |
 
 ## Objective and authority boundary
 
@@ -134,7 +134,7 @@ Runtime behavior and the TP-01 outcome remain unmeasured.
 | `WP50-REM-007` | Renew the complete proof inventory and obtain exactly one fresh independent static validation. | Implemented |
 | `WP50-REM-008` | Keep every runtime, product, architecture, infrastructure, deployment, provider, data, network, and publication gate closed. | Implemented |
 
-## Proposed owner dispositions
+## Owner dispositions
 
 | ID | Recommendation | Status |
 | --- | --- | --- |
@@ -146,9 +146,9 @@ Runtime behavior and the TP-01 outcome remain unmeasured.
 | `WP50-DEC-006` | Keep application coding and final architecture selection closed regardless of WP-50 acceptance. | Accepted |
 | `WP50-DEC-007` | Authorize no WP-50 commit or push until the owner separately accepts the frozen public inventory. | Accepted |
 
-## Frozen-candidate WP-50 public inventory
+## Frozen WP-50 public inventory
 
-Owner review and any later publication decision are limited to these twelve paths:
+Owner acceptance and publication were limited to these twelve paths:
 
 1. `docs/00_PROJECT_START_HERE.md`
 2. `docs/02_ASSUMPTIONS_AND_DECISIONS.md`
@@ -175,3 +175,19 @@ publication, WP-51 may begin private-environment remediation rebinding and reaut
 readiness owner-decision documentation only. Every execution, dependency, credential, product,
 architecture, infrastructure, deployment, provider, network, and customer/live-data gate remains
 closed.
+
+The exact frozen twelve-path inventory was committed as
+`35776fb WP-50: accept private environment remediation` and pushed to `origin/main`. Local `HEAD`,
+cached `origin/main`, and live remote main matched
+`35776fb5baf18e9230fe2a1bd4d41689949a42b7`; the published proof tree is
+`52cf1ab1f936614551285ebf6c85462042daba89`. WP-50 is `VERIFIED_AND_CLOSED`.
+
+WP-51 is active for exact published rebinding and reauthorization-readiness owner-decision
+documentation only. It does not authorize proof changes, roles, private authorization preparation,
+checkout, dependencies, credentials, preflight, runtime operations, product work, architecture
+selection, infrastructure, deployment, provider activity, network access, or customer/live data.
+
+The owner accepted the complete WP-51 candidate binding, advanced its dedicated-workspace and new
+raw-literal private-environment choices, rejected all four alternatives, and accepted its
+no-private-draft disposition. Publication is authorized only for WP-51's frozen four-path public
+inventory. WP-52 remains closed until that publication is live-remote verified.

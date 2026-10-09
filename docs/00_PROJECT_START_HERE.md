@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-50 accepted and publication authorized |
+| Status | Product Discovery closed — WP-51 accepted and publication authorized |
 | Current phase | Technical Proof Evidence Disposition |
-| Current work package | `WP-50 Private Environment Activation and Preflight Launcher Remediation` |
+| Current work package | `WP-51 TP-01 Private Environment Remediation Rebinding and Reauthorization Readiness` |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -102,6 +102,7 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 43. `51_TP01_EXECUTION_IDENTITY_DATABASE_AUTHORIZATION_READINESS.md`
 44. `52_TP01_CONTROLLED_DATABASE_CONNECTION_EXECUTION_RESULT.md`
 45. `53_TP01_PRIVATE_ENVIRONMENT_PREFLIGHT_LAUNCHER_STATIC_REMEDIATION.md`
+46. `54_TP01_PRIVATE_ENVIRONMENT_REMEDIATION_REBINDING_REAUTHORIZATION_READINESS.md`
 
 Current and later accepted work packages may add or mature:
 
@@ -1270,6 +1271,34 @@ inventory. After verified publication, WP-51 may activate for private-environmen
 rebinding and reauthorization-readiness owner-decision documentation only. Every dependency,
 credential, checkout, runtime, product, architecture, infrastructure, deployment, provider,
 network, and customer/live-data gate remains closed.
+
+The frozen twelve-path WP-50 inventory was committed as
+`35776fb WP-50: accept private environment remediation` and pushed to `origin/main`. Local `HEAD`,
+cached `origin/main`, and live remote main matched
+`35776fb5baf18e9230fe2a1bd4d41689949a42b7`; the published proof tree is
+`52cf1ab1f936614551285ebf6c85462042daba89`. WP-50 is `VERIFIED_AND_CLOSED`.
+
+WP-51 is active for owner-decision documentation only. It binds the exact WP-50 publication,
+renewed proof inventory, private-environment contract, stopped-run history, workspace and future
+environment choices, role readiness, and remaining authorization gates. It creates no role,
+subagent, private authorization draft, run, checkout, credential, dependency state, runtime
+evidence, application code, architecture decision, infrastructure, deployment, provider action,
+network access, or customer/live-data action.
+
+WP-51 records 42 exact candidate bindings, all eight immutable stopped attempts, dedicated-
+workspace and new raw-literal private-environment choices, role readiness, ten owner
+recommendations, and the no-private-authorization-draft disposition. Static documentation
+validation passed with exactly four public paths and no proof change. WP-51 is
+`READY_FOR_OWNER_DECISION`, `NOT_READY_FOR_EXECUTION_AUTHORIZATION`, and `NOT_AUTHORIZED`.
+
+The owner accepted `WP51-DEC-001` through `010` and
+`TP1-PRIVATE-ENV-REMEDIATED-BIND-001` through `042`; advanced `WP51-WS-001` and
+`WP51-ENV-001`; rejected the four alternatives; and accepted the no-private-draft disposition.
+Commit and push are authorized only for the frozen four-path WP-51 public inventory. After
+verified publication, WP-52 may create exactly one fresh reproduction-validator identity and
+prepare owner-decision documentation plus one explicitly ineffective private authorization draft.
+Every checkout, dependency, credential/environment-generation, runtime, product, architecture,
+infrastructure, deployment, provider, network, and customer/live-data gate remains closed.
 
 ## WP-30 acceptance, publication, and WP-31 activation — 2026-10-07
 
