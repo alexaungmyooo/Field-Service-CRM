@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-77 independently validated; exact publication authorized |
-| Current phase | Technical Proof Static Remediation |
-| Current work package | `WP-77 Primary-Handoff Seal Interface and Operational-Stop Consistency Static Remediation` |
+| Status | Product Discovery closed — WP-78 independently validated; exact publication authorized |
+| Current phase | Technical Proof Reauthorization Readiness |
+| Current work package | `WP-78 TP-01 Primary-Handoff Remediation Published Rebinding and Reauthorization Readiness` |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -129,6 +129,7 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 70. `78_TP01_EXECUTION_IDENTITY_AUDIT_PARAMETER_AUTHORIZATION_READINESS.md`
 71. `79_TP01_CONTROLLED_AUDIT_PARAMETER_EXECUTION_RESULT.md`
 72. `80_TP01_PRIMARY_HANDOFF_SEAL_OPERATIONAL_STOP_STATIC_REMEDIATION.md`
+73. `81_TP01_PRIMARY_HANDOFF_REMEDIATION_REBINDING_REAUTHORIZATION_READINESS.md`
 
 Current and later accepted work packages may add or mature:
 
@@ -1351,6 +1352,39 @@ database, service, SQL, cleanup execution, proof, handoff, reproduction, or netw
 authorized. Application coding, final architecture selection, infrastructure, deployment,
 provider accounts/cost, and customer/live data remain closed. After verified WP-77 publication,
 only WP-78 published rebinding and reauthorization-readiness documentation may activate.
+
+## WP-77 publication and WP-78 documentation-only activation — 2026-10-09
+
+The exact frozen thirteen-path WP-77 public/proof inventory was committed as
+`6785d65 WP-77: remediate handoff seal and stop consistency` and published at
+`6785d650fc3c9649bd364ae1edfc066141a97701`. The published repository tree is
+`be2ccf5d2e1d494ab6d31ee3247da456ad0163c0`; the published proof tree is
+`b5f144de1e948030e0c61aaeae90d36b79f0466a`. Local `HEAD`, cached `origin/main`, and live remote
+main matched. WP-77 is `VERIFIED_AND_CLOSED` with no runtime result.
+
+The published proof inventory contains 84 files. Artifact-inventory SHA-256 remains
+`366724187427dfa9e4eb0e1ff0e2ad882e786077943e4d8324eaec0204d40a39`; canonical no-terminal-LF
+content-set SHA-256 remains
+`4763359c30e1914f2257b0da6bc7345c4b877fe47e3852354a1b2452bdcdd45d`. The accepted private
+handoff-seal and handoff-verification tool SHA-256 values remain
+`e394659ccf8968cdf927f3ba2e0388c97a219a43eb9a94df627b276ccb331b3b` and
+`44b3feccbb05f873d6a8126a124f98dccdf36b39783c9055b387f37baa552410`. Fresh independent static
+validator `/root/wp77_static_validator` returned `PASS` with zero findings; its private report
+SHA-256 is `cd1f0f437ed4c825ac57168334997196cdcb52d015154c0067dc8f6c4d27ed7c`.
+
+WP-78 was limited to owner-decision documentation that rebinds the exact published candidate,
+fourteen immutable stopped attempts, renewed inventory and hashes, corrected private-tool hashes,
+typed handoff-stop controls, independent static result, workspace choice, exact candidate choice,
+and remaining reauthorization conditions. It may not create or assign an execution identity,
+create a private authorization draft, restore or invoke dependencies, create credentials or
+environments, run preflight, inspect or retrieve images, invoke Docker/Compose, create containers,
+databases, or services, execute SQL, cleanup, proof, handoff, or reproduction, use network access,
+change application code, select architecture, create infrastructure, deploy, incur provider cost,
+or access customer/live data. Fresh independent validator `/root/wp78_documentation_validator`
+returned `PASS` with zero findings and zero candidate mutation. Under standing completion
+authority, the exact bindings, option dispositions, ten decisions, and frozen four-path inventory
+are accepted and authorized for publication. No execution identity or private authorization draft
+exists under WP-78.
 
 The exact twenty-path WP-46 inventory was committed as
 `bbcb4b2 WP-46: accept database connection remediation` and pushed to `origin/main`. Local `HEAD`,

@@ -247,3 +247,30 @@ databases, or services, execute SQL, cleanup, handoff, proof, or reproduction, u
 change application code, select architecture, create infrastructure, deploy, incur provider cost,
 or access customer/live data. Any later execution requires a new identity and separately accepted
 authorization chain; WP-77 and WP-78 do not authorize it.
+
+## Verified publication and WP-78 activation
+
+The exact frozen thirteen-path WP-77 public/proof inventory was committed as
+`6785d65 WP-77: remediate handoff seal and stop consistency` and published at
+`6785d650fc3c9649bd364ae1edfc066141a97701`. The published repository tree is
+`be2ccf5d2e1d494ab6d31ee3247da456ad0163c0`; the published proof tree is
+`b5f144de1e948030e0c61aaeae90d36b79f0466a`. Local `HEAD`, cached `origin/main`, and live remote
+main matched. WP-77 is `VERIFIED_AND_CLOSED` with no runtime result.
+
+The renewed 84-file inventory and its aggregate hashes, corrected private handoff-tool hashes,
+typed PRIMARY-handoff stop contract, exact final-verifier behavior, and fresh independent static
+validation PASS are now published bindings for documentation analysis only. They do not establish
+a TP-01 tenant-isolation, zero-leakage, audit, architecture, dependency, implementation, or
+production-security result.
+
+WP-78 is active only for published rebinding and reauthorization-readiness owner-decision
+documentation. It may compare and disposition the later dedicated-workspace and exact-candidate
+options, but it may not create an execution identity or private authorization draft, restore or
+invoke dependencies, create credentials or environments, run preflight, inspect or retrieve
+images, invoke Docker/Compose, create containers, databases, or services, execute SQL, cleanup,
+proof, handoff, or reproduction, use network access, change application code, select architecture,
+create infrastructure, deploy, incur provider cost, or access customer/live data. Fresh independent
+validator `/root/wp78_documentation_validator` returned `PASS` with zero findings and zero
+candidate mutation over the frozen WP-78 public packet. Under standing completion authority, the
+exact four-path documentation inventory is accepted and authorized for publication; no execution
+or runtime gate is opened.
