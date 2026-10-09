@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-71 readiness accepted after independent validation PASS; publication authorized |
+| Status | Product Discovery closed — WP-72 Inconclusive result accepted after independent validation PASS; publication authorized |
 | Current phase | Technical Proof Static Remediation |
-| Current work package | `WP-71 TP-01 Execution Identity and Recursive RLS Authorization Readiness` |
+| Current work package | `WP-72 Controlled TP-01 Recursive RLS Execution` |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -123,6 +123,7 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 64. `72_TP01_RECURSIVE_AUTHORIZATION_STATE_PATH_STATIC_REMEDIATION.md`
 65. `73_TP01_RECURSIVE_RLS_REMEDIATION_REBINDING_REAUTHORIZATION_READINESS.md`
 66. `74_TP01_EXECUTION_IDENTITY_RECURSIVE_RLS_AUTHORIZATION_READINESS.md`
+67. `75_TP01_CONTROLLED_RECURSIVE_RLS_EXECUTION_RESULT.md`
 
 Current and later accepted work packages may add or mature:
 
@@ -1595,6 +1596,51 @@ proposal-only stages, and every closed gate. Under standing completion authority
 accepted and commit/push are authorized only for the exact frozen four-path inventory. A later
 WP-72 package is the only possible next controlled-execution gate; WP-71 itself authorizes no
 runtime action.
+
+## WP-71 publication and WP-72 controlled execution result — 2026-10-09
+
+The exact four-path WP-71 inventory was committed as
+`ee7a13e WP-71: accept recursive RLS execution identity readiness` and published at
+`ee7a13e577a460010159d3de58a9bef628ceb1dd`. The published repository tree is
+`ebd321bfb4569173448c0cb8bcc09edebfd8e0fe`; the accepted proof revision remains
+`b89c54023f539a45608b8fc2057faec5db0a0103`; and the proof tree remains
+`7542b7459c0296dbbc6cf74636b0efb97201968a`. WP-71 is `VERIFIED_AND_CLOSED`.
+
+WP-72 run `wp72-2026-10-09-01` passed exact checkout and 80-file binding, one offline frozen
+dependency restoration with 115 packages reused and zero downloaded, effective private
+authorization, preflight, local-only accepted-image verification, PostgreSQL start, PRIMARY
+three-view reachability, database reset, database-security capture, and 222-case manifest
+verification. The manifest inventory test passed, but all 222 executable cases stopped at the
+common audit insert with PostgreSQL `42P18`, `could not determine data type of parameter $12`.
+No executable oracle completed, so tenant isolation, zero leakage, audit behavior, combined
+authorization enforcement, and the recursive-RLS remediation remain unmeasured. No PostgreSQL
+`54001` was observed, but that diagnostic fact is not a proof result.
+
+PRIMARY state remained unchanged. No complete PRIMARY packet or sealed handoff existed, so
+reproduction correctly did not run. Mandatory cleanup, private-environment and dependency
+removal, dedicated-checkout removal, and independent residual verification passed. The final
+verifier failed closed because the required complete PRIMARY-and-reproduction reachability
+sequence was absent. The three role reviews recommend `INCONCLUSIVE_CLOSED_NO_RETRY`.
+
+The immutable role-review seal contains 17 entries and has SHA-256
+`64d35104365089edd91c5d3a8fb777cb153609404af403c3ff60af85d997f87e`. The final private inventory
+contains 21 entries, aggregate SHA-256
+`de8b086d44c105c256b2544090ccaaa59c99f98a85817511bbcac852f78e7a27`, and inventory-file SHA-256
+`f8a8203bc343bb58ac5fb8718988d7cdc90328255a7fe53dc97de6cfabb852d1`. Fresh independent validator
+`/root/wp72_final_packet_validator` reproduced the complete packet and returned `PASS` with no
+findings; its ignored validation record has SHA-256
+`8cc8c20c22561640dfb6f3fbb7a2280cf01c953f570e127ba562b1b3562841cf`.
+
+Under standing completion authority, WP-72 is accepted as `INCONCLUSIVE_CLOSED_NO_RETRY`; all
+three deviations, seven remediation controls, seven decisions, three role reviews, cleanup and
+residual results, fail-closed verifier outcome, exact private inventories, and frozen four-path
+public inventory are accepted. No TP-01 or architecture result is accepted. Commit and push are
+authorized only for the exact four public paths. After verified publication, WP-73 may perform
+only bounded proof-only static remediation of the audit-detail parameter typing contract, add
+dependency-free static regression coverage, renew every affected hash and the complete inventory,
+and obtain exactly one fresh independent static validator. All dependency, material, runtime,
+network, product, architecture, infrastructure, deployment, provider, and customer-data gates
+remain closed.
 
 WP-65 now provides an explicit database-evidence Compose environment for all seven reset calls and
 both before/after state snapshots in each PRIMARY or REPRODUCTION proof invocation. Reset and proof

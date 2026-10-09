@@ -215,3 +215,14 @@ WP-71 ends at accepted readiness. After exact publication and live-remote verifi
 define one exact controlled-execution package with a new run identity and a newly created effective
 private authorization. Execution remains closed until WP-72 explicitly binds and opens every
 required action.
+
+## Verified publication and consumed successor authorization
+
+The exact frozen WP-71 inventory was published at
+`ee7a13e577a460010159d3de58a9bef628ceb1dd` with repository tree
+`ebd321bfb4569173448c0cb8bcc09edebfd8e0fe`. WP-72 then created a new effective private
+authorization for run `wp72-2026-10-09-01` and consumed the one-run authority. That run is now
+`INCONCLUSIVE_CLOSED_NO_RETRY`; its authorization cannot be reused, promoted, resumed, or treated
+as proof acceptance. The exact outcome, cleanup, reviews, fail-closed verification, evidence
+inventory, and bounded next gate are recorded in
+`75_TP01_CONTROLLED_RECURSIVE_RLS_EXECUTION_RESULT.md`.
