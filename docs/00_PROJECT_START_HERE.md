@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-81 independently validated; exact publication authorized |
-| Current phase | Technical Proof Static Remediation |
-| Current work package | `WP-81 Primary-Result Semantic Alignment and Handoff Diagnostic Remediation` |
+| Status | Product Discovery closed — WP-82 independently validated; exact publication authorized |
+| Current phase | Technical Proof Rebinding Readiness |
+| Current work package | `WP-82 TP-01 Primary-Result Semantic Remediation Rebinding and Reauthorization Readiness` |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -133,6 +133,7 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 74. `82_TP01_EXECUTION_IDENTITY_PRIMARY_HANDOFF_AUTHORIZATION_READINESS.md`
 75. `83_TP01_CONTROLLED_PRIMARY_HANDOFF_EXECUTION_RESULT.md`
 76. `84_TP01_PRIMARY_RESULT_SEMANTIC_ALIGNMENT_STATIC_REMEDIATION.md`
+77. `85_TP01_PRIMARY_RESULT_SEMANTIC_REMEDIATION_REBINDING_REAUTHORIZATION_READINESS.md`
 
 Current and later accepted work packages may add or mature:
 
@@ -2302,6 +2303,30 @@ identity, and the exact eleven-path public/proof inventory are accepted. Publica
 only for that frozen inventory after the same validator confirms the final disposition-only delta.
 Static evidence is not a TP-01 runtime result and grants no dependency, runtime, network, product,
 architecture, infrastructure, deployment, provider/cost, or customer/live-data authority.
+
+## WP-81 publication and WP-82 rebinding candidate — 2026-10-09
+
+The exact eleven-path WP-81 inventory was published at
+`ecc2db47c4395d19962adcf21f45bf3ff0a0932f`, with repository tree
+`5992d550601c451104f7d40e13000e0c109d7f31` and proof tree
+`45369309793a803e761ace440c291c7d1ebdfe37`. WP-81 is `VERIFIED_AND_CLOSED` with static
+source/control evidence only and no TP-01 runtime result.
+
+WP-82 binds that exact publication, the 86-file inventory and aggregate identities, resolved
+`WP81-VAL-001`, public/private-control hashes, all sixteen immutable stopped runs, a clean dedicated-
+workspace option, the exact semantic candidate, and every remaining identity/material/runtime
+gate. It creates no identity, authorization draft, run, checkout, dependency state, material,
+runtime evidence, or network action.
+
+Fresh independent validator `/root/wp82_documentation_validator` resolved `WP82-VAL-001`, then
+returned `PASS` with zero mutation against the corrected exact four-path WP-82 documentation
+inventory. Under standing completion authority, `DEC-217`, `TP1-SEMANTIC-REMEDIATED-BIND-001`
+through `049`, `WP82-DEC-001` through `010`, the workspace and semantic-option dispositions, and
+all sixteen immutable stopped attempts are accepted. Exact publication is authorized. Dependencies,
+credentials/environments, preflight, images,
+Docker/Compose, containers, databases, services, SQL, cleanup, proof/reproduction, network,
+application coding, architecture selection, infrastructure, deployment, provider accounts/cost,
+external systems, and customer/live data remain closed.
 
 ## Private execution control
 

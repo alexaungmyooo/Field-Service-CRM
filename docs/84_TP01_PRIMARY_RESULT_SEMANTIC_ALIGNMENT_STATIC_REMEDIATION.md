@@ -179,3 +179,18 @@ Under standing completion authority, `DEC-216`, `WP81-REM-001` through `009`, `W
 through `031`, `WP81-DEC-001` through `006`, resolved `WP81-VAL-001`, and the exact eleven-path
 inventory are accepted. The same validator must confirm this final disposition-only delta before
 commit/push. After verified publication, only WP-82 documentation-only rebinding may activate.
+
+## Verified publication and WP-82 activation
+
+The exact eleven-path WP-81 inventory was committed as
+`ecc2db4 WP-81: align primary result semantics` and published at
+`ecc2db47c4395d19962adcf21f45bf3ff0a0932f`, with repository tree
+`5992d550601c451104f7d40e13000e0c109d7f31` and proof tree
+`45369309793a803e761ace440c291c7d1ebdfe37`. Local `HEAD`, cached `origin/main`, and live remote
+main matched that publication. WP-81 is `VERIFIED_AND_CLOSED` with no runtime result.
+
+WP-82 may only bind the exact published candidate, immutable stopped history, workspace and
+semantic options, identity prerequisites, and closed gates in owner-decision documentation. It may
+not create an identity or authorization draft, restore dependencies, create materials, run
+preflight or runtime, execute proof/reproduction, use network, change application code, select
+architecture, create infrastructure, deploy, incur provider cost, or access customer/live data.
