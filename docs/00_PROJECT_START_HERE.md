@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-88 accepted; exact publication authorized |
-| Current phase | Technical Proof Host-Access Probe Execution Authorization Readiness |
-| Current work package | `WP-88 Docker Host Access Probe Execution Authorization Readiness` |
+| Status | Product Discovery closed — WP-89 accepted; exact publication authorized |
+| Current phase | Technical Proof Host-Access Probe Result Review |
+| Current work package | `WP-89 Controlled Docker Host Access Probe Result` |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -140,6 +140,7 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 81. `89_TP01_DOCKER_HOST_ACCESS_PROBE_AUTHORIZATION_READINESS.md`
 82. `90_TP01_DOCKER_HOST_ACCESS_PROBE_CONTROL_MATERIALIZATION.md`
 83. `91_TP01_DOCKER_HOST_ACCESS_PROBE_EXECUTION_AUTHORIZATION_READINESS.md`
+84. `92_TP01_CONTROLLED_DOCKER_HOST_ACCESS_PROBE_RESULT.md`
 
 Current and later accepted work packages may add or mature:
 
@@ -1863,6 +1864,31 @@ private draft, and root static-validation `PASS`. Commit and push are authorized
 exact four-path WP-88 public inventory. After verified publication, exactly one controlled WP-89
 probe may create fresh effective private authorization and perform only the accepted two local
 Docker operations, ending after one receipt or typed stop. Every other gate remains closed.
+
+## WP-88 publication and WP-89 controlled probe — 2026-10-09
+
+The exact four-path WP-88 public inventory was published at
+`5cba0a4489edab6d149e882ee9f48c912e7a0ea3`, with repository tree
+`4936db70020b0e5de256ae509d772f4dea2a51ba`; local `HEAD`, cached `origin/main`, and live remote
+main matched. The proof tree remained `45369309793a803e761ace440c291c7d1ebdfe37`. WP-88 is
+`VERIFIED_AND_CLOSED`.
+
+The separately authorized WP-89 probe `wp89-2026-10-09-01` created one fresh 12-minute effective
+private authorization, bound the current operator process UID and Docker executable bytes, and
+performed exactly the accepted local `desktop-linux` context inspection and client/server version
+handshake. It returned one minimized `READY` receipt with client and server version `29.7.2` and no
+typed stop. The independent validator returned `PASS` without contacting Docker or network.
+
+The receipt is single-use, consumed by validation, non-reusable, and incapable of authorizing
+TP-01, an image, runtime, proof, architecture, or product action. No image, registry, Compose,
+container, network, volume, database, service, dependency, credential, preflight, proof,
+reproduction, application, infrastructure, deployment, provider/cost, or customer/live-data action
+occurred. The owner accepted `DEC-224`, `WP89-BIND-001` through `030`, `WP89-DEC-001` through
+`008`, the exact five-entry private packet, both validation passes, absence of stop/retry, and the
+no-cleanup disposition. Commit and push are authorized only for the exact four-path WP-89 public
+inventory. After verified publication, WP-90 may prepare owner-decision documentation and one
+private ineffective TP-01 reauthorization candidate only. Every execution and product gate
+remains closed.
 
 ## WP-70 publication and WP-71 identity readiness — 2026-10-09
 

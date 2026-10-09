@@ -129,3 +129,18 @@ hashes, ineffective draft, and root static-validation `PASS`. Commit and push ar
 for the exact four-path WP-88 public inventory after final validation. After verified publication,
 the separately authorized WP-89 probe may create one new effective authorization and execute only
 the accepted two-operation contract. No other authority is granted.
+
+## Verified publication and WP-89 result boundary
+
+The exact four-path WP-88 public inventory was published as
+`5cba0a4489edab6d149e882ee9f48c912e7a0ea3`, with repository tree
+`4936db70020b0e5de256ae509d772f4dea2a51ba`. Local `HEAD`, cached `origin/main`, and live remote
+main matched. The proof tree remained `45369309793a803e761ace440c291c7d1ebdfe37`, and this
+published document hashes to
+`d925ed3a1c58f9e1c53eefca7c6f717799a0b3236f27b9ee5288d8e9eb88cac0`.
+
+The separately authorized WP-89 probe produced one independently validated `READY` receipt and no
+typed stop. The single-use receipt is consumed and non-reusable. It records host-access readiness
+only and grants no TP-01, runtime, architecture, product, deployment, network, or customer-data
+authority. WP-89 result documentation is pending owner review and is not authorized for commit or
+push.
