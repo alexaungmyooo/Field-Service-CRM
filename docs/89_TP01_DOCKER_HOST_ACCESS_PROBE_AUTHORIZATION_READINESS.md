@@ -135,3 +135,18 @@ inventory after final static validation. After verified publication, WP-87 may m
 private static controls, instantiate exactly one fresh independent validator, record its zero-
 authority attestation, and prepare another ineffective execution draft. Actual Docker/API probing
 still requires a separate exact owner authorization.
+
+## Verified publication and WP-87 boundary
+
+The exact four-path WP-86 public inventory was published as
+`211cf95249afc7e75263bbe9ca41aae905888964`, with repository tree
+`249949d8480da21bafd3516e2dec8989b24d1e61`. Local `HEAD`, cached `origin/main`, and live remote
+main matched. The proof tree remained `45369309793a803e761ace440c291c7d1ebdfe37`, and this
+published document hashes to
+`e31413257c688a496efd8872cf43cf5671ea487d4db691a7ee390cd1637fe40a`.
+
+WP-86 is `VERIFIED_AND_CLOSED` without a Docker/API probe, context inspection, version handshake,
+readiness receipt, or proof result. WP-87 may materialize only ignored private static controls,
+dependency-free tests, one all-false ineffective authorization draft, and exactly one fresh
+zero-authority validator attestation. Docker/API execution and every other closed gate remain
+closed until a later exact owner authorization.

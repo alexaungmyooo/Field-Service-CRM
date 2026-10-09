@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-86 accepted; exact publication authorized |
-| Current phase | Technical Proof Host-Access Probe Authorization Readiness |
-| Current work package | `WP-86 Docker Host Access Probe Authorization Readiness` |
+| Status | Product Discovery closed — WP-87 accepted; exact publication authorized |
+| Current phase | Technical Proof Host-Access Probe Static Materialization |
+| Current work package | `WP-87 Docker Host Access Probe Control Materialization and Validator Instantiation` |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -138,6 +138,7 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 79. `87_TP01_CONTROLLED_SEMANTIC_REMEDIATION_EXECUTION_RESULT.md`
 80. `88_TP01_DOCKER_HOST_ACCESS_READINESS.md`
 81. `89_TP01_DOCKER_HOST_ACCESS_PROBE_AUTHORIZATION_READINESS.md`
+82. `90_TP01_DOCKER_HOST_ACCESS_PROBE_CONTROL_MATERIALIZATION.md`
 
 Current and later accepted work packages may add or mature:
 
@@ -1811,6 +1812,32 @@ WP-87 may materialize documentation/private static controls and instantiate exac
 validator for zero-authority attestation. Docker/API execution, context inspection, version
 handshake, and every runtime, proof, network, product, architecture, infrastructure, deployment,
 provider/cost, and customer/live-data gate remain closed.
+
+## WP-86 publication and WP-87 static-materialization activation — 2026-10-09
+
+The exact four-path WP-86 inventory was published at
+`211cf95249afc7e75263bbe9ca41aae905888964`, with repository tree
+`249949d8480da21bafd3516e2dec8989b24d1e61`; local `HEAD`, cached `origin/main`, and live remote
+main matched. The proof tree remained `45369309793a803e761ace440c291c7d1ebdfe37`. WP-86 is
+`VERIFIED_AND_CLOSED` without Docker/API execution, context inspection, or version handshake.
+
+WP-87 is active only for documentation and ignored private static materialization. It may create
+the exact import-safe probe contract, controller, receipt verifier, dependency-free tests, one
+ineffective authorization draft, and exactly one fresh zero-authority validator attestation. It
+may not contact Docker, inspect a context, perform a version handshake, create operational
+evidence, restore dependencies, create credentials, execute preflight/proof/reproduction/cleanup,
+use network, change application code, select architecture, create infrastructure, deploy, incur
+provider cost, or access customer/live data.
+
+Exactly one fresh independent validator was instantiated as
+`/root/wp86_docker_access_validator`. Static validation with exact Node.js `v22.23.1` passed all
+five syntax checks and all six dependency-free tests without invoking Docker or creating runtime
+evidence. The owner accepted `DEC-222`, `WP87-BIND-001` through `028`, `WP87-DEC-001` through
+`008`, resolution of `WP87-VAL-001` through `003`, the exact private artifact hashes, attestation,
+ineffective draft, and independent static-validation `PASS`. Commit and push are authorized only
+for the exact four-path WP-87 public inventory. After verified publication, WP-88 may prepare
+owner-decision documentation and one private ineffective run-specific authorization candidate;
+actual Docker/API probe execution and every other closed gate remain closed.
 
 ## WP-70 publication and WP-71 identity readiness — 2026-10-09
 
