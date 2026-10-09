@@ -22,13 +22,132 @@ import {
 const activationFailureArtifact = "private-environment-activation-failure.json";
 const launcherDirectory = dirname(fileURLToPath(import.meta.url));
 const proofRoot = resolve(launcherDirectory, "..");
+const authorizationEnvironmentKeys = Object.freeze([
+  "TP01_EXECUTION_AUTHORIZATION",
+  "TP01_EXECUTION_PACKAGE",
+  "TP01_RUN_ID",
+  "TP01_EVIDENCE_DIR",
+  "TP01_PNPM_ENTRY",
+  "TP01_NODE_BIN",
+]);
+
+export const privateEnvironmentOperationContract = Object.freeze({
+  preflight: Object.freeze({
+    launcher: "EXACT_PNPM",
+    arguments: Object.freeze(["run", "preflight"]),
+    privateValues: Object.freeze([
+      "TP01_BOOTSTRAP_PASSWORD",
+      "TP01_RUNTIME_PASSWORD",
+      "TP01_DATABASE_URL",
+    ]),
+  }),
+  "db:verify-image": Object.freeze({
+    launcher: "EXACT_PNPM",
+    arguments: Object.freeze(["run", "db:verify-image"]),
+    privateValues: Object.freeze(["TP01_IMAGE_PULL_AUTHORIZATION_TOKEN"]),
+  }),
+  "db:start": Object.freeze({
+    launcher: "DOCKER",
+    arguments: Object.freeze(["compose", "up", "-d", "--wait", "postgres"]),
+    privateValues: Object.freeze(["TP01_BOOTSTRAP_PASSWORD"]),
+  }),
+  "runtime:verify-reachability": Object.freeze({
+    launcher: "EXACT_PNPM",
+    arguments: Object.freeze(["run", "runtime:verify-reachability"]),
+    privateValues: Object.freeze([]),
+  }),
+  "db:reset": Object.freeze({
+    launcher: "EXACT_PNPM",
+    arguments: Object.freeze(["run", "db:reset"]),
+    privateValues: Object.freeze(["TP01_RUNTIME_PASSWORD", "TP01_DATABASE_URL"]),
+  }),
+  "matrix:verify": Object.freeze({
+    launcher: "EXACT_PNPM",
+    arguments: Object.freeze(["run", "matrix:verify"]),
+    privateValues: Object.freeze([]),
+  }),
+  "proof:run": Object.freeze({
+    launcher: "EXACT_PNPM",
+    arguments: Object.freeze(["run", "proof:run"]),
+    privateValues: Object.freeze(["TP01_RUNTIME_PASSWORD", "TP01_DATABASE_URL"]),
+  }),
+  "proof:reproduce": Object.freeze({
+    launcher: "EXACT_PNPM",
+    arguments: Object.freeze(["run", "proof:reproduce"]),
+    privateValues: Object.freeze(["TP01_RUNTIME_PASSWORD", "TP01_DATABASE_URL"]),
+  }),
+  "evidence:verify": Object.freeze({
+    launcher: "EXACT_PNPM",
+    arguments: Object.freeze(["run", "evidence:verify"]),
+    privateValues: Object.freeze([]),
+  }),
+  cleanup: Object.freeze({
+    launcher: "EXACT_NODE",
+    script: "cleanup.mjs",
+    arguments: Object.freeze([]),
+    privateValues: Object.freeze([]),
+  }),
+  "evidence:verify-final": Object.freeze({
+    launcher: "EXACT_NODE",
+    script: "evidence-verify.mjs",
+    arguments: Object.freeze(["--final"]),
+    privateValues: Object.freeze([]),
+  }),
+});
+
+export function privateEnvironmentForOperation(environment, operation, baseEnvironment) {
+  if (!Object.hasOwn(privateEnvironmentOperationContract, operation)) {
+    throw new PrivateEnvironmentContractError("PRIVATE_ENVIRONMENT_OPERATION_INVALID");
+  }
+  const childEnvironment = privateExecutionEnvironment(environment, baseEnvironment);
+  const retainedKeys = new Set([
+    ...authorizationEnvironmentKeys,
+    ...privateEnvironmentOperationContract[operation].privateValues,
+  ]);
+  for (const key of Object.keys(childEnvironment)) {
+    if (key.startsWith("TP01_") && !retainedKeys.has(key)) delete childEnvironment[key];
+  }
+  return childEnvironment;
+}
+
+export function privateEnvironmentOperationCommand(operation) {
+  if (!Object.hasOwn(privateEnvironmentOperationContract, operation)) {
+    throw new PrivateEnvironmentContractError("PRIVATE_ENVIRONMENT_OPERATION_INVALID");
+  }
+  const contract = privateEnvironmentOperationContract[operation];
+  if (contract.launcher === "EXACT_PNPM") {
+    return Object.freeze({
+      executable: process.execPath,
+      arguments: Object.freeze([
+        resolve(launcherDirectory, "exact-pnpm.mjs"),
+        ...contract.arguments,
+      ]),
+    });
+  }
+  if (contract.launcher === "EXACT_NODE") {
+    return Object.freeze({
+      executable: process.execPath,
+      arguments: Object.freeze([
+        resolve(launcherDirectory, contract.script),
+        ...contract.arguments,
+      ]),
+    });
+  }
+  if (contract.launcher === "DOCKER") {
+    return Object.freeze({
+      executable: "docker",
+      arguments: contract.arguments,
+    });
+  }
+  throw new PrivateEnvironmentContractError("PRIVATE_ENVIRONMENT_OPERATION_INVALID");
+}
 
 export function classifyPrivateEnvironmentLaunchArguments(args) {
   if (
     args.length !== 3 ||
     args[0] !== "--environment" ||
     !isAbsolute(args[1]) ||
-    args[2] !== "preflight"
+    !Object.hasOwn(privateEnvironmentOperationContract, args[2])
   ) {
     throw new PrivateEnvironmentContractError("PRIVATE_ENVIRONMENT_LAUNCH_SHAPE_INVALID");
   }
@@ -74,9 +193,14 @@ export function writeActivationFailureEvidence(context, code) {
   return Object.freeze({ failurePath, deviationsPath });
 }
 
-export function launchPrivateEnvironmentPreflight(
+export function launchPrivateEnvironmentOperation(
   source,
-  { spawn = spawnSync, authorize = assertExecutionAuthorized } = {},
+  operation,
+  {
+    spawn = spawnSync,
+    authorize = assertExecutionAuthorized,
+    baseEnvironment = process.env,
+  } = {},
 ) {
   const environment = parsePrivateEnvironment(source);
   if (environment.TP01_NODE_BIN !== process.execPath) {
@@ -94,19 +218,24 @@ export function launchPrivateEnvironmentPreflight(
   ) {
     throw new PrivateEnvironmentContractError("PRIVATE_ENVIRONMENT_LAUNCHER_BINDING_MISMATCH");
   }
+  const command = privateEnvironmentOperationCommand(operation);
   const result = spawn(
-    process.execPath,
-    [resolve(launcherDirectory, "exact-pnpm.mjs"), "run", "preflight"],
+    command.executable,
+    command.arguments,
     {
       cwd: proofRoot,
-      env: privateExecutionEnvironment(environment),
+      env: privateEnvironmentForOperation(environment, operation, baseEnvironment),
       stdio: "inherit",
     },
   );
   if (result.error) {
-    throw new PrivateEnvironmentContractError("PRIVATE_ENVIRONMENT_PREFLIGHT_SPAWN_FAILED");
+    throw new PrivateEnvironmentContractError("PRIVATE_ENVIRONMENT_OPERATION_SPAWN_FAILED");
   }
   return result.status ?? 1;
+}
+
+export function launchPrivateEnvironmentPreflight(source, options = {}) {
+  return launchPrivateEnvironmentOperation(source, "preflight", options);
 }
 
 export function main(args = process.argv.slice(2)) {
@@ -117,7 +246,7 @@ export function main(args = process.argv.slice(2)) {
     const launch = classifyPrivateEnvironmentLaunchArguments(args);
     source = readFileSync(launch.environmentPath, "utf8");
     context = privateEnvironmentContext(source);
-    return launchPrivateEnvironmentPreflight(source);
+    return launchPrivateEnvironmentOperation(source, launch.operation);
   } catch (error) {
     const code =
       error instanceof PrivateEnvironmentContractError

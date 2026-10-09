@@ -264,32 +264,42 @@ one exact launcher chain:
 - run commands refuse to start when `node_modules` is absent and fail if pnpm metadata changes;
 - dependency restoration accepts only `install --offline --frozen-lockfile --ignore-scripts` under
   a separate exact authorization value; and
-- cleanup and final verification execute directly with the exact Node binary after dependencies may
-  have been removed, never through pnpm.
+- cleanup and final verification execute as direct exact-Node children after dependencies may have
+  been removed, never through pnpm; the private-environment launcher may supply their reviewed
+  run-bound environment, while cleanup retains its direct exact-Node interface for early-stop use.
 
 The launcher allowlist must statically agree with the package-script interface and this command
 table. It permits the exact two-argument `run runtime:verify-reachability` shape and rejects
 variants, extra arguments, whitespace drift, and unlisted script names. Missing dependencies must
 fail before pnpm inspection or execution, and dependency-marker state must remain unchanged across
 every dependency-reading command. Cleanup and final complete-packet verification remain direct
-exact-Node interfaces and must not be added to the launcher allowlist.
+exact-Node child interfaces and must not be added to the exact-pnpm allowlist.
+
+The non-evaluating private-environment launcher is the outer environment-continuity interface for
+the exact environment-dependent command rows below. Its only accepted CLI shape is exact Node plus
+`private-environment-launcher.mjs --environment <absolute-private-path> <operation>`. Each fixed
+operation maps to one exact child executable and argument vector; arbitrary executables, arguments,
+package scripts, relative environment paths, and operation variants are rejected. The launcher
+revalidates the effective authorization and reviewed proof before every child and removes ambient
+`TP01_*` values before adding only the authorization context and operation-specific private values
+required by that exact child.
 
 | ID | Stage | Exact command interface | Required result |
 | --- | --- | --- | --- |
-| `TP1-CMD-001` | Preflight | `$TP01_NODE_BIN scripts/exact-pnpm.mjs run preflight` | Verify repository revision, host/architecture, exact Node/pnpm entry, Docker/Compose versions, ports, clean proof path, ignored evidence path, zero active proof resources |
+| `TP1-CMD-001` | Preflight | `$TP01_NODE_BIN scripts/private-environment-launcher.mjs --environment <absolute-private-path> preflight` -> exact-pnpm `run preflight` | Verify repository revision, host/architecture, exact Node/pnpm entry, Docker/Compose versions, ports, clean proof path, ignored evidence path, zero active proof resources |
 | `TP1-CMD-002` | Historical lock materialization (closed) | Historical ambient command: `pnpm install --lockfile-only --ignore-scripts` | Completed before WP-25; retained only as provenance and not authorized for future use |
 | `TP1-CMD-003` | Supply-chain inventory | `$TP01_NODE_BIN scripts/exact-pnpm.mjs run evidence:supply-chain` | Direct/transitive versions, integrity, licenses, advisories, and lock hash for review under a separately authorized network policy |
 | `TP1-CMD-004` | Dependency materialization | `$TP01_NODE_BIN scripts/exact-pnpm.mjs install --offline --frozen-lockfile --ignore-scripts` | Restore exactly the reviewed lockfile from an existing local store only after explicit authorization |
-| `TP1-CMD-005` | Image verification | `$TP01_NODE_BIN scripts/exact-pnpm.mjs run db:verify-image` | Inspect the accepted digest/platform locally first; only if absent and separately authorized by a matching run-bound token, retrieve that exact digest/platform, then record source/network/inspection evidence |
-| `TP1-CMD-006` | Database start | `docker compose up -d --wait postgres` | One healthy bounded digest-pinned local container |
-| `TP1-CMD-006A` | Runtime publication and reachability gate | `$TP01_NODE_BIN scripts/exact-pnpm.mjs run runtime:verify-reachability` | Require exact Docker and Compose agreement on `127.0.0.1:55432 -> 5432/tcp`, healthy running service state, and direct loopback TCP reachability before fixture mutation |
-| `TP1-CMD-007` | Schema/fixture | `$TP01_NODE_BIN scripts/exact-pnpm.mjs run db:reset` | Recreate proof roles/schema/policies/seed and emit deterministic fixture hash |
-| `TP1-CMD-008` | Matrix freeze check | `$TP01_NODE_BIN scripts/exact-pnpm.mjs run matrix:verify` | Exactly 222 unique cases and expected outcomes match the accepted contract/hash |
-| `TP1-CMD-009` | Primary run | `$TP01_NODE_BIN scripts/exact-pnpm.mjs run proof:run` | Execute all cases once and emit raw machine-readable evidence |
-| `TP1-CMD-010` | Reproduction | `$TP01_NODE_BIN scripts/exact-pnpm.mjs run proof:reproduce` | Independent validator repeats from reset using same revision/lock/image/case manifest |
-| `TP1-CMD-011` | Interim evidence verification | `$TP01_NODE_BIN scripts/exact-pnpm.mjs run evidence:verify` | Validate both runs and their authorization/environment/image/fixture/database-security/supply-chain/manifest/deviation bindings; emit combined audit/difference/state artifacts without final PASS |
-| `TP1-CMD-012` | Cleanup | `$TP01_NODE_BIN scripts/cleanup.mjs` | Record pre-cleanup state, remove proof resources and dependencies, and verify residual absence without package-manager side effects |
-| `TP1-CMD-013` | Final complete-packet verification | `$TP01_NODE_BIN scripts/evidence-verify.mjs --final` | Revalidate the complete packet without package-manager dependency materialization; only this interface may emit final PASS |
+| `TP1-CMD-005` | Image verification | `... private-environment-launcher.mjs --environment <absolute-private-path> db:verify-image` -> exact-pnpm `run db:verify-image` | Inspect the accepted digest/platform locally first; only if absent and separately authorized by a matching run-bound token, retrieve that exact digest/platform, then record source/network/inspection evidence |
+| `TP1-CMD-006` | Database start | `... private-environment-launcher.mjs --environment <absolute-private-path> db:start` -> `docker compose up -d --wait postgres` | One healthy bounded digest-pinned local container |
+| `TP1-CMD-006A` | Runtime publication and reachability gate | `... private-environment-launcher.mjs --environment <absolute-private-path> runtime:verify-reachability` -> exact-pnpm `run runtime:verify-reachability` | Require exact Docker and Compose agreement on `127.0.0.1:55432 -> 5432/tcp`, healthy running service state, and direct loopback TCP reachability before fixture mutation |
+| `TP1-CMD-007` | Schema/fixture | `... private-environment-launcher.mjs --environment <absolute-private-path> db:reset` -> exact-pnpm `run db:reset` | Recreate proof roles/schema/policies/seed and emit deterministic fixture hash |
+| `TP1-CMD-008` | Matrix freeze check | `... private-environment-launcher.mjs --environment <absolute-private-path> matrix:verify` -> exact-pnpm `run matrix:verify` | Exactly 222 unique cases and expected outcomes match the accepted contract/hash |
+| `TP1-CMD-009` | Primary run | `... private-environment-launcher.mjs --environment <absolute-private-path> proof:run` -> exact-pnpm `run proof:run` | Execute all cases once and emit raw machine-readable evidence |
+| `TP1-CMD-010` | Reproduction | `... private-environment-launcher.mjs --environment <absolute-private-path> proof:reproduce` -> exact-pnpm `run proof:reproduce` | Independent validator repeats from reset using same revision/lock/image/case manifest |
+| `TP1-CMD-011` | Interim evidence verification | `... private-environment-launcher.mjs --environment <absolute-private-path> evidence:verify` -> exact-pnpm `run evidence:verify` | Validate both runs and their authorization/environment/image/fixture/database-security/supply-chain/manifest/deviation bindings; emit combined audit/difference/state artifacts without final PASS |
+| `TP1-CMD-012` | Cleanup | `... private-environment-launcher.mjs --environment <absolute-private-path> cleanup` -> direct exact-Node `scripts/cleanup.mjs`; direct exact-Node cleanup remains the early-stop fallback | Record pre-cleanup state, remove proof resources and dependencies, and verify residual absence without package-manager side effects |
+| `TP1-CMD-013` | Final complete-packet verification | `... private-environment-launcher.mjs --environment <absolute-private-path> evidence:verify-final` -> direct exact-Node `scripts/evidence-verify.mjs --final` | Revalidate the complete packet without package-manager dependency materialization; only this interface may emit final PASS |
 | `TP1-CMD-014` | Exact launcher validation | `$TP01_NODE_BIN scripts/exact-pnpm.mjs --version` | Prove the pnpm entry hash is accepted before execution and that the exact Node process then observes pnpm `11.25.0` |
 
 The scripts must avoid shell expansion of secrets, write raw evidence only to the ignored private

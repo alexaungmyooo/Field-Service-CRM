@@ -4,7 +4,7 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Accepted — publication authorized; execution blocked by environment continuity gap |
+| Status | Accepted, published, and closed — execution remains unauthorized |
 | Work package | `WP-52 TP-01 Execution Identity and Private Environment Authorization Readiness` |
 | Governing decision | `DEC-182`; proposed `DEC-183` |
 | Governance publication | `90fa1326ac3f82462a24a78ebb4ea07d981342fa` |
@@ -13,7 +13,7 @@
 | Owner | Aung Myo Oo |
 | Date | 2026-10-09 |
 | TP-01 execution | Not authorized |
-| Publication | Authorized for the frozen four-path public inventory; verification pending |
+| Publication | Verified as `236ae6cf7eb88b72aded88031c103a5be3617509` |
 
 ## Objective and authority boundary
 
@@ -210,3 +210,19 @@ WP-52 does not authorize checkout, dependencies, credential/environment generati
 images, Docker/Compose runtime, containers, databases, services, cleanup execution,
 proof/reproduction, application coding, final architecture selection, infrastructure, deployment,
 provider accounts/cost, customer/live data, or network access.
+
+The frozen four-path WP-52 inventory was committed as
+`236ae6c WP-52: accept private environment authorization readiness` and pushed to `origin/main`.
+Local `HEAD`, cached `origin/main`, and live remote main matched
+`236ae6cf7eb88b72aded88031c103a5be3617509`; the proof tree remained
+`52cf1ab1f936614551285ebf6c85462042daba89`. WP-52 is `VERIFIED_AND_CLOSED`.
+
+WP-53 is active only for the authorized proof-static full-sequence command-continuity remediation,
+dependency-free tests, affected hash renewal, and exactly one fresh independent static validator
+after freeze. Every execution, dependency, material, runtime, product, architecture,
+infrastructure, deployment, provider, network, and customer/live-data gate remains closed.
+
+The owner accepted the complete WP-53 remediation, 23 bindings, six dispositions, renewed 71-file
+inventory, and independent static `PASS`. Publication is authorized only for the frozen eight-path
+WP-53 inventory. After verified publication, WP-54 may perform owner-decision documentation for
+exact published rebinding only; no execution or broader authority is created.

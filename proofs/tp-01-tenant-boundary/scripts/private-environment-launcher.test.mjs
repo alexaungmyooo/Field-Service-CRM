@@ -6,7 +6,10 @@ import { assertDeviationEvidence } from "./deviation-contract.mjs";
 import {
   activationFailureDocument,
   classifyPrivateEnvironmentLaunchArguments,
-  launchPrivateEnvironmentPreflight,
+  launchPrivateEnvironmentOperation,
+  privateEnvironmentForOperation,
+  privateEnvironmentOperationCommand,
+  privateEnvironmentOperationContract,
   writeActivationFailureEvidence,
 } from "./private-environment-launcher.mjs";
 
@@ -16,9 +19,11 @@ try {
   mkdirSync(evidenceDirectory);
   const context = { packageId: "WP-50", runId: "wp50-static-contract-01", evidenceDirectory };
   const secretLiteral = "credential-$HOME-$(id)-`id`-;&|#";
+  const bootstrapLiteral = "bootstrap-$HOME-$(id)-`id`-;&|#";
+  const imageTokenLiteral = "image-token-$HOME-$(id)-`id`-;&|-0123456789";
   const urlLiteral = "postgresql://tp01_runtime:secret@127.0.0.1:55432/tp01";
   const source = [
-    "TP01_BOOTSTRAP_PASSWORD=bootstrap-literal",
+    `TP01_BOOTSTRAP_PASSWORD=${bootstrapLiteral}`,
     `TP01_RUNTIME_PASSWORD=${secretLiteral}`,
     `TP01_DATABASE_URL=${urlLiteral}`,
     "TP01_EXECUTION_AUTHORIZATION=AUTHORIZED_BY_LATER_OWNER_PACKAGE",
@@ -27,16 +32,37 @@ try {
     `TP01_EVIDENCE_DIR=${evidenceDirectory}`,
     "TP01_PNPM_ENTRY=/private/tmp/runtime with spaces/pnpm.mjs",
     `TP01_NODE_BIN=${process.execPath}`,
+    `TP01_IMAGE_PULL_AUTHORIZATION_TOKEN=${imageTokenLiteral}`,
   ].join("\n");
 
+  const environmentPath = resolve(tempRoot, "runtime environment.env");
+  const operationExpectations = Object.freeze({
+    preflight: [process.execPath, ["exact-pnpm.mjs", "run", "preflight"]],
+    "db:verify-image": [process.execPath, ["exact-pnpm.mjs", "run", "db:verify-image"]],
+    "db:start": ["docker", ["compose", "up", "-d", "--wait", "postgres"]],
+    "runtime:verify-reachability": [
+      process.execPath,
+      ["exact-pnpm.mjs", "run", "runtime:verify-reachability"],
+    ],
+    "db:reset": [process.execPath, ["exact-pnpm.mjs", "run", "db:reset"]],
+    "matrix:verify": [process.execPath, ["exact-pnpm.mjs", "run", "matrix:verify"]],
+    "proof:run": [process.execPath, ["exact-pnpm.mjs", "run", "proof:run"]],
+    "proof:reproduce": [process.execPath, ["exact-pnpm.mjs", "run", "proof:reproduce"]],
+    "evidence:verify": [process.execPath, ["exact-pnpm.mjs", "run", "evidence:verify"]],
+    cleanup: [process.execPath, ["cleanup.mjs"]],
+    "evidence:verify-final": [process.execPath, ["evidence-verify.mjs", "--final"]],
+  });
   assert.deepEqual(
-    classifyPrivateEnvironmentLaunchArguments([
-      "--environment",
-      resolve(tempRoot, "runtime environment.env"),
-      "preflight",
-    ]).operation,
-    "preflight",
+    Object.keys(privateEnvironmentOperationContract),
+    Object.keys(operationExpectations),
   );
+  for (const operation of Object.keys(operationExpectations)) {
+    assert.equal(
+      classifyPrivateEnvironmentLaunchArguments(["--environment", environmentPath, operation])
+        .operation,
+      operation,
+    );
+  }
   assert.throws(() => classifyPrivateEnvironmentLaunchArguments(["preflight"]));
   assert.throws(() =>
     classifyPrivateEnvironmentLaunchArguments(["--environment", "relative.env", "preflight"]),
@@ -46,35 +72,81 @@ try {
       "--environment",
       resolve(tempRoot, "runtime.env"),
       "proof:run",
+      "extra",
     ]),
   );
+  assert.throws(() =>
+    classifyPrivateEnvironmentLaunchArguments([
+      "--environment",
+      resolve(tempRoot, "runtime.env"),
+      "typecheck",
+    ]),
+  );
+  assert.throws(() => privateEnvironmentOperationCommand("docker:arbitrary"));
+  assert.throws(() => privateEnvironmentOperationCommand("__proto__"));
 
-  let observed;
-  const status = launchPrivateEnvironmentPreflight(source, {
-    authorize: (environment) => {
-      assert.equal(environment.TP01_EXECUTION_PACKAGE, "WP-50");
-      return {
-        authorization: {
-          launchers: {
-            node: { path: process.execPath },
-            pnpm: { entry: "/private/tmp/runtime with spaces/pnpm.mjs" },
-          },
-        },
-      };
-    },
-    spawn: (executable, args, options) => {
-      observed = { executable, args, options };
-      return { status: 0 };
-    },
+  const privateValueExpectations = Object.freeze({
+    preflight: ["TP01_BOOTSTRAP_PASSWORD", "TP01_RUNTIME_PASSWORD", "TP01_DATABASE_URL"],
+    "db:verify-image": ["TP01_IMAGE_PULL_AUTHORIZATION_TOKEN"],
+    "db:start": ["TP01_BOOTSTRAP_PASSWORD"],
+    "runtime:verify-reachability": [],
+    "db:reset": ["TP01_RUNTIME_PASSWORD", "TP01_DATABASE_URL"],
+    "matrix:verify": [],
+    "proof:run": ["TP01_RUNTIME_PASSWORD", "TP01_DATABASE_URL"],
+    "proof:reproduce": ["TP01_RUNTIME_PASSWORD", "TP01_DATABASE_URL"],
+    "evidence:verify": [],
+    cleanup: [],
+    "evidence:verify-final": [],
   });
-  assert.equal(status, 0);
-  assert.equal(observed.executable, process.execPath);
-  assert.deepEqual(observed.args.slice(-2), ["run", "preflight"]);
-  assert.equal(observed.options.env.TP01_RUNTIME_PASSWORD, secretLiteral);
-  assert.equal(observed.options.env.TP01_EVIDENCE_DIR, evidenceDirectory);
+  const parsedPrivateValues = Object.freeze({
+    TP01_BOOTSTRAP_PASSWORD: bootstrapLiteral,
+    TP01_RUNTIME_PASSWORD: secretLiteral,
+    TP01_DATABASE_URL: urlLiteral,
+    TP01_IMAGE_PULL_AUTHORIZATION_TOKEN: imageTokenLiteral,
+  });
+  const baseEnvironment = { ...process.env, TP01_UNREVIEWED_AMBIENT_VALUE: "must-be-removed" };
+
+  for (const [operation, [expectedExecutable, expectedArguments]] of Object.entries(
+    operationExpectations,
+  )) {
+    let observed;
+    const status = launchPrivateEnvironmentOperation(source, operation, {
+      authorize: (environment) => {
+        assert.equal(environment.TP01_EXECUTION_PACKAGE, "WP-50");
+        return {
+          authorization: {
+            launchers: {
+              node: { path: process.execPath },
+              pnpm: { entry: "/private/tmp/runtime with spaces/pnpm.mjs" },
+            },
+          },
+        };
+      },
+      spawn: (executable, args, options) => {
+        observed = { executable, args, options };
+        return { status: 0 };
+      },
+      baseEnvironment,
+    });
+    assert.equal(status, 0);
+    assert.equal(observed.executable, expectedExecutable);
+    const observedArguments = observed.args.map((argument, index) =>
+      index === 0 && argument.endsWith(".mjs") ? argument.split("/").at(-1) : argument,
+    );
+    assert.deepEqual(observedArguments, expectedArguments);
+    for (const [key, value] of Object.entries(parsedPrivateValues)) {
+      assert.equal(
+        observed.options.env[key],
+        privateValueExpectations[operation].includes(key) ? value : undefined,
+      );
+    }
+    assert.equal(observed.options.env.TP01_EVIDENCE_DIR, evidenceDirectory);
+    assert.equal(observed.options.env.TP01_UNREVIEWED_AMBIENT_VALUE, undefined);
+  }
+  assert.throws(() => privateEnvironmentForOperation({}, "__proto__", {}));
   assert.throws(
     () =>
-      launchPrivateEnvironmentPreflight(source, {
+      launchPrivateEnvironmentOperation(source, "preflight", {
         authorize: () => {
           throw new Error("authorization details must not escape");
         },
@@ -86,7 +158,7 @@ try {
   );
   assert.throws(
     () =>
-      launchPrivateEnvironmentPreflight(source, {
+      launchPrivateEnvironmentOperation(source, "preflight", {
         authorize: () => ({
           authorization: {
             launchers: {
@@ -100,6 +172,21 @@ try {
         },
       }),
     (error) => error.code === "PRIVATE_ENVIRONMENT_LAUNCHER_BINDING_MISMATCH",
+  );
+  assert.throws(
+    () =>
+      launchPrivateEnvironmentOperation(source, "evidence:verify-final", {
+        authorize: () => ({
+          authorization: {
+            launchers: {
+              node: { path: process.execPath },
+              pnpm: { entry: "/private/tmp/runtime with spaces/pnpm.mjs" },
+            },
+          },
+        }),
+        spawn: () => ({ error: new Error("synthetic spawn failure") }),
+      }),
+    (error) => error.code === "PRIVATE_ENVIRONMENT_OPERATION_SPAWN_FAILED",
   );
 
   const failure = activationFailureDocument(context, "PRIVATE_ENVIRONMENT_KEY_MISSING");
@@ -123,4 +210,4 @@ try {
   rmSync(tempRoot, { recursive: true, force: true });
 }
 
-process.stdout.write("WP-50 private environment launcher tests passed\n");
+process.stdout.write("WP-53 full-sequence private environment launcher tests passed\n");

@@ -7,26 +7,64 @@ This directory materializes checkpoint 1 of the accepted TP-01 contract in
 
 ## Current authorization
 
-WP-50 authorizes proof-only private-environment activation and preflight-launcher remediation with
-dependency-free static validation. It permits:
+WP-53 authorizes proof-only static remediation of the private-environment command-continuity gap.
+It permits the exact launcher operation map, built-in-only syntax and launcher tests, governing
+documentation, affected hash/inventory renewal, ignored private static evidence, and exactly one
+fresh independent read-only static validation after freeze.
 
-- an exact non-evaluating parser for the private `KEY=literal value` transport;
-- a launcher whose only accepted operation is the exact preflight path;
-- literal preservation tests for spaces and credential metacharacters;
-- minimized activation-failure and formal stopped-preflight evidence;
-- built-in-only syntax, pure-contract, hashing, inventory, and scope checks;
-- renewal of every affected artifact hash; and
-- exactly one fresh independent read-only static validation after freeze.
-
-WP-50 does **not** authorize dependency or package-manager operations, credential generation or
-use, preflight, image inspection or retrieval, Docker/Compose commands, pull-token creation,
-containers, databases, services, SQL, fixtures, listeners, cleanup execution, a TP-01 case or
-reproduction, execution-evidence verification, application code, architecture selection,
+WP-53 does **not** authorize dependencies or package-manager operations, credential or environment
+generation/use, preflight, image inspection or retrieval, Docker/Compose commands, pull-token
+creation, containers, databases, services, SQL, fixtures, listeners, cleanup execution, a TP-01
+case or reproduction, execution-evidence verification, application code, architecture selection,
 infrastructure, deployment, provider accounts or cost, customer/live data, or network access.
 
 The execution-facing scripts remain closed. They require later owner acceptance, publication,
 rebinding, role assignment, and a new effective private authorization before any execution-facing
 command may run.
+
+## WP-53 full-sequence private-environment command contract
+
+The launcher accepts exactly an absolute private-environment path and one of these operation names:
+
+```text
+preflight
+db:verify-image
+db:start
+runtime:verify-reachability
+db:reset
+matrix:verify
+proof:run
+proof:reproduce
+evidence:verify
+cleanup
+evidence:verify-final
+```
+
+Each name maps to one immutable child executable and argument vector. Package-script operations
+remain behind the unchanged exact-pnpm allowlist. `db:start` maps only to
+`docker compose up -d --wait postgres`. Cleanup and final verification map to direct exact-Node
+children and never pass through pnpm. No operation accepts user-supplied child arguments.
+
+Before every child, the launcher parses literal private data without shell evaluation, removes
+ambient `TP01_*` entries, validates the effective authorization, revision, clean proof inventory,
+and bound Node/pnpm paths, and supplies only authorization context plus the operation-specific
+private values required by that exact child. In particular, the pull token reaches image
+verification only, while cleanup and final verification receive no credential, database URL, or
+token value. The direct exact-Node cleanup interface remains available for early-stop cleanup and stays
+dependency-free; the cleanup script still generates its own ephemeral Compose-interpolation value
+when the bootstrap value is absent.
+
+WP-53 dependency-free static checks are:
+
+```text
+$TP01_NODE_BIN --check scripts/private-environment-launcher.mjs
+$TP01_NODE_BIN --check scripts/private-environment-launcher.test.mjs
+$TP01_NODE_BIN scripts/private-environment-launcher.test.mjs
+$TP01_NODE_BIN scripts/hash-inventory.mjs
+```
+
+These checks do not invoke dependencies, pnpm/npm, a private runtime environment, preflight,
+images, Docker/Compose, cleanup, evidence verification, proof/reproduction, or network access.
 
 ## WP-50 private-environment activation contract
 
