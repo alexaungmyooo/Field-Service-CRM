@@ -7,14 +7,13 @@ This directory materializes checkpoint 1 of the accepted TP-01 contract in
 
 ## Current authorization
 
-WP-69 authorizes proof-only static remediation of the recursive RLS authorization/state path
-exposed by immutable WP-68. It permits a non-recursive authority helper, an identity-preserving
-organization-row visibility function, exact final-verifier catalog expectations, dependency-free
-call-graph and preservation tests, governing documentation, complete hash/inventory renewal,
-ignored private static evidence, and exactly one fresh independent read-only static validation
-after freeze.
+WP-73 authorizes proof-only static remediation of the audit-detail parameter typing defect exposed
+by immutable WP-72. It permits only the explicit `$12::text` cast for the parameterized audit
+reason, an exact dependency-free static contract and mutation suite, governing documentation,
+complete hash/inventory renewal, ignored private static evidence, and exactly one fresh independent
+read-only static validation after freeze.
 
-WP-69 does **not** authorize dependencies or package-manager operations, credential or environment
+WP-73 does **not** authorize dependencies or package-manager operations, credential or environment
 generation/use, preflight, image inspection or retrieval, Docker/Compose commands, pull-token
 creation, containers, databases, services, SQL execution, fixtures, listeners, cleanup execution,
 a TP-01 case or reproduction, execution-evidence verification, application code, architecture
@@ -24,6 +23,31 @@ access.
 The execution-facing scripts remain closed. They require later owner acceptance, publication,
 rebinding, role assignment, and a new effective private authorization before any execution-facing
 command may run.
+
+## WP-73 audit-detail parameter contract
+
+The audit insert retains its exact twelve-column and twelve-value order. All values remain query
+parameters; slot 12 remains `decision.reason` and is now explicitly cast as `$12::text` inside
+`jsonb_build_object`. The details object remains minimized to exactly the `reason` and `synthetic`
+keys, with `synthetic` fixed to `true`.
+
+The WP-73 contract hash-pins the unchanged schema, execution-evidence verifier, proof oracle, RLS,
+database boundary, proof runner, Compose definition, case manifest, proof types, and runtime
+contract. It rejects an absent or different cast, interpolation, slot or value reordering, added or
+changed detail keys, and any drift in those preserved artifacts.
+
+WP-73 dependency-free static checks are:
+
+```text
+$TP01_NODE_BIN --check scripts/audit-detail-parameter-contract.mjs
+$TP01_NODE_BIN --check scripts/audit-detail-parameter-contract.test.mjs
+$TP01_NODE_BIN scripts/audit-detail-parameter-contract.test.mjs
+```
+
+These checks do not invoke dependencies, pnpm/npm, credentials, a private runtime environment,
+preflight, images, Docker/Compose, containers, databases, services, SQL, cleanup,
+proof/reproduction, or network access. Static PASS establishes only the exact prospective source
+contract; it is not a runtime tenant-isolation result.
 
 ## WP-69 recursive authorization/state-path contract
 

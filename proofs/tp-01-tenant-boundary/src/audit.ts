@@ -24,7 +24,7 @@ export class ProofAuditWriter {
            resource_kind, resource_id, decision, purpose, correlation_id, case_id, details
          ) VALUES (
            $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11,
-           jsonb_build_object('reason', $12, 'synthetic', true)
+           jsonb_build_object('reason', $12::text, 'synthetic', true)
          )`,
         [
           auditId,

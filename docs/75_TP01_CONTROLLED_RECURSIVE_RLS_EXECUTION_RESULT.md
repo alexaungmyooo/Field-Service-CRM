@@ -194,3 +194,11 @@ validator. It must not restore or invoke dependencies, generate credentials or e
 preflight, inspect or retrieve images, invoke Docker/Compose, create a database or service, execute
 SQL, cleanup, proof, or reproduction, select architecture, implement application code, create
 infrastructure, deploy, incur provider cost, use network access, or access customer/live data.
+
+## Verified publication and WP-73 activation
+
+The exact four-path WP-72 inventory was published at
+`9abe1c36fd307da136284969f7805067bd92ceda` with repository tree
+`fb29597108583f3cb4eea62ae8a82fc0c0d3f63d`. WP-72 is `VERIFIED_AND_CLOSED` as immutable
+`INCONCLUSIVE_CLOSED_NO_RETRY` evidence. WP-73 is activated only for the bounded static remediation
+described above; it inherits no execution authorization from WP-72.

@@ -163,6 +163,18 @@ the execution boundary except for separately authorized status/evidence updates.
 
 Names and columns created later are disposable proof mechanics, not the product domain schema.
 
+### Audit-detail parameter contract
+
+| ID | Required behavior |
+| --- | --- |
+| `TP1-AUDIT-001` | The disposable audit insert remains parameterized with exactly twelve ordered placeholders; placeholder `$12` is `decision.reason` and must be explicitly cast as PostgreSQL `text` before it enters polymorphic `jsonb_build_object`. |
+| `TP1-AUDIT-002` | Audit details remain the minimized JSON object with exactly `reason` and `synthetic`; the cast must not change decision meaning, case oracles, audit schema, verifier expectations, or tenant/RLS enforcement. |
+| `TP1-AUDIT-003` | Dependency-free static coverage must reject an untyped or wrongly typed reason placeholder, parameter reordering, string interpolation, detail-key drift, and changes to frozen schema, verifier, oracle, RLS, database-context, path-execution, or proof-runner artifacts. |
+
+These controls are a prospective proof-only correction for the uniform WP-72 PostgreSQL `42P18`
+stop. Static conformance does not establish executable audit behavior, tenant isolation, zero
+leakage, or a TP-01 result; those remain subject to a separately accepted later run.
+
 ### Enforcement modes
 
 | ID | Mode | Required behavior |

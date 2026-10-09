@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-72 Inconclusive result accepted after independent validation PASS; publication authorized |
+| Status | Product Discovery closed — WP-73 proof-only static remediation accepted after independent validation PASS; publication authorized |
 | Current phase | Technical Proof Static Remediation |
-| Current work package | `WP-72 Controlled TP-01 Recursive RLS Execution` |
+| Current work package | `WP-73 Audit-Detail Parameter Typing Static Remediation` |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -124,6 +124,7 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 65. `73_TP01_RECURSIVE_RLS_REMEDIATION_REBINDING_REAUTHORIZATION_READINESS.md`
 66. `74_TP01_EXECUTION_IDENTITY_RECURSIVE_RLS_AUTHORIZATION_READINESS.md`
 67. `75_TP01_CONTROLLED_RECURSIVE_RLS_EXECUTION_RESULT.md`
+68. `76_TP01_AUDIT_DETAIL_PARAMETER_TYPING_STATIC_REMEDIATION.md`
 
 Current and later accepted work packages may add or mature:
 
@@ -1195,6 +1196,41 @@ twenty-path WP-46 public inventory. After verified publication, WP-47 may activa
 published rebinding and reauthorization-readiness owner-decision documentation only. All runtime,
 product, architecture-selection, infrastructure, provider, network, and customer/live-data gates
 remain closed.
+
+## WP-72 publication and WP-73 static remediation — 2026-10-09
+
+The exact frozen four-path WP-72 inventory was committed as
+`9abe1c3 WP-72: close inconclusive recursive RLS execution` and published at
+`9abe1c36fd307da136284969f7805067bd92ceda`. The published repository tree is
+`fb29597108583f3cb4eea62ae8a82fc0c0d3f63d`. WP-72 is `VERIFIED_AND_CLOSED` as immutable
+`INCONCLUSIVE_CLOSED_NO_RETRY` evidence and grants no retry or inherited execution authority.
+
+WP-73 changes the disposable proof audit insert only from untyped `$12` to `$12::text` at the
+polymorphic `jsonb_build_object` boundary, adds one dependency-free contract and mutation suite,
+and updates the proof contract and governing documentation. The query remains parameterized with
+the same twelve ordered values, and the audit detail remains exactly `reason` plus
+`synthetic: true`.
+
+Root static validation passed with exact Node `v22.23.1`: all 49 proof scripts passed syntax,
+all 16 built-in-only suites passed, and the renewed inventory contains 82 files. Artifact-inventory
+SHA-256 is `93d1e7975dc13d3f1bd5e5471473b3008dd99df56630447ce78779ecfa12a759`;
+canonical no-terminal-LF content-set SHA-256 is
+`89f63f1749ac20a453f0c45923e2d7de3b8a722541d9fb872650c7a2facae222`. Fresh independent validator
+`/root/wp73_static_validator` reproduced the exact nine-path scope, all 82 entries and both
+aggregate hashes, all 49 syntax checks, all 16 suites, the exact query contract, eleven protected
+hashes, clean index and whitespace, secret absence, and every closed gate. It returned `PASS` with
+zero findings and zero candidate mutation. Its ignored validation record has SHA-256
+`ceca7aebce165c284a2c75f0516f41e23e318e113862e8275133d0bd82ba2001`.
+
+Under standing completion authority, all nine remediation controls, all nineteen bindings,
+`DEC-204`, all eight WP-73 decisions, the renewed inventory and hashes, and the exact frozen
+nine-path public/proof inventory are accepted; commit and push are authorized only for that scope.
+Static PASS is not a runtime, tenant-isolation, audit, architecture, dependency, implementation,
+or production-security result. Dependencies, credentials/environments, preflight, images,
+Docker/Compose,
+containers, databases, services, SQL, cleanup, proof/reproduction, network, application coding,
+final architecture selection, infrastructure, deployment, provider accounts/cost, and
+customer/live data remain closed.
 
 The exact twenty-path WP-46 inventory was committed as
 `bbcb4b2 WP-46: accept database connection remediation` and pushed to `origin/main`. Local `HEAD`,
