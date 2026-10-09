@@ -153,3 +153,20 @@ be prepared. WP-80 would need a new run ID, a clean dedicated checkout, exact of
 restoration, fresh run materials, newly materialized and hash-bound run-specific handoff controls,
 a new effective authorization, and one exact controlled sequence. This document authorizes none of
 those actions.
+
+## Successor execution closure
+
+WP-79 was published at `90200b29e2bc5bfe69c420129dcca071066dddfc`, after which WP-80
+consumed run IDs `wp80-2026-10-09-01` and `wp80-2026-10-09-02`. The first is
+`PREAUTH_INVALID_CLOSED_NO_EXECUTION_NO_RETRY`; the second is
+`INCONCLUSIVE_CLOSED_NO_RETRY`. No run may be resumed, retried, or reused.
+
+Run 02 produced complete preliminary PRIMARY observations but stopped before handoff because the
+semantic control rejected the valid group-specific cleanup-reset evidence at `TP1-C199`. No
+handoff seal, preserved copies, provenance attestation, or reproduction exists. Cleanup, private-
+material and checkout removal, residual verification, three reviews, fail-closed final
+verification, and fresh independent final-packet validation passed.
+
+The exact outcome, findings, evidence identities, dispositions, and bounded WP-81 static-
+remediation gate are recorded in `83_TP01_CONTROLLED_PRIMARY_HANDOFF_EXECUTION_RESULT.md`. This
+readiness package remains immutable historical authority and grants no further execution.

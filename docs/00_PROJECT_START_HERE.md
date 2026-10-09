@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-79 independently validated; exact publication authorized |
-| Current phase | Technical Proof Execution-Identity Readiness |
-| Current work package | `WP-79 TP-01 Execution Identity and Primary-Handoff Authorization Readiness` |
+| Status | Product Discovery closed — WP-80 Inconclusive and independently validated; exact publication authorized |
+| Current phase | Technical Proof Static Remediation |
+| Current work package | `WP-80 Controlled TP-01 Primary-Handoff Execution` |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -131,6 +131,7 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 72. `80_TP01_PRIMARY_HANDOFF_SEAL_OPERATIONAL_STOP_STATIC_REMEDIATION.md`
 73. `81_TP01_PRIMARY_HANDOFF_REMEDIATION_REBINDING_REAUTHORIZATION_READINESS.md`
 74. `82_TP01_EXECUTION_IDENTITY_PRIMARY_HANDOFF_AUTHORIZATION_READINESS.md`
+75. `83_TP01_CONTROLLED_PRIMARY_HANDOFF_EXECUTION_RESULT.md`
 
 Current and later accepted work packages may add or mature:
 
@@ -2233,6 +2234,38 @@ not executable future controls, because their bytes retain consumed WP-76 bindin
 handoff paths and hashes remain null. All material, execution, network, product, architecture,
 infrastructure, deployment, provider/cost, and customer/live-data gates remain closed pending
 fresh independent readiness validation and exact publication.
+
+## WP-80 controlled primary-handoff execution result — 2026-10-09
+
+The exact four-path WP-79 inventory was published at
+`90200b29e2bc5bfe69c420129dcca071066dddfc`, with repository tree
+`4a11387c2e29d5fa62039267e1b0a296faa50365`. WP-80 then consumed two distinct run IDs.
+Run `wp80-2026-10-09-01` stopped before preflight because its effective authorization omitted the
+preparation-controller binding; cleanup and residual absence passed, and the run is
+`PREAUTH_INVALID_CLOSED_NO_EXECUTION_NO_RETRY`.
+
+Run `wp80-2026-10-09-02` passed preparation, exact offline dependency restoration, preflight,
+local-image verification, PostgreSQL start, PRIMARY reachability/reset/security capture, the
+222-case matrix, and one PRIMARY proof. PRIMARY contained 222/222 expected-matching results, 222
+matching audit records, and unchanged state. The mandatory handoff seal then stopped fail-closed
+because its semantic contract applied the ordinary per-case cleanup marker to the first valid
+pool-reuse case `TP1-C199`. No seal, preserved copies, provenance attestation, or reproduction was
+created. Mandatory cleanup, material removal, residual verification, three role reviews, and the
+final fail-closed verifier completed.
+
+WP-80 is `INCONCLUSIVE_CLOSED_NO_RETRY`. Fresh independent private-packet validation returned
+`PASS` for the exact 20-entry stop seal, 24-entry inventory, stop and absence controls, preliminary
+PRIMARY observations, cleanup, residual result, closed checkout, no registry access, synthetic-
+only data, and unchanged tracked proof. Under standing completion authority, `DEC-213` through
+`DEC-215`, `WP80-DEV-001` through `005`, `WP80-REM-001` through `008`, and `WP80-DEC-001`
+through `007` are accepted. Publication is limited to the exact four paths in document 83.
+
+After verified publication, WP-81 may perform only proof/private-control static remediation of
+group-aware result-context semantics, PRIMARY/REPRODUCTION comparison, minimized semantic-failure
+evidence, dependency-free tests, affected hashes/inventory, and one fresh independent static
+validation. Dependencies, credentials, runtime, Docker/Compose, databases, cleanup execution,
+proof/reproduction, network, application coding, architecture selection, infrastructure,
+deployment, provider accounts/cost, and customer/live data remain closed.
 
 ## Private execution control
 
