@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-83 independently validated; exact publication authorized |
-| Current phase | Technical Proof Execution-Identity Readiness |
-| Current work package | `WP-83 TP-01 Execution Identity and Primary-Result Semantic Authorization Readiness` |
+| Status | Product Discovery closed — WP-84 accepted Inconclusive; exact publication authorized |
+| Current phase | Technical Proof Execution Result Review |
+| Current work package | `WP-84 Controlled TP-01 Semantic Remediation Execution` |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -135,6 +135,7 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 76. `84_TP01_PRIMARY_RESULT_SEMANTIC_ALIGNMENT_STATIC_REMEDIATION.md`
 77. `85_TP01_PRIMARY_RESULT_SEMANTIC_REMEDIATION_REBINDING_REAUTHORIZATION_READINESS.md`
 78. `86_TP01_EXECUTION_IDENTITY_PRIMARY_RESULT_SEMANTIC_AUTHORIZATION_READINESS.md`
+79. `87_TP01_CONTROLLED_SEMANTIC_REMEDIATION_EXECUTION_RESULT.md`
 
 Current and later accepted work packages may add or mature:
 
@@ -2352,6 +2353,37 @@ credentials/environments, preflight, images, Docker/Compose,
 containers, databases, services, SQL, cleanup, proof/handoff/reproduction, network, application,
 architecture, infrastructure, deployment, provider accounts/cost, external systems, and
 customer/live data remain closed.
+
+## WP-83 publication and WP-84 controlled result — 2026-10-09
+
+The exact four-path WP-83 inventory was published at
+`97f141b07f4c94b0c54b557c810dddf35312f52e`, with repository tree
+`fc0bf41b03eaef4afacd673465810a85dfc1b99e`. The owner separately authorized WP-84 run
+`wp84-2026-10-09-01` against accepted proof revision
+`ecc2db47c4395d19962adcf21f45bf3ff0a0932f`.
+
+WP-84 prepared a clean dedicated checkout, restored exactly 115 packages offline with frozen-
+lockfile and ignore-scripts controls, generated fresh private material, bound new run-specific
+controls, and passed fresh independent effective-authorization validation. The exact private
+launcher then stopped during preflight because it could not access the authorized local Docker
+Unix socket. No image inspection or retrieval, registry access, container, database, service,
+proof, handoff, or reproduction occurred. No retry was performed.
+
+Mandatory cleanup and residual verification passed after proof dependencies and the private
+runtime environment were removed; no named runtime resource, listener, generated output,
+credential file, or pull token remained, and the dedicated checkout was archived. The three role
+reviews recommend `INCONCLUSIVE_CLOSED_NO_RETRY`. The fail-closed final verifier returned
+`INCONCLUSIVE / FINAL_PREFLIGHT_STOP_PACKET / exit 2`. Fresh independent validation returned
+`PASS` with no findings for the 7-entry stop seal and 13-entry private inventory.
+
+The owner accepted the WP-84 Inconclusive disposition, all three deviations, six remediation
+controls, seven result decisions, three role reviews, cleanup and residual result, fail-closed
+final verifier, 7-entry stop seal, 13-entry private inventory, and independent validations exactly
+as recorded. Commit and push are authorized only for the exact four-path WP-84 public inventory.
+After verified publication, WP-85 may begin owner-decision documentation and static/private
+planning for Docker host-access readiness only. Docker runtime, images, containers, databases,
+proof execution, application coding, final architecture selection, infrastructure, deployment,
+provider accounts/cost, and customer/live data remain closed.
 
 ## Private execution control
 

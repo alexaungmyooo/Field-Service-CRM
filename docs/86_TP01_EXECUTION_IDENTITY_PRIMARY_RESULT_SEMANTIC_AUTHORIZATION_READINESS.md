@@ -165,3 +165,15 @@ after exact four-path publication and live-remote verification may a
 separately exact WP-84 execution package be prepared. It would require a new run ID, clean dedicated
 checkout, exact offline dependencies, fresh materials and run-bound controls, new effective private
 authorization, and the complete controlled sequence. WP-83 authorizes none of those actions.
+
+## Verified publication and consumed successor identity
+
+The exact four-path WP-83 inventory was published at
+`97f141b07f4c94b0c54b557c810dddf35312f52e`, with repository tree
+`fc0bf41b03eaef4afacd673465810a85dfc1b99e`. WP-83 is `VERIFIED_AND_CLOSED`.
+
+The owner separately authorized WP-84 run `wp84-2026-10-09-01`. That run consumed the identities
+recorded here and stopped fail-closed at preflight before image inspection or runtime. The run and
+all WP-83 role/material bindings are now non-reusable. Its accepted result is recorded in
+`87_TP01_CONTROLLED_SEMANTIC_REMEDIATION_EXECUTION_RESULT.md`; publication is authorized only for
+the exact four-path WP-84 inventory, and WP-85 may activate only after verified publication.
