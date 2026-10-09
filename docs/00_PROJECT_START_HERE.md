@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-65 accepted; publication authorized |
+| Status | Product Discovery closed — WP-66 accepted; publication authorized |
 | Current phase | Technical Proof Static Remediation |
-| Current work package | `WP-65 TP-01 Reset Evidence-Capture Compose Interpolation Static Remediation` |
+| Current work package | `WP-66 TP-01 Database Evidence Continuity Rebinding and Reauthorization Readiness` |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -115,6 +115,9 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 56. `64_TP01_DATABASE_RESET_COMPOSE_INTERPOLATION_OPERATIONAL_STOP_STATIC_REMEDIATION.md`
 57. `65_TP01_DATABASE_RESET_REMEDIATION_REBINDING_REAUTHORIZATION_READINESS.md`
 58. `66_TP01_EXECUTION_IDENTITY_DATABASE_RESET_AUTHORIZATION_READINESS.md`
+59. `67_TP01_CONTROLLED_DATABASE_RESET_REMEDIATED_EXECUTION_RESULT.md`
+60. `68_TP01_DATABASE_EVIDENCE_COMPOSE_INTERPOLATION_CONTINUITY_STATIC_REMEDIATION.md`
+61. `69_TP01_DATABASE_EVIDENCE_CONTINUITY_REBINDING_REAUTHORIZATION_READINESS.md`
 
 Current and later accepted work packages may add or mature:
 
@@ -1780,6 +1783,40 @@ the host listener remained closed, and all 222 executable primary cases failed w
 did not run. Mandatory cleanup and direct residual verification passed; all three role reviews are
 `INCONCLUSIVE`; the final verifier failed closed on the blocking deviation. WP-37 establishes no
 tenant-boundary or architecture result, is non-retryable, and is `READY_FOR_OWNER_REVIEW`.
+
+## WP-65 publication and WP-66 acceptance — 2026-10-09
+
+The exact frozen 18-path WP-65 public/proof inventory was committed as
+`b628f3e WP-65: accept database evidence continuity remediation` and published at
+`b628f3e77d4b296f1c357b7a290ee84b3dbb72bd`. The published repository tree is
+`beb4630c3b1020c9537b9356f54b88670d23ad41`; the proof tree is
+`3696a8883d6f3d7eddead1460fc26b0af004d236`. The proof inventory contains 78 files;
+artifact-inventory SHA-256 is
+`43cc0ce26b5d73b8ea96f86d0b6dc38ba81ea380922fb92405b0016e02a2776e`; canonical
+no-terminal-LF content-set SHA-256 is
+`d38ed487b01614c480e1a6c50022b502ed8e5c642b042aa53beb7bf551ccac70`. WP-65 is
+`VERIFIED_AND_CLOSED`.
+
+WP-66 binds that publication as one indivisible documentation-only candidate. It preserves all
+eleven immutable stopped attempts—WP-24, WP-27, WP-30, WP-33, WP-37, WP-41, WP-45, WP-49, WP-56,
+WP-60, and WP-64—and advances only the clean dedicated-workspace option and the exact WP-65
+invocation-scoped database-evidence continuity contract. Current/shared or stopped workspaces,
+real-secret interpolation, partial/raw environment propagation, weakened stop accounting, and
+static-PASS-as-runtime-evidence alternatives are rejected.
+
+Under standing completion authority, `DEC-197`,
+`TP1-DATABASE-EVIDENCE-CONTINUITY-BIND-001` through `040`, `WP66-DEC-001` through `010`, both
+option-family dispositions, the no-private-draft/no-role disposition, and the exact four-path
+public inventory are accepted; publication is authorized only for that inventory. WP-66 creates
+no role, reproduction-validator identity, private authorization draft, checkout, dependency state,
+credential/environment, runtime evidence, proof result, or execution permission.
+
+Only after verified WP-66 publication may WP-67 create exactly one fresh reproduction-validator
+identity and prepare owner-decision documentation plus one explicitly ineffective private
+authorization draft. WP-67 remains a later readiness package only; it may not create a run,
+effective authorization, checkout, dependency state, material, preflight, image/runtime action,
+cleanup execution, proof/reproduction, network authority, product work, architecture selection,
+infrastructure, deployment, provider action, or customer/live-data access.
 
 ## Private execution control
 

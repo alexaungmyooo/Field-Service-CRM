@@ -144,3 +144,23 @@ fresh independent validation returned PASS. Commit and push are authorized only 
 documentation only; it may not create roles, authorization drafts, dependencies, runtime evidence,
 execution permission, product code, architecture selection, infrastructure, deployment, provider
 action, network access, or customer/live-data access.
+
+## Verified publication and WP-66 activation
+
+The exact frozen 18-path WP-65 inventory was published as
+`b628f3e77d4b296f1c357b7a290ee84b3dbb72bd`; repository tree is
+`beb4630c3b1020c9537b9356f54b88670d23ad41` and proof tree is
+`3696a8883d6f3d7eddead1460fc26b0af004d236`. The committed WP-65 document SHA-256 is
+`94340e0d5ea693dc9b218e03141ac883a0e78f357becc66d28bbdaeb06afe94b`. The 78-file
+artifact-inventory and canonical content hashes remain exactly those recorded in
+`WP65-BIND-004` and `WP65-BIND-005`. WP-65 is `VERIFIED_AND_CLOSED`.
+
+WP-66 is activated only for public owner-decision rebinding and reauthorization-readiness
+documentation. It may bind the published identities, preserve all eleven immutable stopped
+attempts, analyze and decide the future dedicated-workspace and exact database-evidence continuity
+options, record role/no-draft readiness, and freeze an exact four-path public inventory. It may not
+change the proof or `internal-local/`; create a role, reproduction-validator identity,
+authorization draft, checkout, dependency state, credential, environment, digest, token, runtime
+evidence, or run; stage, commit, push, or publish; or perform any dependency, preflight, image,
+Docker/Compose, database, SQL, cleanup, proof/reproduction, network, application, architecture,
+infrastructure, deployment, provider, or customer/live-data action.
