@@ -3,6 +3,7 @@ import { readFileSync } from "node:fs";
 import {
   createDatabaseResetComposeInterpolation,
   createDatabaseResetFailureEvidence,
+  databaseResetPostSqlStages,
   databaseResetSqlSteps,
 } from "./db-reset-contract.mjs";
 
@@ -57,6 +58,13 @@ assert.deepEqual(databaseResetSqlSteps, [
   "003_rls.sql",
   "004_seed.sql",
 ]);
+assert.deepEqual(databaseResetPostSqlStages, [
+  "FIXTURE_EVIDENCE_CAPTURE",
+  "FIXTURE_EVIDENCE_WRITE",
+  "DATABASE_SECURITY_EVIDENCE_CAPTURE",
+  "DATABASE_CONNECTION_EVIDENCE_CAPTURE",
+  "DATABASE_SECURITY_EVIDENCE_WRITE",
+]);
 const noProgress = createDatabaseResetFailureEvidence({
   packageId: "WP-62",
   runId: "wp62-static-fixture",
@@ -79,6 +87,31 @@ assert.equal(partialProgress.progress.partialDatabaseMutationMayHaveOccurred, tr
 assert.equal(partialProgress.stage, "DB_RESET");
 assert.equal(partialProgress.code, "DATABASE_RESET_FAILED");
 assert.equal(JSON.stringify(partialProgress).includes(synthetic), false);
+const postSqlFailure = createDatabaseResetFailureEvidence({
+  packageId: "WP-65",
+  runId: "wp65-static-fixture",
+  phase: "PRIMARY",
+  completedSqlSteps: [...databaseResetSqlSteps],
+  attemptedSqlStep: null,
+  completedPostSqlStages: ["FIXTURE_EVIDENCE_CAPTURE", "FIXTURE_EVIDENCE_WRITE"],
+  attemptedPostSqlStage: "DATABASE_SECURITY_EVIDENCE_CAPTURE",
+  diagnostic: { text: "minimized" },
+});
+assert.equal(
+  postSqlFailure.progress.attemptedPostSqlStage,
+  "DATABASE_SECURITY_EVIDENCE_CAPTURE",
+);
+assert.equal(postSqlFailure.progress.completedPostSqlStageCount, 2);
+assert.throws(() => createDatabaseResetFailureEvidence({
+  packageId: "WP-65",
+  runId: "wp65-static-fixture",
+  phase: "PRIMARY",
+  completedSqlSteps: [...databaseResetSqlSteps],
+  attemptedSqlStep: null,
+  completedPostSqlStages: ["FIXTURE_EVIDENCE_WRITE"],
+  attemptedPostSqlStage: null,
+  diagnostic: {},
+}), /post-SQL sequence/);
 assert.throws(() => createDatabaseResetFailureEvidence({
   packageId: "WP-62",
   runId: "wp62-static-fixture",
@@ -102,12 +135,17 @@ assert.match(resetSource, /createDatabaseResetComposeInterpolation/);
 assert.match(resetSource, /randomBytes\(32\)\.toString\("base64url"\)/);
 assert.match(resetSource, /\["compose", "exec", "-T", "postgres", "psql"/);
 assert.match(resetSource, /env: composeInterpolation\.environment/);
+assert.match(resetSource, /captureFixtureEvidence\(composeInterpolation\.environment\)/);
+assert.match(
+  resetSource,
+  /captureDatabaseSecurityEvidence\([\s\S]*composeInterpolation\.environment,[\s\S]*runtimePassword/,
+);
 assert.match(resetSource, /stage: "DB_RESET"/);
 assert.match(resetSource, /code: "DATABASE_RESET_FAILED"/);
 assert.match(resetSource, /evidenceArtifact: failureArtifact/);
 assert.match(resetSource, /throw error/);
 assert.match(resetSource, /finally/);
-assert.match(resetSource, /delete composeInterpolation\.environment\.TP01_BOOTSTRAP_PASSWORD/);
+assert.match(resetSource, /clearDatabaseEvidenceComposeInterpolation\(composeInterpolation\)/);
 assert.doesNotMatch(resetSource, /\["compose", "(?:up|down|start|restart|create|run)"/);
 
-process.stdout.write("WP-61 database-reset remediation static tests passed\n");
+process.stdout.write("WP-65 database-reset remediation static tests passed\n");

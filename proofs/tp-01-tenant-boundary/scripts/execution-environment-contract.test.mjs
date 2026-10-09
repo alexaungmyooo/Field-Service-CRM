@@ -25,9 +25,19 @@ assert.match(preflight, /createDeviationEvidence\(\)/);
 
 assert.match(databaseEvidence, /assertDatabaseConnectionEnvironment\(process\.env, authorization\)/);
 assert.match(databaseEvidence, /captureDatabaseConnectionEvidence/);
-assert.match(databaseReset, /connectionContract: captureDatabaseConnectionEvidence\(\)/);
+assert.match(databaseReset, /const databaseConnectionEvidence = captureDatabaseConnectionEvidence\(\)/);
+assert.match(databaseReset, /connectionContract: databaseConnectionEvidence/);
+assert.match(databaseReset, /captureFixtureEvidence\(composeInterpolation\.environment\)/);
+assert.match(
+  databaseReset,
+  /captureDatabaseSecurityEvidence\([\s\S]*composeInterpolation\.environment,[\s\S]*runtimePassword/,
+);
 
 assert.match(proofRun, /exactDatabaseChildEnvironment\(process\.env, authorization\)/);
+assert.match(proofRun, /createDatabaseEvidenceComposeInterpolation\([\s\S]*"PROOF_RUN"/);
+assert.match(proofRun, /captureGovernedStateSnapshot\("STATE_SNAPSHOT_BEFORE"\)/);
+assert.match(proofRun, /captureGovernedStateSnapshot\("STATE_SNAPSHOT_AFTER"\)/);
+assert.match(proofRun, /code: "STATE_SNAPSHOT_FAILED"/);
 assert.match(proofRun, /env: \{ \.\.\.proofEnvironment, TP01_RESULT_FILE: resultFile/);
 assert.match(proofRun, /appendOperationalStop\(deviations/);
 assert.match(proofRun, /CHILD_EXIT_NONZERO/);

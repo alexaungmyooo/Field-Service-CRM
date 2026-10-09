@@ -1,6 +1,7 @@
 import { createHash } from "node:crypto";
 import { run } from "./command.mjs";
 import { assertDatabaseConnectionEnvironment } from "./database-connection-contract.mjs";
+import { runDatabaseEvidenceJson } from "./database-evidence-compose-contract.mjs";
 import { assertExecutionAuthorized } from "./execution-authorization.mjs";
 
 const { authorization } = assertExecutionAuthorized();
@@ -10,30 +11,14 @@ export function captureDatabaseConnectionEvidence() {
   return databaseConnection;
 }
 
-function psqlJson(sql, role, runtime = false) {
-  const environment = runtime ? ["-e", "PGPASSWORD"] : [];
-  const output = run("docker", [
-    "compose",
-    "exec",
-    "-T",
-    ...environment,
-    "postgres",
-    "psql",
-    "-X",
-    "-qAt",
-    "-v",
-    "ON_ERROR_STOP=1",
-    "-U",
+function psqlJson(sql, role, composeEnvironment, runtimePassword) {
+  return runDatabaseEvidenceJson({
+    runCommand: run,
+    sql,
     role,
-    "-d",
-    "tp01",
-  ], {
-    input: sql,
-    env: runtime
-      ? { ...process.env, PGPASSWORD: process.env.TP01_RUNTIME_PASSWORD }
-      : process.env,
+    composeEnvironment,
+    runtimePassword,
   });
-  return JSON.parse(output);
 }
 
 const stateSql = String.raw`
@@ -83,8 +68,8 @@ SELECT jsonb_build_object(
 );
 `;
 
-export function captureStateSnapshot() {
-  const raw = psqlJson(stateSql, "tp01_bootstrap");
+export function captureStateSnapshot(composeEnvironment) {
+  const raw = psqlJson(stateSql, "tp01_bootstrap", composeEnvironment);
   const organizations = raw.organizations.map((organization) => {
     const canonicalRows = JSON.stringify(organization.rows);
     return {
@@ -108,8 +93,8 @@ export function captureStateSnapshot() {
   };
 }
 
-export function captureFixtureEvidence() {
-  const state = captureStateSnapshot();
+export function captureFixtureEvidence(composeEnvironment) {
+  const state = captureStateSnapshot(composeEnvironment);
   const fixture = psqlJson(String.raw`
     SELECT jsonb_build_object(
       'organizations', (SELECT count(*) FROM platform.organizations),
@@ -124,7 +109,7 @@ export function captureFixtureEvidence() {
       'backgroundJobs', (SELECT count(*) FROM tenant.background_jobs),
       'seedAuditEvents', (SELECT count(*) FROM security.audit_events)
     );
-  `, "tp01_bootstrap");
+  `, "tp01_bootstrap", composeEnvironment);
   return {
     schemaVersion: 1,
     proof: "TP-01",
@@ -140,7 +125,7 @@ export function captureFixtureEvidence() {
   };
 }
 
-export function captureDatabaseSecurityEvidence() {
+export function captureDatabaseSecurityEvidence(composeEnvironment, runtimePassword) {
   return psqlJson(String.raw`
     WITH configured AS (
       SELECT
@@ -213,5 +198,5 @@ export function captureDatabaseSecurityEvidence() {
       )
     )
     FROM configured;
-  `, "tp01_runtime", true);
+  `, "tp01_runtime", composeEnvironment, runtimePassword);
 }

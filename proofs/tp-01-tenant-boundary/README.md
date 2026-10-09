@@ -500,23 +500,34 @@ Raw materialization evidence belongs under the ignored path
 `internal-local/work-packages/TP-01/evidence/materialization/`. Do not commit raw package-manager,
 advisory, environment, or review evidence.
 
-## WP-61 database-reset Compose interpolation remediation
+## WP-65 database-evidence Compose interpolation continuity remediation
 
-WP-61 adds a proof-only static contract for database reset. After the reset independently verifies
-the required PRIMARY or REPRODUCTION reachability evidence, it creates one fresh random non-secret
-value for Compose configuration interpolation. The Docker child environment removes every
-`TP01_*` value and `PGPASSWORD`, retains the already bound non-proof environment such as
-`DOCKER_CONTEXT`, and adds only the synthetic interpolation value. The real bootstrap credential
-remains excluded.
+WP-61 introduced the first reset-only static interpolation contract, but immutable WP-64 showed
+that its historical “four exact calls” boundary omitted reset-time fixture and database-security
+evidence capture. WP-65 prospectively supersedes that incomplete call boundary without rewriting
+WP-61 or the stopped WP-64 evidence.
 
-The value is supplied only to the four exact existing-service
-`docker compose exec -T postgres psql` calls. It is not part of SQL input or retained evidence,
-cannot authenticate to PostgreSQL, permits no Compose lifecycle command, and is cleared and
-deleted in `finally`. A reset failure writes bounded typed `database-reset-failure.json` evidence,
-truthfully records completed and attempted SQL steps plus whether partial mutation may have
-occurred, appends the exact PRIMARY/REPRODUCTION `DB_RESET` operational stop, and rethrows. The
-existing final verifier still rejects every operational stop.
+Every database-evidence Compose call now requires an explicit operation-scoped environment. A
+reset invocation creates one fresh random non-secret interpolation value and threads it through the
+four ordered SQL calls, fixture state capture, fixture count capture, and database-security capture.
+Each primary or reproduction proof invocation creates a distinct fresh value and threads it through
+both before and after state snapshots. No database-evidence helper may fall back to raw
+`process.env`.
 
-WP-61 validation is dependency-free and static only. It does not install or invoke dependencies,
+The Compose environment removes every `TP01_*` value and ambient `PGPASSWORD`, retains only bound
+non-proof context such as `DOCKER_CONTEXT`, and adds the synthetic interpolation value. The runtime
+security query separately clones that minimized environment, adds only the required temporary
+`PGPASSWORD` for the exact `-e PGPASSWORD` existing-service command, and clears it on success or
+failure. The real bootstrap credential, runtime `TP01_*` value, database URL, and pull token remain
+excluded from Compose parsing. All calls remain exact `docker compose exec -T`; no lifecycle
+operation is permitted.
+
+Reset failures retain ordered SQL and post-SQL stage progress, conservative partial-mutation state,
+and the exact PRIMARY/REPRODUCTION `DB_RESET` operational stop. Before/after proof-state snapshot
+failures write minimized typed evidence and append the exact `STATE_SNAPSHOT_BEFORE` or
+`STATE_SNAPSHOT_AFTER` operational stop. The final verifier continues to reject every operational
+stop. Every synthetic value is absent from evidence and cleared in `finally`.
+
+WP-65 validation is dependency-free and static only. It does not install or invoke dependencies,
 generate credentials, execute preflight, inspect or start images/containers/services, connect to a
 database, apply SQL, mutate fixtures, run cleanup, execute/reproduce TP-01, or use network access.

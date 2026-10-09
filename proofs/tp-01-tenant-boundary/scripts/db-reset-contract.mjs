@@ -1,3 +1,8 @@
+import {
+  createDatabaseEvidenceComposeInterpolation,
+  databaseEvidenceComposeInterpolationEvidence,
+} from "./database-evidence-compose-contract.mjs";
+
 export const databaseResetSqlSteps = Object.freeze([
   "001_roles.sql",
   "002_schema.sql",
@@ -5,48 +10,26 @@ export const databaseResetSqlSteps = Object.freeze([
   "004_seed.sql",
 ]);
 
-export const databaseResetComposeInterpolationEvidence = Object.freeze({
-  source: "EPHEMERAL_SYNTHETIC_DATABASE_RESET_ONLY",
-  purpose: "COMPOSE_CONFIG_INTERPOLATION_FOR_EXISTING_SERVICE_EXEC",
-  actualBootstrapCredentialPropagated: false,
-  runtimeCredentialPropagated: false,
-  databaseUrlPropagated: false,
-  pullTokenPropagated: false,
-  pgPasswordPropagated: false,
-  serviceLifecycleMutationAllowed: false,
-  interpolationCanAuthenticate: false,
-  interpolationCanMutateDatabase: false,
-  valueRetained: false,
-});
+export const databaseResetPostSqlStages = Object.freeze([
+  "FIXTURE_EVIDENCE_CAPTURE",
+  "FIXTURE_EVIDENCE_WRITE",
+  "DATABASE_SECURITY_EVIDENCE_CAPTURE",
+  "DATABASE_CONNECTION_EVIDENCE_CAPTURE",
+  "DATABASE_SECURITY_EVIDENCE_WRITE",
+]);
 
-function assertSyntheticInterpolationValue(value) {
-  if (typeof value !== "string" || value.length < 32 || /[\r\n\0]/.test(value)) {
-    throw new Error("database reset requires a strong single-line synthetic interpolation value");
-  }
-}
+export const databaseResetComposeInterpolationEvidence =
+  databaseEvidenceComposeInterpolationEvidence.DATABASE_RESET;
 
 export function createDatabaseResetComposeInterpolation(
   baseEnvironment,
   syntheticBootstrapPassword,
 ) {
-  assertSyntheticInterpolationValue(syntheticBootstrapPassword);
-  const actualBootstrapPassword = baseEnvironment?.TP01_BOOTSTRAP_PASSWORD;
-  if (
-    typeof actualBootstrapPassword === "string" &&
-    actualBootstrapPassword.length > 0 &&
-    actualBootstrapPassword === syntheticBootstrapPassword
-  ) {
-    throw new Error("database-reset interpolation must differ from the real bootstrap credential");
-  }
-  const environment = { ...(baseEnvironment ?? {}) };
-  for (const key of Object.keys(environment)) {
-    if (key.startsWith("TP01_") || key === "PGPASSWORD") delete environment[key];
-  }
-  environment.TP01_BOOTSTRAP_PASSWORD = syntheticBootstrapPassword;
-  return Object.freeze({
-    environment,
-    evidence: databaseResetComposeInterpolationEvidence,
-  });
+  return createDatabaseEvidenceComposeInterpolation(
+    baseEnvironment,
+    syntheticBootstrapPassword,
+    "DATABASE_RESET",
+  );
 }
 
 export function createDatabaseResetFailureEvidence({
@@ -55,6 +38,8 @@ export function createDatabaseResetFailureEvidence({
   phase,
   completedSqlSteps,
   attemptedSqlStep,
+  completedPostSqlStages = [],
+  attemptedPostSqlStage = null,
   diagnostic,
 }) {
   if (!["PRIMARY", "REPRODUCTION"].includes(phase)) {
@@ -66,6 +51,16 @@ export function createDatabaseResetFailureEvidence({
     (attemptedSqlStep !== null && !databaseResetSqlSteps.includes(attemptedSqlStep))
   ) {
     throw new Error("database-reset failure progress differs from the exact SQL sequence");
+  }
+  if (
+    !Array.isArray(completedPostSqlStages) ||
+    completedPostSqlStages.some((stage, index) => stage !== databaseResetPostSqlStages[index]) ||
+    (attemptedPostSqlStage !== null &&
+      attemptedPostSqlStage !== databaseResetPostSqlStages[completedPostSqlStages.length]) ||
+    (completedPostSqlStages.length > 0 && completedSqlSteps.length !== databaseResetSqlSteps.length) ||
+    (attemptedPostSqlStage !== null && completedSqlSteps.length !== databaseResetSqlSteps.length)
+  ) {
+    throw new Error("database-reset failure progress differs from the exact post-SQL sequence");
   }
   return {
     schemaVersion: 1,
@@ -80,6 +75,9 @@ export function createDatabaseResetFailureEvidence({
       completedSqlSteps: [...completedSqlSteps],
       completedSqlStepCount: completedSqlSteps.length,
       attemptedSqlStep,
+      completedPostSqlStages: [...completedPostSqlStages],
+      completedPostSqlStageCount: completedPostSqlStages.length,
+      attemptedPostSqlStage,
       partialDatabaseMutationMayHaveOccurred:
         attemptedSqlStep !== null || completedSqlSteps.length > 0,
     },

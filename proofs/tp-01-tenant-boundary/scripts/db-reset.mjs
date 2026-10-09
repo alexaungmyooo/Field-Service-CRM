@@ -2,9 +2,11 @@ import { randomBytes } from "node:crypto";
 import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { boundedDiagnosticText, run } from "./command.mjs";
+import { clearDatabaseEvidenceComposeInterpolation } from "./database-evidence-compose-contract.mjs";
 import {
   createDatabaseResetComposeInterpolation,
   createDatabaseResetFailureEvidence,
+  databaseResetPostSqlStages,
   databaseResetSqlSteps,
 } from "./db-reset-contract.mjs";
 import {
@@ -39,6 +41,8 @@ const composeInterpolation = createDatabaseResetComposeInterpolation(
 );
 const completedSqlSteps = [];
 let attemptedSqlStep = null;
+const completedPostSqlStages = [];
+let attemptedPostSqlStage = null;
 mkdirSync(evidenceDirectory, { recursive: true });
 
 try {
@@ -53,17 +57,34 @@ try {
     completedSqlSteps.push(name);
     attemptedSqlStep = null;
   }
+  attemptedPostSqlStage = databaseResetPostSqlStages[0];
+  const fixtureEvidence = captureFixtureEvidence(composeInterpolation.environment);
+  completedPostSqlStages.push(attemptedPostSqlStage);
+  attemptedPostSqlStage = databaseResetPostSqlStages[1];
   writeFileSync(
     resolve(evidenceDirectory, "fixture.json"),
-    `${JSON.stringify(captureFixtureEvidence(), null, 2)}\n`,
+    `${JSON.stringify(fixtureEvidence, null, 2)}\n`,
   );
+  completedPostSqlStages.push(attemptedPostSqlStage);
+  attemptedPostSqlStage = databaseResetPostSqlStages[2];
+  const databaseSecurityEvidence = captureDatabaseSecurityEvidence(
+    composeInterpolation.environment,
+    runtimePassword,
+  );
+  completedPostSqlStages.push(attemptedPostSqlStage);
+  attemptedPostSqlStage = databaseResetPostSqlStages[3];
+  const databaseConnectionEvidence = captureDatabaseConnectionEvidence();
+  completedPostSqlStages.push(attemptedPostSqlStage);
+  attemptedPostSqlStage = databaseResetPostSqlStages[4];
   writeFileSync(
     resolve(evidenceDirectory, "database-security.json"),
     `${JSON.stringify({
-      ...captureDatabaseSecurityEvidence(),
-      connectionContract: captureDatabaseConnectionEvidence(),
+      ...databaseSecurityEvidence,
+      connectionContract: databaseConnectionEvidence,
     }, null, 2)}\n`,
   );
+  completedPostSqlStages.push(attemptedPostSqlStage);
+  attemptedPostSqlStage = null;
 } catch (error) {
   const failureArtifact = "database-reset-failure.json";
   const failure = createDatabaseResetFailureEvidence({
@@ -72,6 +93,8 @@ try {
     phase: expectedReachabilityPhase,
     completedSqlSteps,
     attemptedSqlStep,
+    completedPostSqlStages,
+    attemptedPostSqlStage,
     diagnostic: boundedDiagnosticText(
       error?.message,
       undefined,
@@ -97,7 +120,6 @@ try {
   writeFileSync(deviationsPath, `${JSON.stringify(stopped, null, 2)}\n`, { mode: 0o600 });
   throw error;
 } finally {
-  composeInterpolation.environment.TP01_BOOTSTRAP_PASSWORD = "";
-  delete composeInterpolation.environment.TP01_BOOTSTRAP_PASSWORD;
+  clearDatabaseEvidenceComposeInterpolation(composeInterpolation);
   syntheticBootstrapPassword = null;
 }

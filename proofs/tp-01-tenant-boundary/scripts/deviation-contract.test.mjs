@@ -48,6 +48,19 @@ for (const run of ["PRIMARY", "REPRODUCTION"]) {
   assert.equal(resetStopped.operationalStops[0].run, run);
   assert.equal(resetStopped.operationalStops[0].stage, "DB_RESET");
   assert.throws(() => assertDeviationEvidence(resetStopped, { requireNoOperationalStops: true }));
+  for (const stage of ["STATE_SNAPSHOT_BEFORE", "STATE_SNAPSHOT_AFTER"]) {
+    const snapshotStopped = appendOperationalStop(initial, {
+      run,
+      stage,
+      code: "STATE_SNAPSHOT_FAILED",
+      evidenceArtifact: `${run.toLowerCase()}-state-snapshot-failure.json`,
+    });
+    assert.equal(snapshotStopped.operationalStops.length, 1);
+    assert.equal(snapshotStopped.operationalStops[0].stage, stage);
+    assert.throws(() =>
+      assertDeviationEvidence(snapshotStopped, { requireNoOperationalStops: true }),
+    );
+  }
 }
 assert.throws(() =>
   appendOperationalStop(initial, {

@@ -154,3 +154,17 @@ governing documentation, and ignored private static evidence needed for the acce
 remediation. WP-65 grants no dependency, credential, runtime, Docker/Compose, database, SQL,
 fixture, cleanup, proof, reproduction, network, product, architecture, infrastructure, deployment,
 provider, or customer/live-data authority.
+
+## Verified publication and WP-65 activation
+
+The exact frozen WP-64 inventory was committed and pushed as
+`d0e748b5aff649446eac35c584956b7e63c8865d`. Local `HEAD`, cached `origin/main`, and the live
+remote branch matched; repository tree `d4fd552e6f886eb8e0615abadabd888809e9f93c` and proof tree
+`c86c7331a362f6da50471bb4fbfa3dd9bd70f236` were recorded before WP-65 changed the proof.
+
+Static call-graph review found that the same raw-environment fallback also affected the before and
+after state snapshots used by both primary and reproduction proof invocations. Under standing
+completion authority, WP-65 therefore covers the complete database-evidence Compose interface:
+all reset SQL/fixture/security calls and both snapshots per proof invocation. The expansion is
+static-only, closes a known next-stop path before another run, and opens no dependency, runtime,
+proof, network, product, architecture, infrastructure, deployment, provider, or customer-data gate.

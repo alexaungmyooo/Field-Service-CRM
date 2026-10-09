@@ -5,7 +5,14 @@ function assertOperationalStopRecord(record) {
   const allowedStage =
     (record?.run === "PREFLIGHT" && record?.stage === "PRIVATE_ENVIRONMENT_ACTIVATION") ||
     (["PRIMARY", "REPRODUCTION"].includes(record?.run) &&
-      ["TYPESCRIPT_COMPILE", "PROOF_TEST", "RUNTIME_REACHABILITY", "DB_RESET"].includes(record?.stage));
+      [
+        "TYPESCRIPT_COMPILE",
+        "PROOF_TEST",
+        "RUNTIME_REACHABILITY",
+        "DB_RESET",
+        "STATE_SNAPSHOT_BEFORE",
+        "STATE_SNAPSHOT_AFTER",
+      ].includes(record?.stage));
   if (
     !allowedStage ||
     !stopCodePattern.test(record?.code ?? "") ||

@@ -4,7 +4,7 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-64 Inconclusive and closed; WP-65 static remediation pending verified activation |
+| Status | Product Discovery closed — WP-65 accepted; publication authorized |
 | Current phase | Technical Proof Static Remediation |
 | Current work package | `WP-65 TP-01 Reset Evidence-Capture Compose Interpolation Static Remediation` |
 | Application coding | Not authorized |
@@ -1528,6 +1528,27 @@ one fresh independent static validator. Dependencies, credentials/environments, 
 Docker/Compose runtime, containers, databases, SQL, fixtures, cleanup execution, proof/reproduction,
 network, application coding, architecture selection, infrastructure, deployment, provider
 accounts/cost, and customer/live data remain closed.
+
+WP-65 now provides an explicit database-evidence Compose environment for all seven reset calls and
+both before/after state snapshots in each PRIMARY or REPRODUCTION proof invocation. Reset and proof
+invocations generate distinct fresh strong non-secret values; every raw `TP01_*` value and ambient
+`PGPASSWORD` is stripped. Runtime database-security capture uses only a temporary `PGPASSWORD`
+clone, cleared on success or failure. Exact existing-service `compose exec -T` command shapes,
+ordered reset/post-SQL progress, minimized diagnostics, snapshot-specific formal stops, and final
+zero-stop enforcement are preserved.
+
+Primary exact-Node syntax validation and all 14 dependency-free suites passed. The renewed proof
+inventory contains 78 files; artifact-inventory SHA-256 is
+`43cc0ce26b5d73b8ea96f86d0b6dc38ba81ea380922fb92405b0016e02a2776e` and canonical
+no-terminal-LF content-set SHA-256 is
+`d38ed487b01614c480e1a6c50022b502ed8e5c642b042aa53beb7bf551ccac70`. The sole fresh
+`/root/wp65_static_validator` reproduced the exact 18-path scope, all 78 entries and both hashes,
+all 45 syntax checks, all 14 built-in-only suites, every control/binding, and all unchanged
+exclusions. It returned `PASS` with no severity findings and zero persistent mutation. Under
+standing completion authorization, all nine controls, all 24 bindings, all six decisions, and the
+exact frozen 18-path inventory are accepted; commit and push are authorized. Every material,
+runtime, product, architecture, infrastructure, deployment, provider, network, and customer-data
+gate remains closed until the separately bounded next package.
 
 WP-51 is active for owner-decision documentation only. It binds the exact WP-50 publication,
 renewed proof inventory, private-environment contract, stopped-run history, workspace and future
