@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-78 independently validated; exact publication authorized |
-| Current phase | Technical Proof Reauthorization Readiness |
-| Current work package | `WP-78 TP-01 Primary-Handoff Remediation Published Rebinding and Reauthorization Readiness` |
+| Status | Product Discovery closed — WP-79 independently validated; exact publication authorized |
+| Current phase | Technical Proof Execution-Identity Readiness |
+| Current work package | `WP-79 TP-01 Execution Identity and Primary-Handoff Authorization Readiness` |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -130,6 +130,7 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 71. `79_TP01_CONTROLLED_AUDIT_PARAMETER_EXECUTION_RESULT.md`
 72. `80_TP01_PRIMARY_HANDOFF_SEAL_OPERATIONAL_STOP_STATIC_REMEDIATION.md`
 73. `81_TP01_PRIMARY_HANDOFF_REMEDIATION_REBINDING_REAUTHORIZATION_READINESS.md`
+74. `82_TP01_EXECUTION_IDENTITY_PRIMARY_HANDOFF_AUTHORIZATION_READINESS.md`
 
 Current and later accepted work packages may add or mature:
 
@@ -2214,6 +2215,24 @@ inventory. Static PASS is not a tenant-isolation proof or execution authorizatio
 credentials, runtime, Docker/Compose, databases, services, cleanup, proof/reproduction, network,
 application coding, final architecture selection, infrastructure, deployment, provider
 accounts/cost, and customer/live data remain closed.
+
+## WP-78 publication and WP-79 identity readiness — 2026-10-09
+
+The exact four-path WP-78 inventory was published at
+`b6f645058fcb46b0eda78cee0b5e8d1c4f944c13`, with repository tree
+`c8ea0604f18fca61746b7c324ae0595749915b8e`; the accepted proof remains revision
+`6785d650fc3c9649bd364ae1edfc066141a97701`, repository tree
+`be2ccf5d2e1d494ab6d31ee3247da456ad0163c0`, and proof tree
+`b5f144de1e948030e0c61aaeae90d36b79f0466a`. WP-78 is `VERIFIED_AND_CLOSED`.
+
+WP-79 records `/root` only as proposed primary operator, creates the sole fresh proposed
+reproduction identity `/root/wp79_reproduction_validator` and its zero-authority attestation,
+preserves `/root/tp01_security_review` only as proposed bounded technical reviewer, and prepares
+one ignored explicitly ineffective draft. The WP-77 private handoff tools are reviewed templates,
+not executable future controls, because their bytes retain consumed WP-76 bindings. New run-bound
+handoff paths and hashes remain null. All material, execution, network, product, architecture,
+infrastructure, deployment, provider/cost, and customer/live-data gates remain closed pending
+fresh independent readiness validation and exact publication.
 
 ## Private execution control
 

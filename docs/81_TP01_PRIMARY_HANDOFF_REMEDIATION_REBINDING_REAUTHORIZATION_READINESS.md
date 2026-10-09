@@ -241,3 +241,13 @@ or environments, inspect or retrieve images, invoke Docker/Compose, create conta
 or services, execute SQL, cleanup, proof, handoff, or reproduction, use network access, change
 application code, select architecture, create infrastructure, deploy, incur provider cost, mutate
 external systems, or access customer/live data.
+
+## WP-79 identity-readiness activation record
+
+After verified WP-78 publication, WP-79 instantiated only the fresh proposed identity
+`/root/wp79_reproduction_validator`, recorded its zero-authority attestation, proposed `/root` and
+`/root/tp01_security_review` for later exact-package roles, and prepared one ignored ineffective
+draft. The WP-77 private seal/verifier bytes are now explicitly classified as reviewed templates,
+not future executable controls, because they retain consumed WP-76 bindings. New run-bound copies,
+paths, and hashes remain absent and unauthorized. See
+`82_TP01_EXECUTION_IDENTITY_PRIMARY_HANDOFF_AUTHORIZATION_READINESS.md`.
