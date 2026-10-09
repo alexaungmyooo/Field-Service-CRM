@@ -186,3 +186,22 @@ invoke dependencies, create credentials or environments, run preflight, inspect 
 images, invoke Docker/Compose, start services or databases, execute SQL, cleanup, proof, or
 reproduction, use network access, implement application code, select architecture, create
 infrastructure, deploy, incur provider cost, or use customer/live data.
+
+## Verified publication and WP-77 activation
+
+The exact frozen four-path WP-76 public inventory was committed as
+`db7a611 WP-76: close inconclusive audit parameter execution` and published at
+`db7a6113ca5455cda0193efc6fa2e6ae3f76ad98` with repository tree
+`0805d0f655b8e23cfb6f4a2ebdea1ba21c3a8784`. Local `HEAD`, cached `origin/main`, and live remote
+main matched that publication. WP-76 is `VERIFIED_AND_CLOSED` without retry; its private packet,
+PRIMARY observations, handoff failure, role reviews, cleanup, residual result, and fail-closed
+verifier outcome remain immutable.
+
+WP-77 is active only for bounded proof/private-control static remediation of the exclusive-copy
+interface, dependency-free module-instantiation coverage, typed PRIMARY-handoff stop accounting,
+final-verifier consistency, affected hashes, complete proof-inventory renewal, and exactly one
+fresh independent static validator. It grants no authority to restore or invoke dependencies,
+create credentials or environments, run preflight, inspect or retrieve images, invoke
+Docker/Compose, start containers/databases/services, execute SQL, run cleanup, proof, handoff, or
+reproduction, use network access, change application code, select architecture, create
+infrastructure, deploy, incur provider cost, or use customer/live data.

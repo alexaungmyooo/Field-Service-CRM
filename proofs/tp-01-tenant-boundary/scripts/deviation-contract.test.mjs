@@ -2,13 +2,16 @@ import assert from "node:assert/strict";
 import {
   appendOperationalStop,
   assertDeviationEvidence,
+  classifyOperationalStops,
   createDeviationEvidence,
+  primaryHandoffSealStop,
 } from "./deviation-contract.mjs";
 
 const initial = createDeviationEvidence();
 assert.equal(assertDeviationEvidence(initial), initial);
 assert.equal(initial.acceptedContractDeviations.length, 0);
 assert.equal(initial.operationalStops.length, 0);
+assert.equal(classifyOperationalStops(initial), "COMPLETE_REPRODUCTION");
 assert.equal(
   assertDeviationEvidence(initial, { requireNoAccepted: true, requireNoOperationalStops: true }),
   initial,
@@ -23,6 +26,28 @@ const stopped = appendOperationalStop(initial, {
 assert.equal(initial.operationalStops.length, 0);
 assert.equal(stopped.operationalStops.length, 1);
 assert.throws(() => assertDeviationEvidence(stopped, { requireNoOperationalStops: true }));
+assert.throws(() => classifyOperationalStops(stopped), /unknown or multiple/);
+const handoffStopped = appendOperationalStop(initial, primaryHandoffSealStop);
+assert.equal(classifyOperationalStops(handoffStopped), "PRIMARY_HANDOFF_INCONCLUSIVE");
+assert.throws(() =>
+  classifyOperationalStops({
+    ...handoffStopped,
+    operationalStops: [primaryHandoffSealStop, primaryHandoffSealStop],
+  }),
+);
+for (const [key, value] of Object.entries({
+  run: "PRIMARY",
+  stage: "PROOF_TEST",
+  code: "DIFFERENT_STOP",
+  evidenceArtifact: "different-stop.json",
+})) {
+  assert.throws(() =>
+    classifyOperationalStops({
+      ...handoffStopped,
+      operationalStops: [{ ...primaryHandoffSealStop, [key]: value }],
+    }),
+  );
+}
 const activationStopped = appendOperationalStop(initial, {
   run: "PREFLIGHT",
   stage: "PRIVATE_ENVIRONMENT_ACTIVATION",
@@ -108,4 +133,4 @@ assert.throws(() => assertDeviationEvidence({ ...initial, acceptedContractDeviat
   requireNoAccepted: true,
 }));
 
-process.stdout.write("WP-61 deviation contract tests passed\n");
+process.stdout.write("WP-77 deviation contract tests passed\n");

@@ -1,9 +1,13 @@
 import { createHash } from "node:crypto";
-import { readFileSync, writeFileSync } from "node:fs";
+import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { assertExecutionAuthorized } from "./execution-authorization.mjs";
 import { assertDatabaseConnectionEvidence } from "./database-connection-contract.mjs";
-import { assertDeviationEvidence } from "./deviation-contract.mjs";
+import { assertDeviationEvidence, classifyOperationalStops } from "./deviation-contract.mjs";
+import {
+  assertPrimaryHandoffSealStopEvidence,
+  assertPrimaryHandoffStopClosure,
+} from "./handoff-stop-contract.mjs";
 import { assertImageEvidence } from "./image-verification-contract.mjs";
 import {
   assertComposeEvidenceContract,
@@ -294,7 +298,12 @@ if (
 ) throw new Error("authorization, environment, inventory, revision, or manifest binding differs");
 
 assertImageEvidence(image, executionAuthorization);
-assertRuntimeReachabilityEvidence(runtimeReachability, executionAuthorization, "REPRODUCTION");
+const stopClassification = classifyOperationalStops(deviations);
+assertRuntimeReachabilityEvidence(
+  runtimeReachability,
+  executionAuthorization,
+  stopClassification === "PRIMARY_HANDOFF_INCONCLUSIVE" ? "PRIMARY" : "REPRODUCTION",
+);
 assertDatabaseConnectionEvidence(environment.databaseConnection, authorization);
 assertDatabaseConnectionEvidence(databaseSecurity.connectionContract, authorization);
 if (JSON.stringify(environment.databaseConnection) !== JSON.stringify(databaseSecurity.connectionContract)) {
@@ -455,10 +464,149 @@ for (const [name, metadata] of Object.entries(supplyChain.files)) {
     throw new Error(`supply-chain binding differs for ${name}`);
   }
 }
-assertDeviationEvidence(deviations, {
-  requireNoAccepted: true,
-  requireNoOperationalStops: true,
-});
+if (stopClassification === "PRIMARY_HANDOFF_INCONCLUSIVE") {
+  assertDeviationEvidence(deviations, { requireNoAccepted: true });
+  assertPrimaryHandoffSealStopEvidence(readJson("handoff-seal-failure.json"), {
+    packageId,
+    runId: authorization.runId,
+  });
+
+  const primary = verifyResults("primary-results.jsonl");
+  const primaryAudit = verifyAudit("primary-audit-events.jsonl");
+  const primaryState = verifyState("primary-state.json", "PRIMARY");
+  if (primaryState.before.aggregateSha256 !== fixture.state.aggregateSha256) {
+    throw new Error("primary proof-run state does not match the deterministic fixture state");
+  }
+
+  const closure = assertPrimaryHandoffStopClosure({
+    finalPhase,
+    presentArtifacts: [
+      "primary-handoff-seal.json",
+      "primary-handoff-verification.json",
+      "primary-handoff-validator-attestation.json",
+      "primary-runtime-reachability.json",
+      "primary-fixture.json",
+      "primary-database-security.json",
+      "reproduction-results.jsonl",
+      "reproduction-audit-events.jsonl",
+      "reproduction-state.json",
+      "reproduction-difference.json",
+      "audit-events.jsonl",
+      "state-integrity.json",
+    ].filter((name) => existsSync(resolve(evidenceDirectory, name))),
+    claimedStatus: "INCONCLUSIVE",
+  });
+
+  const cleanup = readJson("cleanup.json");
+  if (
+    cleanup.status !== "PASS" ||
+    typeof cleanup.before?.processes !== "string" ||
+    !["OPEN", "CLOSED"].includes(cleanup.before?.listeners?.["127.0.0.1:43101"]) ||
+    cleanup.before?.listeners?.["127.0.0.1:55432"] !== "OPEN" ||
+    !cleanup.before?.docker?.containers ||
+    !cleanup.before?.docker?.networks ||
+    !cleanup.before?.docker?.volumes ||
+    cleanup.before?.generated?.dist !== true ||
+    cleanup.before?.generated?.nodeModules !== true ||
+    typeof cleanup.before?.credentials?.envFile !== "boolean" ||
+    cleanup.after?.processes !== "ABSENT" ||
+    cleanup.after?.listeners?.["127.0.0.1:43101"] !== "CLOSED" ||
+    cleanup.after?.listeners?.["127.0.0.1:55432"] !== "CLOSED" ||
+    Object.values(cleanup.after?.docker ?? {}).some((value) => value !== "ABSENT") ||
+    cleanup.after?.credentials?.envFile !== "ABSENT" ||
+    Object.values(cleanup.after?.generated ?? {}).some((value) => value !== "REMOVED") ||
+    cleanup.tools?.globalMutation !== "NONE_PERFORMED_BY_PROOF_SCRIPTS" ||
+    cleanup.providers?.accounts !== "NONE" ||
+    cleanup.providers?.recurringCost !== "USD 0"
+  ) {
+    throw new Error("cleanup evidence is incomplete or reports residual state");
+  }
+
+  const requiredReviewFields = [
+    "Reviewer identity",
+    "Canonical task identity",
+    "Review date",
+    "Method",
+    "Evidence inspected",
+    "Findings by severity",
+    "Unresolved risks",
+    "Recommendation",
+    "Limitations",
+  ];
+  const reviews = {};
+  for (const reviewerFile of [
+    "operator-review.md",
+    "independent-validation.md",
+    "security-review.md",
+  ]) {
+    const bytes = readEvidence(reviewerFile);
+    const text = bytes.toString("utf8");
+    const fields = Object.fromEntries(
+      requiredReviewFields.map((field) => {
+        const escaped = field.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+        const value = text.match(new RegExp(`^${escaped}:\\s*(.+)$`, "im"))?.[1]?.trim();
+        if (!value) throw new Error(`${reviewerFile} lacks ${field}`);
+        return [field, value];
+      }),
+    );
+    if (fields.Recommendation.toUpperCase() !== "INCONCLUSIVE") {
+      throw new Error(`${reviewerFile} must recommend INCONCLUSIVE for a handoff stop`);
+    }
+    if (!/^\d{4}-\d{2}-\d{2}(?:T.*Z)?$/.test(fields["Review date"])) {
+      throw new Error(`${reviewerFile} has an invalid review date`);
+    }
+    reviews[reviewerFile] = { ...fields, Recommendation: "INCONCLUSIVE" };
+  }
+
+  const conclusion = [
+    "# TP-01 Sanitized Conclusion",
+    "",
+    "- Verification phase: FINAL_PRIMARY_HANDOFF_STOP_PACKET",
+    "- Status: INCONCLUSIVE",
+    "- Case inventory: 222 primary records; independent reproduction not executed",
+    "- Reproduction: prohibited after the primary-handoff seal-tool stop",
+    "- Tenant state: primary run unchanged from deterministic synthetic fixture",
+    "- Customer/live data: none",
+    "- Architecture effect: none; stopped proof evidence cannot select the final architecture",
+    "- Limitation: primary results were not sealed, handed off, or independently reproduced",
+    "",
+  ].join("\n");
+  writeFileSync(resolve(evidenceDirectory, "sanitized-conclusion.md"), conclusion);
+  readEvidence("sanitized-conclusion.md");
+
+  const report = {
+    schemaVersion: 2,
+    proof: "TP-01",
+    packageId,
+    phase: closure.phase,
+    status: closure.status,
+    skippedCases: 0,
+    caseCount: 222,
+    reproduction: closure.reproduction,
+    unauthorizedMutationDetected: false,
+    acceptedContractDeviations: deviations.acceptedContractDeviations.length,
+    operationalStops: deviations.operationalStops.length,
+    credentialScan: "PASS",
+    reviews,
+    files: Object.fromEntries(
+      [...evidenceFiles.entries()]
+        .sort(([left], [right]) => left.localeCompare(right))
+        .map(([name, bytes]) => [name, { bytes: bytes.length, sha256: sha256(bytes) }]),
+    ),
+  };
+  writeFileSync(
+    resolve(evidenceDirectory, "evidence-verification.json"),
+    `${JSON.stringify(report, null, 2)}\n`,
+  );
+  process.stdout.write(
+    `${JSON.stringify({ status: report.status, phase: report.phase, files: Object.keys(report.files).length })}\n`,
+  );
+  process.exitCode = closure.exitCode;
+} else {
+  assertDeviationEvidence(deviations, {
+    requireNoAccepted: true,
+    requireNoOperationalStops: true,
+  });
 
 const primary = verifyResults("primary-results.jsonl");
 const reproduction = verifyResults("reproduction-results.jsonl");
@@ -617,3 +765,4 @@ writeFileSync(
 );
 process.stdout.write(`${JSON.stringify({ status, phase: report.phase, files: Object.keys(report.files).length })}\n`);
 if (finalPhase && status !== "PASS") process.exitCode = 2;
+}

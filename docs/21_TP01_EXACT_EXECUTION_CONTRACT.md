@@ -321,6 +321,12 @@ acceptance, variant rejection, missing-dependency failure, and unchanged depende
 enforcement. A command change after materialization requires a reviewed revision before the
 primary run.
 
+The immutable PRIMARY handoff is a separate gate between a complete PRIMARY packet and any
+reproduction authority. Private seal and verification tools must obtain exclusive-copy behavior
+only through `constants.COPYFILE_EXCL`; they must be safely importable without top-level execution,
+must expose no overwrite path, and must be covered by dependency-free exact-Node module-
+instantiation and exclusive-copy tests. A missing or failed seal never authorizes reproduction.
+
 ## Private evidence contract
 
 | ID | Required private artifact |
@@ -338,7 +344,7 @@ primary run.
 | `TP1-EVID-011` | `operator-review.md`, `independent-validation.md`, and `security-review.md` |
 | `TP1-EVID-012` | `sanitized-conclusion.md`: measurement, failures, limitations, residual risks, expiry, decision effect |
 | `TP1-EVID-013` | `database-security.json`: measured connection/session identity, role attributes, ownership, privileges, forced-RLS/policy state, security-definer and security-invoker/search-path controls, acyclic organization-row visibility, and transaction-local context |
-| `TP1-EVID-014` | `deviations.json`: owner-accepted contract variances remain distinct from fail-closed operational stops; private-environment activation plus primary/reproduction reachability, database-reset, compilation, and proof-test stops use exact stage/run pairs; database-reset failure also retains a minimized typed failure artifact with truthful SQL-step progress and possible-partial-mutation status; any operational stop or unaccepted deviation blocks PASS |
+| `TP1-EVID-014` | `deviations.json`: owner-accepted contract variances remain distinct from fail-closed operational stops; private-environment activation plus primary/reproduction reachability, database-reset, compilation, proof-test, and `PRIMARY_HANDOFF / SEAL_PRIMARY_HANDOFF_READ_ONLY` stops use exact stage/run pairs; a PRIMARY-handoff stop must reference exactly one minimized `handoff-seal-failure.json` artifact, establish no reproduction authority, and force Inconclusive closure; database-reset failure also retains a minimized typed failure artifact with truthful SQL-step progress and possible-partial-mutation status; any operational stop or unaccepted deviation blocks PASS |
 | `TP1-EVID-015` | `evidence-verification.json`: artifact hashes and complete-packet disposition; interim verification can never report final PASS |
 | `TP1-EVID-016` | `runtime-reachability.json`: run-bound primary/reproduction phase, exact Docker/Compose publisher mapping, healthy service state, direct loopback TCP reachability, and non-secret evidence that Compose inspection excluded real credentials and retained no interpolation value; each reset requires its independently derived expected phase and final complete-packet verification requires `REPRODUCTION`; a minimized failure artifact plus formal operational stop replaces it on fail-closed stop |
 
@@ -346,6 +352,15 @@ Each role review must record reviewer identity, canonical task identity, date, m
 inspected, findings by severity, unresolved risks, exact `PASS`/`FAIL`/`INCONCLUSIVE`
 recommendation, and limitations. Final verification propagates `FAIL` before `INCONCLUSIVE`
 before `PASS` and exits nonzero for a non-passing disposition.
+
+Final verification may recognize exactly one accepted PRIMARY-handoff stop only when PRIMARY
+reachability and the complete PRIMARY packet are valid; the handoff seal, handoff verification,
+provenance attestation, reproduction reachability, reproduction reset, and reproduction results
+are all absent; cleanup and all three standardized reviews are present; and the minimized stop
+artifact matches the typed contract. That branch must emit `INCONCLUSIVE`, exit nonzero, and can
+never emit `PASS`. Unknown, malformed, duplicated, or contradictory stops remain fail-closed.
+The zero-stop complete-reproduction path is unchanged and remains the only path eligible for final
+`PASS`.
 
 Raw evidence is never committed. The sanitized conclusion is not public until separately reviewed
 and authorized for publication.

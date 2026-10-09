@@ -7,22 +7,63 @@ This directory materializes checkpoint 1 of the accepted TP-01 contract in
 
 ## Current authorization
 
-WP-73 authorizes proof-only static remediation of the audit-detail parameter typing defect exposed
-by immutable WP-72. It permits only the explicit `$12::text` cast for the parameterized audit
-reason, an exact dependency-free static contract and mutation suite, governing documentation,
-complete hash/inventory renewal, ignored private static evidence, and exactly one fresh independent
-read-only static validation after freeze.
+WP-77 authorizes proof-only static remediation of the primary-handoff seal interface and
+operational-stop consistency defects exposed by immutable WP-76. It permits the exact exclusive
+copy correction through `node:fs` `constants.COPYFILE_EXCL`, dependency-free module-instantiation
+coverage, one typed minimized primary-handoff seal-tool stop, a final-verifier branch that closes
+that exact stop as `INCONCLUSIVE`, governing documentation, affected hash/inventory renewal,
+ignored private static evidence, and exactly one fresh independent read-only static validation
+after freeze.
 
-WP-73 does **not** authorize dependencies or package-manager operations, credential or environment
+WP-77 does **not** authorize dependencies or package-manager operations, credential or environment
 generation/use, preflight, image inspection or retrieval, Docker/Compose commands, pull-token
 creation, containers, databases, services, SQL execution, fixtures, listeners, cleanup execution,
-a TP-01 case or reproduction, execution-evidence verification, application code, architecture
-selection, infrastructure, deployment, provider accounts or cost, customer/live data, or network
-access.
+a TP-01 case, handoff, reproduction, execution-evidence verification, application code,
+architecture selection, infrastructure, deployment, provider accounts or cost, customer/live data,
+or network access.
 
 The execution-facing scripts remain closed. They require later owner acceptance, publication,
 rebinding, role assignment, and a new effective private authorization before any execution-facing
 command may run.
+
+## WP-77 primary-handoff stop consistency contract
+
+The operational-stop ledger accepts exactly one new stop identity:
+
+```text
+PRIMARY_HANDOFF / SEAL_PRIMARY_HANDOFF_READ_ONLY /
+PRIMARY_HANDOFF_SEAL_TOOL_FAILED / handoff-seal-failure.json
+```
+
+The pure stop classifier returns `COMPLETE_REPRODUCTION` only for a zero-stop ledger and
+`PRIMARY_HANDOFF_INCONCLUSIVE` only for that single exact record. Any unknown or multiple stop
+fails closed. The minimized failure artifact binds the package and run, exact phase/stage/code, the
+private seal-tool hash, explicit absence of a seal, verification, validator attestation,
+reproduction authorization and execution, and false retry/raw-diagnostic/secret retention flags.
+
+Final verification classifies the stop before validating REPRODUCTION reachability or reading any
+reproduction file. The exact handoff-stop branch is available only for `--final`; it requires
+PRIMARY reachability, complete 222-case primary result/audit/state evidence, mandatory cleanup,
+three standardized reviews that each recommend `INCONCLUSIVE`, and absence of every handoff and
+reproduction artifact. It emits only an `INCONCLUSIVE` stop-packet report and exit code 2. The
+zero-stop complete-reproduction path and its PASS conditions remain unchanged.
+
+WP-77 dependency-free public static checks are:
+
+```text
+$TP01_NODE_BIN --check scripts/deviation-contract.mjs
+$TP01_NODE_BIN --check scripts/deviation-contract.test.mjs
+$TP01_NODE_BIN --check scripts/handoff-stop-contract.mjs
+$TP01_NODE_BIN --check scripts/handoff-stop-contract.test.mjs
+$TP01_NODE_BIN --check scripts/evidence-verify.mjs
+$TP01_NODE_BIN scripts/deviation-contract.test.mjs
+$TP01_NODE_BIN scripts/handoff-stop-contract.test.mjs
+```
+
+These checks do not invoke dependencies, a package manager, private environments, preflight,
+images, Docker/Compose, containers, databases, services, SQL, cleanup, evidence verification,
+proof/handoff/reproduction, or network access. Static PASS establishes only the prospective proof
+control contract.
 
 ## WP-73 audit-detail parameter contract
 

@@ -1,9 +1,24 @@
 const stopCodePattern = /^[A-Z][A-Z0-9_]{2,63}$/;
 const artifactPattern = /^[a-z0-9][a-z0-9.-]{0,127}$/;
 
+export const primaryHandoffSealStop = Object.freeze({
+  run: "PRIMARY_HANDOFF",
+  stage: "SEAL_PRIMARY_HANDOFF_READ_ONLY",
+  code: "PRIMARY_HANDOFF_SEAL_TOOL_FAILED",
+  evidenceArtifact: "handoff-seal-failure.json",
+});
+
+function isPrimaryHandoffSealStop(record) {
+  return Object.entries(primaryHandoffSealStop).every(([key, value]) => record?.[key] === value);
+}
+
 function assertOperationalStopRecord(record) {
   const allowedStage =
     (record?.run === "PREFLIGHT" && record?.stage === "PRIVATE_ENVIRONMENT_ACTIVATION") ||
+    (record?.run === primaryHandoffSealStop.run &&
+      record?.stage === primaryHandoffSealStop.stage &&
+      record?.code === primaryHandoffSealStop.code &&
+      record?.evidenceArtifact === primaryHandoffSealStop.evidenceArtifact) ||
     (["PRIMARY", "REPRODUCTION"].includes(record?.run) &&
       [
         "TYPESCRIPT_COMPILE",
@@ -74,4 +89,13 @@ export function assertDeviationEvidence(document, options = {}) {
     throw new Error("TP-01 operational stop evidence prevents a successful result");
   }
   return document;
+}
+
+export function classifyOperationalStops(document) {
+  assertDeviationEvidence(document, { requireNoAccepted: true });
+  if (document.operationalStops.length === 0) return "COMPLETE_REPRODUCTION";
+  if (document.operationalStops.length === 1 && isPrimaryHandoffSealStop(document.operationalStops[0])) {
+    return "PRIMARY_HANDOFF_INCONCLUSIVE";
+  }
+  throw new Error("unknown or multiple TP-01 operational stops fail closed");
 }

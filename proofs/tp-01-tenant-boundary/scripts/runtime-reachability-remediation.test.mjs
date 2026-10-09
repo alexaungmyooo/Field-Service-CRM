@@ -77,7 +77,12 @@ assert.match(resetSource, /classifyRuntimeReachabilityPhase\(readdirSync\(eviden
 assert.match(resetSource, /expectedReachabilityPhase/);
 assert.match(
   verifierSource,
-  /assertRuntimeReachabilityEvidence\(runtimeReachability, executionAuthorization, "REPRODUCTION"\)/,
+  /stopClassification === "PRIMARY_HANDOFF_INCONCLUSIVE" \? "PRIMARY" : "REPRODUCTION"/,
+);
+assert.ok(
+  verifierSource.indexOf("classifyOperationalStops(deviations)") <
+    verifierSource.indexOf("assertRuntimeReachabilityEvidence("),
+  "operational stops must be classified before phase-specific reachability validation",
 );
 
-process.stdout.write("WP-57 reachability remediation static tests passed\n");
+process.stdout.write("WP-77 reachability and handoff-stop compatibility tests passed\n");

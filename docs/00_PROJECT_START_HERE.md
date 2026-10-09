@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-76 accepted as Inconclusive and closed without retry; publication authorized |
+| Status | Product Discovery closed — WP-77 independently validated; exact publication authorized |
 | Current phase | Technical Proof Static Remediation |
-| Current work package | `WP-76 Controlled TP-01 Audit-Parameter Execution` |
+| Current work package | `WP-77 Primary-Handoff Seal Interface and Operational-Stop Consistency Static Remediation` |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -128,6 +128,7 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 69. `77_TP01_AUDIT_PARAMETER_REMEDIATION_REBINDING_REAUTHORIZATION_READINESS.md`
 70. `78_TP01_EXECUTION_IDENTITY_AUDIT_PARAMETER_AUTHORIZATION_READINESS.md`
 71. `79_TP01_CONTROLLED_AUDIT_PARAMETER_EXECUTION_RESULT.md`
+72. `80_TP01_PRIMARY_HANDOFF_SEAL_OPERATIONAL_STOP_STATIC_REMEDIATION.md`
 
 Current and later accepted work packages may add or mature:
 
@@ -1326,6 +1327,30 @@ Commit/push is authorized only after fresh public-packet validation. After verif
 only WP-77 handoff-seal interface and operational-stop consistency static remediation may start;
 runtime, application, architecture, infrastructure, deployment, provider, network, and customer-
 data gates remain closed.
+
+## WP-76 publication and WP-77 static-remediation activation — 2026-10-09
+
+The exact frozen four-path WP-76 public inventory was committed as
+`db7a611 WP-76: close inconclusive audit parameter execution` and published at
+`db7a6113ca5455cda0193efc6fa2e6ae3f76ad98`; the published repository tree is
+`0805d0f655b8e23cfb6f4a2ebdea1ba21c3a8784`. Local `HEAD`, cached `origin/main`, and live remote
+main matched. WP-76 is `VERIFIED_AND_CLOSED` without retry. Its PRIMARY observations remain
+preliminary, and its private evidence remains immutable.
+
+WP-77 was limited to proof/private-control static remediation of the private handoff tools'
+exclusive-copy interface, dependency-free module-instantiation and no-overwrite coverage, typed
+`PRIMARY_HANDOFF / SEAL_PRIMARY_HANDOFF_READ_ONLY` stop accounting, final-verifier consistency,
+complete affected-hash and proof-inventory renewal, and exactly one fresh independent static
+validator. The renewed 84-file proof inventory, all 51 syntax checks, all 17 dependency-free proof
+suites, and the three-case private module/copy suite passed. Fresh independent validator
+`/root/wp77_static_validator` returned `PASS` with zero findings. Under standing completion
+authority, the exact frozen thirteen-path inventory is accepted and authorized for publication.
+
+No dependency, credential/environment, preflight, image, Docker/Compose runtime, container,
+database, service, SQL, cleanup execution, proof, handoff, reproduction, or network action is
+authorized. Application coding, final architecture selection, infrastructure, deployment,
+provider accounts/cost, and customer/live data remain closed. After verified WP-77 publication,
+only WP-78 published rebinding and reauthorization-readiness documentation may activate.
 
 The exact twenty-path WP-46 inventory was committed as
 `bbcb4b2 WP-46: accept database connection remediation` and pushed to `origin/main`. Local `HEAD`,
