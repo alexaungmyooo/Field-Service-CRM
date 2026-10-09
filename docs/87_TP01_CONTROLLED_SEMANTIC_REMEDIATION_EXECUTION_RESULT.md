@@ -130,3 +130,15 @@ owner-decision documentation and static/private planning of the Docker host-acce
 Docker runtime, images, containers, databases, proof execution, product implementation,
 architecture selection, infrastructure, deployment, provider accounts/cost, and customer/live
 data remain closed.
+
+## Verified publication and successor planning boundary
+
+The exact four-path WP-84 public inventory was published at
+`c7a4bd57a8d94dd60014d2b0f1217ab5008ad2eb`, with repository tree
+`91791ebd8ea0812a869a1e80a81a1b1e747582a5`; local `HEAD`, cached `origin/main`, and live remote
+main matched. WP-84 is `VERIFIED_AND_CLOSED` without retry.
+
+WP-85 is active only for owner-decision documentation and static/private planning of a separate
+Docker host-access readiness gate. No Docker API call, image operation, Compose/runtime action,
+dependency or credential operation, proof execution, product implementation, architecture
+selection, infrastructure, deployment, provider cost, or customer/live-data access is authorized.

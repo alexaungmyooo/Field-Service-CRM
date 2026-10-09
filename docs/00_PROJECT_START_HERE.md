@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-84 accepted Inconclusive; exact publication authorized |
-| Current phase | Technical Proof Execution Result Review |
-| Current work package | `WP-84 Controlled TP-01 Semantic Remediation Execution` |
+| Status | Product Discovery closed — WP-85 accepted; exact publication authorized |
+| Current phase | Technical Proof Host-Access Readiness Planning |
+| Current work package | `WP-85 Docker Host Access Readiness` |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -136,6 +136,7 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 77. `85_TP01_PRIMARY_RESULT_SEMANTIC_REMEDIATION_REBINDING_REAUTHORIZATION_READINESS.md`
 78. `86_TP01_EXECUTION_IDENTITY_PRIMARY_RESULT_SEMANTIC_AUTHORIZATION_READINESS.md`
 79. `87_TP01_CONTROLLED_SEMANTIC_REMEDIATION_EXECUTION_RESULT.md`
+80. `88_TP01_DOCKER_HOST_ACCESS_READINESS.md`
 
 Current and later accepted work packages may add or mature:
 
@@ -1758,6 +1759,31 @@ commit/push are authorized only for that exact inventory. Dependencies, prefligh
 Docker/Compose, databases, SQL, cleanup, proof/reproduction, network, application coding, final
 architecture selection, infrastructure, deployment, provider accounts/cost, and customer/live
 data remain closed.
+
+## WP-84 publication and WP-85 planning activation — 2026-10-09
+
+The exact four-path WP-84 inventory was published at
+`c7a4bd57a8d94dd60014d2b0f1217ab5008ad2eb`, with repository tree
+`91791ebd8ea0812a869a1e80a81a1b1e747582a5`; local `HEAD`, cached `origin/main`, and live remote
+main matched. The proof tree remained `45369309793a803e761ace440c291c7d1ebdfe37`. WP-84 is
+`VERIFIED_AND_CLOSED` without retry.
+
+WP-85 is active only for owner-decision documentation and static/private planning of a separate
+Docker host-access readiness gate. It may define exact future checks, evidence, expiry, roles,
+stop behavior, and authority separation, and it may create one ignored explicitly ineffective
+private planning draft. It may not contact the Docker API, inspect or retrieve an image, create a
+pull token, invoke Compose, start or remove a container/network/volume, access a database or
+service, restore dependencies, generate credentials, create an effective authorization, execute
+preflight/proof/reproduction/cleanup, use network, change application code, select architecture,
+create infrastructure, deploy, incur provider cost, or access customer/live data.
+
+The owner accepted `WP85-OPT-001`, rejected `WP85-OPT-002` through `004`, and accepted `DEC-220`,
+`WP85-BIND-001` through `022`, `WP85-DEC-001` through `008`, the ineffective private draft, and
+root static-validation `PASS` exactly as recorded. Commit and push are authorized only for the
+exact four-path WP-85 public inventory. After verified publication, WP-86 may prepare owner-
+decision documentation and one private ineffective authorization draft only. Docker/API execution
+and every runtime, proof, network, product, architecture, infrastructure, deployment,
+provider/cost, and customer/live-data gate remain closed.
 
 ## WP-70 publication and WP-71 identity readiness — 2026-10-09
 
