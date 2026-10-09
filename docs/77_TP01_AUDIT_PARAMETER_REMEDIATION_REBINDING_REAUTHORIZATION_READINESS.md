@@ -213,3 +213,19 @@ or environments, inspect or retrieve images, invoke Docker/Compose, create conta
 or services, execute SQL, cleanup, proof, or reproduction, use network access, change application
 code, select architecture, create infrastructure, deploy, incur provider cost, or access
 customer/live data.
+
+## Verified publication and WP-75 activation
+
+The exact frozen WP-74 public inventory was published at
+`844f16e8afe7199c1704e91d7f5920af00cfc434`; governance repository tree is
+`8acea824f3e4c0740f1d07f875704557f5c0cc00`. This document's committed SHA-256 is
+`5f1af56c3401a6651eacd9516ebd5d1c5a3335c5260fdfe3b0c0291c51dbd7bc`. The accepted proof
+revision remains `052b6b7855bd726d5fe1de44db0067ba54eb23ff`, and proof tree remains
+`c2cbcb3f117653d2f42f0ee688dab5baf0055c8f`. WP-74 is `VERIFIED_AND_CLOSED`.
+
+WP-75 is active only for execution-identity decisions, exactly one fresh proposed reproduction-
+validator identity, one ignored explicitly ineffective authorization draft, public owner-decision
+documentation, and static readiness validation. Checkout creation, dependencies, credentials,
+environments, tokens, preflight, images, Docker/Compose runtime, containers, databases, services,
+SQL, cleanup, proof/reproduction, network, application coding, final architecture selection,
+infrastructure, deployment, provider accounts/cost, and customer/live data remain closed.

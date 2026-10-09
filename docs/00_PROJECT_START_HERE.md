@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-74 rebinding accepted after independent documentation validation PASS; publication authorized |
+| Status | Product Discovery closed — WP-75 readiness accepted after independent validation PASS; publication authorized |
 | Current phase | Technical Proof Static Remediation |
-| Current work package | `WP-74 TP-01 Audit-Parameter Remediation Rebinding and Reauthorization Readiness` |
+| Current work package | `WP-75 TP-01 Execution Identity and Audit-Parameter Authorization Readiness` |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -126,6 +126,7 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 67. `75_TP01_CONTROLLED_RECURSIVE_RLS_EXECUTION_RESULT.md`
 68. `76_TP01_AUDIT_DETAIL_PARAMETER_TYPING_STATIC_REMEDIATION.md`
 69. `77_TP01_AUDIT_PARAMETER_REMEDIATION_REBINDING_REAUTHORIZATION_READINESS.md`
+70. `78_TP01_EXECUTION_IDENTITY_AUDIT_PARAMETER_AUTHORIZATION_READINESS.md`
 
 Current and later accepted work packages may add or mature:
 
@@ -1258,6 +1259,41 @@ Under standing completion authority, all 39 bindings, ten decisions, workspace a
 dispositions, `DEC-205`, and the exact four-path public inventory are accepted; commit and push are
 authorized only for that inventory. Every dependency, material, runtime, network, product,
 architecture, infrastructure, deployment, provider, and customer-data gate remains closed.
+
+## WP-74 publication and WP-75 identity readiness — 2026-10-09
+
+The exact four-path WP-74 inventory was committed as
+`844f16e WP-74: accept audit remediation rebinding` and published at
+`844f16e8afe7199c1704e91d7f5920af00cfc434`. The published governance repository tree is
+`8acea824f3e4c0740f1d07f875704557f5c0cc00`; the accepted proof revision remains
+`052b6b7855bd726d5fe1de44db0067ba54eb23ff`; and the proof tree remains
+`c2cbcb3f117653d2f42f0ee688dab5baf0055c8f`. WP-74 is `VERIFIED_AND_CLOSED`.
+
+WP-75 records `/root` only as proposed primary operator, creates exactly one fresh proposed
+reproduction-validator identity `/root/wp75_reproduction_validator`, preserves
+`/root/tp01_security_review` only as proposed bounded technical reviewer, and prepares exactly one
+ignored private draft. The attestation is `PASS` with zero authority and zero operation. The draft
+is `DRAFT_NOT_AUTHORIZED`; contains no package/run, checkout, dependency state, credential,
+database URL, private environment, pull token, or runtime material; preserves all thirteen stopped
+attempts; lists 19 proposal-only stages; and keeps all 32 action-authority flags false.
+
+WP-75 may perform only identity/readiness documentation, ignored private draft preparation, and
+static validation. It may not create an effective authorization or run, create a checkout, restore
+or invoke dependencies, generate runtime materials, run preflight, inspect or retrieve images,
+invoke Docker/Compose, start containers/databases/services, execute SQL, cleanup, proof, or
+reproduction, use network access, change application code, select final architecture, create
+infrastructure, deploy, incur provider cost, or access customer/live data. The exact four-path
+candidate is frozen pending one fresh independent readiness validator.
+
+Fresh independent readiness validator `/root/wp75_readiness_validator` returned `PASS` with no
+findings and zero mutation. It reproduced the live publication and trees, all 82 proof entries and
+both hashes, all 39 inherited and 41 readiness bindings, ten decisions, thirteen stopped attempts,
+the exact role separation and attestation hash, the ineffective draft hash and structural counts,
+null package/run/material state, exact four-path scope, secret absence, clean index/whitespace, and
+every closed gate. Under standing completion authority, `DEC-206`, all bindings, decisions,
+proposed roles, the attestation, ineffective draft, and exact four-path public inventory are
+accepted; commit and push are authorized only for that inventory. WP-75 itself grants no material
+or execution authority.
 
 The exact twenty-path WP-46 inventory was committed as
 `bbcb4b2 WP-46: accept database connection remediation` and pushed to `origin/main`. Local `HEAD`,
