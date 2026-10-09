@@ -4,16 +4,16 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Accepted — publication and one separately bounded controlled run authorized |
+| Status | Accepted, published, and consumed by the single WP-56 attempt |
 | Work package | `WP-55 TP-01 Execution Identity and Full-Sequence Authorization Readiness` |
-| Governing decision | `DEC-185`; proposed `DEC-186` |
+| Governing decision | `DEC-185`; `DEC-186` |
 | Governance publication | `7604646942ba828883abfbc998b93dfbb19ca333` |
 | Accepted proof revision | `09f5a620502b294a6bc5fa3ee2c8397bc6da3094` |
 | Proof tree | `356ed3d79707ba3b7c77db8c09f80cc26b2ffd54` |
 | Owner | Aung Myo Oo |
 | Date | 2026-10-09 |
-| TP-01 execution | Not authorized |
-| Publication | Authorized for the frozen four-path public inventory; verification pending |
+| TP-01 execution | WP-56 authority consumed; no retry or further execution authorized |
+| Publication | Verified as `62c4296de4dd03298e39aba0942005ecff703dc7` |
 
 ## Objective and authority boundary
 
@@ -196,3 +196,15 @@ public inventory. After verified publication, activate exactly one WP-56 control
 `09f5a620502b294a6bc5fa3ee2c8397bc6da3094` under the exact recorded controls. WP-55 grants no
 application, architecture-selection, infrastructure, deployment, provider-cost, or customer/live-
 data authority.
+
+## Publication and execution handoff
+
+The frozen four-path WP-55 inventory was committed as
+`62c4296 WP-55: accept full-sequence execution readiness` and pushed to `origin/main`. Local
+`HEAD`, cached `origin/main`, and live remote main matched
+`62c4296de4dd03298e39aba0942005ecff703dc7`; repository tree is
+`5d9edff3cf77234060de481e390bf377f4bec905`. WP-55 is `VERIFIED_AND_CLOSED`.
+
+The separately authorized WP-56 run consumed the accepted one-shot identities and execution
+authority. It stopped fail-closed at the first reachability gate and may not resume or retry.
+Document 59 records the Inconclusive result and proposed next static-remediation gate.
