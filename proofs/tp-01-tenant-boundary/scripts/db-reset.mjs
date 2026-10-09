@@ -1,8 +1,11 @@
-import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { mkdirSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { run } from "./command.mjs";
 import { assertExecutionAuthorized } from "./execution-authorization.mjs";
-import { assertRuntimeReachabilityEvidence } from "./runtime-reachability-contract.mjs";
+import {
+  assertRuntimeReachabilityEvidence,
+  classifyRuntimeReachabilityPhase,
+} from "./runtime-reachability-contract.mjs";
 import {
   captureDatabaseConnectionEvidence,
   captureDatabaseSecurityEvidence,
@@ -10,9 +13,11 @@ import {
 } from "./database-evidence.mjs";
 
 const { authorization, evidenceDirectory } = assertExecutionAuthorized();
+const expectedReachabilityPhase = classifyRuntimeReachabilityPhase(readdirSync(evidenceDirectory));
 assertRuntimeReachabilityEvidence(
   JSON.parse(readFileSync(resolve(evidenceDirectory, "runtime-reachability.json"), "utf8")),
   authorization,
+  expectedReachabilityPhase,
 );
 const runtimePassword = process.env.TP01_RUNTIME_PASSWORD;
 if (!runtimePassword) throw new Error("TP01_RUNTIME_PASSWORD is required");

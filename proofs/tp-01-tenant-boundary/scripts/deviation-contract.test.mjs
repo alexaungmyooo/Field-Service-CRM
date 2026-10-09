@@ -30,12 +30,30 @@ const activationStopped = appendOperationalStop(initial, {
   evidenceArtifact: "private-environment-activation-failure.json",
 });
 assert.equal(activationStopped.operationalStops.length, 1);
+for (const run of ["PRIMARY", "REPRODUCTION"]) {
+  const reachabilityStopped = appendOperationalStop(initial, {
+    run,
+    stage: "RUNTIME_REACHABILITY",
+    code: "RUNTIME_REACHABILITY_FAILED",
+    evidenceArtifact: "runtime-reachability-failure.json",
+  });
+  assert.equal(reachabilityStopped.operationalStops[0].run, run);
+  assert.equal(reachabilityStopped.operationalStops[0].stage, "RUNTIME_REACHABILITY");
+}
 assert.throws(() =>
   appendOperationalStop(initial, {
     run: "PREFLIGHT",
     stage: "PROOF_TEST",
     code: "INVALID_STAGE_PAIR",
     evidenceArtifact: "failure.json",
+  }),
+);
+assert.throws(() =>
+  appendOperationalStop(initial, {
+    run: "PREFLIGHT",
+    stage: "RUNTIME_REACHABILITY",
+    code: "INVALID_STAGE_PAIR",
+    evidenceArtifact: "runtime-reachability-failure.json",
   }),
 );
 assert.throws(() => appendOperationalStop(initial, {

@@ -49,10 +49,11 @@ for (const invalid of [
 
 const authorization = { packageId: "WP-TEST", runId: "test-run" };
 const evidence = {
-  schemaVersion: 1,
+  schemaVersion: 2,
   proof: "TP-01",
   packageId: "WP-TEST",
   runId: "test-run",
+  phase: "PRIMARY",
   status: "PASS",
   tcpReachability: "OPEN",
   docker: { targetKey: "5432/tcp", host: "127.0.0.1", publishedPort: 55432 },
@@ -65,14 +66,39 @@ const evidence = {
     publishedPort: 55432,
     protocol: "tcp",
   },
+  composeInterpolation: {
+    source: "EPHEMERAL_SYNTHETIC_REACHABILITY_ONLY",
+    purpose: "COMPOSE_CONFIG_INTERPOLATION_FOR_READ_ONLY_PS",
+    actualBootstrapCredentialPresentBefore: false,
+    actualBootstrapCredentialPropagated: false,
+    runtimeCredentialPropagated: false,
+    databaseUrlPropagated: false,
+    pullTokenPropagated: false,
+    serviceMutationAllowed: false,
+    valueRetained: false,
+  },
 };
-assert.equal(assertRuntimeReachabilityEvidence(evidence, authorization), evidence);
+assert.equal(assertRuntimeReachabilityEvidence(evidence, authorization, "PRIMARY"), evidence);
 assert.throws(
   () => assertRuntimeReachabilityEvidence({ ...evidence, runId: "wrong-run" }, authorization),
   /authorized run/,
 );
 assert.throws(
+  () => assertRuntimeReachabilityEvidence(evidence, authorization, "REPRODUCTION"),
+  /authorized run/,
+);
+assert.throws(
   () => assertRuntimeReachabilityEvidence({ ...evidence, tcpReachability: "CLOSED" }, authorization),
+  /authorized run/,
+);
+assert.throws(
+  () => assertRuntimeReachabilityEvidence({
+    ...evidence,
+    composeInterpolation: {
+      ...evidence.composeInterpolation,
+      actualBootstrapCredentialPropagated: true,
+    },
+  }, authorization),
   /authorized run/,
 );
 

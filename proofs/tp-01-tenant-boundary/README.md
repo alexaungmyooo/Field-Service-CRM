@@ -7,12 +7,14 @@ This directory materializes checkpoint 1 of the accepted TP-01 contract in
 
 ## Current authorization
 
-WP-53 authorizes proof-only static remediation of the private-environment command-continuity gap.
-It permits the exact launcher operation map, built-in-only syntax and launcher tests, governing
-documentation, affected hash/inventory renewal, ignored private static evidence, and exactly one
-fresh independent read-only static validation after freeze.
+WP-57 authorizes proof-only static remediation of the reachability Compose-interpolation and
+operational-stop-accounting gaps exposed by WP-56. It permits an ephemeral non-secret
+interpolation interface for read-only Compose publisher inspection, formal primary/reproduction
+reachability-stop evidence, dependency-free syntax and pure tests, governing documentation,
+affected hash/inventory renewal, ignored private static evidence, and exactly one fresh independent
+read-only static validation after freeze.
 
-WP-53 does **not** authorize dependencies or package-manager operations, credential or environment
+WP-57 does **not** authorize dependencies or package-manager operations, credential or environment
 generation/use, preflight, image inspection or retrieval, Docker/Compose commands, pull-token
 creation, containers, databases, services, SQL, fixtures, listeners, cleanup execution, a TP-01
 case or reproduction, execution-evidence verification, application code, architecture selection,
@@ -21,6 +23,55 @@ infrastructure, deployment, provider accounts or cost, customer/live data, or ne
 The execution-facing scripts remain closed. They require later owner acceptance, publication,
 rebinding, role assignment, and a new effective private authorization before any execution-facing
 command may run.
+
+## WP-57 reachability interpolation and operational-stop contract
+
+The private-environment launcher continues to pass no credential, database URL, or pull token to
+`runtime:verify-reachability`. The reachability script creates a fresh random value used only to
+allow Compose to parse the already accepted configuration for the exact read-only command
+`docker compose ps --format json postgres`. The helper removes every proof credential and URL from
+the child environment, rejects reuse of a real bootstrap value, prohibits service-changing
+arguments, retains no interpolation value in evidence, and clears the ephemeral value immediately
+after the child returns.
+
+Successful evidence is schema version 2 and records whether the gate applies to `PRIMARY` or
+`REPRODUCTION`, the three required publisher observations, and a non-secret interpolation record.
+The record must prove that the real bootstrap credential was absent before inspection, no runtime
+credential, URL, or pull token propagated, service mutation was prohibited, and the synthetic value
+was not retained.
+
+If the reachability gate fails, the script writes minimized failure evidence and appends a formal
+`PRIMARY` or `REPRODUCTION` / `RUNTIME_REACHABILITY` operational stop to `deviations.json`.
+Complete primary result, state, and audit artifacts are required before the second gate can be
+classified as reproduction; a partial primary packet fails closed. Operational stops remain
+distinct from owner-accepted contract deviations and prevent final `PASS`.
+
+Before each database reset, the reset command independently derives the expected reachability
+phase from the evidence directory and rejects a stale or wrong-phase gate. Final verification
+requires the retained successful reachability evidence to be the `REPRODUCTION` gate, so a primary
+gate cannot be reused as the complete-packet reachability result.
+
+WP-57 dependency-free static checks are:
+
+```text
+$TP01_NODE_BIN --check scripts/runtime-reachability-contract.mjs
+$TP01_NODE_BIN --check scripts/runtime-reachability.mjs
+$TP01_NODE_BIN --check scripts/runtime-reachability-contract.test.mjs
+$TP01_NODE_BIN --check scripts/runtime-reachability-remediation.test.mjs
+$TP01_NODE_BIN --check scripts/deviation-contract.mjs
+$TP01_NODE_BIN --check scripts/deviation-contract.test.mjs
+$TP01_NODE_BIN --check scripts/db-reset.mjs
+$TP01_NODE_BIN --check scripts/evidence-verify.mjs
+$TP01_NODE_BIN scripts/runtime-reachability-contract.test.mjs
+$TP01_NODE_BIN scripts/runtime-reachability-remediation.test.mjs
+$TP01_NODE_BIN scripts/deviation-contract.test.mjs
+$TP01_NODE_BIN scripts/private-environment-launcher.test.mjs
+$TP01_NODE_BIN scripts/hash-inventory.mjs
+```
+
+These checks do not invoke dependencies, pnpm/npm, credentials, a private runtime environment,
+preflight, images, Docker/Compose, containers, databases, services, cleanup, evidence verification,
+proof/reproduction, or network access.
 
 ## WP-53 full-sequence private-environment command contract
 

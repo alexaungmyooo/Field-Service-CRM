@@ -294,7 +294,7 @@ if (
 ) throw new Error("authorization, environment, inventory, revision, or manifest binding differs");
 
 assertImageEvidence(image, executionAuthorization);
-assertRuntimeReachabilityEvidence(runtimeReachability, executionAuthorization);
+assertRuntimeReachabilityEvidence(runtimeReachability, executionAuthorization, "REPRODUCTION");
 assertDatabaseConnectionEvidence(environment.databaseConnection, authorization);
 assertDatabaseConnectionEvidence(databaseSecurity.connectionContract, authorization);
 if (JSON.stringify(environment.databaseConnection) !== JSON.stringify(databaseSecurity.connectionContract)) {

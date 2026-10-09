@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Accepted — Inconclusive; closed without retry; publication authorized |
+| Status | Accepted, published, and closed — Inconclusive; no retry |
 | Work package | `WP-56 Controlled TP-01 Full-Sequence Execution` |
-| Governing decision | `DEC-186`; proposed `DEC-187` |
+| Governing decision | `DEC-187` |
 | Governance publication | `62c4296de4dd03298e39aba0942005ecff703dc7` |
 | Accepted proof revision | `09f5a620502b294a6bc5fa3ee2c8397bc6da3094` |
 | Proof tree | `356ed3d79707ba3b7c77db8c09f80cc26b2ffd54` |
@@ -14,7 +14,7 @@
 | Owner | Aung Myo Oo |
 | Date | 2026-10-09 |
 | Outcome | `INCONCLUSIVE_CLOSED_NO_RETRY` |
-| Publication | Authorized for the frozen four-path public inventory; verification pending |
+| Publication | Verified as `dca083c1a531ae05961e0822089ce0c674ad770e` |
 
 ## Objective and authority boundary
 
@@ -169,3 +169,17 @@ residual result, final-verifier outcome, 18-entry private inventory, seven remed
 seven recommendations, frozen four-path public inventory, closure without retry, and the bounded
 WP-57 activation after verified publication. Commit and push are authorized only for the frozen
 four public paths above.
+
+## Publication and WP-57 activation
+
+The frozen four-path WP-56 inventory was committed as
+`dca083c WP-56: accept Inconclusive full-sequence execution` and pushed to `origin/main`. Local
+`HEAD`, cached `origin/main`, and live remote main matched
+`dca083c1a531ae05961e0822089ce0c674ad770e`; repository tree is
+`bd539ddd07827f9f2754c964723719092d3ecef8`. WP-56 is `VERIFIED_AND_CLOSED` without retry.
+
+WP-57 is active only for the accepted proof-only static remediation, dependency-free tests,
+affected hash renewal, governing documentation, ignored private static evidence, and exactly one
+fresh independent static validator. It grants no dependency, credential/environment, runtime,
+network, product, architecture, infrastructure, deployment, provider, customer/live-data, or
+publication authority.
