@@ -4,7 +4,7 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Accepted — publication authorized; execution remains unauthorized |
+| Status | Accepted, published, and closed — execution remains unauthorized |
 | Work package | `WP-51 TP-01 Private Environment Remediation Rebinding and Reauthorization Readiness` |
 | Governing decision | `DEC-181`; proposed `DEC-182` |
 | Governance publication | `35776fb5baf18e9230fe2a1bd4d41689949a42b7` |
@@ -15,7 +15,7 @@
 | Date | 2026-10-09 |
 | TP-01 execution | Not authorized |
 | Private authorization draft | Not authorized and not created |
-| Publication | Authorized for the frozen four-path inventory; verification pending |
+| Publication | Verified as `90fa1326ac3f82462a24a78ebb4ea07d981342fa` |
 
 ## Objective and authority boundary
 
@@ -171,3 +171,20 @@ public inventory. After verified publication, WP-52 may create exactly one fresh
 validator identity and prepare owner-decision documentation plus one explicitly ineffective
 private authorization draft. Checkout, dependencies, credential/environment generation,
 preflight, runtime work, and WP-52 publication remain closed.
+
+The exact frozen four-path inventory was committed as
+`90fa132 WP-51: accept private environment rebinding` and pushed to `origin/main`. Local `HEAD`,
+cached `origin/main`, and live remote main matched
+`90fa1326ac3f82462a24a78ebb4ea07d981342fa`. WP-51 is `VERIFIED_AND_CLOSED`.
+
+WP-52 created exactly one fresh reproduction-validator identity and prepared one explicitly
+ineffective private authorization draft plus owner-decision documentation. It created no checkout,
+dependency, credential, environment, run ID, token, effective authorization, runtime resource, or
+execution authority.
+
+The owner accepted all ten WP-52 recommendations, all 21 execution/private-environment readiness
+bindings, `WP52-FIND-001`, the exact proposed roles, the fresh-validator attestation, and the
+ineffective draft. Publication is authorized only for the frozen four-path WP-52 inventory. After
+verified publication, WP-53 may perform only the separately authorized proof-static command-
+continuity remediation and one fresh independent static validation. No execution or broader gate
+is opened.
