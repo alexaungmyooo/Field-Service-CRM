@@ -244,3 +244,28 @@ artifact retrieval, SDK/cache mutation,
 dependency restoration, proof materialization, build, device/runtime operation, proof execution,
 provider account/cost, architecture selection, application coding, infrastructure, deployment,
 and customer/live data remain closed.
+
+## Published control outcome and successor renumbering
+
+WP-107 was published at `f17ba0474d3a40f7f46aab05226b67f720f0d574`, repository tree
+`41b8cb5ae1e9b3a84ae579f27de851b7c63b7d4c`. Its prospective sequence remains authoritative as
+to gate separation, but the package numbers changed after actual evidence required remediation:
+
+1. WP-108 materialized the static control and stopped as `STOPPED_CONTROL_EVIDENCE` after the
+   independent validator found seven issues. It was closed without retry and not published.
+2. WP-109 remediated the same 12-file control candidate, passed 18/18 static tests and one fresh
+   independent validation, consumed its single-use authority, and was published at
+   `a073206520caacc26c2ea5a45bd884b09a11251b`, tree
+   `2e2668933493eb4e034854dd66e799f9c9f95383`.
+3. WP-110 now performs the exact acquisition-contract and authorization-readiness documentation
+   that must precede any network-capable acquisition-control materialization or execution.
+
+The numbering change does not collapse or waive any accepted gate. The published WP-109 control
+is static evidence only; network-capable control materialization, its independent review,
+execution identity/effective authorization, controlled acquisition, bundle acceptance, renewed
+proof materialization and proof execution remain separate later decisions.
+
+The owner accepted the complete WP-110 exact-contract recommendation, advanced its separate
+static acquisition-extension path, retained only the evidence-equivalent owner-supplied fallback,
+rejected direct/uncontrolled acquisition, and authorized publication of exactly documents 00, 02,
+109 and 110. The successor WP-111 remains static and network-disabled.

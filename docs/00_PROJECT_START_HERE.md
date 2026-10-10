@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-107 accepted; exact publication authorized |
-| Current phase | Wave A Materialization Control Remediation and Offline Artifact Acquisition Readiness |
-| Current work package | `WP-107 Wave A Materialization Control Remediation and Offline Artifact Acquisition Readiness` |
+| Status | Product Discovery closed — WP-110 accepted; exact publication authorized |
+| Current phase | Wave A Offline Artifact Acquisition Exact Contract and Authorization Readiness |
+| Current work package | `WP-110 Wave A Offline Artifact Acquisition Exact Contract and Authorization Readiness` |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -158,6 +158,7 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 99. `107_WAVE_A_EXACT_CONTRACT_PROOF_ONLY_MATERIALIZATION_READINESS.md`
 100. `108_WAVE_A_PROOF_ONLY_MATERIALIZATION_AUTHORIZATION_DECISION.md`
 101. `109_WAVE_A_MATERIALIZATION_CONTROL_REMEDIATION_OFFLINE_ARTIFACT_ACQUISITION_READINESS.md`
+102. `110_WAVE_A_OFFLINE_ARTIFACT_ACQUISITION_EXACT_CONTRACT_AUTHORIZATION_READINESS.md`
 
 Current and later accepted work packages may add or mature:
 
@@ -3020,6 +3021,59 @@ synthetic static fixtures, and obtain exactly one fresh zero-authority independe
 Network/downloads, artifact acquisition, SDK/cache mutation, dependency restoration, Wave A proof
 materialization, builds, devices, runtime, proof execution, application coding, architecture
 selection, infrastructure, deployment, provider/cost, and customer/live data remain closed.
+
+## WP-107 publication, WP-108 stopped control and WP-109 remediation — 2026-10-10
+
+The exact four-path WP-107 inventory was committed as
+`f17ba04 WP-107: accept acquisition control readiness` and published at
+`f17ba0474d3a40f7f46aab05226b67f720f0d574`, repository tree
+`41b8cb5ae1e9b3a84ae579f27de851b7c63b7d4c`. Local `HEAD`, cached `origin/main`, and live remote
+main matched. WP-107 is closed and its publication authority is consumed.
+
+WP-108 materialized only the accepted 12-file dependency-free acquisition-control candidate and
+mode-restricted private evidence. Its primary static checks passed, but the fresh independent
+validator returned `STOPPED_CONTROL_EVIDENCE` with `WP108-VAL-001` through `007`: the ledger was
+not bound to effective authorization, source mutations were incomplete, launcher paths/stages
+were insufficiently bound, authority was not consumed, evidence schemas/tests were incomplete,
+and the validator disclosed one cleaned temporary-file authority violation. The owner accepted
+the stopped result, cleanup and residual verification, closed WP-108 without retry, prohibited
+publication of the failed candidate, and authorized only bounded WP-109 static remediation.
+
+WP-109 remediated the acquisition-control contract inside the exact public proof-control root and
+ignored private evidence root. The primary static suite passed 18/18, the single-use authority was
+consumed, the 13-entry ledger bound the exact effective-authorization hash and all 12 public paths,
+the 21-entry checksum inventory and 20-entry final inventory verified, and exactly one fresh
+zero-authority independent validator returned PASS with no findings. The owner accepted
+`STATIC_CONTROL_REMEDIATED` and authorized publication of only the exact 12-file public control
+tree.
+
+The exact WP-109 inventory was committed as
+`a073206 WP-109: remediate acquisition control contract` and published at
+`a073206520caacc26c2ea5a45bd884b09a11251b`, repository tree
+`2e2668933493eb4e034854dd66e799f9c9f95383`. Local `HEAD`, cached `origin/main`, and live remote
+main matched; the repository was clean after publication. WP-109 is closed and its publication
+authority is consumed.
+
+The owner activated `WP-110 Wave A Offline Artifact Acquisition Exact Contract and Authorization
+Readiness` for owner-decision documentation and one private ineffective authorization draft only.
+WP-110 may propose exact artifact/source/network/resource/path/command/evidence/stop/cleanup
+boundaries and the later acquisition authorization sequence. It may not contact a network,
+download or acquire an artifact, mutate an SDK/cache, restore dependencies, build, use a device or
+runtime, execute a proof, code the application, select final architecture, create infrastructure,
+deploy, use provider accounts/cost, or access customer/live data. The candidate public inventory
+is documents 00, 02, 109, and 110. No WP-110 commit or push is authorized without later owner
+acceptance.
+
+The owner accepted `DEC-243`, every WP-110 fact/artifact/source/limit/path/command/authorization/
+evidence/stop/cleanup/blocker disposition, and `WP110-DEC-001` through `010`; advanced
+`WP110-OPT-001`; retained `WP110-OPT-002` only as an evidence-equivalent fallback; rejected
+options 003 and 004; accepted the ineffective private draft, observed-tool limitations and exact
+eight-entry private inventory verification; and authorized commit and push only for documents 00,
+02, 109 and 110. After verified publication, WP-111 may materialize and independently validate
+only a dependency-free, network-disabled acquisition extension under the accepted public/private
+roots. Network, metadata retrieval, downloads, artifact acquisition, SDK/cache mutation,
+dependencies, builds, devices, runtime, proof execution, application coding, architecture
+selection, infrastructure, deployment, provider/cost and customer/live data remain closed.
 
 ## Private execution control
 
