@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-104 accepted; exact publication authorized |
-| Current phase | Wave A Exact Contract and Proof-Only Materialization Readiness |
-| Current work package | `WP-104 Wave A Exact Contract and Proof-Only Materialization Readiness` |
+| Status | Product Discovery closed — WP-105 accepted; exact publication authorized |
+| Current phase | Wave A Proof-Only Materialization Authorization Decision |
+| Current work package | `WP-105 Wave A Proof-Only Materialization Authorization Decision` |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -156,6 +156,7 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 97. `105_OPERATING_MODEL_PROVIDER_PROOF_ENTRY_SPECIALIST_ASSIGNMENT_BASELINE.md`
 98. `106_ARCHITECTURE_PROOF_WAVE_PRIORITY_AUTHORIZATION_SEQUENCE.md`
 99. `107_WAVE_A_EXACT_CONTRACT_PROOF_ONLY_MATERIALIZATION_READINESS.md`
+100. `108_WAVE_A_PROOF_ONLY_MATERIALIZATION_AUTHORIZATION_DECISION.md`
 
 Current and later accepted work packages may add or mature:
 
@@ -2917,6 +2918,31 @@ the Wave A proof-only materialization authorization decision as documentation on
 dependencies, materialization, devices, execution, provider/network/cost, final architecture
 selection, application coding, infrastructure, deployment, and customer/live data remain closed
 until separately authorized.
+
+## WP-104 verified publication and WP-105 activation — 2026-10-10
+
+The exact four-path WP-104 public inventory was committed as
+`fb79703 WP-104: accept Wave A exact proof contract` and published at
+`fb797037abf430c7b78630924231b69c7c9fb0e1`, repository tree
+`7c551c9a661b465ab49a6b5c9968f971e13235ef`. Local `HEAD`, fetched `origin/main`, and live remote
+main matched. WP-104 is closed and its publication authority is consumed.
+
+The owner activated `WP-105 Wave A Proof-Only Materialization Authorization Decision` for owner-
+decision documentation only. WP-105 may propose the exact later checkpoint authority, public and
+private paths, offline dependency treatment, command classes, static validator, evidence, stop/
+cleanup and result meanings. It does not authorize proof files, dependencies, materialization,
+devices/emulators, builds/runs, network/provider/cost, architecture selection, application coding,
+infrastructure, deployment or customer/live data. The candidate inventory is documents 00, 02,
+107, and 108.
+
+The owner accepted `DEC-240`, `WP105-MAT-001`, every WP-105 authority/path/dependency/command/
+evidence/validator/stop/cleanup/result disposition, and `WP105-DEC-001` through `010`; advanced
+`WP105-OPT-001`; rejected options 002 through 004; and authorized commit and push only for
+documents 00, 02, 107, and 108. After verified publication, WP-106 may perform the separately
+bounded offline/static materialization checkpoint exactly as accepted. Builds, emulators, devices,
+installs, launches, databases, services, network shaping, proof execution/reproduction,
+provider/network/cost, final architecture selection, application coding, infrastructure,
+deployment and customer/live data remain closed.
 
 ## Private execution control
 

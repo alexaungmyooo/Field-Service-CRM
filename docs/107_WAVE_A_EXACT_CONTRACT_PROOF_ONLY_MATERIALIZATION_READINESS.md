@@ -4,7 +4,7 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Accepted — exact publication authorized |
+| Status | Accepted — verified and closed |
 | Work package | `WP-104 Wave A Exact Contract and Proof-Only Materialization Readiness` |
 | Owner | Aung Myo Oo |
 | Governing priority | `DEC-238`, `PROOF-WAVE-PRIORITY-001` — Accepted |
@@ -337,10 +337,22 @@ The owner accepted `DEC-239`, every candidate/contract/fixture/device/network/ca
 path/supply/evidence/role/stop/cleanup/readiness disposition, and `WP104-DEC-001` through `010`;
 advanced `WP104-OPT-001`; rejected `WP104-OPT-002` through `004`; and authorized commit and push
 only for the exact four paths above. After verified publication, WP-105 may decide whether to
-authorize creation of the exact disposable
-proof root, dependency manifests/lockfile, synthetic fixtures, public schemas/static tests and
+authorize creation of the exact disposable proof root, dependency manifests/lockfile, synthetic
+fixtures, public schemas/static tests and
 private supply-chain evidence needed for independent static validation. WP-105 must freeze exact
 paths, dependency sources/integrity, permitted network or offline source, validator identity,
 evidence, cleanup and stop conditions. Devices, proof execution, provider/network/cost, final
 architecture selection, application coding, infrastructure, deployment and customer/live data
 remain closed unless separately and explicitly authorized.
+
+## Verified publication and successor activation
+
+The exact four-path WP-104 public inventory was committed and published at
+`fb797037abf430c7b78630924231b69c7c9fb0e1`, repository tree
+`7c551c9a661b465ab49a6b5c9968f971e13235ef`. Local `HEAD`, fetched `origin/main`, and live remote
+main matched. WP-104 is verified and closed; its publication authority is consumed.
+
+WP-105 is active for the Wave A proof-only materialization authorization decision as documentation
+only. It does not authorize proof files, dependencies, materialization, devices/emulators, builds,
+runs, provider/network/cost, architecture selection, application coding, infrastructure,
+deployment or customer/live data.
