@@ -4,8 +4,8 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Accepted — exact publication authorized |
-| Work package | `WP-105 Wave A Proof-Only Materialization Authorization Decision` |
+| Status | Accepted — WP-106 result publication authorized |
+| Work package | `WP-105 Wave A Proof-Only Materialization Authorization Decision`; `WP-106` result record |
 | Owner | Aung Myo Oo |
 | Governing proof contract | `DEC-239`, `WP104-DEC-001` through `010` — Accepted |
 | Published WP-104 revision | `fb797037abf430c7b78630924231b69c7c9fb0e1` |
@@ -273,3 +273,107 @@ evidence, fresh static validator, stop/cleanup and no-runtime gates recorded her
 Devices, emulators, builds, installs, launches, databases, authority services, network shaping,
 proof execution/reproduction, provider/network/cost, final architecture selection, application
 coding, infrastructure, deployment and customer/live data remain closed.
+
+## WP-106 controlled materialization result candidate
+
+### Bound execution identity
+
+| Field | Result |
+| --- | --- |
+| Checkpoint | `WAVEA-MATERIALIZATION-CHECKPOINT-1` |
+| Accepted revision | `3e5a11ed0b94b8a7a2edeb720baa31ca18d58000` |
+| Accepted repository tree | `fcd4cd042825d605752be8da08bc740369071467` |
+| Checkout | Clean dedicated managed checkout at the accepted revision |
+| Primary operator | `/root` |
+| Independent validator | `/root/wp106_wavea_static_validator` — fresh, zero authority, consumed |
+| First operational stop | `STOPPED_DEPENDENCY_ABSENT` under `WP105-STOP-002` |
+| Independent validation | `FAIL` |
+| Final candidate result | `STOPPED_STATIC_FINDING` |
+| Retry | Not authorized |
+
+### Material availability and stop
+
+`WP106-DEV-001` records the exact material blocker. The local Flutter launcher resolved to Flutter
+`3.44.3`, framework revision `e1fd963c6f6922bd32afde2e9698a363cd0406d2`, bundled Dart
+`3.12.2`, and engine `a4ce257c68517c1410f4b48ac9852ab5642a3f8d`; the accepted contract
+requires Flutter `3.47.0` and its exact Dart `3.13` line. The inspected standard local package
+cache contained none of the six exact package directories required or reviewed by the contract:
+
+- Drift `2.35.2`;
+- drift_dev `2.35.0`;
+- sqlite3 `3.7.0`;
+- flutter_secure_storage `11.2.0`;
+- sqflite `2.4.4+1`;
+- sqflite_sqlcipher `3.4.1`.
+
+The operator stopped at the first mandatory absence. No fallback version, download, cache mutation,
+manifest, lockfile, dependency restoration, proof source, Android scaffold, build, emulator/device
+operation, database, process/service, network shaping, proof case, or measurement followed. The
+public root `proofs/wave-a-field-offline/` was never created.
+
+### Independent static validation
+
+The only authorized fresh validator confirmed the accepted revision and tree, all hashes in the
+original six-entry private seal, clean tracked/staged state, absence of the proof root and runtime
+artifacts, exact observed tool versions, absence of the required package directories, correct
+application of `WP105-STOP-002`, and current residual cleanliness. It edited nothing and invoked no
+prohibited tool or runtime action.
+
+The validator returned `FAIL` with these blocking findings:
+
+| ID | Finding | Disposition |
+| --- | --- | --- |
+| `WP106-VAL-001` | Original private directories were mode `0755` and files `0644`, with no restrictive ACL. | Directories and the then-existing evidence files were hardened to `0700` and `0600` after validation; the consumed validator did not revalidate the change. |
+| `WP106-VAL-002` | `authorization.md` lacked a contemporaneous checkpoint start, expiry, and exact authority-flag set required by `WP105-EVID-001`. | Historical evidence cannot be reconstructed; remains blocking. |
+| `WP106-VAL-003` | No sealed pre-materialization clean-status and allowed-path receipt satisfied `WP105-EVID-002`. | A later assertion is not equivalent evidence; remains blocking. |
+| `WP106-VAL-004` | No timestamped command/operation receipt permits reconstruction of historical non-use claims. | Current residual inspection passes, but historical completeness remains unproved. |
+
+Because validator remediation would require a new primary seal and fresh validator, and WP-106
+authorized exactly one validator, the final candidate result is `STOPPED_STATIC_FINDING`. The
+underlying `STOPPED_DEPENDENCY_ABSENT` remains the first operational stop and does not authorize
+artifact retrieval.
+
+### Cleanup, private evidence, and boundaries
+
+Mandatory cleanup and final residual verification returned `PASS_NO_RUNTIME_STATE_CREATED`. No
+proof root, dependency directory, manifest, lockfile, Android scaffold, build output, APK/AAB/IPA,
+device/emulator session, process, service, database, network shaper, credential, or unbound
+temporary state exists. Pre-existing SDKs and caches were not modified. The dedicated checkout is
+retained only for owner review of its bound residual state and ignored private stop packet; the
+public candidate remains uncommitted in the primary checkout. Neither checkout is an executable
+or resumable checkpoint.
+
+The final private inventory contains twelve mode-restricted entries under
+`internal-local/work-packages/WP-106/`. It includes the owner authority record, tool and artifact
+inventories, typed stop, cleanup report, primary validation, original seal, independent report,
+non-reconstructability amendment, permission-remediation record, final disposition, and final
+inventory. Nothing from that ignored directory may be published.
+
+### Accepted owner dispositions
+
+| ID | Recommendation | State |
+| --- | --- | --- |
+| `WP106-DEC-001` | Accept `WP106-DEV-001` and `STOPPED_DEPENDENCY_ABSENT` as the exact first operational stop under `WP105-STOP-002`. | Accepted |
+| `WP106-DEC-002` | Accept that no proof tree, dependency state, build/device/runtime/network state, or application code was created. | Accepted |
+| `WP106-DEC-003` | Accept the independent validation `FAIL` and `WP106-VAL-001` through `WP106-VAL-004` exactly as recorded. | Accepted |
+| `WP106-DEC-004` | Accept the permission hardening as a safety correction only, not an independently validated repair or PASS. | Accepted |
+| `WP106-DEC-005` | Accept that the missing contemporaneous authorization, pre-materialization, and operation receipts cannot be reconstructed. | Accepted |
+| `WP106-DEC-006` | Accept mandatory cleanup, current residual absence, and the complete twelve-entry private packet. | Accepted |
+| `WP106-DEC-007` | Close WP-106 without retry; require a separately accepted documentation package before any control remediation, network acquisition, dependency restoration, materialization, build, device, or execution action. | Accepted |
+
+### Frozen candidate inventory and next gate
+
+The WP-106 public candidate inventory is exactly:
+
+1. `docs/00_PROJECT_START_HERE.md`
+2. `docs/02_ASSUMPTIONS_AND_DECISIONS.md`
+3. `docs/108_WAVE_A_PROOF_ONLY_MATERIALIZATION_AUTHORIZATION_DECISION.md`
+
+The owner accepted the result and exact three-path inventory and authorized commit and push. After
+verified publication, the next package is `WP-107 Wave A Materialization Control
+Remediation and Offline Artifact Acquisition Readiness` for documentation and owner decision only.
+It may specify a fresh evidence-control contract and separately assess exact artifact acquisition
+options, but it must keep network/download, SDK/cache mutation, dependency restoration,
+materialization, build, device/runtime, proof execution, provider/cost, architecture selection,
+application coding, infrastructure, deployment, and customer/live data closed until each later
+gate is explicitly accepted.

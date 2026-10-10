@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-105 accepted; exact publication authorized |
-| Current phase | Wave A Proof-Only Materialization Authorization Decision |
-| Current work package | `WP-105 Wave A Proof-Only Materialization Authorization Decision` |
+| Status | Product Discovery closed — WP-106 accepted; exact publication authorized |
+| Current phase | Controlled Wave A Proof-Only Materialization and Supply-Chain Review |
+| Current work package | `WP-106 Controlled Wave A Proof-Only Materialization and Supply-Chain Review` |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -2943,6 +2943,51 @@ bounded offline/static materialization checkpoint exactly as accepted. Builds, e
 installs, launches, databases, services, network shaping, proof execution/reproduction,
 provider/network/cost, final architecture selection, application coding, infrastructure,
 deployment and customer/live data remain closed.
+
+## WP-105 verified publication and WP-106 controlled stop — 2026-10-10
+
+The exact four-path WP-105 public inventory was committed as
+`3e5a11e WP-105: authorize Wave A materialization decision` and published at
+`3e5a11ed0b94b8a7a2edeb720baa31ca18d58000`, repository tree
+`fcd4cd042825d605752be8da08bc740369071467`. Local `HEAD`, cached `origin/main`, and live remote
+main matched. WP-105 is closed and its publication authority is consumed.
+
+The owner activated `WP-106 Controlled Wave A Proof-Only Materialization and Supply-Chain Review`
+at that exact revision. A clean dedicated checkout was established and existing local tools and
+package artifacts were read and hashed without retrieval. The only available Flutter SDK was
+`3.44.3` with bundled Dart `3.12.2`, while the accepted contract requires Flutter `3.47.0` and its
+Dart `3.13` line. Exact local package directories for Drift `2.35.2`, drift_dev `2.35.0`, sqlite3
+`3.7.0`, flutter_secure_storage `11.2.0`, sqflite `2.4.4+1`, and sqflite_sqlcipher `3.4.1` were
+absent. The operator therefore stopped under `WP105-STOP-002` as
+`STOPPED_DEPENDENCY_ABSENT` before creating the proof root, restoring dependencies, generating a
+manifest or lockfile, or invoking build/device/runtime/network operations.
+
+Exactly one fresh zero-authority validator, `/root/wp106_wavea_static_validator`, independently
+confirmed the revision/tree, original six-entry seal, clean tracked state, absent proof/runtime
+artifacts, tool-version drift, missing exact packages, and correct first stop. It returned `FAIL`
+with `WP106-VAL-001` through `WP106-VAL-004`: the original private packet permissions were too
+broad, and the packet lacked contemporaneous start/expiry/authority flags, a sealed
+pre-materialization receipt, and timestamped command/operation receipts. Permissions were safely
+hardened after review, but the three missing contemporaneous evidence classes cannot be recreated
+or independently revalidated by the already-consumed validator. The final WP-106 candidate result
+is therefore `STOPPED_STATIC_FINDING`, with the underlying dependency-absence stop preserved.
+
+Mandatory cleanup and residual inspection found no proof tree, dependency state, build output,
+device/emulator activity, process, service, database, network shaper, credential, or unbound
+temporary state. The mode-restricted private packet contains twelve entries and remains ignored.
+No WP-106 retry, network acquisition, or proof materialization is authorized. Public result
+publication is limited to documents 00, 02, and 108.
+Every build, device, runtime, proof-execution, provider/network/cost, final-architecture,
+application, infrastructure, deployment, and customer/live-data gate remains closed.
+
+The owner accepted `DEC-241`, `WP106-DEV-001`, `WP106-VAL-001` through `004`, the evidence
+limitations, permission correction, cleanup/residual result, twelve-entry private inventory, and
+`WP106-DEC-001` through `007`; closed WP-106 without retry; and authorized commit and push only for
+documents 00, 02, and 108. After verified publication, WP-107 may begin materialization-control
+remediation and offline-artifact-acquisition readiness documentation and owner-decision analysis
+only. All network/download, dependency, materialization, build, device, runtime, proof-execution,
+application, architecture-selection, infrastructure, deployment, provider/cost, and customer/
+live-data gates remain closed.
 
 ## Private execution control
 
