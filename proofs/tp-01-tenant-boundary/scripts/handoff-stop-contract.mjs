@@ -1,4 +1,12 @@
 import { minimizePrimaryResultContextFailure } from "./primary-result-context-contract.mjs";
+export {
+  assertPostPrimaryHandoffEvidence,
+  assertPostPrimaryReproductionStop,
+  assertPostPrimaryStopClosure,
+  exactPostPrimaryHandoffEntryNames,
+  prohibitedPostPrimaryStopArtifacts,
+  reproductionReachabilityStop,
+} from "./post-primary-stop-contract.mjs";
 
 const hashPattern = /^[a-f0-9]{64}$/;
 const packageIdPattern = /^WP-[0-9]+$/;

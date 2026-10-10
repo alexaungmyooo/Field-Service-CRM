@@ -141,3 +141,16 @@ custody, and truthful post-PRIMARY finalization. Dependencies, Docker/runtime, p
 application coding, architecture selection, infrastructure, deployment, provider accounts/cost,
 network, and customer/live data remain closed. WP-93 commit and push require later owner
 acceptance.
+
+## Verified publication and successor boundary
+
+The exact four-path WP-92 public inventory was published at
+`078e1aa2b097237e8b667ef087f4ea1b036309ad`, repository tree
+`2494d9d52c67e16879f6e6507d1a8981b1e246db`. Local `HEAD`, cached `origin/main`, and live remote
+main matched; the accepted proof tree remained
+`45369309793a803e761ace440c291c7d1ebdfe37`. WP-92 is verified, closed, and non-retriable.
+
+WP-93 is now active only for the separately bounded static remediation described in document 96.
+This activation does not reopen WP-92 or authorize dependencies, runtime, proof execution,
+application coding, architecture selection, infrastructure, deployment, provider accounts/cost,
+network access, or customer/live data.

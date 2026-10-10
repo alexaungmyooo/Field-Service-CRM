@@ -71,14 +71,17 @@ assert.match(source, /delete composeInspection\.environment\.TP01_BOOTSTRAP_PASS
 assert.match(source, /composeInterpolation: composeInterpolationEvidence/);
 assert.match(source, /stage: "RUNTIME_REACHABILITY"/);
 assert.match(source, /code: "RUNTIME_REACHABILITY_FAILED"/);
+assert.match(source, /if \(existsSync\(failurePath\)\)/);
+assert.match(source, /retry is prohibited/);
+assert.match(source, /\{ flag: "wx", mode: 0o600 \}/);
+assert.doesNotMatch(source, /rmSync\(failurePath/);
 assert.doesNotMatch(source, /\["compose", "up"/);
 assert.doesNotMatch(source, /\["compose", "down"/);
 assert.match(resetSource, /classifyRuntimeReachabilityPhase\(readdirSync\(evidenceDirectory\)\)/);
 assert.match(resetSource, /expectedReachabilityPhase/);
-assert.match(
-  verifierSource,
-  /stopClassification === "PRIMARY_HANDOFF_INCONCLUSIVE" \? "PRIMARY" : "REPRODUCTION"/,
-);
+assert.match(verifierSource, /"REPRODUCTION_REACHABILITY_INCONCLUSIVE"/);
+assert.match(verifierSource, /\? "primary-runtime-reachability\.json"/);
+assert.match(verifierSource, /\? "PRIMARY"\s*: "REPRODUCTION"/);
 assert.ok(
   verifierSource.indexOf("classifyOperationalStops(deviations)") <
     verifierSource.indexOf("assertRuntimeReachabilityEvidence("),

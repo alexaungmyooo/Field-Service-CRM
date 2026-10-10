@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import {
   appendOperationalStop,
+  assertDeviationAppendOnlyExtension,
   assertDeviationEvidence,
   classifyOperationalStops,
   createDeviationEvidence,
@@ -15,6 +16,56 @@ assert.equal(classifyOperationalStops(initial), "COMPLETE_REPRODUCTION");
 assert.equal(
   assertDeviationEvidence(initial, { requireNoAccepted: true, requireNoOperationalStops: true }),
   initial,
+);
+
+const appendedReachabilityStop = appendOperationalStop(initial, {
+  run: "REPRODUCTION",
+  stage: "RUNTIME_REACHABILITY",
+  code: "RUNTIME_REACHABILITY_FAILED",
+  evidenceArtifact: "runtime-reachability-failure.json",
+});
+assert.equal(
+  assertDeviationAppendOnlyExtension(initial, appendedReachabilityStop),
+  appendedReachabilityStop,
+);
+assert.throws(() =>
+  assertDeviationAppendOnlyExtension(
+    { ...initial, acceptedContractDeviations: [{ id: "ACCEPTED-001" }] },
+    initial,
+  ),
+);
+assert.throws(() =>
+  assertDeviationAppendOnlyExtension(appendedReachabilityStop, initial),
+);
+assert.throws(() =>
+  assertDeviationAppendOnlyExtension(appendedReachabilityStop, {
+    ...appendedReachabilityStop,
+    operationalStops: [{ ...appendedReachabilityStop.operationalStops[0], code: "CHANGED" }],
+  }),
+);
+const twoStopPrimary = appendOperationalStop(
+  appendOperationalStop(initial, {
+    run: "PRIMARY",
+    stage: "PROOF_TEST",
+    code: "CHILD_EXIT_NONZERO",
+    evidenceArtifact: "primary-execution-failure.json",
+  }),
+  appendedReachabilityStop.operationalStops[0],
+);
+assert.throws(() =>
+  assertDeviationAppendOnlyExtension(twoStopPrimary, {
+    ...twoStopPrimary,
+    operationalStops: [...twoStopPrimary.operationalStops].reverse(),
+  }),
+);
+assert.throws(() =>
+  classifyOperationalStops({
+    ...appendedReachabilityStop,
+    operationalStops: [
+      appendedReachabilityStop.operationalStops[0],
+      appendedReachabilityStop.operationalStops[0],
+    ],
+  }),
 );
 
 const stopped = appendOperationalStop(initial, {
@@ -64,6 +115,14 @@ for (const run of ["PRIMARY", "REPRODUCTION"]) {
   });
   assert.equal(reachabilityStopped.operationalStops[0].run, run);
   assert.equal(reachabilityStopped.operationalStops[0].stage, "RUNTIME_REACHABILITY");
+  if (run === "REPRODUCTION") {
+    assert.equal(
+      classifyOperationalStops(reachabilityStopped),
+      "REPRODUCTION_REACHABILITY_INCONCLUSIVE",
+    );
+  } else {
+    assert.throws(() => classifyOperationalStops(reachabilityStopped), /unknown or multiple/);
+  }
   const resetStopped = appendOperationalStop(initial, {
     run,
     stage: "DB_RESET",

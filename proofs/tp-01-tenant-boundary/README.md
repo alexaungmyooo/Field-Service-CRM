@@ -7,14 +7,14 @@ This directory materializes checkpoint 1 of the accepted TP-01 contract in
 
 ## Current authorization
 
-WP-81 authorizes proof-only static remediation of the result-context semantic mismatch exposed by
-immutable WP-80. It permits one group-aware PRIMARY-result context/reset contract, exact inclusion
-of cleanup-reset and organization-sequence semantics in PRIMARY/REPRODUCTION comparison,
-dependency-free positive and fail-closed coverage, minimized structured semantic-failure metadata,
-governing documentation, affected hash/inventory renewal, ignored private static evidence, and
-exactly one fresh independent read-only static validation after freeze.
+WP-93 authorizes proof-only static remediation of the reproduction-context and post-PRIMARY
+finalization gaps exposed by immutable WP-92. It permits exact validator-context readiness
+contracts, immutable PRIMARY handoff/deviation custody, append-only run-level stop accounting,
+truthful post-PRIMARY non-PASS finalization, dependency-free tests, governing documentation,
+affected hash/inventory renewal, ignored private static evidence, and one fresh independent
+read-only static validation after freeze.
 
-WP-81 does **not** authorize dependencies or package-manager operations, credential or environment
+WP-93 does **not** authorize dependencies or package-manager operations, credential or environment
 generation/use, preflight, image inspection or retrieval, Docker/Compose commands, pull-token
 creation, containers, databases, services, SQL execution, fixtures, listeners, cleanup execution,
 a TP-01 case, handoff, reproduction, execution-evidence verification, application code,
@@ -24,6 +24,45 @@ or network access.
 The execution-facing scripts remain closed. They require later owner acceptance, publication,
 rebinding, role assignment, and a new effective private authorization before any execution-facing
 command may run.
+
+## WP-93 reproduction-context and post-PRIMARY finalization contract
+
+The independent reproduction-validator context must produce two fresh, single-use readiness
+receipts: one before PRIMARY and one before REPRODUCTION. Each is valid for no more than 15
+minutes and binds the exact package, run, stage, validator identity, operator UID, absolute Docker
+executable path and hash, local `desktop-linux` context, local Unix endpoint, and exact Docker
+client/server `29.7.2` handshake. The probe permits no network, registry, image, runtime-resource,
+credential, or proof access. Because the probe cannot authenticate a collaboration-task identity,
+each receipt also requires a separate exact-hash external task attestation with zero mutation.
+The effective execution-authorization validator enforces the same host-access binding before any
+proof command, and the final verifier requires the applicable receipt and attestation again.
+
+At PRIMARY handoff, the raw `deviations.json` bytes are copied to the sealed read-only artifact
+`primary-deviations.json`. The mutable live `deviations.json` and `runtime.env` are excluded from
+the handoff seal. Later deviation evidence must be a strict append-only extension of the PRIMARY
+snapshot: accepted deviations cannot change and existing operational stops cannot be removed,
+reordered, or mutated.
+
+The only newly recognized post-PRIMARY stop is:
+
+```text
+REPRODUCTION / RUNTIME_REACHABILITY /
+RUNTIME_REACHABILITY_FAILED / runtime-reachability-failure.json
+```
+
+The handoff verifier requires the exact 16-entry inventory and recomputes every retained byte/hash
+and the canonical aggregate. The failure artifact is created exclusively and cannot be overwritten
+or retried in the same run.
+For this exact single stop, final verification consumes PRIMARY reachability and the verified
+read-only handoff, rejects all reproduction-result artifacts, requires cleanup plus three
+role-bound `INCONCLUSIVE` reviews, emits a truthful `INCONCLUSIVE` packet, and exits 2. Zero operational
+stops plus complete independent reproduction remains the only PASS path.
+
+WP-93 dependency-free public static checks include exact-Node syntax validation for every
+`scripts/*.mjs` module and direct exact-Node execution of every `scripts/*.test.mjs` suite. They do
+not invoke dependencies, pnpm/npm, credentials, private environments, preflight, images,
+Docker/Compose, containers, databases, services, cleanup, evidence verification, proof,
+reproduction, or network access. Static PASS establishes only a prospective control contract.
 
 ## WP-81 primary-result context and reset contract
 

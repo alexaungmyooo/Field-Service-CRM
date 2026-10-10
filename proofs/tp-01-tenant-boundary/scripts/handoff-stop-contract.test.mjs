@@ -153,10 +153,9 @@ assert.ok(
   reachabilityValidationOffset > classificationOffset,
   "stop classification must precede REPRODUCTION reachability validation",
 );
-assert.match(
-  verifierSource,
-  /stopClassification === "PRIMARY_HANDOFF_INCONCLUSIVE" \? "PRIMARY" : "REPRODUCTION"/,
-);
+assert.match(verifierSource, /"PRIMARY_HANDOFF_INCONCLUSIVE"/);
+assert.match(verifierSource, /"REPRODUCTION_REACHABILITY_INCONCLUSIVE"/);
+assert.match(verifierSource, /\? "PRIMARY"\s*: "REPRODUCTION"/);
 assert.ok(
   reproductionReadOffset > classificationOffset,
   "stop classification must precede reproduction evidence reads",

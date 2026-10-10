@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-91 verified and closed; WP-92 Inconclusive result accepted for exact publication |
-| Current phase | Technical Proof Controlled Execution Result Closure |
-| Current work package | `WP-92 Controlled TP-01 Host-Access-Remediated Execution` |
+| Status | Product Discovery closed — WP-92 verified and closed; WP-93 accepted for exact publication |
+| Current phase | Technical Proof Static Remediation Publication |
+| Current work package | `WP-93 Reproduction Context and Post-Primary Finalization Static Remediation` — Accepted |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -144,6 +144,7 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 85. `93_TP01_HOST_ACCESS_REMEDIATED_REBINDING_REAUTHORIZATION_READINESS.md`
 86. `94_TP01_EXECUTION_IDENTITY_HOST_ACCESS_REMEDIATED_AUTHORIZATION_READINESS.md`
 87. `95_TP01_CONTROLLED_HOST_ACCESS_REMEDIATED_EXECUTION_RESULT.md`
+88. `96_TP01_REPRODUCTION_CONTEXT_POST_PRIMARY_FINALIZATION_STATIC_REMEDIATION.md`
 
 Current and later accepted work packages may add or mature:
 
@@ -1973,6 +1974,28 @@ only proof/private-control static remediation of reproduction-context reachabili
 handoff/deviation custody, and truthful post-PRIMARY finalization. Application coding,
 architecture selection, infrastructure, deployment, provider accounts/cost, runtime, network,
 and customer/live data remain closed.
+
+## WP-92 publication and WP-93 static remediation candidate — 2026-10-10
+
+The owner-accepted four-path WP-92 public inventory was committed and published at
+`078e1aa2b097237e8b667ef087f4ea1b036309ad`; local `HEAD`, cached `origin/main`, and the live remote
+matched. Repository tree was `2494d9d52c67e16879f6e6507d1a8981b1e246db`, and the unchanged
+proof tree was `45369309793a803e761ace440c291c7d1ebdfe37`. WP-92 is verified and closed
+`INCONCLUSIVE_CLOSED_NO_RETRY`.
+
+WP-93 is active only for static remediation of independent-validator context readiness, immutable
+PRIMARY handoff/deviation custody, append-only post-handoff stop accounting, and truthful
+post-PRIMARY finalization. The candidate introduces no application code and performs no dependency,
+credential, preflight, image, Docker/Compose, database, cleanup, proof, reproduction, network, or
+external-system action. Its prospective controls and renewed inventory require owner acceptance
+before any commit or push. All execution and architecture-selection gates remain closed.
+
+The owner accepted `DEC-228`, `WP93-REM-001` through `008`, `WP93-BIND-001` through `021`,
+`WP93-DEC-001` through `007`, the renewed 90-file inventory and hashes, resolution of all three
+independent findings, and the final independent static-validation `PASS`. Commit and push are
+authorized only for the exact eighteen-path WP-93 public/proof inventory. After verified
+publication, WP-94 may begin owner-decision documentation and private ineffective authorization
+preparation only. All execution and other closed gates remain unchanged.
 
 ## WP-70 publication and WP-71 identity readiness — 2026-10-09
 

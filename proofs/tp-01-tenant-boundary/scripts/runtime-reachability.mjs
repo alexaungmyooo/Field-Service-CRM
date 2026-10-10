@@ -26,7 +26,9 @@ mkdirSync(evidenceDirectory, { recursive: true });
 const passPath = resolve(evidenceDirectory, "runtime-reachability.json");
 const failurePath = resolve(evidenceDirectory, "runtime-reachability-failure.json");
 rmSync(passPath, { force: true });
-rmSync(failurePath, { force: true });
+if (existsSync(failurePath)) {
+  throw new Error("runtime reachability failure evidence already exists; retry is prohibited");
+}
 const phase = classifyRuntimeReachabilityPhase(readdirSync(evidenceDirectory));
 
 function assertTcpReachable() {
@@ -107,6 +109,7 @@ try {
       diagnostic,
       commandDiagnostic: error?.diagnostic ?? null,
     }, null, 2)}\n`,
+    { flag: "wx", mode: 0o600 },
   );
   const deviationsPath = resolve(evidenceDirectory, "deviations.json");
   const deviations = existsSync(deviationsPath)

@@ -12,6 +12,15 @@ function isPrimaryHandoffSealStop(record) {
   return Object.entries(primaryHandoffSealStop).every(([key, value]) => record?.[key] === value);
 }
 
+function isReproductionReachabilityStop(record) {
+  return (
+    record?.run === "REPRODUCTION" &&
+    record?.stage === "RUNTIME_REACHABILITY" &&
+    record?.code === "RUNTIME_REACHABILITY_FAILED" &&
+    record?.evidenceArtifact === "runtime-reachability-failure.json"
+  );
+}
+
 function assertOperationalStopRecord(record) {
   const allowedStage =
     (record?.run === "PREFLIGHT" && record?.stage === "PRIVATE_ENVIRONMENT_ACTIVATION") ||
@@ -91,11 +100,33 @@ export function assertDeviationEvidence(document, options = {}) {
   return document;
 }
 
+export function assertDeviationAppendOnlyExtension(primarySnapshot, current) {
+  const primary = assertDeviationEvidence(primarySnapshot);
+  const advanced = assertDeviationEvidence(current);
+  if (
+    JSON.stringify(advanced.acceptedContractDeviations) !==
+      JSON.stringify(primary.acceptedContractDeviations) ||
+    advanced.operationalStops.length < primary.operationalStops.length ||
+    JSON.stringify(
+      advanced.operationalStops.slice(0, primary.operationalStops.length),
+    ) !== JSON.stringify(primary.operationalStops)
+  ) {
+    throw new Error("deviation evidence is not an append-only extension of the primary snapshot");
+  }
+  return advanced;
+}
+
 export function classifyOperationalStops(document) {
   assertDeviationEvidence(document, { requireNoAccepted: true });
   if (document.operationalStops.length === 0) return "COMPLETE_REPRODUCTION";
   if (document.operationalStops.length === 1 && isPrimaryHandoffSealStop(document.operationalStops[0])) {
     return "PRIMARY_HANDOFF_INCONCLUSIVE";
+  }
+  if (
+    document.operationalStops.length === 1 &&
+    isReproductionReachabilityStop(document.operationalStops[0])
+  ) {
+    return "REPRODUCTION_REACHABILITY_INCONCLUSIVE";
   }
   throw new Error("unknown or multiple TP-01 operational stops fail closed");
 }

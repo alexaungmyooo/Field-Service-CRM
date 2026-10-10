@@ -3,6 +3,7 @@ import { spawnSync } from "node:child_process";
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { assertExactNode } from "./runtime-contract.mjs";
+import { assertReproductionContextAuthorizationBinding } from "./reproduction-context-contract.mjs";
 
 export function assertExecutionContextAuthorized({ packageId, runId, evidenceDirectory }) {
   if (!packageId?.startsWith("WP-") || !runId || !evidenceDirectory) {
@@ -27,6 +28,7 @@ export function assertExecutionContextAuthorized({ packageId, runId, evidenceDir
   ) {
     throw new Error("Private authorization record does not match the requested execution package");
   }
+  assertReproductionContextAuthorizationBinding(record);
   const inventory = JSON.parse(inventoryBytes.toString("utf8"));
   for (const entry of inventory.entries) {
     const actual = createHash("sha256").update(readFileSync(resolve(entry.path))).digest("hex");

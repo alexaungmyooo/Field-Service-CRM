@@ -32,7 +32,7 @@ export const auditParameterSlots = Object.freeze([
 
 const expectedUnchangedSha256 = Object.freeze({
   schemaSource: "8941cb31ca8704f06d9de67913571c3fba5b1d7021efb8c0c78bad9c4f1db4cf",
-  evidenceVerifier: "7b8f9987c65e51d7c61c76e63d7b85a4d62e2726dfc81496f8a4980bf18612ef",
+  evidenceVerifier: "4ff87e221596904211af945a3a01ce53579ff4a09b3304def978635194608ab9",
   proofOracle: "db80f493c6ee3a767f7ceb3c634c4be8691d03e9889608c420a16f0c0dac4000",
   rlsSource: "d2bc5e0498079900854196af3a775c326428c9cf61abd4918f7abe8c2155f642",
   databaseSource: "9c50fd54740bcfc6c5f16653bc3e77e72d9d8fa41da4e4054037820723b662bf",

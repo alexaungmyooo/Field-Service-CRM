@@ -7,6 +7,10 @@ import { assertDeviationEvidence, classifyOperationalStops } from "./deviation-c
 import {
   assertPrimaryHandoffSealStopEvidence,
   assertPrimaryHandoffStopClosure,
+  assertPostPrimaryHandoffEvidence,
+  assertPostPrimaryReproductionStop,
+  assertPostPrimaryStopClosure,
+  exactPostPrimaryHandoffEntryNames,
 } from "./handoff-stop-contract.mjs";
 import { assertImageEvidence } from "./image-verification-contract.mjs";
 import {
@@ -15,6 +19,13 @@ import {
 } from "./remediation-contract.mjs";
 import { assertRuntimeReachabilityEvidence } from "./runtime-reachability-contract.mjs";
 import { assertPrimaryResultContext } from "./primary-result-context-contract.mjs";
+import {
+  assertReproductionContextAuthorizationBinding,
+  assertReproductionContextAttestation,
+  assertReproductionContextReceipt,
+  reproductionContextAttestationArtifacts,
+  reproductionContextReceiptArtifacts,
+} from "./reproduction-context-contract.mjs";
 
 const { authorization: executionAuthorization, packageId, evidenceDirectory } =
   assertExecutionAuthorized();
@@ -52,6 +63,25 @@ function readEvidence(name, scan = true) {
 
 function readJson(name) {
   return JSON.parse(readEvidence(name).toString("utf8"));
+}
+
+function verifyReproductionContextGate(stage, binding) {
+  const receiptBytes = readEvidence(reproductionContextReceiptArtifacts[stage]);
+  const receipt = JSON.parse(receiptBytes.toString("utf8"));
+  const attestation = readJson(reproductionContextAttestationArtifacts[stage]);
+  const context = {
+    packageId,
+    runId: executionAuthorization.runId,
+    validatorIdentity: executionAuthorization.roles?.reproductionValidator,
+    validatorProcessUid: binding.validatorProcessUid,
+    dockerExecutablePath: binding.dockerExecutablePath,
+    dockerExecutableSha256: binding.dockerExecutableSha256,
+    stage,
+    observedAt: receipt.capturedAt,
+  };
+  assertReproductionContextReceipt(receipt, context);
+  assertReproductionContextAttestation(attestation, receiptBytes, context);
+  return { receipt, attestation };
 }
 
 function readJsonLines(name) {
@@ -252,10 +282,88 @@ function verifyState(name, expectedRun) {
   return state;
 }
 
+function verifyFinalCleanup() {
+  const cleanup = readJson("cleanup.json");
+  if (
+    cleanup.status !== "PASS" ||
+    typeof cleanup.before?.processes !== "string" ||
+    !["OPEN", "CLOSED"].includes(cleanup.before?.listeners?.["127.0.0.1:43101"]) ||
+    cleanup.before?.listeners?.["127.0.0.1:55432"] !== "OPEN" ||
+    !cleanup.before?.docker?.containers ||
+    !cleanup.before?.docker?.networks ||
+    !cleanup.before?.docker?.volumes ||
+    cleanup.before?.generated?.dist !== true ||
+    cleanup.before?.generated?.nodeModules !== true ||
+    typeof cleanup.before?.credentials?.envFile !== "boolean" ||
+    cleanup.after?.processes !== "ABSENT" ||
+    cleanup.after?.listeners?.["127.0.0.1:43101"] !== "CLOSED" ||
+    cleanup.after?.listeners?.["127.0.0.1:55432"] !== "CLOSED" ||
+    Object.values(cleanup.after?.docker ?? {}).some((value) => value !== "ABSENT") ||
+    cleanup.after?.credentials?.envFile !== "ABSENT" ||
+    Object.values(cleanup.after?.generated ?? {}).some((value) => value !== "REMOVED") ||
+    cleanup.tools?.globalMutation !== "NONE_PERFORMED_BY_PROOF_SCRIPTS" ||
+    cleanup.providers?.accounts !== "NONE" ||
+    cleanup.providers?.recurringCost !== "USD 0"
+  ) {
+    throw new Error("cleanup evidence is incomplete or reports residual state");
+  }
+  return cleanup;
+}
+
+function verifyInconclusiveReviews(stopLabel) {
+  const requiredReviewFields = [
+    "Reviewer identity",
+    "Canonical task identity",
+    "Review date",
+    "Method",
+    "Evidence inspected",
+    "Findings by severity",
+    "Unresolved risks",
+    "Recommendation",
+    "Limitations",
+  ];
+  const reviews = {};
+  const expectedReviewers = new Map([
+    ["operator-review.md", executionAuthorization.roles?.primaryOperator],
+    ["independent-validation.md", executionAuthorization.roles?.reproductionValidator],
+    ["security-review.md", executionAuthorization.roles?.technicalSecurityReviewer],
+  ]);
+  for (const [reviewerFile, expectedIdentity] of expectedReviewers) {
+    const bytes = readEvidence(reviewerFile);
+    const text = bytes.toString("utf8");
+    const fields = Object.fromEntries(
+      requiredReviewFields.map((field) => {
+        const escaped = field.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+        const value = text.match(new RegExp(`^\\s*(?:-\\s*)?${escaped}:\\s*(.+)$`, "im"))?.[1]?.trim();
+        if (!value) throw new Error(`${reviewerFile} lacks ${field}`);
+        return [field, value];
+      }),
+    );
+    const normalizedRecommendation = fields.Recommendation.replace(/^`|`$/g, "").toUpperCase();
+    if (normalizedRecommendation !== "INCONCLUSIVE") {
+      throw new Error(`${reviewerFile} must recommend INCONCLUSIVE for ${stopLabel}`);
+    }
+    const canonicalIdentity = fields["Canonical task identity"].replace(/^`|`$/g, "");
+    if (!expectedIdentity || canonicalIdentity !== expectedIdentity) {
+      throw new Error(`${reviewerFile} is not bound to its authorized role identity`);
+    }
+    const reviewDate = fields["Review date"].replace(/^`|`$/g, "");
+    if (!/^\d{4}-\d{2}-\d{2}(?:T.*Z)?$/.test(reviewDate)) {
+      throw new Error(`${reviewerFile} has an invalid review date`);
+    }
+    reviews[reviewerFile] = {
+      ...fields,
+      "Canonical task identity": canonicalIdentity,
+      "Review date": reviewDate,
+      Recommendation: "INCONCLUSIVE",
+    };
+  }
+  return reviews;
+}
+
 const authorization = readJson("authorization.json");
 const environment = readJson("environment.json");
 const image = readJson("image.json");
-const runtimeReachability = readJson("runtime-reachability.json");
 const fixture = readJson("fixture.json");
 const databaseSecurity = readJson("database-security.json");
 const supplyChain = readJson("supply-chain.json");
@@ -300,10 +408,26 @@ if (
 
 assertImageEvidence(image, executionAuthorization);
 const stopClassification = classifyOperationalStops(deviations);
+const reproductionContextBinding = assertReproductionContextAuthorizationBinding(
+  executionAuthorization,
+);
+verifyReproductionContextGate("PRE_PRIMARY", reproductionContextBinding);
+if (stopClassification !== "PRIMARY_HANDOFF_INCONCLUSIVE") {
+  verifyReproductionContextGate("PRE_REPRODUCTION", reproductionContextBinding);
+}
+const runtimeReachability = readJson(
+  stopClassification === "REPRODUCTION_REACHABILITY_INCONCLUSIVE"
+    ? "primary-runtime-reachability.json"
+    : "runtime-reachability.json",
+);
 assertRuntimeReachabilityEvidence(
   runtimeReachability,
   executionAuthorization,
-  stopClassification === "PRIMARY_HANDOFF_INCONCLUSIVE" ? "PRIMARY" : "REPRODUCTION",
+  ["PRIMARY_HANDOFF_INCONCLUSIVE", "REPRODUCTION_REACHABILITY_INCONCLUSIVE"].includes(
+    stopClassification,
+  )
+    ? "PRIMARY"
+    : "REPRODUCTION",
 );
 assertDatabaseConnectionEvidence(environment.databaseConnection, authorization);
 assertDatabaseConnectionEvidence(databaseSecurity.connectionContract, authorization);
@@ -465,7 +589,104 @@ for (const [name, metadata] of Object.entries(supplyChain.files)) {
     throw new Error(`supply-chain binding differs for ${name}`);
   }
 }
-if (stopClassification === "PRIMARY_HANDOFF_INCONCLUSIVE") {
+if (stopClassification === "REPRODUCTION_REACHABILITY_INCONCLUSIVE") {
+  const primaryDeviations = readJson("primary-deviations.json");
+  const reachabilityFailure = readJson("runtime-reachability-failure.json");
+  assertPostPrimaryReproductionStop({
+    deviations,
+    primaryDeviations,
+    reachabilityFailure,
+    context: { packageId, runId: authorization.runId },
+  });
+  const handoffSealBytes = readEvidence("primary-handoff-seal.json");
+  const handoffVerificationBytes = readEvidence("primary-handoff-verification.json");
+  const handoffAttestation = readJson("primary-handoff-validator-attestation.json");
+  assertPostPrimaryHandoffEvidence({
+    sealBytes: handoffSealBytes,
+    verificationBytes: handoffVerificationBytes,
+    attestation: handoffAttestation,
+    artifactBytesByName: Object.fromEntries(
+      exactPostPrimaryHandoffEntryNames.map((name) => [name, readEvidence(name)]),
+    ),
+    context: {
+      packageId,
+      runId: authorization.runId,
+      validatorIdentity: authorization.roles?.reproductionValidator,
+    },
+  });
+
+  const primary = verifyResults("primary-results.jsonl");
+  const primaryAudit = verifyAudit("primary-audit-events.jsonl");
+  const primaryState = verifyState("primary-state.json", "PRIMARY");
+  if (primaryState.before.aggregateSha256 !== fixture.state.aggregateSha256) {
+    throw new Error("primary proof-run state does not match the deterministic fixture state");
+  }
+  const closure = assertPostPrimaryStopClosure({
+    finalPhase,
+    presentArtifacts: [
+      "primary-handoff-seal.json",
+      "primary-handoff-verification.json",
+      "primary-handoff-validator-attestation.json",
+      "primary-deviations.json",
+      "primary-runtime-reachability.json",
+      "primary-fixture.json",
+      "primary-database-security.json",
+      "reproduction-results.jsonl",
+      "reproduction-audit-events.jsonl",
+      "reproduction-state.json",
+      "reproduction-difference.json",
+      "audit-events.jsonl",
+      "state-integrity.json",
+    ].filter((name) => existsSync(resolve(evidenceDirectory, name))),
+    claimedStatus: "INCONCLUSIVE",
+  });
+  verifyFinalCleanup();
+  const reviews = verifyInconclusiveReviews("a post-primary reproduction-reachability stop");
+  const conclusion = [
+    "# TP-01 Sanitized Conclusion",
+    "",
+    "- Verification phase: FINAL_POST_PRIMARY_REPRODUCTION_REACHABILITY_STOP_PACKET",
+    "- Status: INCONCLUSIVE",
+    "- Case inventory: 222 primary records; independent reproduction not executed",
+    "- Reproduction: stopped before reset/proof at the exact reachability gate",
+    "- Tenant state: primary run unchanged from deterministic synthetic fixture",
+    "- Customer/live data: none",
+    "- Architecture effect: none; preliminary PRIMARY evidence cannot select architecture",
+    "- Limitation: primary results were sealed but not independently reproduced",
+    "",
+  ].join("\n");
+  writeFileSync(resolve(evidenceDirectory, "sanitized-conclusion.md"), conclusion);
+  readEvidence("sanitized-conclusion.md");
+  const report = {
+    schemaVersion: 3,
+    proof: "TP-01",
+    packageId,
+    phase: closure.phase,
+    status: closure.status,
+    skippedCases: 0,
+    caseCount: primary.records.length,
+    auditRecordCount: primaryAudit.records.length,
+    reproduction: closure.reproduction,
+    unauthorizedMutationDetected: false,
+    acceptedContractDeviations: deviations.acceptedContractDeviations.length,
+    operationalStops: deviations.operationalStops.length,
+    credentialScan: "PASS",
+    reviews,
+    files: Object.fromEntries(
+      [...evidenceFiles.entries()]
+        .sort(([left], [right]) => left.localeCompare(right))
+        .map(([name, bytes]) => [name, { bytes: bytes.length, sha256: sha256(bytes) }]),
+    ),
+  };
+  writeFileSync(
+    resolve(evidenceDirectory, "evidence-verification.json"),
+    `${JSON.stringify(report, null, 2)}\n`,
+  );
+  process.stdout.write(
+    `${JSON.stringify({ status: report.status, phase: report.phase, files: Object.keys(report.files).length })}\n`,
+  );
+  process.exitCode = closure.exitCode;
+} else if (stopClassification === "PRIMARY_HANDOFF_INCONCLUSIVE") {
   assertDeviationEvidence(deviations, { requireNoAccepted: true });
   assertPrimaryHandoffSealStopEvidence(readJson("handoff-seal-failure.json"), {
     packageId,
@@ -498,66 +719,8 @@ if (stopClassification === "PRIMARY_HANDOFF_INCONCLUSIVE") {
     claimedStatus: "INCONCLUSIVE",
   });
 
-  const cleanup = readJson("cleanup.json");
-  if (
-    cleanup.status !== "PASS" ||
-    typeof cleanup.before?.processes !== "string" ||
-    !["OPEN", "CLOSED"].includes(cleanup.before?.listeners?.["127.0.0.1:43101"]) ||
-    cleanup.before?.listeners?.["127.0.0.1:55432"] !== "OPEN" ||
-    !cleanup.before?.docker?.containers ||
-    !cleanup.before?.docker?.networks ||
-    !cleanup.before?.docker?.volumes ||
-    cleanup.before?.generated?.dist !== true ||
-    cleanup.before?.generated?.nodeModules !== true ||
-    typeof cleanup.before?.credentials?.envFile !== "boolean" ||
-    cleanup.after?.processes !== "ABSENT" ||
-    cleanup.after?.listeners?.["127.0.0.1:43101"] !== "CLOSED" ||
-    cleanup.after?.listeners?.["127.0.0.1:55432"] !== "CLOSED" ||
-    Object.values(cleanup.after?.docker ?? {}).some((value) => value !== "ABSENT") ||
-    cleanup.after?.credentials?.envFile !== "ABSENT" ||
-    Object.values(cleanup.after?.generated ?? {}).some((value) => value !== "REMOVED") ||
-    cleanup.tools?.globalMutation !== "NONE_PERFORMED_BY_PROOF_SCRIPTS" ||
-    cleanup.providers?.accounts !== "NONE" ||
-    cleanup.providers?.recurringCost !== "USD 0"
-  ) {
-    throw new Error("cleanup evidence is incomplete or reports residual state");
-  }
-
-  const requiredReviewFields = [
-    "Reviewer identity",
-    "Canonical task identity",
-    "Review date",
-    "Method",
-    "Evidence inspected",
-    "Findings by severity",
-    "Unresolved risks",
-    "Recommendation",
-    "Limitations",
-  ];
-  const reviews = {};
-  for (const reviewerFile of [
-    "operator-review.md",
-    "independent-validation.md",
-    "security-review.md",
-  ]) {
-    const bytes = readEvidence(reviewerFile);
-    const text = bytes.toString("utf8");
-    const fields = Object.fromEntries(
-      requiredReviewFields.map((field) => {
-        const escaped = field.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-        const value = text.match(new RegExp(`^${escaped}:\\s*(.+)$`, "im"))?.[1]?.trim();
-        if (!value) throw new Error(`${reviewerFile} lacks ${field}`);
-        return [field, value];
-      }),
-    );
-    if (fields.Recommendation.toUpperCase() !== "INCONCLUSIVE") {
-      throw new Error(`${reviewerFile} must recommend INCONCLUSIVE for a handoff stop`);
-    }
-    if (!/^\d{4}-\d{2}-\d{2}(?:T.*Z)?$/.test(fields["Review date"])) {
-      throw new Error(`${reviewerFile} has an invalid review date`);
-    }
-    reviews[reviewerFile] = { ...fields, Recommendation: "INCONCLUSIVE" };
-  }
+  verifyFinalCleanup();
+  const reviews = verifyInconclusiveReviews("a handoff stop");
 
   const conclusion = [
     "# TP-01 Sanitized Conclusion",
