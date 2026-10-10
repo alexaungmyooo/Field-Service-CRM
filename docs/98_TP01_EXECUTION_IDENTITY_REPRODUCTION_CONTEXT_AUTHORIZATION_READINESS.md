@@ -165,3 +165,26 @@ The owner accepted the exact bindings, proposed roles, attestation, ineffective 
 validation, and frozen four-path public inventory and authorized only its commit and push. After
 verified publication, work must stop and report the exact WP-95 revision required for a separate
 WP-96 controlled-execution authorization. WP-95 grants no execution or successor activation.
+
+## WP-96 separately authorized execution and result candidate
+
+After verified WP-95 publication at
+`a236b35a0f95c46d1bfd52305277afd92df41942`, the owner separately authorized `WP-96` run
+`wp96-2026-10-10-01` with the three accepted roles, one clean dedicated checkout, exact offline
+dependency restoration, fresh synthetic run-bound materials, two validator-context receipts and
+attestations, one effective private authorization, the recorded 18-stage sequence, local-first
+image handling, conditional exact-digest registry authority only if the image were absent, and
+mandatory cleanup and residual verification under every outcome.
+
+The controlled run completed PRIMARY and independent reproduction with 222/222 expected outcomes
+and 222 audit records in each run, exact semantic match, unchanged tracked state, zero accepted
+deviations, zero operational stops, final verifier `PASS`, cleanup and residual `PASS`, and fresh
+independent final-packet validation `PASS`. The accepted image was already local, so no pull token,
+registry request, or other network access occurred. The private environment, dependency state,
+runtime resources, and dedicated checkout were removed.
+
+The owner accepted these results as `PASS_CLOSED_SINGLE_USE_CONSUMED`, including the exact private
+packet, reviews, final verifier, cleanup/residual evidence, `DEC-231`, and `WP96-DEC-001` through
+`007`. Exact publication is authorized only for the frozen four-path WP-96 inventory. The result
+does not select the final architecture or authorize application coding, infrastructure,
+deployment, provider accounts/cost, or customer/live data.

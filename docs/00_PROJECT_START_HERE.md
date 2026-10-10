@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-95 accepted; exact publication authorized |
-| Current phase | Technical Proof Execution Identity and Authorization Readiness |
-| Current work package | `WP-95 TP-01 Execution Identity and Reproduction-Context Authorization Readiness` |
+| Status | Product Discovery closed — WP-96 PASS accepted; exact publication authorized |
+| Current phase | Technical Proof Result Publication |
+| Current work package | `WP-96 Controlled TP-01 Reproduction-Context-Remediated Execution` |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -147,6 +147,7 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 88. `96_TP01_REPRODUCTION_CONTEXT_POST_PRIMARY_FINALIZATION_STATIC_REMEDIATION.md`
 89. `97_TP01_REPRODUCTION_CONTEXT_REMEDIATED_REBINDING_REAUTHORIZATION_READINESS.md`
 90. `98_TP01_EXECUTION_IDENTITY_REPRODUCTION_CONTEXT_AUTHORIZATION_READINESS.md`
+91. `99_TP01_CONTROLLED_REPRODUCTION_CONTEXT_REMEDIATED_EXECUTION_RESULT.md`
 
 Current and later accepted work packages may add or mature:
 
@@ -2678,6 +2679,32 @@ After verified publication, WP-85 may begin owner-decision documentation and sta
 planning for Docker host-access readiness only. Docker runtime, images, containers, databases,
 proof execution, application coding, final architecture selection, infrastructure, deployment,
 provider accounts/cost, and customer/live data remain closed.
+
+## WP-96 controlled PASS candidate — 2026-10-10
+
+The owner separately authorized `WP-96` run `wp96-2026-10-10-01` at published revision
+`a236b35a0f95c46d1bfd52305277afd92df41942`, repository tree
+`6c18cee66349bf02b77e6ed91f222b56a20a859b`, and proof tree
+`1e9f75fdc1b221009bc691f54d24ca63f02c8038`. A clean dedicated checkout was used; exactly 115
+packages were restored from the existing local store with offline, frozen-lockfile, and
+ignore-scripts controls. The accepted PostgreSQL image was already local, so no pull token,
+registry request, npm access, or other internet access occurred.
+
+Fresh `PRE_PRIMARY` and `PRE_REPRODUCTION` validator-context receipts and external attestations
+passed. PRIMARY and independent REPRODUCTION each completed all 222 manifest cases with expected
+outcomes and 222 audit records. Cross-run semantic comparison matched; tracked state remained
+unchanged; zero unauthorized mutation, accepted contract deviations, or operational stops were
+recorded. The exact 16-entry handoff remained immutable and independently verified. All three
+role reviews, the final verifier, mandatory cleanup, final residual verification, and fresh
+independent 40-entry packet validation returned `PASS`.
+
+The private environment, dependency state, bounded runtime resources, and dedicated checkout were
+removed. The owner accepted the result as `PASS_CLOSED_SINGLE_USE_CONSUMED`, accepted `DEC-231`
+and `WP96-DEC-001` through `007`, and authorized commit and push only for the exact frozen
+four-path inventory. After verified publication, WP-97 may begin TP-01 architecture-evidence
+disposition for owner-decision documentation only. Application coding, final architecture
+selection, infrastructure, deployment, provider accounts/cost, and customer/live data remain
+closed.
 
 ## Private execution control
 
