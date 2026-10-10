@@ -377,3 +377,24 @@ options, but it must keep network/download, SDK/cache mutation, dependency resto
 materialization, build, device/runtime, proof execution, provider/cost, architecture selection,
 application coding, infrastructure, deployment, and customer/live data closed until each later
 gate is explicitly accepted.
+
+## WP-106 verified publication and WP-107 activation
+
+The accepted three-path WP-106 result was published at
+`133be6df2ed75b86c4b159e9034441eb6dbf9790`, repository tree
+`47142162d8c2b4c37e0456eaea64917875572c40`. The final inventory-index mode correction and hash
+verification completed before publication. WP-106 is closed without retry; its stopped checkout
+and private packet are evidence only and grant no acquisition or materialization authority.
+
+WP-107 is active for documentation and owner-decision analysis only. Its candidate successor
+contract may prospectively repair the evidence controls and plan an exact sealed offline artifact
+bundle, but no network, download, SDK/cache mutation, dependency restoration, proof creation,
+build, device/runtime operation, proof execution, architecture selection, application coding,
+infrastructure, deployment, provider/cost, or customer/live-data action is authorized.
+
+The owner accepted `DEC-242`, the complete WP-107 control/acquisition-readiness baseline and all
+ten WP-107 decisions; advanced option 001; retained option 002 only as an evidence-equivalent
+fallback; rejected options 003 and 004; and authorized publication of exactly documents 00, 02,
+108, and 109. The later WP-108 static materialization is bounded to the accepted public/private
+roots, dependency-free controls, exact existing-Node binding, synthetic fixtures, and one fresh
+zero-authority validator. It grants no network or acquisition authority.

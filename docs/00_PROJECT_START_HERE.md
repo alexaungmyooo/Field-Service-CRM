@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-106 accepted; exact publication authorized |
-| Current phase | Controlled Wave A Proof-Only Materialization and Supply-Chain Review |
-| Current work package | `WP-106 Controlled Wave A Proof-Only Materialization and Supply-Chain Review` |
+| Status | Product Discovery closed — WP-107 accepted; exact publication authorized |
+| Current phase | Wave A Materialization Control Remediation and Offline Artifact Acquisition Readiness |
+| Current work package | `WP-107 Wave A Materialization Control Remediation and Offline Artifact Acquisition Readiness` |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -157,6 +157,7 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 98. `106_ARCHITECTURE_PROOF_WAVE_PRIORITY_AUTHORIZATION_SEQUENCE.md`
 99. `107_WAVE_A_EXACT_CONTRACT_PROOF_ONLY_MATERIALIZATION_READINESS.md`
 100. `108_WAVE_A_PROOF_ONLY_MATERIALIZATION_AUTHORIZATION_DECISION.md`
+101. `109_WAVE_A_MATERIALIZATION_CONTROL_REMEDIATION_OFFLINE_ARTIFACT_ACQUISITION_READINESS.md`
 
 Current and later accepted work packages may add or mature:
 
@@ -2988,6 +2989,37 @@ remediation and offline-artifact-acquisition readiness documentation and owner-d
 only. All network/download, dependency, materialization, build, device, runtime, proof-execution,
 application, architecture-selection, infrastructure, deployment, provider/cost, and customer/
 live-data gates remain closed.
+
+## WP-106 verified publication and WP-107 activation — 2026-10-10
+
+The exact three-path WP-106 public inventory was committed as
+`133be6d WP-106: accept stopped Wave A materialization result` and published at
+`133be6df2ed75b86c4b159e9034441eb6dbf9790`, repository tree
+`47142162d8c2b4c37e0456eaea64917875572c40`. Local `HEAD`, cached `origin/main`, and live remote
+main matched. The final private inventory index was corrected to mode `0600`, all eleven listed
+content hashes reverified, and the twelve-entry packet remains protected by mode `0700` parent
+directories. WP-106 is closed without retry and its publication authority is consumed.
+
+The owner activated `WP-107 Wave A Materialization Control Remediation and Offline Artifact
+Acquisition Readiness` for documentation and owner-decision analysis only. WP-107 may propose a
+fresh non-retroactive authorization/evidence contract and separately gated methods to obtain and
+seal the exact missing Flutter/package artifacts into an offline bundle. It may not access a
+network, download an artifact, alter an SDK/cache, restore a dependency, create proof files, build,
+touch a device, start a runtime, execute a proof, select architecture, code the application,
+create infrastructure/provider state, incur cost, deploy, or use customer/live data. The
+candidate public inventory is documents 00, 02, 108, and 109. No WP-107 commit or push is
+authorized without later owner acceptance.
+
+The owner accepted `DEC-242`, every WP-107 fact/control/path/command/artifact/acquisition/evidence/
+stop/cleanup/risk disposition, and `WP107-DEC-001` through `010`; advanced `WP107-OPT-001`;
+retained `WP107-OPT-002` only as an evidence-equivalent fallback; rejected `WP107-OPT-003/004`;
+and authorized commit and push only for documents 00, 02, 108, and 109. After verified
+publication, WP-108 may create only the accepted dependency-free acquisition-control tree and
+mode-restricted private WP-108 evidence, bind an exact already-present Node executable, use
+synthetic static fixtures, and obtain exactly one fresh zero-authority independent validation.
+Network/downloads, artifact acquisition, SDK/cache mutation, dependency restoration, Wave A proof
+materialization, builds, devices, runtime, proof execution, application coding, architecture
+selection, infrastructure, deployment, provider/cost, and customer/live data remain closed.
 
 ## Private execution control
 
