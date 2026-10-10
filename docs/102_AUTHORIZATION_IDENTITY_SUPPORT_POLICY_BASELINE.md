@@ -4,7 +4,7 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Accepted — exact publication authorized |
+| Status | Accepted — verified and closed |
 | Work package | `WP-99 Authorization, Identity and Support Policy Baseline` |
 | Owner | Aung Myo Oo |
 | Governing sequence | `DEC-233`, `WP98-SEQ-001` — Accepted |
@@ -321,3 +321,19 @@ dispositions, and `WP99-DEC-001` through `010`; advanced `WP99-OPT-001`; rejecte
 After verified publication, WP-100 may define the field/offline/evidence/client acceptance matrix.
 Proof preparation/execution, final architecture selection, application coding, infrastructure,
 deployment, provider accounts/cost, and customer/live data remain closed.
+
+## Verified publication and successor activation
+
+The owner accepted the exact WP-99 recommendation and authorized only the frozen four-path public
+inventory. It was committed as `4570ba6 WP-99: accept authorization identity support baseline`
+and published at `4570ba6bd12b0d7cf72e15c23b52662c4c27f5fd`, repository tree
+`b6d18d43766c072ff83b98de975c3b03a0394fcb`, with unchanged proof tree
+`1e9f75fdc1b221009bc691f54d24ca63f02c8038`. Local `HEAD`, fetched `origin/main`, and the live
+remote main matched. WP-99 is `VERIFIED_AND_CLOSED`; its publication authority is consumed.
+
+WP-100 is active for owner-decision documentation and option analysis only. It may propose field,
+offline, conflict, device/network, evidence/media, external-MMQR receipt-photo, retention,
+client-surface, localization, and accessibility acceptance baselines. Proof preparation/execution,
+final architecture selection, application coding, infrastructure, deployment, provider
+accounts/cost, and customer/live data remain closed. No WP-100 commit or push is authorized
+without later owner acceptance.

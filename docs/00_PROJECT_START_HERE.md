@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-99 accepted; exact publication authorized |
-| Current phase | Authorization, Identity and Support Policy Baseline |
-| Current work package | `WP-99 Authorization, Identity and Support Policy Baseline` |
+| Status | Product Discovery closed — WP-100 accepted; exact publication authorized |
+| Current phase | Field, Offline, Evidence and Client Acceptance Baseline |
+| Current work package | `WP-100 Field, Offline, Evidence and Client Acceptance Baseline` |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -151,6 +151,7 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 92. `100_TP01_ARCHITECTURE_EVIDENCE_DISPOSITION.md`
 93. `101_REMAINING_ARCHITECTURE_EVIDENCE_DECISION_SEQUENCE.md`
 94. `102_AUTHORIZATION_IDENTITY_SUPPORT_POLICY_BASELINE.md`
+95. `103_FIELD_OFFLINE_EVIDENCE_CLIENT_ACCEPTANCE_BASELINE.md`
 
 Current and later accepted work packages may add or mature:
 
@@ -2781,6 +2782,24 @@ documents 00, 02, 101, and 102. After verified publication, WP-100 may begin fie
 evidence, and client acceptance-baseline documentation and option analysis only. Every proof,
 architecture-selection, implementation, infrastructure, deployment, provider/cost, and
 customer/live-data gate remains closed.
+
+## WP-99 verified publication and WP-100 activation — 2026-10-10
+
+The exact four-path WP-99 public inventory was committed as
+`4570ba6 WP-99: accept authorization identity support baseline` and published at
+`4570ba6bd12b0d7cf72e15c23b52662c4c27f5fd`, repository tree
+`b6d18d43766c072ff83b98de975c3b03a0394fcb`, with unchanged proof tree
+`1e9f75fdc1b221009bc691f54d24ca63f02c8038`. Local `HEAD`, fetched `origin/main`, and live remote
+main matched. WP-99 is closed and its publication authority is consumed.
+
+The owner activated `WP-100 Field, Offline, Evidence and Client Acceptance Baseline` for owner-
+decision documentation and option analysis only. WP-100 may propose assignment-scoped field
+working sets, offline action/conflict rules, device/network profiles, evidence/media and external-
+MMQR receipt-photo policy, retention/cost-planning inputs, client-surface acceptance, and Myanmar/
+English/accessibility test corpus. It does not authorize proof preparation or execution,
+architecture/provider/dependency selection, application coding, infrastructure, deployment,
+provider accounts/cost, or customer/live data. The candidate inventory is documents 00, 02, 102,
+and 103. No WP-100 commit or push is authorized without later owner acceptance.
 
 ## Private execution control
 
