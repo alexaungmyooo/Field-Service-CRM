@@ -350,3 +350,19 @@ dispositions, and `WP100-DEC-001` through `010`; advanced `WP100-OPT-001`; rejec
 After verified publication, WP-101 may define data, consistency, inventory, reporting, and
 integration policy. Proof preparation/execution, final architecture selection, application coding,
 infrastructure, deployment, provider accounts/cost, and customer/live data remain closed.
+
+## Verified publication and successor activation
+
+The owner accepted the exact WP-100 recommendation and authorized only the frozen four-path public
+inventory. It was committed as `48bdecc WP-100: accept field offline evidence client baseline`
+and published at `48bdecc6adfe1c851bdf178e1fd7c10a5527ce88`, repository tree
+`c2e9dfa81754d446df62a846670c6c65ad97d1a2`, with unchanged proof tree
+`1e9f75fdc1b221009bc691f54d24ca63f02c8038`. Local `HEAD`, fetched `origin/main`, and the live
+remote main matched. WP-100 is `VERIFIED_AND_CLOSED`; its publication authority is consumed.
+
+WP-101 is active for owner-decision documentation and option analysis only. It may propose data
+ownership, history/correction, consistency, inventory/costing, KPI/freshness, import/migration,
+portability, copy-lifecycle, and integration-contract baselines. Proof preparation/execution,
+final architecture selection, application coding, infrastructure, deployment, provider
+accounts/cost, and customer/live data remain closed. No WP-101 commit or push is authorized
+without later owner acceptance.
