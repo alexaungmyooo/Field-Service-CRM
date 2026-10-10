@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:field-service-crm:wave-a:acquisition-effective-authorization:v2",
+  "type": "object",
+  "required": [
+    "schema", "runId", "checkpoint", "state", "singleUse", "consumed",
+    "ownerAuthorizationSha256", "publishedRevision", "repositoryTree", "operator",
+    "validFrom", "expiresAt", "allowedPublicRoot", "allowedPrivateRoot",
+    "expectedAuthorizationPath", "expectedLedgerPath", "expectedInventoryPath",
+    "expectedFinalInventoryPath", "allowedStages", "authorizedPublicPaths",
+    "nodeBinding", "allowedCommands", "actionFlags"
+  ],
+  "properties": {
+    "schema": { "const": "wave-a-acquisition-effective-authorization-v2" },
+    "runId": { "type": "string", "pattern": "^wp109-[0-9]{4}-[0-9]{2}-[0-9]{2}-[0-9]{2}$" },
+    "checkpoint": { "const": "WP-109_ACQUISITION_CONTROL_CONTRACT_REMEDIATION" },
+    "state": { "enum": ["EFFECTIVE", "CONSUMED"] },
+    "singleUse": { "const": true },
+    "consumed": { "type": "boolean" },
+    "consumedAt": { "type": "string", "format": "date-time" },
+    "effectiveAuthorizationSha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "consumptionLedgerEntryHash": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "ownerAuthorizationSha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "publishedRevision": { "type": "string", "pattern": "^[a-f0-9]{40}$" },
+    "repositoryTree": { "type": "string", "pattern": "^[a-f0-9]{40}$" },
+    "operator": { "const": "/root" },
+    "validFrom": { "type": "string", "format": "date-time" },
+    "expiresAt": { "type": "string", "format": "date-time" },
+    "allowedPublicRoot": { "const": "proofs/wave-a-artifact-acquisition-control/" },
+    "allowedPrivateRoot": { "const": "internal-local/work-packages/WP-109/" },
+    "expectedAuthorizationPath": { "const": "internal-local/work-packages/WP-109/authorization.json" },
+    "expectedLedgerPath": { "const": "internal-local/work-packages/WP-109/operation-ledger.ndjson" },
+    "expectedInventoryPath": { "const": "internal-local/work-packages/WP-109/primary-inventory.sha256" },
+    "expectedFinalInventoryPath": { "const": "internal-local/work-packages/WP-109/final-inventory.json" },
+    "allowedStages": { "type": "array", "minItems": 4, "uniqueItems": true, "items": { "type": "string" } },
+    "authorizedPublicPaths": { "type": "array", "minItems": 12, "uniqueItems": true, "items": { "type": "string" } },
+    "nodeBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "version", "sha256"],
+      "properties": {
+        "path": { "type": "string", "minLength": 1 },
+        "version": { "type": "string", "pattern": "^v[0-9]+\\.[0-9]+\\.[0-9]+$" },
+        "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+      }
+    },
+    "allowedCommands": { "type": "array", "minItems": 1 },
+    "actionFlags": { "type": "object" }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "state": { "const": "EFFECTIVE" } } },
+      "then": { "properties": { "consumed": { "const": false } } },
+      "else": {
+        "required": ["consumedAt", "effectiveAuthorizationSha256", "consumptionLedgerEntryHash"],
+        "properties": { "consumed": { "const": true } }
+      }
+    }
+  ]
+}

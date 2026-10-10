@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:field-service-crm:wave-a:acquisition-ledger-entry:v2",
+  "type": "object",
+  "required": [
+    "runId", "sequence", "stage", "event", "timestamp", "previousHash",
+    "authorityHash", "pathMutations", "entryHash"
+  ],
+  "properties": {
+    "runId": { "type": "string" },
+    "sequence": { "type": "integer", "minimum": 0 },
+    "stage": { "enum": ["BOOTSTRAP", "SOURCE_MATERIALIZATION", "STATIC_BUNDLE_SELF_TEST", "STATIC_TESTS", "STATIC_CONTROL_VERIFY", "PRIMARY_SEAL"] },
+    "event": { "enum": ["AUTHORIZATION_BOUND", "NODE_BOUND", "PATH_MUTATION", "COMMAND_INTENT", "COMMAND_RESULT", "INVENTORY_SEAL", "AUTHORIZATION_CONSUMED"] },
+    "timestamp": { "type": "string", "format": "date-time" },
+    "previousHash": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "authorityHash": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "entryHash": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "executable": { "type": "string" },
+    "executableSha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "arguments": { "type": "array", "items": { "type": "string" } },
+    "exitCode": { "type": "integer" },
+    "stdoutSha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "stderrSha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "nodePath": { "type": "string" },
+    "nodeVersion": { "type": "string" },
+    "nodeSha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "publicAggregate": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "consumedAuthorizationSha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "pathMutations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["path", "operation", "beforeSha256", "afterSha256", "authorityClass"],
+        "properties": {
+          "path": { "type": "string", "minLength": 1 },
+          "operation": { "enum": ["CREATED", "UPDATED", "REMOVED", "UNCHANGED_BASELINE"] },
+          "beforeSha256": { "type": ["string", "null"], "pattern": "^[a-f0-9]{64}$" },
+          "afterSha256": { "type": ["string", "null"], "pattern": "^[a-f0-9]{64}$" },
+          "authorityClass": { "enum": ["PUBLIC_CONTROL", "PRIVATE_EVIDENCE"] }
+        }
+      }
+    }
+  }
+}

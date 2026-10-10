@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:field-service-crm:wave-a:acquisition-pre-action-receipt:v2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema", "runId", "capturedAt", "source", "head", "tree", "originMain",
+    "trackedStatus", "untrackedStatus", "publicRootState", "privateRootState",
+    "allowedPaths", "forbiddenPaths", "allowedPublicRoot", "allowedPrivateRoot",
+    "environmentBoundary", "processRuntimeResiduals", "ownershipAclEvidence", "actionAuthority"
+  ],
+  "properties": {
+    "schema": { "const": "wave-a-acquisition-pre-action-receipt-v2" },
+    "runId": { "type": "string" },
+    "capturedAt": { "type": "string", "format": "date-time" },
+    "source": { "type": "string", "minLength": 1 },
+    "head": { "type": "string", "pattern": "^[a-f0-9]{40}$" },
+    "tree": { "type": "string", "pattern": "^[a-f0-9]{40}$" },
+    "originMain": { "type": "string", "pattern": "^[a-f0-9]{40}$" },
+    "trackedStatus": { "const": "CLEAN" },
+    "untrackedStatus": { "type": "array", "items": { "type": "string" } },
+    "publicRootState": { "type": "string", "minLength": 1 },
+    "privateRootState": { "type": "string", "minLength": 1 },
+    "allowedPaths": { "type": "array", "minItems": 2, "uniqueItems": true, "items": { "type": "string" } },
+    "forbiddenPaths": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string" } },
+    "allowedPublicRoot": { "const": "proofs/wave-a-artifact-acquisition-control/" },
+    "allowedPrivateRoot": { "const": "internal-local/work-packages/WP-109/" },
+    "environmentBoundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["network", "dependencies", "runtime", "data"],
+      "properties": {
+        "network": { "const": "PROHIBITED" },
+        "dependencies": { "const": "PROHIBITED" },
+        "runtime": { "const": "PROHIBITED" },
+        "data": { "const": "SYNTHETIC_STATIC_ONLY" }
+      }
+    },
+    "processRuntimeResiduals": { "type": "array" },
+    "ownershipAclEvidence": { "type": "array", "minItems": 1 },
+    "actionAuthority": { "type": "object" }
+  }
+}

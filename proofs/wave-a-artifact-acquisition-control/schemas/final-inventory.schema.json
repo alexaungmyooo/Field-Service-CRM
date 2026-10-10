@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:field-service-crm:wave-a:acquisition-final-inventory:v2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "runId", "stage", "selfExclusions", "entries"],
+  "properties": {
+    "schema": { "const": "wave-a-acquisition-final-inventory-v2" },
+    "runId": { "type": "string" },
+    "stage": { "const": "PRIMARY_SEAL" },
+    "selfExclusions": { "type": "array", "uniqueItems": true, "items": { "type": "string", "minLength": 1 } },
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "path", "type", "size", "mode", "ownerIdentity", "sha256",
+          "authorityClass", "stage", "publicationClass"
+        ],
+        "properties": {
+          "path": { "type": "string", "minLength": 1 },
+          "type": { "enum": ["file", "directory"] },
+          "size": { "type": "integer", "minimum": 0 },
+          "mode": { "type": "string", "pattern": "^0[0-7]{3}$" },
+          "ownerIdentity": { "type": "string", "minLength": 1 },
+          "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+          "authorityClass": { "enum": ["PUBLIC_CONTROL", "PRIVATE_EVIDENCE"] },
+          "stage": { "const": "PRIMARY_SEAL" },
+          "publicationClass": { "enum": ["PUBLISHABLE_CANDIDATE", "NEVER_PUBLISH"] }
+        }
+      }
+    }
+  }
+}

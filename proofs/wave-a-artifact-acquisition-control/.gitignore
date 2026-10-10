@@ -1,0 +1,6 @@
+/quarantine/
+/bundle/
+/tmp/
+*.tmp
+*.log
+*.receipt.json
