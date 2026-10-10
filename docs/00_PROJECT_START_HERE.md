@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-94 accepted; exact publication authorized |
-| Current phase | Technical Proof Rebinding and Reauthorization Readiness |
-| Current work package | `WP-94 TP-01 Reproduction-Context Remediated Rebinding and Reauthorization Readiness` |
+| Status | Product Discovery closed — WP-95 accepted; exact publication authorized |
+| Current phase | Technical Proof Execution Identity and Authorization Readiness |
+| Current work package | `WP-95 TP-01 Execution Identity and Reproduction-Context Authorization Readiness` |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -146,6 +146,7 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 87. `95_TP01_CONTROLLED_HOST_ACCESS_REMEDIATED_EXECUTION_RESULT.md`
 88. `96_TP01_REPRODUCTION_CONTEXT_POST_PRIMARY_FINALIZATION_STATIC_REMEDIATION.md`
 89. `97_TP01_REPRODUCTION_CONTEXT_REMEDIATED_REBINDING_REAUTHORIZATION_READINESS.md`
+90. `98_TP01_EXECUTION_IDENTITY_REPRODUCTION_CONTEXT_AUTHORIZATION_READINESS.md`
 
 Current and later accepted work packages may add or mature:
 
@@ -2024,6 +2025,33 @@ create a checkout, dependency state, credential/environment, effective authoriza
 image/Docker state, runtime resource, proof/reproduction evidence, application code, architecture
 selection, infrastructure, deployment, provider/cost action, network action, or customer/live-data
 access, and its commit/push gate remains closed.
+
+## WP-94 publication and WP-95 readiness candidate — 2026-10-10
+
+The exact four-path WP-94 public inventory was published at
+`e4dafa09c102d6e728fea8894f94afbf8c54394e`, with repository tree
+`3e45685ec71831414e9e4543259bf0ab2478e137` and unchanged proof tree
+`1e9f75fdc1b221009bc691f54d24ca63f02c8038`. Local `HEAD`, cached `origin/main`, and live remote
+main matched. WP-94 is `VERIFIED_AND_CLOSED` without proof execution.
+
+WP-95 records `/root` only as proposed primary operator, creates exactly one fresh proposed
+reproduction-validator identity `/root/wp95_reproduction_validator` and zero-authority attestation,
+preserves `/root/tp01_security_review` only as proposed technical security reviewer, and prepares
+one ignored, explicitly ineffective private authorization draft. It creates no execution package,
+run, checkout, dependency state, credential/environment, run-bound control, effective
+authorization, preflight, image/Docker state, runtime resource, proof/reproduction evidence,
+application code, architecture selection, infrastructure, deployment, provider/cost action,
+network action, external-system mutation, or customer/live-data access. WP-95 commit and push
+require later owner acceptance.
+
+The owner accepted `DEC-230`, `TP1-EXEC-CONTEXT-BIND-001` through `052`, `WP95-DEC-001` through
+`010`, `/root` only as proposed primary operator, `/root/wp95_reproduction_validator` as the sole
+fresh proposed reproduction validator and its zero-authority attestation,
+`/root/tp01_security_review` only as proposed technical security reviewer, the explicitly
+ineffective private draft, and root static-validation `PASS`. Commit and push are authorized only
+for the exact four-path WP-95 public inventory. After verified publication, work must stop and
+report the exact publication revision required for a separate WP-96 controlled-execution
+authorization. Every execution and product/operations gate remains closed.
 
 ## WP-70 publication and WP-71 identity readiness — 2026-10-09
 

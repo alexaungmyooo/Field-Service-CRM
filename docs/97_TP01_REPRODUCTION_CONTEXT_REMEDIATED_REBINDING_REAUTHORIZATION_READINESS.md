@@ -135,3 +135,28 @@ The owner accepted the exact bindings, option dispositions, decisions, validatio
 four-path inventory and authorized only its commit and push. WP-94 creates no identity, private
 authorization draft, execution preparation, or runtime result. WP-95 may activate only after
 verified WP-94 publication and remains subject to its separately bounded readiness authority.
+
+## Verified publication and WP-95 boundary
+
+The exact four-path WP-94 inventory was published at
+`e4dafa09c102d6e728fea8894f94afbf8c54394e`, repository tree
+`3e45685ec71831414e9e4543259bf0ab2478e137`, and unchanged proof tree
+`1e9f75fdc1b221009bc691f54d24ca63f02c8038`. Local `HEAD`, cached `origin/main`, and live remote
+main matched. This document's published SHA-256 is
+`9726a5c8a6f7eb1c2734e8bd84bb5e61e92186148cfc2e73753c1ded432495dc`. WP-94 is
+`VERIFIED_AND_CLOSED` without execution.
+
+WP-95 may create owner-decision readiness documentation, exactly one fresh proposed reproduction-
+validator identity and zero-authority attestation, and one ignored, explicitly ineffective private
+authorization draft. It may not create a run, checkout, dependency state, credential/environment,
+run-bound control, effective authorization, preflight, image/Docker state, runtime resource,
+proof/reproduction evidence, application code, architecture selection, infrastructure,
+deployment, provider/cost action, network action, external-system mutation, or customer/live-data
+access. WP-95 commit and push require later owner acceptance.
+
+The owner accepted the exact WP-95 bindings, proposed roles, zero-authority attestation,
+ineffective private draft, decisions, validation, and four-path public inventory and authorized
+only its commit and push. After verified publication, the exact revision must be reported before
+any separate WP-96 controlled-execution authorization. This publication authority grants no
+execution, product, architecture, infrastructure, deployment, provider/cost, network, or
+customer/live-data authority.
