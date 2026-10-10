@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-103 accepted; exact publication authorized |
-| Current phase | Architecture Proof-Wave Priority and Authorization Sequence |
-| Current work package | `WP-103 Architecture Proof-Wave Priority and Authorization Sequence` |
+| Status | Product Discovery closed — WP-104 accepted; exact publication authorized |
+| Current phase | Wave A Exact Contract and Proof-Only Materialization Readiness |
+| Current work package | `WP-104 Wave A Exact Contract and Proof-Only Materialization Readiness` |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -155,6 +155,7 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 96. `104_DATA_CONSISTENCY_INVENTORY_REPORTING_INTEGRATION_POLICY_BASELINE.md`
 97. `105_OPERATING_MODEL_PROVIDER_PROOF_ENTRY_SPECIALIST_ASSIGNMENT_BASELINE.md`
 98. `106_ARCHITECTURE_PROOF_WAVE_PRIORITY_AUTHORIZATION_SEQUENCE.md`
+99. `107_WAVE_A_EXACT_CONTRACT_PROOF_ONLY_MATERIALIZATION_READINESS.md`
 
 Current and later accepted work packages may add or mature:
 
@@ -2890,6 +2891,32 @@ begin Wave A exact-contract and materialization-readiness documentation and proo
 Proof materialization, dependencies, device operation, execution, provider/network/cost, final
 architecture selection, application coding, infrastructure, deployment, and customer/live data
 remain closed.
+
+## WP-103 verified publication and WP-104 activation — 2026-10-10
+
+The exact four-path WP-103 public inventory was committed as
+`e9b0e78 WP-103: accept architecture proof-wave sequence` and published at
+`e9b0e78e54ccec48b8de4b5731431e2e12ea5f8c`, repository tree
+`0171012ac9424f70824a3406ba41feba8e84d1c6`. Local `HEAD`, fetched `origin/main`, and live remote
+main matched. WP-103 is closed and its publication authority is consumed.
+
+The owner activated `WP-104 Wave A Exact Contract and Proof-Only Materialization Readiness` for
+documentation and proof planning only. WP-104 may propose exact Wave A hypotheses, candidate
+versions, device/reviewer requirements, synthetic fixtures, cases/oracles, evidence, disposable
+paths, dependency/supply-chain plan, stop/cleanup controls and later materialization-authorization
+wording. It does not authorize proof files, dependencies, materialization, device operation,
+execution, provider/network/cost, architecture selection, application coding, infrastructure,
+deployment, or customer/live data. The candidate inventory is documents 00, 02, 106, and 107. No
+proof action follows from this documentation.
+
+The owner accepted `DEC-239`, every WP-104 candidate/contract/fixture/device/network/case/
+measurement/path/supply/evidence/role/stop/cleanup/readiness disposition, and `WP104-DEC-001`
+through `010`; advanced `WP104-OPT-001`; rejected options 002 through 004; and authorized commit
+and push only for documents 00, 02, 106, and 107. After verified publication, WP-105 may prepare
+the Wave A proof-only materialization authorization decision as documentation only. Proof files,
+dependencies, materialization, devices, execution, provider/network/cost, final architecture
+selection, application coding, infrastructure, deployment, and customer/live data remain closed
+until separately authorized.
 
 ## Private execution control
 

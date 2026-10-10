@@ -4,7 +4,7 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Accepted — exact publication authorized |
+| Status | Accepted — verified and closed |
 | Work package | `WP-103 Architecture Proof-Wave Priority and Authorization Sequence` |
 | Owner | Aung Myo Oo |
 | Governing sequence | `DEC-233`, `WP98-SEQ-005` through `WP98-SEQ-007` — Accepted planning |
@@ -241,3 +241,15 @@ plan, evidence schema, stop/cleanup design, and later materialization authorizat
 materialization, dependency installation, device operation, execution, provider/network/cost,
 final architecture selection, application coding, infrastructure, deployment, and customer/live
 data remain closed.
+
+## Verified publication and successor activation
+
+The exact four-path WP-103 public inventory was committed and published at
+`e9b0e78e54ccec48b8de4b5731431e2e12ea5f8c`, repository tree
+`0171012ac9424f70824a3406ba41feba8e84d1c6`. Local `HEAD`, fetched `origin/main`, and live remote
+main matched. WP-103 is verified and closed; its publication authority is consumed.
+
+WP-104 is active for Wave A exact-contract and proof-only materialization-readiness documentation
+and proof planning only. It does not authorize proof files, dependencies, materialization, device
+operation, execution, provider/network/cost, architecture selection, application coding,
+infrastructure, deployment, or customer/live data.
