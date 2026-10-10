@@ -4,7 +4,7 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Accepted — exact publication authorized |
+| Status | Accepted — verified and closed |
 | Work package | `WP-102 Operating Model, Provider-Proof Entry and Specialist Assignment Baseline` |
 | Owner | Aung Myo Oo |
 | Governing sequence | `DEC-233`, `WP98-SEQ-004` — Accepted |
@@ -340,3 +340,16 @@ After verified publication, WP-103 may decide which proof waves are necessary, w
 combined, their priority, exact remaining blockers, and the sequence of later separate
 authorizations. Proof preparation/execution, final architecture selection, application coding,
 infrastructure, deployment, provider accounts/cost, and customer/live data remain closed.
+
+## Verified publication and successor activation
+
+The exact four-path WP-102 public inventory was committed and published at
+`f02196a02f4b3e4ba71a8608c330cecc7f310eb9`, repository tree
+`c689b548023bada8a6fca452153a331830669fa0`, with unchanged proof tree
+`1e9f75fdc1b221009bc691f54d24ca63f02c8038`. Local `HEAD`, fetched `origin/main`, and live remote
+main matched. WP-102 is verified and closed; its publication authority is consumed.
+
+WP-103 is active for proof-wave priority and authorization-sequence documentation only. It does
+not authorize proof preparation/materialization/execution, dependencies, devices, provider or
+network action, cost, architecture selection, application coding, infrastructure, deployment, or
+customer/live data.

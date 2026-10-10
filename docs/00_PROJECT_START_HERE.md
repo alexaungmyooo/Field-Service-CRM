@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-102 accepted; exact publication authorized |
-| Current phase | Operating Model, Provider-Proof Entry and Specialist Assignment Baseline |
-| Current work package | `WP-102 Operating Model, Provider-Proof Entry and Specialist Assignment Baseline` |
+| Status | Product Discovery closed — WP-103 accepted; exact publication authorized |
+| Current phase | Architecture Proof-Wave Priority and Authorization Sequence |
+| Current work package | `WP-103 Architecture Proof-Wave Priority and Authorization Sequence` |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -154,6 +154,7 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 95. `103_FIELD_OFFLINE_EVIDENCE_CLIENT_ACCEPTANCE_BASELINE.md`
 96. `104_DATA_CONSISTENCY_INVENTORY_REPORTING_INTEGRATION_POLICY_BASELINE.md`
 97. `105_OPERATING_MODEL_PROVIDER_PROOF_ENTRY_SPECIALIST_ASSIGNMENT_BASELINE.md`
+98. `106_ARCHITECTURE_PROOF_WAVE_PRIORITY_AUTHORIZATION_SEQUENCE.md`
 
 Current and later accepted work packages may add or mature:
 
@@ -2854,6 +2855,41 @@ truthful reviewer assignments. It does not authorize proof preparation or execut
 architecture/provider/dependency selection, application coding, infrastructure, deployment,
 provider accounts/cost, or customer/live data. The candidate inventory is documents 00, 02, 104,
 and 105. No WP-102 commit or push is authorized without later owner acceptance.
+
+The owner accepted `DEC-237`, every WP-102 operating/environment/release/service/network/recovery/
+observability/incident/privileged/capacity/supply/provider-proof/reviewer baseline and matrix, all
+recorded open-item dispositions, and `WP102-DEC-001` through `010`; advanced `WP102-OPT-001`;
+rejected options 002 through 004; and authorized commit and push only for documents 00, 02, 104,
+and 105. After verified publication, WP-103 may decide the necessary proof waves, their priority,
+combinations, deferrals, blockers, and later authorization sequence. Every proof-preparation,
+proof-execution, architecture-selection, implementation, infrastructure, deployment,
+provider/cost, and customer/live-data gate remains closed.
+
+## WP-102 verified publication and WP-103 activation — 2026-10-10
+
+The exact four-path WP-102 public inventory was committed as
+`f02196a WP-102: accept operating model proof entry baseline` and published at
+`f02196a02f4b3e4ba71a8608c330cecc7f310eb9`, repository tree
+`c689b548023bada8a6fca452153a331830669fa0`, with unchanged proof tree
+`1e9f75fdc1b221009bc691f54d24ca63f02c8038`. Local `HEAD`, fetched `origin/main`, and live remote
+main matched. WP-102 is closed and its publication authority is consumed.
+
+The owner activated `WP-103 Architecture Proof-Wave Priority and Authorization Sequence` for
+owner-decision documentation only. WP-103 may reuse bounded accepted TP-01 evidence, prioritize,
+combine, split, or defer the remaining proof specifications, identify exact blockers and entry/
+exit boundaries, and define the minimum later authorization sequence. It does not authorize proof
+preparation, proof materialization, dependencies, device or provider operation, proof execution,
+architecture selection, application coding, infrastructure, deployment, provider accounts/cost,
+network access, or customer/live data. The candidate inventory is documents 00, 02, 105, and 106.
+The owner accepted `DEC-238`, every WP-103 reuse/specification/wave/blocker/readiness/authorization/
+ADR-stage disposition, and `WP103-DEC-001` through `010`; advanced `WP103-OPT-001`; rejected
+options 002 through 004; kept DigitalOcean and Google Cloud advancing for Wave D, AWS comparative
+only on the recorded trigger, Wave A first, and Wave E conditionally deferred; and authorized
+commit and push only for documents 00, 02, 105, and 106. After verified publication, WP-104 may
+begin Wave A exact-contract and materialization-readiness documentation and proof planning only.
+Proof materialization, dependencies, device operation, execution, provider/network/cost, final
+architecture selection, application coding, infrastructure, deployment, and customer/live data
+remain closed.
 
 ## Private execution control
 
