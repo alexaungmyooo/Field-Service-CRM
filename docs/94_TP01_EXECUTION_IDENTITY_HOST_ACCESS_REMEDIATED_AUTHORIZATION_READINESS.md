@@ -154,3 +154,19 @@ only for the exact four-path public inventory after final validation. A controll
 remains a distinct later gate requiring an exact new package, run ID, accepted WP-91 publication
 revision, fresh materials, effective authorization, complete sequence, mandatory cleanup, and
 explicit owner execution authority. WP-91 authorizes none of those execution actions.
+
+## Verified publication and WP-92 execution boundary
+
+The exact four-path WP-91 public inventory was published at
+`246bf8ce446379b47a4c1e48b4666e2fb35c7763`, with repository tree
+`8e7ec406f665fd0c899ccf957807159e13ec412b`. Local `HEAD`, cached `origin/main`, and live remote
+main matched. This document's published SHA-256 is
+`d8d7cdba0d201155c5b24f0d217160348c89fb72ce1d7d496916affd1378e222`; proof tree remained
+`45369309793a803e761ace440c291c7d1ebdfe37`. WP-91 is `VERIFIED_AND_CLOSED`.
+
+The owner separately authorized WP-92 run `wp92-2026-10-10-01` against that exact publication,
+assigned the three accepted roles, and opened only the recorded controlled sequence. That
+single-use authority is consumed. The run's proposed disposition and evidence are recorded in
+document 95. WP-92 may not be resumed or retried. The owner accepted its exact Inconclusive
+result packet and authorized publication only of the frozen four-path WP-92 public inventory.
+WP-93 remains closed until that publication is verified.

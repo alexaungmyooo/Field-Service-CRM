@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-90 verified and closed; WP-91 accepted for exact publication |
-| Current phase | Technical Proof Execution Identity and Host-Access-Remediated Authorization Readiness |
-| Current work package | `WP-91 TP-01 Execution Identity and Host-Access-Remediated Authorization Readiness` |
+| Status | Product Discovery closed — WP-91 verified and closed; WP-92 Inconclusive result accepted for exact publication |
+| Current phase | Technical Proof Controlled Execution Result Closure |
+| Current work package | `WP-92 Controlled TP-01 Host-Access-Remediated Execution` |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -143,6 +143,7 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 84. `92_TP01_CONTROLLED_DOCKER_HOST_ACCESS_PROBE_RESULT.md`
 85. `93_TP01_HOST_ACCESS_REMEDIATED_REBINDING_REAUTHORIZATION_READINESS.md`
 86. `94_TP01_EXECUTION_IDENTITY_HOST_ACCESS_REMEDIATED_AUTHORIZATION_READINESS.md`
+87. `95_TP01_CONTROLLED_HOST_ACCESS_REMEDIATED_EXECUTION_RESULT.md`
 
 Current and later accepted work packages may add or mature:
 
@@ -1940,6 +1941,38 @@ The owner accepted `DEC-226`, `TP1-EXEC-HOST-BIND-001` through `044`, `WP91-DEC-
 static-validation `PASS`. Commit and push are authorized only for the exact four-path WP-91 public
 inventory. WP-92 execution remains closed pending a separate authorization bound to the verified
 WP-91 publication revision.
+
+## WP-91 publication and WP-92 controlled result candidate — 2026-10-10
+
+The exact four-path WP-91 public inventory was published at
+`246bf8ce446379b47a4c1e48b4666e2fb35c7763`, with repository tree
+`8e7ec406f665fd0c899ccf957807159e13ec412b`; local `HEAD`, cached `origin/main`, and live remote
+main matched. The proof tree remained `45369309793a803e761ace440c291c7d1ebdfe37`. WP-91 is
+`VERIFIED_AND_CLOSED`.
+
+The owner separately authorized WP-92 run `wp92-2026-10-10-01`. Preparation, exact offline
+dependency restoration, fresh private material, effective-authorization validation, current
+preflight, local-image verification, bounded PostgreSQL start, PRIMARY reachability and reset,
+the 222-case PRIMARY proof, and immutable handoff verification passed. PRIMARY produced 222
+expected-matching results, 222 matching audit records, and unchanged state, but those observations
+remain preliminary.
+
+The independent reproduction validator then stopped fail-closed during its mandatory reachability
+gate because that exact execution context could not access the local Docker socket. Reproduction
+reset and proof did not run. Mandatory cleanup and final residual verification passed; no registry
+request occurred and no proof runtime, credential, dependency state, provider cost, or customer
+data remains. The authorization-bound finalization controls cannot truthfully classify this
+post-PRIMARY stop, so they were not invoked and final verification remains fail-closed.
+
+The owner accepted WP-92 as `INCONCLUSIVE_CLOSED_NO_RETRY`, `DEC-227`, all three deviations, all
+six remediation controls, all seven package decisions, the three role reviews, mandatory cleanup
+and final residual result, fail-closed verifier disposition, 21-entry stop seal, 32-entry private
+inventory, archived checkout, and independent final-packet `PASS`. Commit and push are authorized
+only for the exact four-path WP-92 public inventory. After verified publication, WP-93 may begin
+only proof/private-control static remediation of reproduction-context reachability, immutable
+handoff/deviation custody, and truthful post-PRIMARY finalization. Application coding,
+architecture selection, infrastructure, deployment, provider accounts/cost, runtime, network,
+and customer/live data remain closed.
 
 ## WP-70 publication and WP-71 identity readiness — 2026-10-09
 
