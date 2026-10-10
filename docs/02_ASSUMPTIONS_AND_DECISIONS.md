@@ -7,7 +7,7 @@
 | Status | Accepted WP-01 baseline — living decision register |
 | Work package | `WP-01 Product Vision and Boundaries` |
 | Owner | Aung Myo Oo |
-| Last updated | 2026-10-09 |
+| Last updated | 2026-10-10 |
 
 ## Purpose
 
@@ -276,6 +276,7 @@ Accepted.
 | `DEC-226` | Bind `/root`, fresh `/root/wp91_reproduction_validator`, and `/root/tp01_security_review` only as proposed later roles; bind one zero-authority independence attestation and one explicitly ineffective private draft to the exact published WP-90 revision and unchanged 86-file proof candidate. | WP-91 creates no run, effective authorization, checkout, dependency state, credential/environment, run-bound control, runtime evidence, or execution authority. All seventeen proof attempts remain immutable; the WP-89 receipt remains consumed; all authority flags are false; all future stages are proposal-only; and exact owner acceptance plus publication must precede any separately authorized controlled run. | Accepted |
 | `DEC-227` | Accept WP-92 run `wp92-2026-10-10-01` as `INCONCLUSIVE_CLOSED_NO_RETRY`, preserve its preliminary 222-case PRIMARY evidence and exact post-stop private packet without interpreting either as a proof result, and prohibit resumption or retry. | PRIMARY completed and its handoff was independently verified, but the independent reproduction context could not access the local Docker socket and stopped before reproduction reset or proof. The authorization-bound finalization controls also cannot truthfully represent this post-PRIMARY stop. Cleanup and final residual verification passed; a later owner decision may authorize only bounded static remediation of validator-context reachability, handoff/deviation custody, and post-PRIMARY stop finalization. | Accepted |
 | `DEC-228` | Adopt the WP-93 prospective static contract: require two fresh run-bound reproduction-context receipts with external task attestations, seal raw PRIMARY deviations separately from the append-only live ledger, and classify the exact post-PRIMARY reproduction-reachability stop as Inconclusive while preserving complete reproduction as the only PASS path. | WP-92 showed that host readiness in the primary-operator context did not establish readiness in the independent-validator context, and existing finalization controls could not truthfully close a post-PRIMARY stop. This acceptance changes only disposable proof controls and does not authorize execution. | Accepted |
+| `DEC-229` | Rebind the accepted 90-file TP-01 reproduction-context-remediated candidate to the verified WP-93 publication, preserve all eighteen stopped attempts as immutable, advance only a clean dedicated future checkout at that exact publication, and defer execution identity or authorization materialization to a separately accepted successor. | WP-93 statically closes the known validator-context, handoff-custody, and post-PRIMARY finalization gaps but produces no new runtime evidence. Rebinding is documentation and owner-decision readiness only; it cannot authorize another attempt or reinterpret preliminary WP-92 PRIMARY evidence as a proof result. | Accepted |
 
 ## Open decision register
 

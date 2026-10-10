@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-92 verified and closed; WP-93 accepted for exact publication |
-| Current phase | Technical Proof Static Remediation Publication |
-| Current work package | `WP-93 Reproduction Context and Post-Primary Finalization Static Remediation` — Accepted |
+| Status | Product Discovery closed — WP-94 accepted; exact publication authorized |
+| Current phase | Technical Proof Rebinding and Reauthorization Readiness |
+| Current work package | `WP-94 TP-01 Reproduction-Context Remediated Rebinding and Reauthorization Readiness` |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -145,6 +145,7 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 86. `94_TP01_EXECUTION_IDENTITY_HOST_ACCESS_REMEDIATED_AUTHORIZATION_READINESS.md`
 87. `95_TP01_CONTROLLED_HOST_ACCESS_REMEDIATED_EXECUTION_RESULT.md`
 88. `96_TP01_REPRODUCTION_CONTEXT_POST_PRIMARY_FINALIZATION_STATIC_REMEDIATION.md`
+89. `97_TP01_REPRODUCTION_CONTEXT_REMEDIATED_REBINDING_REAUTHORIZATION_READINESS.md`
 
 Current and later accepted work packages may add or mature:
 
@@ -1994,8 +1995,35 @@ The owner accepted `DEC-228`, `WP93-REM-001` through `008`, `WP93-BIND-001` thro
 `WP93-DEC-001` through `007`, the renewed 90-file inventory and hashes, resolution of all three
 independent findings, and the final independent static-validation `PASS`. Commit and push are
 authorized only for the exact eighteen-path WP-93 public/proof inventory. After verified
-publication, WP-94 may begin owner-decision documentation and private ineffective authorization
-preparation only. All execution and other closed gates remain unchanged.
+publication, WP-94 may begin owner-decision documentation only. Private authorization preparation,
+execution, and all other closed gates remain unchanged.
+
+## WP-93 publication and WP-94 readiness candidate — 2026-10-10
+
+The exact eighteen-path WP-93 public/proof inventory was published at
+`25c0e5eaad8d6e0e54b93cb833ac424c73090287`, with repository tree
+`1d70cc4a3728171f27c42fc8ec38b3bc6ec3bfc0` and proof tree
+`1e9f75fdc1b221009bc691f54d24ca63f02c8038`. Local `HEAD`, cached `origin/main`, and live remote
+main matched. WP-93 is `VERIFIED_AND_CLOSED` without proof execution.
+
+WP-94 rebinds only the accepted 90-file proof candidate and its static controls to that verified
+publication for owner decision. It may document exact workspace, proof, validator-context,
+handoff-custody, finalization, stopped-history, and successor-readiness options. It may not create
+an authorization draft, execution identity, run, checkout, dependency state, credential,
+environment, preflight, image/Docker state, runtime resource, proof/reproduction evidence, or any
+application, architecture, infrastructure, deployment, provider/cost, network, or customer-data
+change. WP-94 commit and push require later owner acceptance.
+
+The owner accepted `DEC-229`, `WP94-BIND-001` through `037`, `WP94-DEC-001` through `010`, all
+twelve option dispositions, the resolved Low metadata finding, and the final independent
+documentation-validation `PASS`. Commit and push are authorized only for the exact four-path
+WP-94 public inventory. After verified publication, WP-95 may begin owner-decision documentation,
+instantiate exactly one fresh reproduction-validator subagent identity and zero-authority
+attestation, and prepare one explicitly ineffective private authorization draft. WP-95 may not
+create a checkout, dependency state, credential/environment, effective authorization, preflight,
+image/Docker state, runtime resource, proof/reproduction evidence, application code, architecture
+selection, infrastructure, deployment, provider/cost action, network action, or customer/live-data
+access, and its commit/push gate remains closed.
 
 ## WP-70 publication and WP-71 identity readiness — 2026-10-09
 

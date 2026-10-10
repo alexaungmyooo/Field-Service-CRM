@@ -132,3 +132,25 @@ The owner accepted the exact remediations, bindings, decisions, hashes, validati
 inventory and authorized commit and push only for the eighteen listed paths. Publication does not
 authorize execution or reauthorization. After verified publication, WP-94 may begin owner-decision
 readiness documentation only under a separate uncommitted gate.
+
+## Verified publication and WP-94 boundary
+
+The exact eighteen-path WP-93 inventory was published at
+`25c0e5eaad8d6e0e54b93cb833ac424c73090287`, repository tree
+`1d70cc4a3728171f27c42fc8ec38b3bc6ec3bfc0`, and proof tree
+`1e9f75fdc1b221009bc691f54d24ca63f02c8038`. Local `HEAD`, cached `origin/main`, and live remote
+main matched. This document's published SHA-256 is
+`1155e371d4ae892c46566bfbad2d4b592298cf65e299cdf404350c615a11c01d`. WP-93 is
+`VERIFIED_AND_CLOSED` without execution.
+
+WP-94 may create owner-decision readiness documentation only. It may not create an execution
+identity, authorization draft, run, checkout, dependency or credential state, private environment,
+preflight, image/Docker state, runtime resource, proof/reproduction evidence, application code,
+architecture selection, infrastructure, deployment, provider/cost action, network action, or
+customer/live-data access. WP-94 commit and push require later owner acceptance.
+
+The owner accepted the exact WP-94 bindings, option dispositions, decisions, validation, and
+four-path public inventory and authorized only its commit and push. That publication authority
+does not authorize an execution identity, effective authorization, dependency or runtime action,
+proof/reproduction, application implementation, architecture selection, infrastructure,
+deployment, provider/cost action, network action, or customer/live-data access.
