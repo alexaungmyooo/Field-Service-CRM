@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-97 accepted; exact publication authorized |
-| Current phase | Architecture Evidence Disposition |
-| Current work package | `WP-97 TP-01 Architecture Evidence Disposition` |
+| Status | Product Discovery closed — WP-98 accepted; exact publication authorized |
+| Current phase | Remaining Architecture Evidence Sequencing |
+| Current work package | `WP-98 Remaining Architecture Evidence and Decision Sequence` |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -149,6 +149,7 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 90. `98_TP01_EXECUTION_IDENTITY_REPRODUCTION_CONTEXT_AUTHORIZATION_READINESS.md`
 91. `99_TP01_CONTROLLED_REPRODUCTION_CONTEXT_REMEDIATED_EXECUTION_RESULT.md`
 92. `100_TP01_ARCHITECTURE_EVIDENCE_DISPOSITION.md`
+93. `101_REMAINING_ARCHITECTURE_EVIDENCE_DECISION_SEQUENCE.md`
 
 Current and later accepted work packages may add or mature:
 
@@ -2731,6 +2732,30 @@ for documents 00, 02, 99, and 100. After verified publication, WP-98 may begin r
 architecture-evidence and decision-sequence documentation and option analysis only. Final
 architecture selection and every implementation, infrastructure, deployment, provider/cost, and
 customer/live-data gate remain closed.
+
+## WP-97 verified publication and WP-98 activation — 2026-10-10
+
+The exact four-path WP-97 public inventory was committed as
+`f30fbf5 WP-97: accept TP-01 architecture evidence disposition` and published at
+`f30fbf552407a0a7b9f91ace32201c44f24d7a00`, repository tree
+`b326e9b7355f931e13fcaf8109384b6f5449278d`, with unchanged proof tree
+`1e9f75fdc1b221009bc691f54d24ca63f02c8038`. Local `HEAD`, cached `origin/main`, and live remote
+main matched. WP-97 is closed and its publication authority is consumed.
+
+The owner activated `WP-98 Remaining Architecture Evidence and Decision Sequence` for owner-
+decision documentation and option analysis only. WP-98 sequences policy baselines, proof waves,
+specialist reviews, ADR packets, final-selection readiness, and the later implementation gate. It
+does not authorize proof work, select architecture or dependencies, code the application, create
+infrastructure/provider state, deploy, incur cost, or use customer/live data. No WP-98 commit or
+push is authorized outside the owner's exact four-path publication boundary.
+
+The owner accepted `DEC-233`, all fifteen sequencing principles, all ten sequence stages, all seven
+proof waves as planning only, all six efficiency controls, and `WP98-DEC-001` through `010`;
+advanced `WP98-OPT-001`; rejected options 002 through 004; and authorized commit and push only for
+documents 00, 02, 100, and 101. After verified publication, WP-99 may begin authorization,
+identity, and support-policy baseline documentation and option analysis only. Every proof,
+architecture-selection, implementation, infrastructure, deployment, provider/cost, and
+customer/live-data gate remains closed.
 
 ## Private execution control
 

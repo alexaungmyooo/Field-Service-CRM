@@ -172,3 +172,15 @@ for the exact four paths above. After verified publication, WP-98 may sequence t
 architecture evidence and decision packages without selecting the final architecture. Final
 architecture selection, application coding, infrastructure, deployment, provider accounts/cost,
 and customer/live data remain closed.
+
+## Verified publication and successor activation
+
+The exact four-path WP-97 inventory was committed and published at
+`f30fbf552407a0a7b9f91ace32201c44f24d7a00`, repository tree
+`b326e9b7355f931e13fcaf8109384b6f5449278d`, with unchanged proof tree
+`1e9f75fdc1b221009bc691f54d24ca63f02c8038`. WP-97 is closed and its commit/push authority is
+consumed.
+
+The owner activated WP-98 for remaining architecture-evidence and decision-sequence documentation
+and option analysis only. WP-98 may order unresolved policy, proof, review, ADR, selection, and
+implementation gates; it may not satisfy or authorize those gates merely by listing them.
