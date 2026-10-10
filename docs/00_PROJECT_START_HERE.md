@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-98 accepted; exact publication authorized |
-| Current phase | Remaining Architecture Evidence Sequencing |
-| Current work package | `WP-98 Remaining Architecture Evidence and Decision Sequence` |
+| Status | Product Discovery closed — WP-99 accepted; exact publication authorized |
+| Current phase | Authorization, Identity and Support Policy Baseline |
+| Current work package | `WP-99 Authorization, Identity and Support Policy Baseline` |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -150,6 +150,7 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 91. `99_TP01_CONTROLLED_REPRODUCTION_CONTEXT_REMEDIATED_EXECUTION_RESULT.md`
 92. `100_TP01_ARCHITECTURE_EVIDENCE_DISPOSITION.md`
 93. `101_REMAINING_ARCHITECTURE_EVIDENCE_DECISION_SEQUENCE.md`
+94. `102_AUTHORIZATION_IDENTITY_SUPPORT_POLICY_BASELINE.md`
 
 Current and later accepted work packages may add or mature:
 
@@ -2754,6 +2755,30 @@ proof waves as planning only, all six efficiency controls, and `WP98-DEC-001` th
 advanced `WP98-OPT-001`; rejected options 002 through 004; and authorized commit and push only for
 documents 00, 02, 100, and 101. After verified publication, WP-99 may begin authorization,
 identity, and support-policy baseline documentation and option analysis only. Every proof,
+architecture-selection, implementation, infrastructure, deployment, provider/cost, and
+customer/live-data gate remains closed.
+
+## WP-98 verified publication and WP-99 activation — 2026-10-10
+
+The exact four-path WP-98 public inventory was committed as
+`152c23e WP-98: accept remaining architecture evidence sequence` and published at
+`152c23ef1aed636aa7a7f07e2f86b7403b438cfb`, repository tree
+`ae3971f25dd60dfac2f7cedfbb41b0d9ab3c38bd`, with unchanged proof tree
+`1e9f75fdc1b221009bc691f54d24ca63f02c8038`. Local `HEAD`, cached `origin/main`, and live remote
+main matched. WP-98 is closed and its publication authority is consumed.
+
+The owner activated `WP-99 Authorization, Identity and Support Policy Baseline` for owner-decision
+documentation and option analysis only. WP-99 may propose the first role-permission and separation-
+of-duty matrix plus identity, online session, recovery, machine-identity, platform-role, and
+support-access policy. It does not authorize proof work, architecture/provider/dependency
+selection, application code, infrastructure, deployment, cost, or customer/live data. No WP-99
+commit or push is authorized outside the owner's exact four-path publication boundary.
+
+The owner accepted `DEC-234`, all WP-99 authorization, permission, role, separation-of-duty,
+identity, session, recovery, machine, platform-role, support, and open-item dispositions; advanced
+`WP99-OPT-001`; rejected options 002 through 004; and authorized commit and push only for
+documents 00, 02, 101, and 102. After verified publication, WP-100 may begin field, offline,
+evidence, and client acceptance-baseline documentation and option analysis only. Every proof,
 architecture-selection, implementation, infrastructure, deployment, provider/cost, and
 customer/live-data gate remains closed.
 

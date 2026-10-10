@@ -219,3 +219,15 @@ commit and push only for the exact four paths above. After verified publication,
 authorization, identity, and support-policy baseline documentation and option analysis only. Final
 architecture selection, proof preparation/execution, application coding, infrastructure,
 deployment, provider accounts/cost, and customer/live data remain closed.
+
+## Verified publication and successor activation
+
+The exact four-path WP-98 inventory was committed and published at
+`152c23ef1aed636aa7a7f07e2f86b7403b438cfb`, repository tree
+`ae3971f25dd60dfac2f7cedfbb41b0d9ab3c38bd`, with unchanged proof tree
+`1e9f75fdc1b221009bc691f54d24ca63f02c8038`. WP-98 is closed and its commit/push authority is
+consumed.
+
+The owner activated WP-99 for authorization, identity, and support-policy baseline documentation
+and option analysis only. WP-99 may propose the policy inputs described by `WP98-SEQ-001`; it may
+not prepare or execute Proof Wave 001 or select an identity/authorization implementation.
