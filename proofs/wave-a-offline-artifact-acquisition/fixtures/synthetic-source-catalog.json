@@ -1,0 +1,15 @@
+{
+  "schema": "wave-a-source-policy-v1",
+  "classification": "SYNTHETIC_STATIC_ONLY",
+  "entries": [
+    {
+      "id": "synthetic-metadata",
+      "scheme": "https",
+      "host": "metadata.example.invalid",
+      "port": 443,
+      "pathPrefix": "/wave-a/fixtures/",
+      "redirectLimit": 0
+    }
+  ]
+}
+

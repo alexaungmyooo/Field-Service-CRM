@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:field-service-crm:wave-a:artifact-inventory:v1",
+  "title": "Future sealed artifact inventory",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "classification", "metadataCommitSha256", "artifacts"],
+  "properties": {
+    "schema": { "const": "wave-a-acquired-artifact-inventory-v1" },
+    "classification": { "const": "PROOF_ONLY_NOT_APPLICATION_DEPENDENCIES" },
+    "metadataCommitSha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "artifacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "version", "sourceId", "sha256", "size", "license", "purpose"],
+        "properties": {
+          "id": { "type": "string" },
+          "version": { "type": "string" },
+          "sourceId": { "type": "string" },
+          "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+          "size": { "type": "integer", "minimum": 1 },
+          "license": { "type": "string" },
+          "purpose": { "enum": ["EXECUTABLE_PROOF_ARTIFACT", "TRANSITIVE_PROOF_ARTIFACT", "SOURCE_REVIEW_ONLY"] }
+        }
+      }
+    }
+  }
+}
+

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:field-service-crm:wave-a:metadata-commit:v1",
+  "title": "Future metadata-stage commitment",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "runId", "stage", "sourcePolicySha256", "entries", "committedAt"],
+  "properties": {
+    "schema": { "const": "wave-a-metadata-commit-v1" },
+    "runId": { "type": "string", "minLength": 1 },
+    "stage": { "const": "METADATA_COMMITTED" },
+    "sourcePolicySha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "entries": { "type": "array", "minItems": 1 },
+    "committedAt": { "type": "string", "format": "date-time" }
+  }
+}
+

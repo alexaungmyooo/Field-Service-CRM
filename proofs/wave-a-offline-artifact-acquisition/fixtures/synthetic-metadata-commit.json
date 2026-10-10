@@ -1,0 +1,19 @@
+{
+  "schema": "wave-a-metadata-commit-v1",
+  "runId": "synthetic-static-fixture",
+  "stage": "METADATA_COMMITTED",
+  "sourcePolicySha256": "0000000000000000000000000000000000000000000000000000000000000000",
+  "entries": [
+    {
+      "id": "synthetic-artifact",
+      "version": "0-static",
+      "sourceId": "synthetic-metadata",
+      "sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+      "size": 128,
+      "license": "SYNTHETIC-NOT-A-LICENSE",
+      "purpose": "SOURCE_REVIEW_ONLY"
+    }
+  ],
+  "committedAt": "2026-10-10T00:00:00.000Z"
+}
+

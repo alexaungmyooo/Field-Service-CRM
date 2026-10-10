@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:field-service-crm:wave-a:wp111:static-authorization:v1",
+  "title": "WP-111 static-only authorization",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "runId", "state", "publishedRevision", "repositoryTree", "nodeBinding", "allowedCommands", "actionFlags"],
+  "properties": {
+    "schema": { "const": "wave-a-acquisition-extension-static-authorization-v1" },
+    "runId": { "const": "wp111-2026-10-10-01" },
+    "state": { "enum": ["EFFECTIVE_STATIC_ONLY", "CONSUMED"] },
+    "publishedRevision": { "const": "cb8be3d04f31126f80c2dec3ae961a65911033a8" },
+    "repositoryTree": { "const": "b223a909b96d1c55d7fbe8783be535983d874f97" },
+    "nodeBinding": {
+      "type": "object",
+      "required": ["path", "version", "sha256"],
+      "properties": {
+        "path": { "const": "/Users/aungmyooo/.nvm/versions/node/v22.23.1/bin/node" },
+        "version": { "const": "v22.23.1" },
+        "sha256": { "const": "2e3f1286a7eb3736346ed1803e458a0ff909e2b2d5bc746144dcb76970e9b99d" }
+      }
+    },
+    "allowedCommands": { "type": "array", "minItems": 2, "maxItems": 2 },
+    "actionFlags": { "type": "object" }
+  }
+}
+

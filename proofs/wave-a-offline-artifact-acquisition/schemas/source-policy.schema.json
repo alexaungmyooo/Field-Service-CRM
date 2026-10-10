@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:field-service-crm:wave-a:source-policy:v1",
+  "title": "Future acquisition source policy",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "classification", "entries"],
+  "properties": {
+    "schema": { "const": "wave-a-source-policy-v1" },
+    "classification": { "const": "SYNTHETIC_STATIC_ONLY" },
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "scheme", "host", "port", "pathPrefix", "redirectLimit"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "scheme": { "const": "https" },
+          "host": { "type": "string", "pattern": "^[a-z0-9.-]+$" },
+          "port": { "const": 443 },
+          "pathPrefix": { "type": "string", "pattern": "^/" },
+          "redirectLimit": { "type": "integer", "minimum": 0, "maximum": 3 }
+        }
+      }
+    }
+  }
+}
+

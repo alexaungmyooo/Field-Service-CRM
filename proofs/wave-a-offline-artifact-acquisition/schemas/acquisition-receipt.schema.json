@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:field-service-crm:wave-a:acquisition-receipt:v1",
+  "title": "Future bounded acquisition receipt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "runId", "stage", "request", "response", "artifact", "custody"],
+  "properties": {
+    "schema": { "const": "wave-a-acquisition-receipt-v1" },
+    "runId": { "type": "string" },
+    "stage": { "const": "ARTIFACT_RETRIEVAL" },
+    "request": { "type": "object" },
+    "response": { "type": "object" },
+    "artifact": { "type": "object" },
+    "custody": { "type": "object" }
+  }
+}
+
