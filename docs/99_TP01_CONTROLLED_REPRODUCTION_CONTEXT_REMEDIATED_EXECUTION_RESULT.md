@@ -4,7 +4,7 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Accepted — PASS closed; exact publication authorized |
+| Status | Accepted — PASS closed; publication verified |
 | Work package | `WP-96 Controlled TP-01 Reproduction-Context-Remediated Execution` |
 | Governing decisions | `DEC-228` through `DEC-231` — Accepted |
 | Accepted governance and proof revision | `a236b35a0f95c46d1bfd52305277afd92df41942` |
@@ -14,7 +14,7 @@
 | Owner | Aung Myo Oo |
 | Date | 2026-10-10 |
 | Final outcome | `PASS_CLOSED_SINGLE_USE_CONSUMED` |
-| Commit/push | Authorized only for the exact frozen four-path public inventory |
+| Commit/push | Completed and consumed at `6dca2e3d341e08073e57a258affa209ee265e089` |
 
 ## Objective and authority boundary
 
@@ -144,3 +144,17 @@ authorized only for these four paths after final validation. After verified publ
 begin TP-01 architecture-evidence disposition for owner-decision documentation only. Application
 coding, final architecture selection, infrastructure, deployment, provider accounts/cost, and
 customer/live data remain closed.
+
+## Verified publication and successor activation
+
+The exact four-path WP-96 inventory was committed and published at
+`6dca2e3d341e08073e57a258affa209ee265e089`, repository tree
+`b1baeea7bb3920a53740a07d5310507597e995e6`, with unchanged proof tree
+`1e9f75fdc1b221009bc691f54d24ca63f02c8038`. WP-96 is closed and its commit/push authority is
+consumed.
+
+The owner activated WP-97 for architecture-evidence disposition documentation only. WP-97 may
+propose how this exact accepted result informs `PROOF-SPEC-001`, `TP-CAND-001`,
+`ADR-READY-001`, `ADR-READY-003`, and the accepted shortlist. It may not reinterpret the result,
+select architecture or dependencies, authorize implementation, or open any infrastructure,
+deployment, provider/cost, or customer/live-data gate.

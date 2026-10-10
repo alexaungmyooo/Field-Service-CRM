@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-96 PASS accepted; exact publication authorized |
-| Current phase | Technical Proof Result Publication |
-| Current work package | `WP-96 Controlled TP-01 Reproduction-Context-Remediated Execution` |
+| Status | Product Discovery closed — WP-97 accepted; exact publication authorized |
+| Current phase | Architecture Evidence Disposition |
+| Current work package | `WP-97 TP-01 Architecture Evidence Disposition` |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -148,6 +148,7 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 89. `97_TP01_REPRODUCTION_CONTEXT_REMEDIATED_REBINDING_REAUTHORIZATION_READINESS.md`
 90. `98_TP01_EXECUTION_IDENTITY_REPRODUCTION_CONTEXT_AUTHORIZATION_READINESS.md`
 91. `99_TP01_CONTROLLED_REPRODUCTION_CONTEXT_REMEDIATED_EXECUTION_RESULT.md`
+92. `100_TP01_ARCHITECTURE_EVIDENCE_DISPOSITION.md`
 
 Current and later accepted work packages may add or mature:
 
@@ -2705,6 +2706,31 @@ four-path inventory. After verified publication, WP-97 may begin TP-01 architect
 disposition for owner-decision documentation only. Application coding, final architecture
 selection, infrastructure, deployment, provider accounts/cost, and customer/live data remain
 closed.
+
+## WP-96 verified publication and WP-97 activation — 2026-10-10
+
+The exact four-path WP-96 public inventory was committed as
+`6dca2e3 WP-96: accept controlled TP-01 pass result` and published at
+`6dca2e3d341e08073e57a258affa209ee265e089`, repository tree
+`b1baeea7bb3920a53740a07d5310507597e995e6`, with unchanged proof tree
+`1e9f75fdc1b221009bc691f54d24ca63f02c8038`. Local `HEAD`, cached `origin/main`, and the live
+remote main were verified at that revision. WP-96 is closed and its publication authority is
+consumed.
+
+The owner activated `WP-97 TP-01 Architecture Evidence Disposition` for owner-decision
+documentation only. WP-97 proposes how the accepted bounded result may become architecture-
+decision input while preserving the `NOT_READY` state of tenant and authorization decisions and
+all remaining policy, specialist, provider, quality, dependency, and production gates. WP-97 does
+not authorize final architecture selection, application coding, proof/runtime action,
+infrastructure, deployment, provider accounts/cost, or customer/live data. No WP-97 commit or push
+is authorized outside the owner's exact four-path publication boundary.
+
+The owner accepted `DEC-232`, `TP1-EVID-DISP-001` through `018`, and `WP97-DEC-001` through
+`010`; advanced `WP97-OPT-001`; rejected `WP97-OPT-002/003`; and authorized commit and push only
+for documents 00, 02, 99, and 100. After verified publication, WP-98 may begin remaining-
+architecture-evidence and decision-sequence documentation and option analysis only. Final
+architecture selection and every implementation, infrastructure, deployment, provider/cost, and
+customer/live-data gate remain closed.
 
 ## Private execution control
 
