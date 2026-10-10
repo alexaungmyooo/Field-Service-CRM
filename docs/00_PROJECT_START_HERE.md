@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Product Discovery closed — WP-101 accepted; exact publication authorized |
-| Current phase | Data, Consistency, Inventory, Reporting and Integration Policy Baseline |
-| Current work package | `WP-101 Data, Consistency, Inventory, Reporting and Integration Policy Baseline` |
+| Status | Product Discovery closed — WP-102 accepted; exact publication authorized |
+| Current phase | Operating Model, Provider-Proof Entry and Specialist Assignment Baseline |
+| Current work package | `WP-102 Operating Model, Provider-Proof Entry and Specialist Assignment Baseline` |
 | Application coding | Not authorized |
 | Architecture selection | Not authorized |
 | Owner | Aung Myo Oo |
@@ -153,6 +153,7 @@ All Phase 1 documents are currently Draft unless a section or record says otherw
 94. `102_AUTHORIZATION_IDENTITY_SUPPORT_POLICY_BASELINE.md`
 95. `103_FIELD_OFFLINE_EVIDENCE_CLIENT_ACCEPTANCE_BASELINE.md`
 96. `104_DATA_CONSISTENCY_INVENTORY_REPORTING_INTEGRATION_POLICY_BASELINE.md`
+97. `105_OPERATING_MODEL_PROVIDER_PROOF_ENTRY_SPECIALIST_ASSIGNMENT_BASELINE.md`
 
 Current and later accepted work packages may add or mature:
 
@@ -2827,6 +2828,32 @@ does not authorize proof preparation or execution, architecture/provider/depende
 application coding, infrastructure, deployment, provider accounts/cost, or customer/live data.
 The candidate inventory is documents 00, 02, 103, and 104. No WP-101 commit or push is authorized
 without later owner acceptance.
+
+The owner accepted `DEC-236`, every WP-101 ownership/history/consistency/inventory/KPI/reporting/
+import/integration/lifecycle baseline and matrix, all recorded open-item dispositions, and all ten
+WP-101 decisions; advanced `WP101-OPT-001`; rejected options 002 through 004; and authorized
+commit and push only for documents 00, 02, 103, and 104. After verified publication, WP-102 may
+begin operating-model, provider-proof-entry, and specialist-assignment documentation and option
+analysis only. Every proof, architecture-selection, implementation, infrastructure, deployment,
+provider/cost, and customer/live-data gate remains closed.
+
+## WP-101 verified publication and WP-102 activation — 2026-10-10
+
+The exact four-path WP-101 public inventory was committed as
+`d906640 WP-101: accept data consistency inventory integration baseline` and published at
+`d906640863092e80b85cc1855dc74f4f210394c0`, repository tree
+`7292dea18c6ef5854fef7679a8ede1ac20a2ff39`, with unchanged proof tree
+`1e9f75fdc1b221009bc691f54d24ca63f02c8038`. Local `HEAD`, fetched `origin/main`, and live remote
+main matched. WP-101 is closed and its publication authority is consumed.
+
+The owner activated `WP-102 Operating Model, Provider-Proof Entry and Specialist Assignment
+Baseline` for owner-decision documentation and option analysis only. WP-102 may propose
+environment/release/service/recovery/observability/incident/privileged/capacity/supply-chain
+policy, provider-proof account and billing controls, Singapore-to-Myanmar proof thresholds, and
+truthful reviewer assignments. It does not authorize proof preparation or execution,
+architecture/provider/dependency selection, application coding, infrastructure, deployment,
+provider accounts/cost, or customer/live data. The candidate inventory is documents 00, 02, 104,
+and 105. No WP-102 commit or push is authorized without later owner acceptance.
 
 ## Private execution control
 

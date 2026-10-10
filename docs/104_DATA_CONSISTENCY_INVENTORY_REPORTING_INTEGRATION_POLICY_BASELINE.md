@@ -4,7 +4,7 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Accepted — exact publication authorized |
+| Status | Accepted — verified and closed |
 | Work package | `WP-101 Data, Consistency, Inventory, Reporting and Integration Policy Baseline` |
 | Owner | Aung Myo Oo |
 | Governing sequence | `DEC-233`, `WP98-SEQ-003` — Accepted |
@@ -330,3 +330,20 @@ dispositions, and `WP101-DEC-001` through `010`; advanced `WP101-OPT-001`; rejec
 After verified publication, WP-102 may define the operating model, provider-proof entry, and
 specialist assignments. Proof preparation/execution, final architecture selection, application
 coding, infrastructure, deployment, provider accounts/cost, and customer/live data remain closed.
+
+## Verified publication and successor activation
+
+The owner accepted the exact WP-101 recommendation and authorized only the frozen four-path public
+inventory. It was committed as
+`d906640 WP-101: accept data consistency inventory integration baseline` and published at
+`d906640863092e80b85cc1855dc74f4f210394c0`, repository tree
+`7292dea18c6ef5854fef7679a8ede1ac20a2ff39`, with unchanged proof tree
+`1e9f75fdc1b221009bc691f54d24ca63f02c8038`. Local `HEAD`, fetched `origin/main`, and the live
+remote main matched. WP-101 is `VERIFIED_AND_CLOSED`; its publication authority is consumed.
+
+WP-102 is active for owner-decision documentation and option analysis only. It may propose the
+operating model, environment/release/service/recovery/observability/incident/capacity/supply-chain
+controls, provider-proof account/billing limits, network acceptance, and reviewer assignments.
+Proof preparation/execution, final architecture selection, application coding, infrastructure,
+deployment, provider accounts/cost, and customer/live data remain closed. No WP-102 commit or push
+is authorized without later owner acceptance.
